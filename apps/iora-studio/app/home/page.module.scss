@@ -1,0 +1,381 @@
+.home {
+  background: #0d0d0d;
+  color: #e5e2e1;
+}
+
+.container {
+  width: min(100%, 1280px);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hero {
+  position: relative;
+  min-height: 760px;
+  overflow: hidden;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.52;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #0d0d0d 0%, rgb(13 13 13 / 72%) 36%, rgb(13 13 13 / 16%) 100%),
+    linear-gradient(180deg, rgb(13 13 13 / 10%) 0%, #0d0d0d 100%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1280px);
+  margin: 0 auto;
+  padding: 155px 24px 120px;
+}
+
+.badge,
+.eyebrow {
+  margin: 0;
+  color: #c8f135;
+  font-family: Inter, Roboto, 'Noto Sans KR', Pretendard, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 1.2px;
+}
+
+.badge {
+  display: inline-flex;
+  margin-bottom: 18px;
+  padding: 5px 13px;
+  border: 1px solid #c8f135;
+}
+
+.hero h1,
+.ctaSection h2 {
+  margin: 0;
+  color: #ffffef;
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.hero h1 span,
+.ctaSection h2 span {
+  color: #c8f135;
+}
+
+.heroContent > p:not(.badge) {
+  max-width: 576px;
+  margin: 24px 0 0;
+  color: rgb(229 226 225 / 78%);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.primaryButton,
+.secondaryButton,
+.darkButton {
+  display: inline-flex;
+  min-height: 58px;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.primaryButton {
+  background: #c8f135;
+  color: #131313;
+}
+
+.secondaryButton,
+.darkButton {
+  border: 1px solid #1f1f1f;
+  color: #e5e2e1;
+}
+
+.darkButton {
+  background: #131313;
+}
+
+.processSection,
+.designSection {
+  padding: 160px 0;
+  background: #131313;
+}
+
+.sectionHeader {
+  max-width: 672px;
+  margin-bottom: 64px;
+}
+
+.sectionHeader h2,
+.experienceGrid h2,
+.splitHeader h2 {
+  margin: 15px 0 0;
+  color: #e5e2e1;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.sectionHeader p:not(.eyebrow),
+.sectionText,
+.splitHeader > p {
+  margin: 16px 0 0;
+  color: rgb(198 198 199 / 70%);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.imagePanel,
+.reactPanel,
+.designPanel {
+  overflow: hidden;
+  border: 1px solid #1f1f1f;
+  background: #0e0e0e;
+}
+
+.imagePanel,
+.reactPanel {
+  border-radius: 8px;
+}
+
+.designPanel {
+  margin-top: 80px;
+  border-radius: 16px;
+}
+
+.imagePanel img,
+.reactPanel img,
+.designPanel img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 64px;
+}
+
+.featureCard {
+  min-height: 228px;
+  padding: 33px;
+  border: 1px solid #1f1f1f;
+}
+
+.featureCard span {
+  color: #c8f135;
+  font-size: 24px;
+}
+
+.featureCard h3 {
+  margin: 24px 0 0;
+  color: #e5e2e1;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.featureCard p {
+  margin: 15px 0 0;
+  color: rgb(198 198 199 / 70%);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.experienceSection {
+  padding: 160px 0;
+  background: #0e0e0e;
+}
+
+.experienceGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 576px);
+  gap: 80px;
+  align-items: center;
+}
+
+.experienceList {
+  display: grid;
+  gap: 22px;
+  margin: 34px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.experienceList li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.experienceList li::before {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c8f135;
+  content: '';
+}
+
+.experienceList strong {
+  color: #e5e2e1;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.experienceList p {
+  margin: 4px 0 0;
+  color: rgb(198 198 199 / 60%);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.splitHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.splitHeader > p {
+  max-width: 384px;
+  font-size: 16px;
+}
+
+.stepGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 80px;
+}
+
+.stepCard {
+  display: flex;
+  min-height: 94px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #1f1f1f;
+}
+
+.stepCard strong {
+  color: #c8f135;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.stepCard span {
+  color: rgb(229 226 225 / 80%);
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 1.2px;
+}
+
+.ctaSection {
+  position: relative;
+  overflow: hidden;
+  padding: 160px 0 161px;
+  border-top: 1px solid #1f1f1f;
+  background:
+    radial-gradient(circle at 74% 0%, rgb(200 241 53 / 8%), transparent 38%),
+    #1c1b1b;
+  text-align: center;
+}
+
+.ctaSection p {
+  max-width: 672px;
+  margin: 31px auto 0;
+  color: rgb(198 198 199 / 70%);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.ctaSection .actions {
+  justify-content: center;
+}
+
+.ctaSection .primaryButton,
+.ctaSection .darkButton {
+  min-height: 69px;
+  padding: 21px 48px;
+  font-size: 18px;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: 680px;
+  }
+
+  .heroContent {
+    padding: 96px 18px;
+  }
+
+  .hero h1,
+  .ctaSection h2 {
+    font-size: 46px;
+  }
+
+  .sectionHeader h2,
+  .experienceGrid h2,
+  .splitHeader h2 {
+    font-size: 36px;
+  }
+
+  .featureGrid,
+  .experienceGrid,
+  .stepGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .splitHeader {
+    display: grid;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero h1,
+  .ctaSection h2 {
+    font-size: 38px;
+  }
+
+  .processSection,
+  .experienceSection,
+  .designSection,
+  .ctaSection {
+    padding: 96px 0;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .darkButton {
+    width: 100%;
+  }
+}

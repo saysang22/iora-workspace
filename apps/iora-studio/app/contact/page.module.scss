@@ -1,0 +1,304 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 67px 24px 168px;
+  background: #0d0d0d;
+  color: #e5e2e1;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0;
+  color: #e5e2e1;
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -2.6px;
+}
+
+.hero p {
+  margin: 18px 0 0;
+  color: #a3a3a3;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 70px;
+  padding: 7px 15px 7px 8px;
+  border: 1px solid #2f2f2f;
+  border-radius: 999px;
+  background: #2a2a2a;
+  color: #e5e2e1;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.statusBadge span {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #c8f135;
+  box-shadow: 0 0 0 4px rgb(200 241 53 / 18%);
+}
+
+.formCard {
+  width: min(100%, 720px);
+  margin-top: 76px;
+  padding: 59px 55px 51px;
+  border: 1px solid #252525;
+  border-radius: 8px;
+  background: #0f0f0f;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+
+.fieldset {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.fieldLabel {
+  color: #b8b8b8;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.fieldLabel span {
+  color: #ff6f6f;
+}
+
+.inputControl,
+.selectControl,
+.fieldset textarea {
+  width: 100%;
+  max-width: none;
+  border: 1px solid #252525;
+  border-radius: 4px;
+  background: #1d1d1d;
+  color: #e5e2e1;
+  font-family: Inter, Roboto, 'Noto Sans KR', Pretendard, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.inputControl,
+.selectControl {
+  height: 64px;
+  padding: 0 18px;
+}
+
+.selectControl {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #8b8b8b 50%),
+    linear-gradient(135deg, #8b8b8b 50%, transparent 50%);
+  background-position:
+    calc(100% - 25px) 28px,
+    calc(100% - 19px) 28px;
+  background-repeat: no-repeat;
+  background-size: 6px 6px;
+}
+
+.fieldset textarea {
+  min-height: 152px;
+  padding: 20px 18px;
+  resize: vertical;
+}
+
+.inputControl::placeholder,
+.fieldset textarea::placeholder {
+  color: #f2f2f2;
+  opacity: 1;
+}
+
+.inputControl:focus,
+.selectControl:focus,
+.fieldset textarea:focus {
+  border-color: rgb(200 241 53 / 58%);
+  outline: 2px solid rgb(200 241 53 / 20%);
+  outline-offset: 0;
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px;
+}
+
+.iconField {
+  position: relative;
+  display: block;
+}
+
+.iconField input {
+  padding-right: 48px;
+}
+
+.calendarIcon {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid #a3a3a3;
+  border-radius: 2px;
+  transform: translateY(-50%);
+}
+
+.calendarIcon::before {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: #a3a3a3;
+  content: '';
+}
+
+.submitButton {
+  display: inline-flex;
+  min-height: 70px;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  width: 100%;
+  margin-top: 1px;
+  border: 0;
+  border-radius: 4px;
+  background: #c8f135;
+  color: #0d0d0d;
+  cursor: pointer;
+  font-family: Inter, Roboto, 'Noto Sans KR', Pretendard, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.submitButton span {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  margin: 8px 0 0;
+  border: 0;
+  background: #252525;
+}
+
+.chatBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: -12px;
+  text-align: center;
+}
+
+.chatBlock p {
+  margin: 0;
+  color: #a3a3a3;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.chatBlock a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #e5e2e1;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.chatBlock a span {
+  position: relative;
+  width: 20px;
+  height: 17px;
+  border: 2px solid #e5e2e1;
+  border-radius: 3px;
+}
+
+.chatBlock a span::after {
+  position: absolute;
+  right: 2px;
+  bottom: -6px;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid #e5e2e1;
+  border-bottom: 2px solid #e5e2e1;
+  background: #0f0f0f;
+  content: '';
+  transform: rotate(45deg);
+}
+
+@media (max-width: 760px) {
+  .contact {
+    padding: 56px 18px 104px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+    letter-spacing: -1.4px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .statusBadge {
+    margin-top: 42px;
+  }
+
+  .formCard {
+    margin-top: 48px;
+    padding: 34px 22px;
+  }
+
+  .form {
+    gap: 30px;
+  }
+
+  .fieldRow {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .inputControl,
+  .selectControl,
+  .fieldset textarea {
+    font-size: 15px;
+  }
+
+  .submitButton,
+  .chatBlock a {
+    font-size: 17px;
+  }
+}

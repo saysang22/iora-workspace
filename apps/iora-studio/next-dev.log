@@ -1,0 +1,14 @@
+
+> iora-studio@0.1.0 dev
+> next dev --hostname 127.0.0.1 --port 3000
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://127.0.0.1:3000
+- Network:       http://127.0.0.1:3000
+- Environments: .env
+✓ Ready in 467ms
+Creating turbopack project { dir: 'C:\\Users\\saysa\\Desktop\\work\\iora-studio', testMode: true }
+
+ GET / 200 in 343ms (next.js: 168ms, application-code: 175ms)
+ GET / 200 in 57ms (next.js: 4ms, application-code: 53ms)
+[?25h
