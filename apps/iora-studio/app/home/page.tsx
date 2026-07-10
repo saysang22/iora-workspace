@@ -1,5 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import {
+  FiCheckSquare,
+  FiCode,
+  FiFileText,
+  FiSearch,
+  FiSend,
+  FiTool,
+} from 'react-icons/fi'
 import styles from './page.module.scss'
 
 const HOME_IMAGES = {
@@ -23,6 +31,7 @@ type ExperienceItem = {
 type DesignStep = {
   number: string
   label: string
+  icon: typeof FiSearch
 }
 
 type HomePageProps = {
@@ -65,11 +74,12 @@ const EXPERIENCES: ExperienceItem[] = [
 ]
 
 const DESIGN_STEPS: DesignStep[] = [
-  { number: '01', label: '상담 및 분석' },
-  { number: '02', label: '컨셉 기획' },
-  { number: '03', label: '디자인 제작' },
-  { number: '04', label: '피드백 & 수정' },
-  { number: '05', label: '최종 완성' },
+  { number: '01', label: '상담 및 분석', icon: FiSearch },
+  { number: '02', label: '기획', icon: FiFileText },
+  { number: '03', label: '개발', icon: FiCode },
+  { number: '04', label: '검수', icon: FiCheckSquare },
+  { number: '05', label: '배포', icon: FiSend },
+  { number: '06', label: '유지보수', icon: FiTool },
 ]
 
 function HomeContent({ features, experiences, designSteps }: HomePageProps) {
@@ -107,7 +117,7 @@ function HomeContent({ features, experiences, designSteps }: HomePageProps) {
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
             <p className={styles.eyebrow}>AI-POWERED WORKFLOW</p>
-            <h2>스마트한 기술로 앞서가는 프로세스</h2>
+            <h2 className={styles.processTitle}>스마트한 기술로 앞서가는 프로세스</h2>
             <p>
               AI를 활용한 반복 작업의 자동화로 제작 시간은 단축하고, 데이터 기반의 분석을 통해 결과물의
               완성도는 극대화합니다.
@@ -176,7 +186,7 @@ function HomeContent({ features, experiences, designSteps }: HomePageProps) {
               <h2>자유도 높은 맞춤형 디자인</h2>
             </div>
             <p>
-              우리는 템플릿을 쓰지 않습니다. 브랜드의 고유한 가치를 담아낸 독창적인 디자인으로 세상에 하나뿐인
+              이오라스튜디오는 템플릿을 쓰지 않습니다. 브랜드의 고유한 가치를 담아낸 독창적인 디자인으로 세상에 하나뿐인
               결과물을 만듭니다.
             </p>
           </div>
@@ -192,6 +202,9 @@ function HomeContent({ features, experiences, designSteps }: HomePageProps) {
           <div className={styles.stepGrid}>
             {designSteps.map((step) => (
               <div className={styles.stepCard} key={step.number}>
+                <span className={styles.stepIcon} aria-hidden='true'>
+                  <step.icon size={18} />
+                </span>
                 <strong>{step.number}</strong>
                 <span>{step.label}</span>
               </div>
@@ -212,7 +225,7 @@ function HomeContent({ features, experiences, designSteps }: HomePageProps) {
             제안해 드립니다.
           </p>
           <div className={styles.actions}>
-            <Link className={styles.primaryButton} href="/consult">프로젝트 문의하기</Link>
+            <Link className={styles.primaryButton} href="/contact">프로젝트 문의하기</Link>
             <Link className={styles.darkButton} href="/contact">카카오톡 상담</Link>
           </div>
         </div>

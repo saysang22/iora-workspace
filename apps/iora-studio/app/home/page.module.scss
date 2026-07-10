@@ -124,6 +124,10 @@
   margin-bottom: 64px;
 }
 
+.processTitle {
+  white-space: nowrap;
+}
+
 .sectionHeader h2,
 .experienceGrid h2,
 .splitHeader h2 {
@@ -146,9 +150,11 @@
 .imagePanel,
 .reactPanel,
 .designPanel {
+  position: relative;
   overflow: hidden;
   border: 1px solid #1f1f1f;
   background: #0e0e0e;
+  isolation: isolate;
 }
 
 .imagePanel,
@@ -161,12 +167,97 @@
   border-radius: 16px;
 }
 
+.imagePanel::before,
+.reactPanel::before,
+.designPanel::before {
+  position: absolute;
+  inset: 0;
+  --shineLength: 180px;
+  --shineHorizontal:
+    linear-gradient(90deg, transparent, rgb(235 255 169 / 0.98), rgb(200 241 53 / 0.9), transparent),
+    radial-gradient(ellipse 54px 5px at 50% 50%, rgb(244 255 194 / 0.72), rgb(200 241 53 / 0.2) 60%, transparent 80%);
+  --shineVertical:
+    linear-gradient(180deg, transparent, rgb(235 255 169 / 0.98), rgb(200 241 53 / 0.9), transparent),
+    radial-gradient(ellipse 5px 54px at 50% 50%, rgb(244 255 194 / 0.72), rgb(200 241 53 / 0.2) 60%, transparent 80%);
+  --shineHorizontalReverse:
+    linear-gradient(270deg, transparent, rgb(235 255 169 / 0.98), rgb(200 241 53 / 0.9), transparent),
+    radial-gradient(ellipse 54px 5px at 50% 50%, rgb(244 255 194 / 0.72), rgb(200 241 53 / 0.2) 60%, transparent 80%);
+  --shineVerticalReverse:
+    linear-gradient(0deg, transparent, rgb(235 255 169 / 0.98), rgb(200 241 53 / 0.9), transparent),
+    radial-gradient(ellipse 5px 54px at 50% 50%, rgb(244 255 194 / 0.72), rgb(200 241 53 / 0.2) 60%, transparent 80%);
+  padding: 1px;
+  border-radius: inherit;
+  background-repeat: no-repeat;
+  opacity: 0.95;
+  pointer-events: none;
+  content: '';
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: borderShine 3.6s linear infinite;
+}
+
 .imagePanel img,
 .reactPanel img,
 .designPanel img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+@keyframes borderShine {
+  0% {
+    background-image: var(--shineHorizontal);
+    background-size: var(--shineLength) 2px, var(--shineLength) 8px;
+    background-position: 0 0, 0 -3px;
+  }
+
+  24.9% {
+    background-image: var(--shineHorizontal);
+    background-size: var(--shineLength) 2px, var(--shineLength) 8px;
+    background-position: calc(100% - var(--shineLength)) 0, calc(100% - var(--shineLength)) -3px;
+  }
+
+  25% {
+    background-image: var(--shineVertical);
+    background-size: 2px var(--shineLength), 8px var(--shineLength);
+    background-position: 100% 0, calc(100% - 3px) 0;
+  }
+
+  49.9% {
+    background-image: var(--shineVertical);
+    background-size: 2px var(--shineLength), 8px var(--shineLength);
+    background-position: 100% calc(100% - var(--shineLength)), calc(100% - 3px) calc(100% - var(--shineLength));
+  }
+
+  50% {
+    background-image: var(--shineHorizontalReverse);
+    background-size: var(--shineLength) 2px, var(--shineLength) 8px;
+    background-position: calc(100% - var(--shineLength)) 100%, calc(100% - var(--shineLength)) calc(100% - 5px);
+  }
+
+  74.9% {
+    background-image: var(--shineHorizontalReverse);
+    background-size: var(--shineLength) 2px, var(--shineLength) 8px;
+    background-position: 0 100%, 0 calc(100% - 5px);
+  }
+
+  75% {
+    background-image: var(--shineVerticalReverse);
+    background-size: 2px var(--shineLength), 8px var(--shineLength);
+    background-position: 0 calc(100% - var(--shineLength)), -3px calc(100% - var(--shineLength));
+  }
+
+  100% {
+    background-image: var(--shineVerticalReverse);
+    background-size: 2px var(--shineLength), 8px var(--shineLength);
+    background-position: 0 0, -3px 0;
+  }
 }
 
 .featureGrid {
@@ -265,7 +356,7 @@
 
 .stepGrid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 16px;
   margin-top: 80px;
 }
@@ -278,6 +369,13 @@
   justify-content: center;
   gap: 8px;
   border: 1px solid #1f1f1f;
+}
+
+.stepIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #c8f135;
 }
 
 .stepCard strong {
@@ -344,10 +442,17 @@
     font-size: 36px;
   }
 
+  .processTitle {
+    font-size: clamp(24px, 5vw, 36px);
+  }
+
   .featureGrid,
-  .experienceGrid,
-  .stepGrid {
+  .experienceGrid {
     grid-template-columns: 1fr;
+  }
+
+  .stepGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .splitHeader {
@@ -371,6 +476,14 @@
 
   .actions {
     flex-direction: column;
+  }
+
+  .processTitle {
+    font-size: clamp(20px, 6vw, 28px);
+  }
+
+  .stepGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .primaryButton,

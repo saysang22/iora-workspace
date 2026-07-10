@@ -9,16 +9,16 @@ const ASSETS = {
 
 const HEADER_NAV_ITEMS: HeaderNavItem[] = [
   { label: 'Home', href: '/home' },
-  { label: 'About', href: '/about' },
   { label: 'Service', href: '/service' },
   { label: 'Works', href: '/works' },
   { label: 'Contact', href: '/contact' },
-  { label: 'Consult', href: '/consult', isButton: true },
+  { label: 'Sign in', href: '/signin' },
+  { label: 'Sign up', href: '/signup', isButton: true },
 ]
 
 const FOOTER_GROUPS: FooterGroup[] = [
-  { title: 'MENU', links: ['About', 'Services', 'Works'] },
-  { title: 'SOCIAL', links: ['Instagram', 'LinkedIn', 'Twitter (X)'] },
+  { title: 'MENU', links: ['Home', 'Services', 'Works'] },
+  { title: 'SOCIAL', links: ['Instagram', 'LinkedIn'] },
   { title: 'LEGAL', links: ['Privacy Policy', 'Terms of Service'] },
 ]
 

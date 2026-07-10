@@ -36,17 +36,38 @@
   gap: 32px;
 }
 
-.nav a {
+.nav a,
+.nav button {
   color: #c5c9ae;
   font-family: Inter, Roboto, 'Noto Sans KR', Pretendard, sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 1;
   letter-spacing: 1.2px;
   text-decoration: none;
+  transition:
+    color 0.24s ease,
+    text-shadow 0.24s ease,
+    opacity 0.24s ease;
 }
 
-.consultButton {
+.nav button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.nav a:not(.navButton):not(.accountMenuItem):hover,
+.nav button:not(.navButton):not(.profileTrigger):not(.accountMenuItem):hover {
+  color: #b7df1f;
+  text-shadow: 0 0 12px rgb(183 223 31 / 0.28);
+}
+
+.activeLink {
+  color: #c8f135 !important;
+}
+
+.navButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -55,6 +76,71 @@
   background: #c8f135;
   color: #0d0d0d !important;
   font-weight: 700 !important;
+}
+
+.accountMenuWrap {
+  position: relative;
+}
+
+.profileTrigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: #c8f135 !important;
+  border-radius: 999px;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.profileTrigger:hover,
+.profileTrigger[aria-expanded='true'] {
+  background: rgb(200 241 53 / 0.12);
+}
+
+.accountMenu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  z-index: 20;
+  display: grid;
+  min-width: 188px;
+  overflow: hidden;
+  border: 1px solid #252321;
+  border-radius: 10px;
+  background:
+    linear-gradient(180deg, rgb(200 241 53 / 0.04), transparent 28%),
+    #121212;
+  box-shadow: 0 22px 56px rgb(0 0 0 / 0.36);
+}
+
+.accountMenuItem {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 0;
+  background: transparent;
+  color: #f3efe5 !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  text-align: left;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.accountMenuItem + .accountMenuItem {
+  border-top: 1px solid rgb(255 255 255 / 0.06);
+}
+
+.accountMenuItem:hover {
+  background: rgb(200 241 53 / 0.1);
+  color: #d8fb54 !important;
 }
 
 @media (max-width: 900px) {
@@ -71,7 +157,13 @@
     gap: 16px;
   }
 
-  .nav a:not(.consultButton) {
+  .nav a:not(.navButton):not(.accountMenuItem),
+  .nav button:not(.profileTrigger):not(.accountMenuItem) {
     display: none;
+  }
+
+  .accountMenu {
+    right: -8px;
+    min-width: 176px;
   }
 }
