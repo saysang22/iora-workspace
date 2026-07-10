@@ -1,0 +1,200 @@
+.wrap {
+  display: grid;
+}
+
+.form {
+  display: grid;
+  gap: 22px;
+}
+
+.fieldBlock {
+  display: grid;
+  gap: 8px;
+}
+
+.passwordSection {
+  display: grid;
+  gap: 22px;
+}
+
+.passwordConfirmCard {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border: 1px solid #2a2623;
+  background:
+    linear-gradient(180deg, rgb(200 241 53 / 0.05), transparent 40%),
+    #151515;
+}
+
+.passwordConfirmTitle {
+  margin: 0;
+  color: #f4efe7;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.passwordConfirmDescription {
+  margin: 0;
+  color: #b7b2ae;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.passwordConfirmRow {
+  display: grid;
+  gap: 10px;
+}
+
+.passwordConfirmActions {
+  display: inline-flex;
+  gap: 8px;
+}
+
+.label {
+  color: #f4efe7;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.inputWrap {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  min-height: 56px;
+  padding: 14px 168px 14px 16px;
+  border: 1px solid #312d2b;
+  background: #171717;
+  color: #f5f1ed;
+  font: inherit;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #c8f135;
+  box-shadow: 0 0 0 3px rgb(200 241 53 / 0.14);
+}
+
+.inputDisabled {
+  background: #131313;
+  color: #908982;
+}
+
+.input:disabled {
+  cursor: default;
+}
+
+.actionGroup {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  display: inline-flex;
+  gap: 8px;
+  transform: translateY(-50%);
+}
+
+.iconButton,
+.iconButtonSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.iconButton {
+  border-color: #c8f135;
+  background: #c8f135;
+  color: #0d0d0d;
+}
+
+.iconButtonSecondary {
+  border-color: #34302d;
+  background: #1a1a1a;
+  color: #f5f1ed;
+}
+
+.iconButton:hover {
+  border-color: #d8fb54;
+  background: #d8fb54;
+}
+
+.iconButtonSecondary:hover {
+  border-color: #4a433e;
+  background: #222222;
+}
+
+.errorText {
+  margin: 0;
+  color: #ff9ba1;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.successMessage,
+.errorBanner {
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.successMessage {
+  border: 1px solid rgb(200 241 53 / 0.24);
+  background: rgb(200 241 53 / 0.08);
+  color: #edf8c0;
+}
+
+.errorBanner {
+  border: 1px solid rgb(255 127 134 / 0.24);
+  background: rgb(255 127 134 / 0.08);
+  color: #ffb7bc;
+}
+
+.loading {
+  margin: 0;
+  color: #c5c0bc;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+@media (max-width: 720px) {
+  .input {
+    padding-right: 16px;
+  }
+
+  .actionGroup {
+    position: static;
+    display: flex;
+    margin-top: 10px;
+    transform: none;
+  }
+
+  .inputWrap {
+    display: grid;
+  }
+
+  .passwordConfirmActions {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

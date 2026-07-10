@@ -1,0 +1,52 @@
+.profilePage {
+  flex: 1;
+  padding: 72px 24px 96px;
+}
+
+.profileCard {
+  width: min(100%, 720px);
+  margin: 0 auto;
+  padding: 40px;
+  border: 1px solid #272220;
+  background:
+    radial-gradient(circle at top, rgb(200 241 53 / 0.1), transparent 38%),
+    #111111;
+  box-shadow: 0 24px 80px rgb(0 0 0 / 0.25);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #c8f135;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  color: #f5f1ed;
+  font-size: clamp(32px, 5vw, 44px);
+  line-height: 1.1;
+}
+
+.description {
+  margin: 16px 0 0;
+  color: #c5c0bc;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.formWrap {
+  margin-top: 32px;
+}
+
+@media (max-width: 640px) {
+  .profilePage {
+    padding: 32px 16px 72px;
+  }
+
+  .profileCard {
+    padding: 28px 20px;
+  }
+}

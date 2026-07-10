@@ -1,0 +1,15 @@
+.projectsPage {
+  flex: 1;
+  padding: 72px 24px 96px;
+}
+
+.projectsInner {
+  width: min(100%, 1180px);
+  margin: 0 auto;
+}
+
+@media (max-width: 720px) {
+  .projectsPage {
+    padding: 32px 16px 72px;
+  }
+}

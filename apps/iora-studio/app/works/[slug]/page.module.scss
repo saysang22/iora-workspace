@@ -1,0 +1,291 @@
+.detailPage {
+  width: 100%;
+  padding: 48px 24px 180px;
+  background: #0b0b0b;
+  color: #f4efe7;
+}
+
+.introSection,
+.heroMediaSection,
+.insightSection,
+.artifactsSection,
+.ctaSection {
+  width: min(100%, 1232px);
+  margin: 0 auto;
+}
+
+.introSection {
+  padding-top: 56px;
+}
+
+.introHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+  gap: 28px 40px;
+  align-items: end;
+}
+
+.titleBlock h1 {
+  max-width: 620px;
+  margin: 10px 0 0;
+  color: #f7f2eb;
+  font-size: clamp(3.4rem, 5.6vw, 5rem);
+  font-weight: 900;
+  line-height: 0.96;
+  letter-spacing: -0.07em;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #c8f135;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 0;
+}
+
+.metaGrid div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metaGrid dt {
+  color: #8f8b90;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.metaGrid dd {
+  margin: 0;
+  color: #f4efe7;
+  font-size: 0.96rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.overviewRow {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 28px;
+}
+
+.overviewText {
+  max-width: 520px;
+  margin: 0;
+  color: #8f8b90;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.65;
+  letter-spacing: -0.02em;
+}
+
+.heroMediaSection {
+  margin-top: 34px;
+}
+
+.heroMediaWrap {
+  position: relative;
+  aspect-ratio: 1232 / 694;
+  overflow: hidden;
+  border: 1px solid #1e1e1e;
+  background: #101010;
+}
+
+.heroMediaWrap :global(img),
+.artifactImageWrap :global(img) {
+  object-fit: cover;
+}
+
+.insightSection {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 34px;
+  margin-top: 92px;
+}
+
+.insightCard h2 {
+  margin: 0 0 18px;
+  color: #c8f135;
+  font-size: 1.24rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.insightCard p {
+  margin: 0;
+  color: #8f8b90;
+  font-size: 0.96rem;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.artifactsSection {
+  margin-top: 86px;
+}
+
+.artifactsHeader {
+  padding-bottom: 18px;
+  border-bottom: 1px solid #1f1f1f;
+}
+
+.artifactStack {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 36px;
+}
+
+.artifactCard,
+.mobileArtifactCard,
+.monitorArtifactCard {
+  background: #101010;
+}
+
+.artifactImageWrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #1b1b1b;
+}
+
+.artifactCard .artifactImageWrap {
+  aspect-ratio: 1232 / 816;
+}
+
+.mobileArtifactCard .artifactImageWrap {
+  aspect-ratio: 1232 / 924;
+}
+
+.monitorArtifactCard .artifactImageWrap {
+  aspect-ratio: 1232 / 816;
+}
+
+.ctaSection {
+  margin-top: 84px;
+}
+
+.ctaCard {
+  display: flex;
+  min-height: 208px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 32px 24px;
+  border: 1px solid #2a3119;
+  background: linear-gradient(180deg, #171a12 0%, #111111 100%);
+  text-align: center;
+}
+
+.ctaCard h2 {
+  margin: 0;
+  color: #f7f2eb;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.05em;
+}
+
+.ctaCard p {
+  margin: 0;
+  color: #8f8b90;
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.ctaButton {
+  display: inline-flex;
+  min-width: 132px;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border: 1px solid #c8f135;
+  background: #c8f135;
+  color: #101010;
+  font-size: 0.96rem;
+  font-weight: 900;
+  text-decoration: none;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.ctaButton:hover,
+.ctaButton:focus-visible {
+  border-color: #d8fb54;
+  background: #d8fb54;
+  outline: none;
+}
+
+.screenReaderOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 900px) {
+  .detailPage {
+    padding: 38px 18px 120px;
+  }
+
+  .introSection {
+    padding-top: 40px;
+  }
+
+  .introHeader {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .titleBlock h1 {
+    max-width: none;
+    font-size: 3.25rem;
+  }
+
+  .metaGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .overviewRow {
+    justify-content: flex-start;
+  }
+
+  .overviewText {
+    max-width: none;
+  }
+
+  .insightSection {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+    margin-top: 62px;
+  }
+
+  .artifactsSection {
+    margin-top: 68px;
+  }
+
+  .ctaSection {
+    margin-top: 68px;
+  }
+
+  .ctaCard {
+    min-height: auto;
+    padding: 28px 20px;
+  }
+}

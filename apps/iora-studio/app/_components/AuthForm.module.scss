@@ -1,0 +1,76 @@
+.form {
+  display: grid;
+  gap: 20px;
+}
+
+.fieldGroup {
+  display: grid;
+  gap: 8px;
+}
+
+.label {
+  color: #f5f1ed;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #312d2b;
+  background: #161616;
+  color: #f5f1ed;
+  font: inherit;
+}
+
+.input::placeholder {
+  color: #88807b;
+}
+
+.input:focus {
+  outline: 1px solid #c8f135;
+  border-color: #c8f135;
+}
+
+.errorMessage {
+  margin: 0;
+  color: #ff8f8f;
+  font-size: 14px;
+}
+
+.successMessage {
+  margin: 0;
+  color: #c8f135;
+  font-size: 14px;
+}
+
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 14px 20px;
+  border: 0;
+  background: #c8f135;
+  color: #0d0d0d;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.alternateAction {
+  margin: 0;
+  color: #c5c9ae;
+  font-size: 14px;
+}
+
+.alternateAction a {
+  color: #c8f135;
+  text-decoration: none;
+}

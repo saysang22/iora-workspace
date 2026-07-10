@@ -1,0 +1,413 @@
+.content {
+  display: grid;
+  gap: 28px;
+}
+
+.feedbackSection {
+  display: grid;
+  place-items: center;
+  min-height: 280px;
+  padding: 32px;
+  border: 1px solid #272220;
+  background:
+    radial-gradient(circle at top, rgb(200 241 53 / 0.08), transparent 42%),
+    #111111;
+  box-shadow: 0 24px 80px rgb(0 0 0 / 0.2);
+}
+
+.feedbackText {
+  margin: 0;
+  color: #c5c0bc;
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.heroSection,
+.stepperSection,
+.devSection {
+  padding: 28px;
+  border: 1px solid #272220;
+  background:
+    radial-gradient(circle at top, rgb(200 241 53 / 0.07), transparent 36%),
+    #111111;
+  box-shadow: 0 24px 80px rgb(0 0 0 / 0.18);
+}
+
+.heroSection {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.heroMain {
+  display: grid;
+  gap: 14px;
+}
+
+.clientLabel {
+  margin: 0;
+  color: #c8f135;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  margin: 0;
+  color: #f5f1ed;
+  font-size: clamp(36px, 5vw, 54px);
+  line-height: 1.02;
+}
+
+.startDate {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: #c5c0bc;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.metricCard {
+  display: grid;
+  gap: 8px;
+  min-height: 132px;
+  padding: 18px;
+  border: 1px solid #2f2a27;
+  background: linear-gradient(180deg, rgb(200 241 53 / 0.08), rgb(200 241 53 / 0.02));
+}
+
+.metricLabel {
+  color: #b8b2ab;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.metricValue {
+  color: #f5f1ed;
+  font-size: clamp(24px, 3vw, 32px);
+  line-height: 1.15;
+}
+
+.sectionHeading,
+.devHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.sectionEyebrow {
+  margin: 0 0 10px;
+  color: #c8f135;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  margin: 0;
+  color: #f5f1ed;
+  font-size: clamp(24px, 3vw, 32px);
+  line-height: 1.2;
+}
+
+.stepperList {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 12px;
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+}
+
+.stepItem {
+  display: grid;
+  gap: 12px;
+  min-height: 150px;
+  padding: 16px;
+  border: 1px solid #252525;
+  background: #141414;
+}
+
+.stepIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid #393531;
+}
+
+.stepText {
+  display: grid;
+  gap: 5px;
+}
+
+.stepText strong {
+  color: #f1ece5;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.stepText span {
+  color: #8c8680;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.stepDone {
+  border-color: rgb(200 241 53 / 0.3);
+  background: linear-gradient(180deg, rgb(200 241 53 / 0.1), rgb(200 241 53 / 0.02));
+}
+
+.stepDone .stepIcon {
+  border-color: #c8f135;
+  background: #c8f135;
+  color: #111111;
+}
+
+.stepActive {
+  border-color: rgb(126 180 255 / 0.34);
+  background: linear-gradient(180deg, rgb(71 124 255 / 0.14), rgb(71 124 255 / 0.03));
+}
+
+.stepActive .stepIcon {
+  border-color: #7aa7ff;
+  color: #9bc0ff;
+}
+
+.stepActive .stepIcon svg,
+.pageIconActive svg {
+  transform-origin: center;
+  animation: spin 1.8s linear infinite;
+}
+
+.stepPending {
+  opacity: 0.72;
+}
+
+.stepPending .stepIcon {
+  color: #716c67;
+}
+
+.activeBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  min-height: 28px;
+  padding: 0 10px;
+  border: 1px solid rgb(122 167 255 / 0.4);
+  background: rgb(122 167 255 / 0.12);
+  color: #b4d0ff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.versionBadge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid #313131;
+  background: #181818;
+  color: #d6d0ca;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.progressSummary {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+  padding: 20px;
+  border: 1px solid #2a2623;
+  background: #151515;
+}
+
+.progressTextGroup {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.progressSummaryText {
+  margin: 0;
+  color: #f3efe8;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.progressSummarySub {
+  color: #b6b0aa;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.progressPercent {
+  color: #c8f135;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.progressBar {
+  position: relative;
+  height: 12px;
+  overflow: hidden;
+  background: #222222;
+}
+
+.progressFill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #90b40f 0%, #c8f135 100%);
+}
+
+.pageList {
+  display: grid;
+  gap: 12px;
+  padding: 0;
+  margin: 18px 0 0;
+  list-style: none;
+}
+
+.pageItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  border: 1px solid #262321;
+  background: #141414;
+}
+
+.pageMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.pageIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #35312e;
+  border-radius: 999px;
+}
+
+.pageIconDone {
+  border-color: #c8f135;
+  background: #c8f135;
+  color: #111111;
+}
+
+.pageIconActive {
+  border-color: #78a8ff;
+  color: #9bc0ff;
+}
+
+.pageIconPending {
+  color: #76706b;
+}
+
+.pageName {
+  color: #f5f1ed;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.pageBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 82px;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid #323232;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.pageBadgeDone {
+  border-color: rgb(200 241 53 / 0.32);
+  background: rgb(200 241 53 / 0.1);
+  color: #e3f395;
+}
+
+.pageBadgeActive {
+  border-color: rgb(122 167 255 / 0.38);
+  background: rgb(122 167 255 / 0.12);
+  color: #bdd5ff;
+}
+
+.pageBadgePending {
+  color: #8b847c;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1200px) {
+  .heroSection {
+    grid-template-columns: 1fr;
+  }
+
+  .stepperList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .heroSection,
+  .stepperSection,
+  .devSection {
+    padding: 22px 18px;
+  }
+
+  .metricsGrid,
+  .stepperList {
+    grid-template-columns: 1fr;
+  }
+
+  .devHeader,
+  .progressTextGroup,
+  .pageItem {
+    display: grid;
+  }
+
+  .pageItem {
+    justify-content: stretch;
+  }
+
+  .pageBadge {
+    justify-self: start;
+  }
+}
