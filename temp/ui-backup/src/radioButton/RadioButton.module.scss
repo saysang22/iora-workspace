@@ -1,0 +1,45 @@
+﻿.container {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  border: 1px solid #9aa4b2;
+  border-radius: 999px;
+  background: var(--radio-background, #ffffff);
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.container::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--radio-dot-size, 0.5em);
+  height: var(--radio-dot-size, 0.5em);
+  border-radius: 999px;
+  background: var(--radio-dot-color, #ffffff);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.15s ease;
+}
+
+.container:checked {
+  background: var(--radio-checked-background, #1f6feb);
+}
+
+.container:checked::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.container:focus-visible {
+  outline: 2px solid #77a6ff;
+  outline-offset: 2px;
+}
+
+.container:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

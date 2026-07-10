@@ -1,0 +1,172 @@
+﻿.container {
+  width: 100%;
+  max-width: 900px;
+  border: 1px solid #d7deea;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.tabRow {
+  display: grid;
+  border-bottom: 1px solid #d7deea;
+}
+
+.tabButton,
+.activeTabButton {
+  border: 0;
+  background: #ffffff;
+  color: #8ba0bd;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 16px 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.tabButton:hover {
+  color: #5f7faa;
+}
+
+.activeTabButton {
+  color: #2563eb;
+  border-bottom: 2px solid #2563eb;
+}
+
+.tabIcon {
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.content {
+  padding: 20px 24px 24px;
+}
+
+.panelGrid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  align-items: center;
+  gap: 24px;
+}
+
+.previewCard {
+  height: 180px;
+  border-radius: 14px;
+  background: #dfe7f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.previewIconWrap {
+  width: 58px;
+  height: 58px;
+  border-radius: 12px;
+  background: #c8d8f0;
+  color: #2563eb;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panelBody h3 {
+  margin: 0;
+  color: #111827;
+  font-size: 36px;
+  line-height: 1.25;
+}
+
+.panelBody p {
+  margin: 16px 0 0;
+  color: #6b7f9a;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.statsRow {
+  margin-top: 22px;
+  display: flex;
+  gap: 28px;
+}
+
+.statBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.statLabel {
+  color: #8ba0bd;
+  font-size: 13px;
+}
+
+.statValue {
+  color: #1f3a64;
+  font-size: 34px;
+  line-height: 1.2;
+}
+
+.simplePanel h3 {
+  margin: 0;
+  color: #111827;
+  font-size: 28px;
+}
+
+.simplePanel p {
+  margin: 14px 0 0;
+  color: #6b7f9a;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .tabButton,
+  .activeTabButton {
+    font-size: 13px;
+    padding: 12px 8px;
+  }
+
+  .content {
+    padding: 16px;
+  }
+
+  .panelGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .previewCard {
+    height: 150px;
+  }
+
+  .panelBody h3 {
+    font-size: 22px;
+  }
+
+  .panelBody p {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .statLabel {
+    font-size: 12px;
+  }
+
+  .statValue {
+    font-size: 20px;
+  }
+
+  .simplePanel h3 {
+    font-size: 20px;
+  }
+
+  .simplePanel p {
+    font-size: 14px;
+  }
+}
