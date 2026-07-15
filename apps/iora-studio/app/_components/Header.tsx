@@ -4,7 +4,8 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { FiEdit3, FiFolder, FiLogOut, FiUser } from 'react-icons/fi'
+import type { AuthChangeEvent, Session } from '@supabase/supabase-js'
+import { FiEdit3, FiFileText, FiFolder, FiLogOut, FiUser } from 'react-icons/fi'
 import { supabase } from '../../lib/supabase'
 import styles from './Header.module.scss'
 
@@ -20,7 +21,8 @@ type HeaderProps = {
 }
 
 const ACCOUNT_MENU_ITEMS = [
-  { href: '/profile', icon: FiEdit3, label: '회원 수정' },
+  { href: '/profile', icon: FiEdit3, label: '프로필 수정' },
+  { href: '/projects/request', icon: FiFileText, label: '프로젝트 수정 요청' },
   { href: '/projects', icon: FiFolder, label: '프로젝트 현황' },
 ] as const
 
@@ -28,29 +30,53 @@ export default function Header({ logo, navItems }: HeaderProps) {
   const pathname = usePathname()
   const router = useRouter()
   const [isSignedIn, setIsSignedIn] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false)
   const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false)
   const accountMenuRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     let isMounted = true
 
-    const syncSession = async () => {
-      const { data } = await supabase.auth.getSession()
+    const syncAdminState = async (userId: string | null) => {
+      if (!userId) {
+        if (isMounted) {
+          setIsAdmin(false)
+        }
+        return
+      }
+
+      const { data: profile } = await supabase.from('profiles').select('is_admin').eq('id', userId).maybeSingle()
 
       if (!isMounted) {
         return
       }
 
-      setIsSignedIn(Boolean(data.session))
+      setIsAdmin(Boolean(profile?.is_admin))
+    }
+
+    const syncSession = async () => {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser()
+
+      if (!isMounted) {
+        return
+      }
+
+      setIsSignedIn(Boolean(user))
+      await syncAdminState(user?.id ?? null)
     }
 
     void syncSession()
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setIsSignedIn(Boolean(session))
+    } = supabase.auth.onAuthStateChange((_event: AuthChangeEvent, session: Session | null) => {
+      const sessionUser = session?.user ?? null
+
+      setIsSignedIn(Boolean(sessionUser))
       setIsAccountMenuOpen(false)
+      void syncAdminState(sessionUser?.id ?? null)
     })
 
     return () => {
@@ -77,17 +103,21 @@ export default function Header({ logo, navItems }: HeaderProps) {
     }
   }, [isAccountMenuOpen])
 
-  const visibleNavItems = useMemo(
-    () =>
-      navItems.filter((item) => {
-        if (item.href === '/signup' && isSignedIn) {
-          return false
-        }
+  const visibleNavItems = useMemo(() => {
+    const filteredNavItems = navItems.filter((item) => {
+      if (item.href === '/signup' && isSignedIn) {
+        return false
+      }
 
-        return true
-      }),
-    [isSignedIn, navItems],
-  )
+      return true
+    })
+
+    if (isAdmin) {
+      filteredNavItems.push({ label: '관리자페이지 보기', href: '/admin' })
+    }
+
+    return filteredNavItems
+  }, [isAdmin, isSignedIn, navItems])
 
   const isActiveLink = (href: string) => {
     if (href === '/home') {
@@ -108,6 +138,7 @@ export default function Header({ logo, navItems }: HeaderProps) {
   const handleLogout = async () => {
     await supabase.auth.signOut()
     setIsAccountMenuOpen(false)
+    setIsAdmin(false)
     router.push('/home')
     router.refresh()
   }
@@ -115,7 +146,7 @@ export default function Header({ logo, navItems }: HeaderProps) {
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>
-        <Link className={styles.logoLink} href='/home' aria-label='IORA STUDIO 홈'>
+        <Link className={styles.logoLink} href='/home' aria-label='IORA STUDIO 홈으로 이동'>
           <Image src={logo} alt='IORA STUDIO' width={172} height={96} priority />
         </Link>
         <nav className={styles.nav} aria-label='주요 메뉴'>

@@ -2,6 +2,7 @@
 
 import { Button, Input, SelectBox } from '@iora/ui'
 import { useState, type ChangeEvent, type FormEvent, type KeyboardEvent as ReactKeyboardEvent } from 'react'
+import { createBrowserSupabaseClient } from '../../lib/supabase'
 import DateAvailabilityModal from './DateAvailabilityModal'
 import {
   BUDGET_OPTIONS,
@@ -146,11 +147,34 @@ function CalendarFieldTrigger({
 }
 
 async function submitContactForm(values: ContactFormValues) {
-  await new Promise((resolve) => {
-    window.setTimeout(resolve, 900)
+  const supabase = createBrowserSupabaseClient()
+  const {
+    data: { user },
+    error: authError,
+  } = await supabase.auth.getUser()
+
+  if (authError) {
+    throw authError
+  }
+
+  const { error } = await supabase.from('contact_requests').insert({
+    user_id: user?.id ?? null,
+    name: values.name.trim(),
+    email: values.email.trim(),
+    phone: values.phone.trim(),
+    service_type: values.serviceType,
+    request_details: values.requestDetails.trim(),
+    budget_range: values.budgetRange.trim() || null,
+    reference_site: values.referenceSite.trim() || null,
+    background_tone: values.backgroundTone.trim() || null,
+    point_color: values.pointColor.trim() || null,
+    desired_deadline: values.deadline,
+    zoom_meeting_at: `${values.zoomMeetingAt}:00+09:00`,
   })
 
-  console.log('contact-form-submission', values)
+  if (error) {
+    throw error
+  }
 }
 
 export default function ContactFormClient() {
@@ -236,7 +260,8 @@ export default function ContactFormClient() {
         type: 'success',
         text: '상담 신청이 접수되었습니다. 영업일 기준 24시간 이내에 답변 드릴게요.',
       })
-    } catch {
+    } catch (error) {
+      console.error(error)
       setSubmitMessage({
         type: 'error',
         text: '상담 신청 중 문제가 발생했습니다. 잠시 후 다시 시도해주세요.',

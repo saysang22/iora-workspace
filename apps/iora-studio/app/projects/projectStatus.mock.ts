@@ -25,6 +25,7 @@ export type ProjectStatusData = {
   clientName: string
   projectTitle: string
   startDate: string
+  deadlineDate: string
   currentPhase: ProjectPhaseKey
   totalProgress: number
   devLogVersion: string
@@ -78,6 +79,7 @@ export function buildMockProjectStatus(clientName: string): ProjectStatusData {
     clientName,
     projectTitle: 'Project Status',
     startDate: '2026.06.03',
+    deadlineDate: '2026.08.31',
     currentPhase: 'development',
     totalProgress: 62,
     devLogVersion: 'DEV_LOG v.2.1',

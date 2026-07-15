@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
-import Footer, { type FooterGroup } from './_components/Footer'
-import Header, { type HeaderNavItem } from './_components/Header'
+import AppChrome from './_components/AppChrome'
+import type { FooterGroup } from './_components/Footer'
+import type { HeaderNavItem } from './_components/Header'
 import './globals.css'
 
 const ASSETS = {
@@ -35,9 +36,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <Header logo={ASSETS.logo} navItems={HEADER_NAV_ITEMS} />
-        {children}
-        <Footer logo={ASSETS.logo} groups={FOOTER_GROUPS} />
+        <AppChrome footerGroups={FOOTER_GROUPS} headerNavItems={HEADER_NAV_ITEMS} logo={ASSETS.logo}>
+          {children}
+        </AppChrome>
       </body>
     </html>
   )

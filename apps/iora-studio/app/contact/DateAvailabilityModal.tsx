@@ -1,7 +1,9 @@
 'use client'
 
 import { Calendar, Modal, SelectBox } from '@iora/ui'
-import { useMemo, useState, type ChangeEvent, type CSSProperties } from 'react'
+import { useEffect, useMemo, useState, type ChangeEvent, type CSSProperties } from 'react'
+import { fetchCapacityAvailability, type CapacityAvailabilityMap } from '../../lib/capacity'
+import { createBrowserSupabaseClient } from '../../lib/supabase'
 import styles from './ContactFormClient.module.scss'
 
 type DateFieldTarget = 'deadline' | 'zoomMeetingAt'
@@ -33,7 +35,6 @@ type CustomCellMap = Record<
 >
 
 const DEFAULT_ZOOM_TIME = '10:00'
-const MOCK_BLOCKED_DATES = ['2026-06-06', '2026-06-16', '2026-06-17', '2026-06-18', '2026-06-19']
 const ZOOM_TIME_OPTIONS = [
   '09:00',
   '09:30',
@@ -80,13 +81,17 @@ function getCalendarMonth(selection: CalendarSelection | null) {
   return { year, month }
 }
 
-function buildCustomCellMap(selectedDateKey: string | null): CustomCellMap {
+function buildCustomCellMap(selectedDateKey: string | null, availabilityMap: CapacityAvailabilityMap): CustomCellMap {
   const map: CustomCellMap = {}
 
-  MOCK_BLOCKED_DATES.forEach((dateKey) => {
+  Object.entries(availabilityMap).forEach(([dateKey, availability]) => {
+    if (!availability.isUnavailable) {
+      return
+    }
+
     map[dateKey] = {
       status: 'unavailable',
-      events: [{ label: dateKey === '2026-06-06' ? '현충일' : '작업중', tone: 'white' }],
+      events: [{ label: '작업중', tone: 'white' }],
     }
   })
 
@@ -139,12 +144,47 @@ export default function DateAvailabilityModal({
   const [selectedTime, setSelectedTime] = useState(() =>
     value.includes('T') ? value.split('T')[1].slice(0, 5) : DEFAULT_ZOOM_TIME,
   )
-
-  const calendarMonth = useMemo(() => getCalendarMonth(selection), [selection])
+  const [calendarMonth, setCalendarMonth] = useState(() => getCalendarMonth(getInitialSelection(value)))
+  const [availabilityMap, setAvailabilityMap] = useState<CapacityAvailabilityMap>({})
+  const supabase = useMemo(() => createBrowserSupabaseClient(), [])
   const selectedDateKey = selection?.dateKey ?? null
-  const customCellMap = useMemo(() => buildCustomCellMap(selectedDateKey), [selectedDateKey])
-  const calendarKey = `${field}-${calendarMonth.year}-${calendarMonth.month}-${selectedDateKey ?? 'empty'}`
+  const customCellMap = useMemo(
+    () => buildCustomCellMap(selectedDateKey, availabilityMap),
+    [availabilityMap, selectedDateKey],
+  )
   const hasZoomTimeSelect = field === 'zoomMeetingAt'
+
+  useEffect(() => {
+    const nextSelection = getInitialSelection(value)
+    setSelection(nextSelection)
+    setCalendarMonth(getCalendarMonth(nextSelection))
+    setSelectedTime(value.includes('T') ? value.split('T')[1].slice(0, 5) : DEFAULT_ZOOM_TIME)
+  }, [value])
+
+  useEffect(() => {
+    if (!isOpen) {
+      return
+    }
+
+    let isMounted = true
+
+    void fetchCapacityAvailability(supabase, calendarMonth)
+      .then((nextAvailabilityMap) => {
+        if (isMounted) {
+          setAvailabilityMap(nextAvailabilityMap)
+        }
+      })
+      .catch((error) => {
+        console.error(error)
+        if (isMounted) {
+          setAvailabilityMap({})
+        }
+      })
+
+    return () => {
+      isMounted = false
+    }
+  }, [calendarMonth, isOpen, supabase])
 
   return (
     <div className={styles.availabilityModal}>
@@ -157,7 +197,7 @@ export default function DateAvailabilityModal({
         cancelLabel='취소'
         closeOnOverlayClick
         onConfirm={() => {
-          if (!selection?.dateKey) {
+          if (!selection?.dateKey || availabilityMap[selection.dateKey]?.isUnavailable) {
             return
           }
 
@@ -189,7 +229,6 @@ export default function DateAvailabilityModal({
             </section>
           ) : null}
           <Calendar
-            key={calendarKey}
             className={styles.availabilityCalendar}
             style={
               {
@@ -245,6 +284,7 @@ export default function DateAvailabilityModal({
             legend={null}
             headerExtra={<CalendarLegend />}
             showSelectedLegend={false}
+            onDisplayMonthChange={setCalendarMonth}
             onCellClick={({ dateKey, cell, isWeekend, isHoliday }) => {
               if (cell.status === 'unavailable' || isWeekend || isHoliday) {
                 return

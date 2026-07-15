@@ -1,0 +1,217 @@
+.requestModal {
+  :global([class*='Modal_overlay']) {
+    padding: 32px 20px;
+    background: rgb(19 19 19 / 80%);
+    backdrop-filter: blur(6px);
+  }
+
+  :global([class*='Modal_container']) {
+    gap: 0;
+    padding: 0;
+    border: 1px solid #1f1f1f;
+    border-radius: 4px;
+    background: #131313;
+    box-shadow: 0 30px 90px rgb(0 0 0 / 0.45);
+    overflow: hidden;
+  }
+
+  :global([class*='Modal_header']) {
+    min-height: 86px;
+    padding: 24px;
+    border-bottom: 1px solid #1f1f1f;
+    background: #131313;
+  }
+
+  :global([class*='Modal_title']) {
+    line-height: 1.6;
+  }
+
+  :global([class*='Modal_closeButton']) {
+    width: 30px !important;
+    height: 30px !important;
+    color: #c5c9ae !important;
+  }
+
+  :global([class*='Modal_closeButton']:hover) {
+    color: #e5e2e1 !important;
+  }
+
+  :global([class*='Modal_body']) {
+    padding: 0;
+  }
+
+  :global([class*='Modal_footer']) {
+    justify-content: flex-end;
+    gap: 16px;
+    padding: 24px;
+    border-top: 1px solid #1f1f1f;
+    background: #131313;
+  }
+
+  :global([class*='Modal_footer'] > button:first-child) {
+    min-width: 98px;
+    min-height: 52px;
+  }
+
+  :global([class*='Modal_footer'] > button:last-child) {
+    min-width: 144px;
+    min-height: 50px;
+  }
+}
+
+.form {
+  display: grid;
+  gap: 39px;
+  max-height: min(610px, calc(100vh - 260px));
+  padding: 23px 24px 24px;
+  overflow-y: auto;
+}
+
+.fieldGroup {
+  display: grid;
+  gap: 8px;
+}
+
+.fieldLabel {
+  color: #c5c9ae;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  border: 1px solid #1f1f1f;
+  background: #1c1b1b;
+  color: #e5e2e1;
+  font: inherit;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgb(197 201 174 / 40%);
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: rgb(200 241 53 / 0.5);
+}
+
+.input {
+  min-height: 50px;
+  padding: 15px 17px 14px;
+}
+
+.textarea {
+  min-height: 170px;
+  padding: 13px 17px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.uploadArea {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 34px 24px;
+  border: 2px dashed #1f1f1f;
+  background: #1c1b1b;
+  color: #e5e2e1;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    border-color 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.uploadArea:hover,
+.uploadAreaDragging {
+  border-color: rgb(200 241 53 / 0.45);
+  background: #20201c;
+}
+
+.fileInput {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.uploadIcon {
+  margin-bottom: 12px;
+  color: #c5c9ae;
+}
+
+.uploadTitle {
+  color: #e5e2e1;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.uploadCaption {
+  color: #c5c9ae;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 12px;
+  line-height: 1.3334;
+}
+
+.uploadStatus {
+  margin-top: 8px;
+  color: rgb(200 241 53 / 0.92);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.fileList {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fileItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 14px;
+  border: 1px solid #1f1f1f;
+  background: #171717;
+  color: #cfd2bd;
+  font-size: 14px;
+}
+
+@media (max-width: 720px) {
+  .requestModal {
+    :global([class*='Modal_overlay']) {
+      padding: 16px;
+    }
+
+    :global([class*='Modal_header']) {
+      min-height: 72px;
+      padding: 20px 18px;
+    }
+
+    :global([class*='Modal_footer']) {
+      gap: 12px;
+      padding: 18px;
+    }
+
+    :global([class*='Modal_footer'] > button:first-child),
+    :global([class*='Modal_footer'] > button:last-child) {
+      min-width: 0;
+      flex: 1 1 0;
+    }
+  }
+
+  .form {
+    gap: 28px;
+    max-height: calc(100vh - 220px);
+    padding: 20px 18px;
+  }
+}

@@ -1,0 +1,510 @@
+.content {
+  position: relative;
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  padding: 32px 32px 88px;
+}
+
+.heroSection {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.heroTitleRow {
+  display: flex;
+  align-items: start;
+  gap: 16px;
+  min-width: 0;
+}
+
+.backButton,
+.inlineAction,
+.iconGhostButton,
+.assetButton,
+.timelineFooter,
+.fab,
+.floatingAssetButton {
+  border: 0;
+  font: inherit;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: rgb(20 31 53 / 0.92);
+  color: #cbd5e1;
+  text-decoration: none;
+}
+
+.headingRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.pageTitle {
+  margin: 0;
+  color: #f8fafc;
+  font-size: clamp(32px, 4vw, 46px);
+  line-height: 1.08;
+  letter-spacing: -0.05em;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 14px;
+  border: 1px solid rgb(255 45 122 / 0.24);
+  border-radius: 999px;
+  background: rgb(255 45 122 / 0.12);
+  color: #ff4f9f;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.pageDescription {
+  margin: 12px 0 0;
+  color: #93a4bf;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  margin-bottom: 24px;
+}
+
+.metricCard,
+.requestTableWrap,
+.assetCard,
+.timelinePanel {
+  border: 1px solid rgb(148 163 184 / 0.1);
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgb(18 30 52 / 0.98), rgb(16 26 46 / 0.94));
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.02);
+}
+
+.metricCard {
+  min-height: 136px;
+  padding: 24px;
+}
+
+.metricLabel {
+  display: block;
+  color: #7f92b0;
+  font-size: 14px;
+}
+
+.metricValue {
+  display: block;
+  margin-top: 18px;
+  color: #f8fafc;
+  font-size: clamp(22px, 2.3vw, 30px);
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+}
+
+.metricValuePink {
+  color: #ff2d7a;
+}
+
+.metricInline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.sectionTitle {
+  margin: 0;
+  color: #f8fafc;
+  font-size: clamp(28px, 2.8vw, 36px);
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(280px, 0.85fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.leftColumn {
+  display: grid;
+  gap: 24px;
+}
+
+.requestSection,
+.timelineSection {
+  display: grid;
+  gap: 20px;
+}
+
+.inlineAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  background: transparent;
+  color: #ff4f9f;
+  cursor: pointer;
+}
+
+.requestTableWrap {
+  overflow: hidden;
+}
+
+.requestTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.requestTable thead {
+  background: rgb(28 41 67 / 0.84);
+}
+
+.requestTable th,
+.requestTable td {
+  padding: 18px 20px;
+  border-bottom: 1px solid rgb(148 163 184 / 0.08);
+  text-align: left;
+}
+
+.requestTable th {
+  color: #9caecc;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.requestTable td {
+  color: #e5edf9;
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+.requestTable tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.checkCell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ff2d7a;
+  border-radius: 5px;
+  color: transparent;
+}
+
+.checkCellActive {
+  background: #ff2d7a;
+  color: #fff;
+}
+
+.statusPill,
+.priorityPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 26px;
+  padding: 0 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.statusDone {
+  background: rgb(16 185 129 / 0.14);
+  color: #34d399;
+}
+
+.statusInProgress {
+  background: rgb(245 158 11 / 0.16);
+  color: #fbbf24;
+}
+
+.statusPending {
+  background: rgb(71 85 105 / 0.32);
+  color: #aebbd1;
+}
+
+.priorityCritical {
+  background: rgb(255 45 122 / 0.16);
+  color: #ff5ea4;
+}
+
+.priorityHigh {
+  background: rgb(236 72 153 / 0.18);
+  color: #f472b6;
+}
+
+.priorityNormal {
+  background: rgb(37 99 235 / 0.16);
+  color: #7db5ff;
+}
+
+.requestDetailCell {
+  max-width: 0;
+}
+
+.requestDateCell {
+  color: #93a4bf !important;
+  white-space: nowrap;
+}
+
+.assetGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.assetCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 92px;
+  padding: 22px 24px;
+}
+
+.assetContent {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.assetContent strong {
+  color: #f8fafc;
+  font-size: 17px;
+  letter-spacing: -0.03em;
+}
+
+.assetContent span {
+  color: #8fa2c0;
+  font-size: 14px;
+}
+
+.assetButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  background: rgb(255 45 122 / 0.08);
+  color: #ff4f9f;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.iconGhostButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+}
+
+.timelinePanel {
+  position: relative;
+  padding: 24px 24px 20px;
+}
+
+.timelineRail {
+  position: absolute;
+  top: 26px;
+  bottom: 58px;
+  left: 40px;
+  width: 2px;
+  background: linear-gradient(180deg, rgb(148 163 184 / 0.16), rgb(148 163 184 / 0.28));
+}
+
+.timelineList {
+  display: grid;
+  gap: 26px;
+}
+
+.timelineItem {
+  position: relative;
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.timelineIcon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  color: #fff;
+  box-shadow: 0 0 0 6px #101a2e;
+}
+
+.timelineIconsuccess {
+  background: #ff2d7a;
+}
+
+.timelineIconinfo {
+  background: #2563eb;
+}
+
+.timelineIconupload {
+  background: #1e293b;
+  color: #cbd5e1;
+}
+
+.timelineIconwarning {
+  background: #d97706;
+}
+
+.timelineCard {
+  padding: 16px 16px 18px;
+  border: 1px solid rgb(148 163 184 / 0.08);
+  border-radius: 14px;
+  background: rgb(24 37 61 / 0.88);
+}
+
+.timelineTime {
+  display: block;
+  color: #ff4f9f;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.timelineTitle {
+  display: block;
+  margin-top: 10px;
+  color: #f8fafc;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.timelineDescription {
+  margin: 10px 0 0;
+  color: #93a4bf;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.timelineFooter {
+  width: 100%;
+  min-height: 40px;
+  margin-top: 18px;
+  border: 1px solid rgb(255 45 122 / 0.24);
+  border-radius: 12px;
+  background: transparent;
+  color: #ff4f9f;
+  cursor: pointer;
+}
+
+.fab {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: #ff2d7a;
+  box-shadow:
+    0 18px 32px rgb(255 45 122 / 0.34),
+    0 0 0 6px rgb(255 45 122 / 0.08);
+  color: #fff;
+  cursor: pointer;
+}
+
+.floatingAssetButton {
+  position: absolute;
+  right: 124px;
+  bottom: 185px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 14px;
+  border-radius: 12px;
+  background: rgb(22 34 57 / 0.96);
+  color: #d9e3f1;
+}
+
+@media (max-width: 1280px) {
+  .metricGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mainGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .floatingAssetButton {
+    position: static;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 980px) {
+  .content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .assetGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .metricGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .requestTableWrap {
+    overflow-x: auto;
+  }
+
+  .requestTable {
+    min-width: 720px;
+  }
+
+  .sectionHeader {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .fab {
+    right: 20px;
+    bottom: 20px;
+  }
+}

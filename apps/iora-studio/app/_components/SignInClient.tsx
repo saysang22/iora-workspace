@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import type { AuthChangeEvent, Session } from '@supabase/supabase-js'
 import { Login } from '@iora/ui'
 import { supabase } from '../../lib/supabase'
 
@@ -12,6 +13,10 @@ type LoginSubmitValues = {
 }
 
 type SocialProvider = 'google' | 'kakao' | 'naver'
+
+type SignInClientProps = {
+  nextPath?: string | null
+}
 
 function getAuthErrorMessage(message: string) {
   const normalized = message.toLowerCase()
@@ -54,7 +59,7 @@ function getRedirectPath(user: { user_metadata?: { phone_number?: unknown; compa
   return isProfileIncomplete(user) ? '/profile?setup=1' : '/home'
 }
 
-export default function SignInClient() {
+export default function SignInClient({ nextPath = null }: SignInClientProps) {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
@@ -78,7 +83,7 @@ export default function SignInClient() {
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    } = supabase.auth.onAuthStateChange((_event: AuthChangeEvent, session: Session | null) => {
       const sessionUser = session?.user ?? null
 
       if (!sessionUser) {
@@ -110,7 +115,7 @@ export default function SignInClient() {
         return
       }
 
-      router.push(getRedirectPath(data.user ?? data.session?.user ?? null))
+      router.push(nextPath || getRedirectPath(data.user ?? data.session?.user ?? null))
       router.refresh()
     } finally {
       setIsLoading(false)

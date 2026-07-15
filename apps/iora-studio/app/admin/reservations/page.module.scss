@@ -1,0 +1,600 @@
+.content {
+  position: relative;
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  padding: 32px 32px 72px;
+}
+
+.heroSection {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.pageTitle {
+  margin: 0;
+  color: #f1f5f9;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.pageDescription {
+  margin: 10px 0 0;
+  color: #94a3b8;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.primaryButton,
+.primaryActionButton,
+.secondaryButton,
+.textActionButton,
+.toggleButton {
+  border: 0;
+  font: inherit;
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ff2d7a, #ff4f9f);
+  box-shadow:
+    0 12px 28px rgb(255 45 122 / 0.35),
+    0 0 24px rgb(255 45 122 / 0.24);
+  color: #fff;
+  cursor: pointer;
+}
+
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(300px, 0.78fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.calendarPanel,
+.metricCard,
+.requestPanel,
+.settingCard {
+  border: 1px solid rgb(148 163 184 / 0.08);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgb(11 24 44 / 0.92), rgb(11 24 44 / 0.78));
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.02);
+}
+
+.calendarPanel {
+  padding: 24px;
+}
+
+.calendarExperience {
+  width: 100%;
+}
+
+.calendarRoot {
+  width: 100%;
+}
+
+.calendarMainSection {
+  max-width: none;
+}
+
+.calendarSurface {
+  overflow: visible;
+}
+
+.calendarHeader {
+  align-items: start;
+  gap: 12px;
+}
+
+.calendarHeaderLeft {
+  align-items: center;
+  gap: 12px;
+}
+
+.calendarHeaderLeft h2 {
+  letter-spacing: -0.03em;
+}
+
+.calendarTitleButton {
+  cursor: default;
+}
+
+.calendarNavigation {
+  gap: 6px;
+}
+
+.calendarNavigation button {
+  padding-bottom: 0;
+}
+
+.calendarNavigation button:hover {
+  background: rgb(255 255 255 / 0.05);
+  border-color: rgb(148 163 184 / 0.26);
+  color: #fff;
+}
+
+.calendarMonthModal {
+  top: 56px;
+  left: 0;
+  border-color: rgb(148 163 184 / 0.16);
+  background: #0c1a2c;
+  box-shadow: 0 18px 48px rgb(0 0 0 / 0.42);
+}
+
+.calendarMonthModal :global(button) {
+  border-color: rgb(148 163 184 / 0.12);
+  background: rgb(15 29 50 / 0.9);
+  color: #cbd5e1;
+}
+
+.calendarMonthModal :global(button:hover) {
+  background: rgb(255 45 122 / 0.16);
+  border-color: rgb(255 45 122 / 0.32);
+  color: #fff;
+}
+
+.calendarGrid {
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.02);
+}
+
+.calendarDayHeader {
+  min-height: 32px;
+  padding: 8px 0;
+  border-bottom-color: rgb(148 163 184 / 0.08);
+}
+
+.calendarDayCell {
+  gap: 8px;
+  border: 0;
+  overflow: hidden;
+}
+
+.calendarDayNumber {
+  font-size: 14px;
+}
+
+.calendarEventBadge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 22px;
+  padding: 2px 8px;
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.calendarControls {
+  align-items: end;
+  gap: 10px;
+  margin-left: 0;
+}
+
+.calendarControlsRow {
+  gap: 8px;
+}
+
+.calendarControlsRow :global(input) {
+  min-height: 38px;
+  border: 1px solid rgb(148 163 184 / 0.18);
+  border-radius: 12px;
+  background: #071423 !important;
+  color: #f8fafc !important;
+}
+
+.calendarControlsRow :global(button) {
+  min-height: 38px;
+  padding: 0 14px !important;
+  border-radius: 12px !important;
+  background: #ff2d7a !important;
+  border-color: #ff2d7a !important;
+  color: #fff !important;
+  box-shadow: 0 10px 24px rgb(255 45 122 / 0.24);
+}
+
+.calendarControlsText {
+  color: #94a3b8;
+  font-size: 13px;
+  text-align: right;
+}
+
+.calendarPrimaryActionRow {
+  margin: 18px 0 0;
+  max-width: none;
+}
+
+.calendarPrimaryActionRow :global(button) {
+  min-height: 40px;
+  padding: 0 16px !important;
+  border-radius: 12px !important;
+  background: #ff2d7a !important;
+  border-color: #ff2d7a !important;
+  color: #fff !important;
+}
+
+.calendarPrimaryActionRow :global(button:disabled) {
+  background: rgb(71 85 105 / 0.72) !important;
+  border-color: rgb(71 85 105 / 0.72) !important;
+  color: #cbd5e1 !important;
+}
+
+.sidePanel {
+  display: grid;
+  gap: 24px;
+}
+
+.metricCard {
+  padding: 24px;
+  background:
+    radial-gradient(circle at top right, rgb(125 43 212 / 0.12), transparent 34%),
+    linear-gradient(180deg, rgb(18 24 46 / 0.92), rgb(11 24 44 / 0.82));
+}
+
+.metricHeader {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.metricLabel {
+  display: block;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.metricValue {
+  display: block;
+  margin-top: 10px;
+  color: #f8fafc;
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.metricValue span {
+  color: #cbd5e1;
+  font-size: 24px;
+}
+
+.metricIconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: rgb(255 45 122 / 0.12);
+  color: #ff2d7a;
+}
+
+.metricTrack {
+  width: 100%;
+  height: 7px;
+  margin-top: 24px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgb(148 163 184 / 0.18);
+}
+
+.metricTrack span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ff2d7a, #ff6ba8);
+}
+
+.metricDescription {
+  margin: 18px 0 0;
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.requestPanel {
+  padding: 24px 20px 20px;
+}
+
+.requestPanelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.requestPanelTitle {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 24px;
+  letter-spacing: -0.03em;
+}
+
+.requestCount {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: #ff2d7a;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.requestList {
+  display: grid;
+  gap: 16px;
+}
+
+.requestCard {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid rgb(148 163 184 / 0.05);
+  border-radius: 18px;
+  background: rgb(15 29 50 / 0.82);
+}
+
+.requestTopRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.requestAvatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.requestAvatarpink {
+  background: linear-gradient(135deg, #ff8ab9, #ff2d7a);
+}
+
+.requestAvatarblue {
+  background: linear-gradient(135deg, #62c8ff, #2f6bff);
+}
+
+.requestAvatarviolet {
+  background: linear-gradient(135deg, #b88aff, #6d28d9);
+}
+
+.requestIdentity {
+  display: grid;
+  gap: 4px;
+}
+
+.requestIdentity strong {
+  color: #f8fafc;
+  font-size: 15px;
+}
+
+.requestIdentity span {
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.requestSummary {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.requestTime {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ff2d7a;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.requestActions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.secondaryButton,
+.primaryActionButton {
+  min-height: 36px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.secondaryButton {
+  background: rgb(30 41 59 / 0.72);
+  color: #94a3b8;
+}
+
+.primaryActionButton {
+  background: #ff2d7a;
+  color: #fff;
+}
+
+.settingsGrid {
+  display: grid;
+  gap: 16px;
+}
+
+.settingCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 16px;
+}
+
+.settingIconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+
+.settingIconWrappink {
+  background: rgb(255 45 122 / 0.14);
+  color: #ff2d7a;
+}
+
+.settingIconWrapblue {
+  background: rgb(59 130 246 / 0.16);
+  color: #8fd0ff;
+}
+
+.settingIconWraprose {
+  background: rgb(251 113 133 / 0.14);
+  color: #fda4af;
+}
+
+.settingContent {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  flex: 1;
+}
+
+.settingContent strong {
+  color: #f8fafc;
+  font-size: 16px;
+}
+
+.settingContent span {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.toggleButton {
+  position: relative;
+  width: 48px;
+  height: 24px;
+  padding: 0;
+  border-radius: 999px;
+  background: rgb(71 85 105 / 0.58);
+  cursor: pointer;
+}
+
+.toggleButton span {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #fff;
+}
+
+.toggleButtonActive {
+  background: #ff2d7a;
+}
+
+.toggleButtonActive span {
+  left: 27px;
+}
+
+.textActionButton {
+  color: #ff5d9f;
+  background: transparent;
+  cursor: pointer;
+}
+
+.fab {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: 999px;
+  background: #ff2d7a;
+  box-shadow:
+    0 16px 32px rgb(255 45 122 / 0.38),
+    0 0 0 6px rgb(255 45 122 / 0.08);
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .dashboardGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 980px) {
+  .content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .heroSection {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .calendarExperience {
+    width: 100%;
+  }
+
+  .calendarHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .calendarControls {
+    align-items: stretch;
+  }
+
+  .calendarControlsText {
+    text-align: left;
+  }
+}
+
+@media (max-width: 720px) {
+  .requestActions {
+    grid-template-columns: 1fr;
+  }
+
+  .settingCard {
+    align-items: start;
+  }
+
+  .fab {
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .calendarDayCell {
+    min-height: 84px;
+  }
+
+  .calendarMonthModal {
+    right: 0;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .calendarControlsRow {
+    flex-wrap: wrap;
+  }
+}

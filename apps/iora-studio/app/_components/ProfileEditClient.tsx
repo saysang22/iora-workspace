@@ -404,6 +404,9 @@ export default function ProfileEditClient() {
 
   const isFieldEditing = (field: EditableField) => editingField === field
   const isPasswordEditing = editingField === 'password'
+  const hasPasswordValues = values.password.trim().length > 0 && values.passwordConfirm.trim().length > 0
+  const isPasswordMatch = values.password === values.passwordConfirm
+  const isPasswordSaveDisabled = values.password !== values.passwordConfirm
 
   if (isLoading) {
     return <p className={styles.loading}>프로필 정보를 불러오는 중...</p>
@@ -605,18 +608,7 @@ export default function ProfileEditClient() {
                 onChange={(event) => updateField('password', event.target.value)}
               />
               <div className={styles.actionGroup}>
-                {isPasswordEditing ? (
-                  <>
-                    <button className={styles.iconButton} type='button' onClick={() => void saveField('password')}>
-                      <FiCheck size={15} />
-                      <span>저장</span>
-                    </button>
-                    <button className={styles.iconButtonSecondary} type='button' onClick={() => handleCancel('password')}>
-                      <FiX size={15} />
-                      <span>취소</span>
-                    </button>
-                  </>
-                ) : (
+                {isPasswordEditing ? null : (
                   <button className={styles.iconButton} type='button' onClick={() => handleEdit('password')}>
                     <FiLock size={15} />
                     <span>수정</span>
@@ -646,8 +638,34 @@ export default function ProfileEditClient() {
                 onChange={(event) => updateField('passwordConfirm', event.target.value)}
               />
             </div>
+            {hasPasswordValues ? (
+              <p
+                aria-live='polite'
+                className={isPasswordMatch ? styles.passwordMatchText : styles.passwordMismatchText}
+              >
+                {isPasswordMatch ? '비밀번호가 일치합니다' : '비밀번호가 일치하지 않습니다'}
+              </p>
+            ) : null}
             {errors.passwordConfirm ? <p className={styles.errorText}>{errors.passwordConfirm}</p> : null}
           </div>
+
+          {isPasswordEditing ? (
+            <div className={styles.passwordActions}>
+              <button
+                className={styles.iconButton}
+                disabled={isPasswordSaveDisabled}
+                type='button'
+                onClick={() => void saveField('password')}
+              >
+                <FiCheck size={15} />
+                <span>저장</span>
+              </button>
+              <button className={styles.iconButtonSecondary} type='button' onClick={() => handleCancel('password')}>
+                <FiX size={15} />
+                <span>취소</span>
+              </button>
+            </div>
+          ) : null}
         </div>
 
         <div className={styles.fieldBlock}>

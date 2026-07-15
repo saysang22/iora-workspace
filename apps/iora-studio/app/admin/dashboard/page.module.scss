@@ -1,0 +1,575 @@
+.content {
+  position: relative;
+  min-height: calc(100vh - 64px);
+  padding: 32px 32px 118px;
+  background: #0a1628;
+  display: flex;
+  justify-content: center;
+}
+
+.inner {
+  display: grid;
+  gap: 32px;
+  width: 100%;
+}
+
+.hero {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.heroText {
+  display: grid;
+  gap: 4px;
+}
+
+.heroTitle {
+  margin: 0;
+  color: #f1f5f9;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: -0.01em;
+}
+
+.heroDescription {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.todayBlock {
+  display: grid;
+  justify-items: end;
+}
+
+.todayLabel {
+  color: #ff2d78;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.todayValue {
+  color: #f1f5f9;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.metricsRow {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.card,
+.panel,
+.tablePanel {
+  border: 1px solid #334155;
+  border-radius: 12px;
+  background: #0d1b2d;
+}
+
+.metricCard {
+  display: grid;
+  gap: 16px;
+  min-height: 174px;
+  padding: 25px;
+}
+
+.metricHead {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.metricIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 32px;
+  border-radius: 8px;
+  background: #162539;
+  color: #ff2d78;
+}
+
+.metricIconReservation,
+.metricIconMessage {
+  width: 36px;
+  height: 36px;
+}
+
+.metricTrend {
+  color: #94a3b8;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.metricTrendHot {
+  color: #ff2d78;
+}
+
+.metricTrendGood {
+  color: #34d399;
+}
+
+.metricTitle {
+  color: #94a3b8;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.metricValue {
+  color: #f1f5f9;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: -0.02em;
+}
+
+.schedulePanel {
+  grid-column: span 8;
+  display: grid;
+  gap: 24px;
+  padding: 25px 25px 34.63px;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.panelTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: #f1f5f9;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.panelLink {
+  color: #94a3b8;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-decoration: none;
+}
+
+.panelLink:hover {
+  color: #f1f5f9;
+}
+
+.scheduleList {
+  display: grid;
+  gap: 16px;
+}
+
+.scheduleItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 16px 16px 20px;
+  border-left: 4px solid #334155;
+  border-radius: 8px;
+  background: #162539;
+}
+
+.scheduleCritical {
+  border-left-color: #ff2d78;
+}
+
+.scheduleMuted {
+  opacity: 0.6;
+}
+
+.scheduleTime {
+  min-width: 64px;
+  color: #94a3b8;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.scheduleTime span {
+  display: block;
+}
+
+.scheduleContent {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+
+.scheduleTitle {
+  color: #f1f5f9;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.scheduleTitleDone {
+  font-weight: 700;
+  text-decoration: line-through;
+}
+
+.scheduleMeta {
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.scheduleBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 23px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgb(255 45 120 / 0.1);
+  color: #ff2d78;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: 0.04em;
+}
+
+.deadlinePanel {
+  grid-column: span 4;
+  display: grid;
+  gap: 24px;
+  padding: 25px;
+}
+
+.deadlineList {
+  display: grid;
+  gap: 24px;
+}
+
+.deadlineItem {
+  display: grid;
+  gap: 8px;
+}
+
+.deadlineHead {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.deadlineTitle {
+  color: #f1f5f9;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.deadlineDue {
+  color: #94a3b8;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.deadlineDueHot {
+  color: #ff2d78;
+}
+
+.deadlineTrack {
+  position: relative;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #162539;
+}
+
+.deadlineFill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: #e2e8f0;
+  border-radius: inherit;
+}
+
+.deadlineFillHot {
+  background: #ff2d78;
+}
+
+.deadlineNotice {
+  display: flex;
+  gap: 11.99px;
+  align-items: start;
+  padding: 17px;
+  border: 1px solid rgb(51 65 85 / 0.3);
+  border-radius: 8px;
+  background: #162539;
+}
+
+.deadlineNotice svg {
+  margin-top: 1px;
+  color: #ff2d78;
+}
+
+.deadlineNotice p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 17.88px;
+}
+
+.tablePanel {
+  grid-column: 1 / -1;
+  overflow: hidden;
+}
+
+.tableHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  border-bottom: 1px solid #334155;
+}
+
+.tableTitle {
+  margin: 0;
+  color: #f1f5f9;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.tableActions {
+  display: flex;
+  gap: 7.99px;
+}
+
+.tableIconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 28px;
+  padding: 8px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #f1f5f9;
+  cursor: pointer;
+}
+
+.tableIconButton:last-child {
+  width: 20px;
+  height: 32px;
+}
+
+.tableIconButton:hover {
+  background: rgb(255 255 255 / 0.04);
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 974px;
+}
+
+.table thead {
+  background: #08121f;
+}
+
+.table th {
+  padding: 16px 24px 18px;
+  color: #94a3b8;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.table th:last-child,
+.table td:last-child {
+  text-align: right;
+}
+
+.table td {
+  padding: 21px 24px 21.5px;
+  color: #94a3b8;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.table tbody tr + tr td {
+  border-top: 1px solid #334155;
+}
+
+.customerCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #f1f5f9;
+}
+
+.customerBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #162539;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.customerBadgePending {
+  color: #ff2d78;
+}
+
+.customerBadgeDone {
+  color: #e2e8f0;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 20px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.statusPill::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+}
+
+.statusPending {
+  background: rgb(255 45 120 / 0.1);
+  color: #ff2d78;
+}
+
+.statusPending::before {
+  background: #ff2d78;
+}
+
+.statusDone {
+  background: rgb(52 211 153 / 0.1);
+  color: #34d399;
+}
+
+.statusDone::before {
+  background: #34d399;
+}
+
+.timeAgo {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.rowAction {
+  border: 0;
+  background: transparent;
+  color: #f1f5f9;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.tableFooter {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  background: #08121f;
+  color: #94a3b8;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.fab {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: 16px;
+  background: #ff2d78;
+  color: #ffffff;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  cursor: pointer;
+}
+
+.fab:hover {
+  background: #ff4c8d;
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    display: grid;
+  }
+
+  .todayBlock {
+    justify-items: start;
+  }
+
+  .metricsRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .schedulePanel,
+  .deadlinePanel {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .content {
+    padding: 24px 16px 110px;
+  }
+
+  .heroTitle {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .metricsRow {
+    grid-template-columns: 1fr;
+  }
+}

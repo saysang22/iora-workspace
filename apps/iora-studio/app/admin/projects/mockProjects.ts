@@ -1,0 +1,335 @@
+export type ProjectStatus = '개발' | '배포' | '기획' | '검수' | '유지보수'
+export type ProjectPriority = '긴급' | '높음' | '보통' | '낮음'
+
+export type ProjectListItem = {
+  id: string
+  companyName: string
+  companyCode: string
+  projectName: string
+  status: ProjectStatus
+  startDate: string
+  dueDate: string
+  priority: ProjectPriority
+}
+
+export type ProjectDetail = {
+  id: string
+  title: string
+  statusLabel: string
+  clientName: string
+  contact: string
+  budget: string
+  deadline: string
+  progress: number
+}
+
+export const PROJECT_LIST: ProjectListItem[] = [
+  {
+    id: 'next-korea-ai-chatbot',
+    companyName: '넥스트코리아',
+    companyCode: 'NK',
+    projectName: 'AI 챗봇 커스터마이징',
+    status: '개발',
+    startDate: '2023.10.15',
+    dueDate: '2023.12.20',
+    priority: '긴급',
+  },
+  {
+    id: 'global-research-dashboard',
+    companyName: '글로벌 리서치',
+    companyCode: 'GL',
+    projectName: '데이터 분석 대시보드 고도화',
+    status: '배포',
+    startDate: '2023.11.01',
+    dueDate: '2023.12.05',
+    priority: '보통',
+  },
+  {
+    id: 'samsung-tech-ecommerce-renewal',
+    companyName: '삼성테크론',
+    companyCode: 'SS',
+    projectName: 'E-커머스 플랫폼 리뉴얼',
+    status: '기획',
+    startDate: '2023.12.01',
+    dueDate: '2024.03.30',
+    priority: '높음',
+  },
+  {
+    id: 'mirae-edu-web-launch',
+    companyName: '미래교육',
+    companyCode: 'MG',
+    projectName: '반응형 웹진 개발',
+    status: '검수',
+    startDate: '2023.11.15',
+    dueDate: '2023.12.31',
+    priority: '보통',
+  },
+  {
+    id: 'lion-bio-maintenance',
+    companyName: '라온바이오',
+    companyCode: 'LB',
+    projectName: '정기 유지보수 및 모니터링',
+    status: '유지보수',
+    startDate: '2023.01.01',
+    dueDate: '상시',
+    priority: '낮음',
+  },
+  {
+    id: 'nova-fintech-app',
+    companyName: '노바핀테크',
+    companyCode: 'NF',
+    projectName: '금융 앱 접근성 개선',
+    status: '개발',
+    startDate: '2024.01.05',
+    dueDate: '2024.04.28',
+    priority: '높음',
+  },
+  {
+    id: 'ever-green-crm',
+    companyName: '에버그린',
+    companyCode: 'EG',
+    projectName: 'CRM 관리자 콘솔 구축',
+    status: '배포',
+    startDate: '2024.01.12',
+    dueDate: '2024.03.20',
+    priority: '보통',
+  },
+  {
+    id: 'hexa-cloud-migration',
+    companyName: '헥사클라우드',
+    companyCode: 'HC',
+    projectName: '레거시 서비스 클라우드 전환',
+    status: '기획',
+    startDate: '2024.02.01',
+    dueDate: '2024.06.30',
+    priority: '긴급',
+  },
+  {
+    id: 'orion-campus-renewal',
+    companyName: '오리온캠퍼스',
+    companyCode: 'OC',
+    projectName: '교육 플랫폼 브랜딩 리뉴얼',
+    status: '검수',
+    startDate: '2024.02.11',
+    dueDate: '2024.05.09',
+    priority: '보통',
+  },
+  {
+    id: 'pulse-health-monitor',
+    companyName: '펄스헬스',
+    companyCode: 'PH',
+    projectName: '실시간 모니터링 대시보드',
+    status: '유지보수',
+    startDate: '2024.02.13',
+    dueDate: '상시',
+    priority: '낮음',
+  },
+  {
+    id: 'delta-logistics-admin',
+    companyName: '델타로지스',
+    companyCode: 'DL',
+    projectName: '물류 관제 백오피스 개발',
+    status: '개발',
+    startDate: '2024.02.18',
+    dueDate: '2024.07.18',
+    priority: '높음',
+  },
+  {
+    id: 'vivid-media-analytics',
+    companyName: '비비드미디어',
+    companyCode: 'VM',
+    projectName: '광고 성과 분석 리포트 시스템',
+    status: '배포',
+    startDate: '2024.02.25',
+    dueDate: '2024.04.15',
+    priority: '보통',
+  },
+  {
+    id: 'axis-security-portal',
+    companyName: '액시스시큐리티',
+    companyCode: 'AS',
+    projectName: '보안 포털 SSO 통합',
+    status: '기획',
+    startDate: '2024.03.02',
+    dueDate: '2024.08.01',
+    priority: '긴급',
+  },
+  {
+    id: 'mint-labs-research-hub',
+    companyName: '민트랩스',
+    companyCode: 'ML',
+    projectName: '연구 데이터 허브 정보구조 설계',
+    status: '검수',
+    startDate: '2024.03.10',
+    dueDate: '2024.05.27',
+    priority: '보통',
+  },
+  {
+    id: 'loop-energy-maintenance',
+    companyName: '루프에너지',
+    companyCode: 'LE',
+    projectName: '에너지 SaaS 유지보수 계약',
+    status: '유지보수',
+    startDate: '2024.03.15',
+    dueDate: '상시',
+    priority: '낮음',
+  },
+  {
+    id: 'corebank-mobile-rebuild',
+    companyName: '코어뱅크',
+    companyCode: 'CB',
+    projectName: '모바일 뱅킹 전면 개편',
+    status: '개발',
+    startDate: '2024.03.21',
+    dueDate: '2024.09.30',
+    priority: '긴급',
+  },
+  {
+    id: 'stellar-ops-kpi-board',
+    companyName: '스텔라옵스',
+    companyCode: 'SO',
+    projectName: 'KPI 운영 보드 자동화',
+    status: '배포',
+    startDate: '2024.03.28',
+    dueDate: '2024.05.30',
+    priority: '높음',
+  },
+  {
+    id: 'urban-home-iot',
+    companyName: '어반홈',
+    companyCode: 'UH',
+    projectName: 'IoT 홈관리 앱 기획',
+    status: '기획',
+    startDate: '2024.04.03',
+    dueDate: '2024.07.04',
+    priority: '보통',
+  },
+  {
+    id: 'prime-legal-review-system',
+    companyName: '프라임리걸',
+    companyCode: 'PL',
+    projectName: '문서 검토 자동화 시스템 검수',
+    status: '검수',
+    startDate: '2024.04.06',
+    dueDate: '2024.06.12',
+    priority: '높음',
+  },
+  {
+    id: 'zenith-retail-monitoring',
+    companyName: '제니스리테일',
+    companyCode: 'ZR',
+    projectName: '매장 모니터링 유지보수',
+    status: '유지보수',
+    startDate: '2024.04.08',
+    dueDate: '상시',
+    priority: '낮음',
+  },
+  {
+    id: 'terra-biotech-dashboard',
+    companyName: '테라바이오텍',
+    companyCode: 'TB',
+    projectName: '실험실 데이터 대시보드 개발',
+    status: '개발',
+    startDate: '2024.04.12',
+    dueDate: '2024.08.22',
+    priority: '높음',
+  },
+  {
+    id: 'harbor-mobility-launch',
+    companyName: '하버모빌리티',
+    companyCode: 'HM',
+    projectName: '공유 모빌리티 서비스 런칭 배포',
+    status: '배포',
+    startDate: '2024.04.19',
+    dueDate: '2024.05.14',
+    priority: '긴급',
+  },
+  {
+    id: 'atlas-workspace-plan',
+    companyName: '아틀라스워크스',
+    companyCode: 'AW',
+    projectName: '협업 워크스페이스 신규 IA 기획',
+    status: '기획',
+    startDate: '2024.04.24',
+    dueDate: '2024.07.18',
+    priority: '보통',
+  },
+  {
+    id: 'kappa-insure-qa',
+    companyName: '카파인슈어',
+    companyCode: 'KI',
+    projectName: '보험 청구 플로우 QA',
+    status: '검수',
+    startDate: '2024.04.28',
+    dueDate: '2024.05.22',
+    priority: '높음',
+  },
+]
+
+export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
+  'next-korea-ai-chatbot': {
+    id: 'next-korea-ai-chatbot',
+    title: '클라우드 기반 협업 툴 개발',
+    statusLabel: 'IN PROGRESS',
+    clientName: '넥스트 테크놀로지',
+    contact: '02-1234-5678',
+    budget: '₩ 45,000,000',
+    deadline: '2024.12.31',
+    progress: 72,
+  },
+  'global-research-dashboard': {
+    id: 'global-research-dashboard',
+    title: '리서치 데이터 파이프라인 고도화',
+    statusLabel: 'REVIEW',
+    clientName: '글로벌 리서치',
+    contact: '02-9087-1234',
+    budget: '₩ 31,500,000',
+    deadline: '2024.10.14',
+    progress: 61,
+  },
+  'samsung-tech-ecommerce-renewal': {
+    id: 'samsung-tech-ecommerce-renewal',
+    title: '이커머스 플랫폼 리뉴얼 구축',
+    statusLabel: 'PLANNING',
+    clientName: '삼성테크론',
+    contact: '031-440-9921',
+    budget: '₩ 68,000,000',
+    deadline: '2025.02.10',
+    progress: 34,
+  },
+  'mirae-edu-web-launch': {
+    id: 'mirae-edu-web-launch',
+    title: '에듀 웹진 콘텐츠 플랫폼 개발',
+    statusLabel: 'QA',
+    clientName: '미래교육',
+    contact: '070-1122-9090',
+    budget: '₩ 22,000,000',
+    deadline: '2024.09.28',
+    progress: 88,
+  },
+  'lion-bio-maintenance': {
+    id: 'lion-bio-maintenance',
+    title: '바이오 서비스 운영 유지보수',
+    statusLabel: 'MAINTENANCE',
+    clientName: '라온바이오',
+    contact: '02-6001-2200',
+    budget: '₩ 12,000,000 / month',
+    deadline: '상시 운영',
+    progress: 49,
+  },
+}
+
+export function getProjectDetail(id: string): ProjectDetail {
+  return (
+    PROJECT_DETAILS[id] ?? {
+      id,
+      title: `${id} 프로젝트`,
+      statusLabel: 'DRAFT',
+      clientName: '미등록 업체',
+      contact: '-',
+      budget: '미정',
+      deadline: '미정',
+      progress: 0,
+    }
+  )
+}

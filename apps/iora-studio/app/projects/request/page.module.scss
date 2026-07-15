@@ -1,0 +1,486 @@
+.requestPage {
+  flex: 1;
+  padding: 48px 24px 0;
+}
+
+.requestInner {
+  width: min(100%, 1280px);
+  margin: 0 auto;
+}
+
+.content {
+  display: grid;
+  gap: 48px;
+  padding-bottom: 156px;
+}
+
+.heroSection {
+  padding-top: 14px;
+}
+
+.titleBlock {
+  display: grid;
+  gap: 14px;
+}
+
+.pageTitle {
+  margin: 0;
+  color: #f3efe5;
+  font-size: clamp(46px, 6vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+}
+
+.pageDescription {
+  margin: 0;
+  color: #c5c0bc;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.clientCaption {
+  margin: 2px 0 0;
+  color: rgb(200 241 53 / 0.88);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.62fr);
+  gap: 24px;
+}
+
+.remainingCard,
+.infoCard,
+.tableWrap {
+  border: 1px solid #272220;
+  border-radius: 12px;
+  background: #111111;
+  box-shadow: 0 20px 80px rgb(0 0 0 / 0.16);
+}
+
+.remainingCard {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+  min-height: 212px;
+  padding: 32px;
+}
+
+.cardEyebrow,
+.metaLabel,
+.historyTable th {
+  color: #beb8b2;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.remainingValue {
+  color: #d4ff2a;
+  font-size: clamp(60px, 7vw, 84px);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.contractBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  min-height: 22px;
+  padding: 0 10px;
+  border: 1px solid rgb(212 255 42 / 0.24);
+  background: rgb(212 255 42 / 0.08);
+  color: #d4ff2a;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.infoCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 212px;
+  padding: 32px;
+}
+
+.infoMain {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+
+.infoTitle {
+  margin: 0;
+  color: #f2eee7;
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+.infoMetaGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-top: 4px;
+}
+
+.metaLabel {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.metaValue {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: #efe9e1;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.statusAccent {
+  color: #d4ff2a;
+  font-weight: 700;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #d4ff2a;
+}
+
+.infoActions {
+  display: grid;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.ghostAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 188px;
+  min-height: 38px;
+  padding: 0 18px;
+  border: 1px solid #2c2a27;
+  border-radius: 6px;
+  color: #eee7df;
+  text-decoration: none;
+  transition:
+    border-color 0.18s ease,
+    color 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.ghostAction:hover {
+  border-color: rgb(212 255 42 / 0.36);
+  background: rgb(212 255 42 / 0.06);
+  color: #dfff5c;
+}
+
+.historySection {
+  display: grid;
+  gap: 28px;
+}
+
+.historyHeader {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.historyTitleRow {
+  min-width: 0;
+}
+
+.historyTitle {
+  margin: 0;
+  color: #f1ece5;
+  font-size: clamp(28px, 4vw, 36px);
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+
+.historyTitle span {
+  color: #d9d1c4;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.historyToolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.searchField {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 240px;
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid #2a2623;
+  background: #121212;
+  color: #a9a198;
+}
+
+.searchField input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #f3eee6;
+  font: inherit;
+}
+
+.searchField input::placeholder {
+  color: #7c756f;
+}
+
+.iconButton,
+.rowAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #2a2623;
+  background: #121212;
+  color: #ddd5cb;
+  cursor: pointer;
+  transition:
+    border-color 0.18s ease,
+    color 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.iconButton {
+  width: 42px;
+  height: 42px;
+}
+
+.iconButton:hover,
+.rowAction:hover {
+  border-color: rgb(212 255 42 / 0.36);
+  color: #dfff5c;
+}
+
+.filterSelect {
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid #2a2623;
+  background: #121212;
+  color: #f1ece5;
+  font: inherit;
+}
+
+.primaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 4px;
+  background: #d4ff2a;
+  color: #121212;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.primaryAction:hover {
+  background: #defe55;
+}
+
+.primaryAction:active {
+  transform: translateY(1px);
+}
+
+.tableWrap {
+  overflow: hidden;
+}
+
+.historyTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.historyTable thead {
+  background: #1d1b1a;
+}
+
+.historyTable th,
+.historyTable td {
+  padding: 20px 24px;
+  border-bottom: 1px solid rgb(255 255 255 / 0.07);
+  text-align: left;
+}
+
+.historyTable td {
+  color: #efe9e1;
+  font-size: 15px;
+}
+
+.historyRow:last-child td {
+  border-bottom: 0;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 22px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.statusCompleted {
+  border: 1px solid rgb(0 205 114 / 0.26);
+  background: rgb(0 205 114 / 0.08);
+  color: #00d97a;
+}
+
+.statusProcessing {
+  border: 1px solid rgb(255 170 0 / 0.24);
+  background: rgb(255 170 0 / 0.08);
+  color: #ffb627;
+}
+
+.statusReceived {
+  border: 1px solid rgb(67 124 255 / 0.28);
+  background: rgb(67 124 255 / 0.08);
+  color: #4d91ff;
+}
+
+.titleCell {
+  width: 38%;
+}
+
+.dateCell {
+  white-space: nowrap;
+}
+
+.assigneeCell {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: #2a2a2a;
+  color: #ddd5cb;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.rowAction {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  background: transparent;
+}
+
+.historyFooter {
+  display: flex;
+  justify-content: center;
+}
+
+.moreButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: transparent;
+  color: #cfc6bb;
+  cursor: pointer;
+}
+
+.emptyHint {
+  margin: 0;
+  color: #8b847c;
+  font-size: 14px;
+}
+
+@media (max-width: 1100px) {
+  .summaryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .infoCard,
+  .historyHeader {
+    display: grid;
+  }
+
+  .historyToolbar {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 800px) {
+  .requestPage {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .historyToolbar {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .searchField,
+  .primaryAction,
+  .filterSelect {
+    width: 100%;
+  }
+
+  .tableWrap {
+    overflow-x: auto;
+  }
+
+  .historyTable {
+    min-width: 940px;
+  }
+}
+
+@media (max-width: 560px) {
+  .pageTitle {
+    font-size: 42px;
+  }
+
+  .remainingCard,
+  .infoCard {
+    padding: 24px 20px;
+  }
+
+  .infoActions {
+    width: 100%;
+  }
+
+  .ghostAction {
+    min-width: 0;
+    width: 100%;
+  }
+}

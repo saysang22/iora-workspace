@@ -10,11 +10,13 @@ import {
   type PageProgressStatus,
   type ProjectStatusData,
 } from '../projects/projectStatus.mock'
+import ProjectStatusFlow from './project-status-flow/ProjectStatusFlow'
+import type { ProjectStatusFlowStep, ProjectStatusFlowStepState } from './project-status-flow/ProjectStatusFlow'
 import styles from './ProjectStatusClient.module.scss'
 
 type SessionState = 'loading' | 'ready' | 'unauthorized'
 
-function getPhaseState(currentIndex: number, targetIndex: number) {
+function getPhaseState(currentIndex: number, targetIndex: number): ProjectStatusFlowStepState {
   if (targetIndex < currentIndex) {
     return 'done'
   }
@@ -84,6 +86,17 @@ export default function ProjectStatusClient() {
     return PROJECT_PHASES.findIndex((phase) => phase.key === projectData.currentPhase)
   }, [projectData])
 
+  const flowSteps = useMemo<ProjectStatusFlowStep[]>(
+    () =>
+      PROJECT_PHASES.map((phase, index) => ({
+        id: phase.key,
+        label: phase.label,
+        labelEn: phase.labelEn,
+        state: getPhaseState(currentPhaseIndex, index),
+      })),
+    [currentPhaseIndex],
+  )
+
   if (sessionState !== 'ready' || !projectData) {
     return (
       <section className={styles.feedbackSection} aria-live='polite'>
@@ -124,41 +137,7 @@ export default function ProjectStatusClient() {
         </div>
       </section>
 
-      <section className={styles.stepperSection} aria-labelledby='project-stepper-title'>
-        <div className={styles.sectionHeading}>
-          <p className={styles.sectionEyebrow}>Project Flow</p>
-          <h2 className={styles.sectionTitle} id='project-stepper-title'>
-            프로젝트 진행 단계
-          </h2>
-        </div>
-
-        <ol className={styles.stepperList}>
-          {PROJECT_PHASES.map((phase, index) => {
-            const phaseState = getPhaseState(currentPhaseIndex, index)
-
-            return (
-              <li
-                key={phase.key}
-                className={[
-                  styles.stepItem,
-                  phaseState === 'done' ? styles.stepDone : '',
-                  phaseState === 'active' ? styles.stepActive : '',
-                  phaseState === 'pending' ? styles.stepPending : '',
-                ].join(' ')}
-              >
-                <span className={styles.stepIcon} aria-hidden='true'>
-                  {phaseState === 'done' ? <FiCheck size={16} /> : phaseState === 'active' ? <FiLoader size={16} /> : <FiClock size={16} />}
-                </span>
-                <div className={styles.stepText}>
-                  <strong>{phase.label}</strong>
-                  <span>{phase.labelEn}</span>
-                </div>
-                {phaseState === 'active' ? <span className={styles.activeBadge}>진행 중</span> : null}
-              </li>
-            )
-          })}
-        </ol>
-      </section>
+      <ProjectStatusFlow steps={flowSteps} title='프로젝트 진행 단계' deadlineValue={projectData.deadlineDate} />
 
       <section className={styles.devSection} aria-labelledby='project-dev-title'>
         <div className={styles.devHeader}>
@@ -175,7 +154,7 @@ export default function ProjectStatusClient() {
           <div className={styles.progressTextGroup}>
             <p className={styles.progressSummaryText}>
               {projectData.pageSummary.completed}/{projectData.pageSummary.total} 페이지 완료
-              <span className={styles.progressSummarySub}> 전체 공정의 {projectData.pageSummary.percent}%</span>
+              <span className={styles.progressSummarySub}> 전체 공정률 {projectData.pageSummary.percent}%</span>
             </p>
             <strong className={styles.progressPercent}>{projectData.pageSummary.percent}%</strong>
           </div>
@@ -197,7 +176,13 @@ export default function ProjectStatusClient() {
                   ].join(' ')}
                   aria-hidden='true'
                 >
-                  {page.status === 'done' ? <FiCheck size={15} /> : page.status === 'active' ? <FiLoader size={15} /> : <FiClock size={15} />}
+                  {page.status === 'done' ? (
+                    <FiCheck size={15} />
+                  ) : page.status === 'active' ? (
+                    <FiLoader size={15} />
+                  ) : (
+                    <FiClock size={15} />
+                  )}
                 </span>
                 <span className={styles.pageName}>{page.name}</span>
               </div>
