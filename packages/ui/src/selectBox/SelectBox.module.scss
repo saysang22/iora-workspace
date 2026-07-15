@@ -1,0 +1,26 @@
+﻿.container {
+  width: 100%;
+  max-width: 320px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d0d7de;
+  border-radius: 0.5rem;
+  background: var(--select-background, #ffffff);
+  color: var(--select-text-color, #1f2328);
+  font-size: 0.875rem;
+  line-height: 1.2;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.container:focus {
+  outline: none;
+}
+
+.container:focus-visible {
+  border-color: var(--select-focus-border-color, #1f6feb);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--select-focus-border-color, #1f6feb) 25%, transparent);
+}
+
+.container:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

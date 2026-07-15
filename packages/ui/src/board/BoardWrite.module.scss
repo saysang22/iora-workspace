@@ -1,0 +1,59 @@
+﻿.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+  color: #111827;
+}
+
+.editor {
+  position: relative;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  min-height: 220px;
+  padding: 10px;
+}
+
+.editor :global(.ProseMirror) {
+  min-height: 180px;
+  outline: none;
+}
+
+.editorPlaceholder {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 14px;
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.attachments {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.attachmentLabel {
+  font-size: 14px;
+  color: #334155;
+}
+
+.attachmentList {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  color: #334155;
+}
