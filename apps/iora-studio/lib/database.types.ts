@@ -172,6 +172,8 @@ export type Database = {
       projects: {
         Row: {
           care_ended_at: string | null
+          client_name: string | null
+          company_name: string | null
           created_at: string
           current_stage: Database['public']['Enums']['project_stage']
           id: string
@@ -179,10 +181,12 @@ export type Database = {
           project_name: string
           started_at: string
           updated_at: string
-          user_id: string
+          user_id: string | null
         }
         Insert: {
           care_ended_at?: string | null
+          client_name?: string | null
+          company_name?: string | null
           created_at?: string
           current_stage?: Database['public']['Enums']['project_stage']
           id?: string
@@ -190,10 +194,12 @@ export type Database = {
           project_name: string
           started_at?: string
           updated_at?: string
-          user_id: string
+          user_id?: string | null
         }
         Update: {
           care_ended_at?: string | null
+          client_name?: string | null
+          company_name?: string | null
           created_at?: string
           current_stage?: Database['public']['Enums']['project_stage']
           id?: string
@@ -201,7 +207,7 @@ export type Database = {
           project_name?: string
           started_at?: string
           updated_at?: string
-          user_id?: string
+          user_id?: string | null
         }
         Relationships: [
           {
@@ -218,12 +224,35 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      create_project_with_pages: {
+        Args: {
+          input_client_name?: string | null
+          input_company_name?: string | null
+          input_care_ended_at?: string | null
+          input_current_stage?: Database['public']['Enums']['project_stage']
+          input_pages?: Json
+          input_progress_percent?: number
+          input_project_name: string
+          input_started_at?: string
+          input_user_id?: string | null
+        }
+        Returns: string
+      }
       get_capacity_availability: {
         Args: { end_date: string; start_date: string }
         Returns: {
           is_unavailable: boolean
           max_capacity: number | null
           reserved_count: number
+          work_date: string
+        }[]
+      }
+      get_zoom_meeting_availability: {
+        Args: { end_date: string; start_date: string }
+        Returns: {
+          is_unavailable: boolean
+          reserved_count: number
+          reserved_times: string[]
           work_date: string
         }[]
       }

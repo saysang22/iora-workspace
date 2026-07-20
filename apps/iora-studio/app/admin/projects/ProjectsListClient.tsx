@@ -17,9 +17,9 @@ import {
   FiSliders,
   FiTrendingDown,
   FiTrendingUp,
-  FiZap,
 } from 'react-icons/fi'
 import type { AdminProjectListItem, AdminProjectStats } from '../../../lib/projects'
+import AdminProjectCreateModal from './AdminProjectCreateModal'
 import styles from './page.module.scss'
 
 const PAGE_SIZE = 5
@@ -32,20 +32,24 @@ const STATUS_CLASS_MAP = {
   유지보수: styles.statusMaintenance,
 } as const
 
-const PRIORITY_CLASS_MAP = {
-  긴급: styles.priorityUrgent,
-  높음: styles.priorityHigh,
-  보통: styles.priorityNormal,
-  낮음: styles.priorityLow,
+const PROJECT_TYPE_META = {
+  member: {
+    label: '회원',
+    className: styles.typeMember,
+  },
+  guest: {
+    label: '비회원',
+    className: styles.typeGuest,
+  },
 } as const
 
 const TABLE_COLUMNS: Array<{ key: string; header: string; align?: 'left' | 'center' | 'right' }> = [
   { key: 'company', header: '업체명' },
+  { key: 'projectType', header: '구분', align: 'center' },
   { key: 'projectName', header: '프로젝트명' },
   { key: 'status', header: '현재 상태' },
   { key: 'startDate', header: '시작일' },
   { key: 'dueDate', header: '마감일' },
-  { key: 'priority', header: '우선순위' },
   { key: 'actions', header: '관리', align: 'center' },
 ]
 
@@ -56,6 +60,7 @@ type ProjectsListClientProps = {
 
 export default function ProjectsListClient({ projects, stats }: ProjectsListClientProps) {
   const [page, setPage] = useState(1)
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
 
   const statCards = [
     {
@@ -69,7 +74,7 @@ export default function ProjectsListClient({ projects, stats }: ProjectsListClie
     {
       id: 'active',
       icon: FiCalendar,
-      trend: '진행중',
+      trend: '진행 중',
       trendTone: 'down' as const,
       label: '진행 중',
       value: String(stats.active).padStart(2, '0'),
@@ -109,11 +114,15 @@ export default function ProjectsListClient({ projects, stats }: ProjectsListClie
             </Link>
           </div>
         ),
+        projectType: (
+          <span className={`${styles.typePill} ${PROJECT_TYPE_META[project.projectType].className}`.trim()}>
+            {PROJECT_TYPE_META[project.projectType].label}
+          </span>
+        ),
         projectName: <span className={styles.projectNameCell}>{project.projectName}</span>,
         status: <span className={`${styles.statusPill} ${STATUS_CLASS_MAP[project.status]}`.trim()}>{project.status}</span>,
         startDate: <span className={styles.dateCell}>{project.startDate}</span>,
         dueDate: <span className={styles.dateCell}>{project.dueDate}</span>,
-        priority: <span className={`${styles.priorityText} ${PRIORITY_CLASS_MAP[project.priority]}`.trim()}>{project.priority}</span>,
         actions: (
           <button className={styles.moreButton} type='button' aria-label={`${project.companyName} 관리`}>
             <FiMoreVertical size={18} />
@@ -131,7 +140,7 @@ export default function ProjectsListClient({ projects, stats }: ProjectsListClie
           <p className={styles.pageDescription}>등록된 프로젝트를 한눈에 확인하고 진행 상태를 관리합니다.</p>
         </div>
 
-        <button className={styles.primaryButton} type='button'>
+        <button className={styles.primaryButton} type='button' onClick={() => setIsCreateModalOpen(true)}>
           <FiFolderPlus size={16} />
           <span>새 프로젝트 등록</span>
         </button>
@@ -177,16 +186,11 @@ export default function ProjectsListClient({ projects, stats }: ProjectsListClie
             <span>전체 상태</span>
             <FiChevronDown size={14} />
           </button>
-          <button className={styles.filterButton} type='button'>
-            <FiZap size={14} />
-            <span>전체 우선순위</span>
-            <FiChevronDown size={14} />
-          </button>
         </div>
 
         <div className={styles.searchStatus}>
           <FiSearch size={16} />
-          <span>총 {projects.length}개의 프로젝트가 검색됨</span>
+          <span>총 {projects.length}개의 프로젝트가 조회됨</span>
         </div>
       </section>
 
@@ -260,6 +264,8 @@ export default function ProjectsListClient({ projects, stats }: ProjectsListClie
           />
         </div>
       </section>
+
+      <AdminProjectCreateModal isOpen={isCreateModalOpen} onClose={() => setIsCreateModalOpen(false)} />
     </div>
   )
 }

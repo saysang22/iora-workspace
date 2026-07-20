@@ -1,0 +1,15 @@
+.deleteButton {
+  width: 88px !important;
+  min-height: 50px;
+  padding: 0 16px !important;
+  flex: 0 0 88px;
+  border-color: rgb(255 79 159 / 0.14) !important;
+  background: rgb(255 79 159 / 0.12) !important;
+  color: #ff77b0 !important;
+}
+
+.deleteButton:hover {
+  border-color: rgb(255 79 159 / 0.22) !important;
+  background: rgb(255 79 159 / 0.18) !important;
+  color: #ff91bf !important;
+}

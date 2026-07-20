@@ -1,0 +1,85 @@
+.composer {
+  display: grid;
+  gap: 14px;
+}
+
+.inline {
+  align-items: end;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.stacked {
+  gap: 16px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.fieldLabel {
+  color: #cfdbef;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.bulkArea {
+  display: grid;
+  gap: 12px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+}
+
+.textarea {
+  min-height: 118px;
+  width: 100%;
+  resize: vertical;
+  padding: 14px;
+  border: 1px solid rgb(148 163 184 / 0.14);
+  border-radius: 14px;
+  background: #0b1423;
+  color: #f8fafc;
+  font: inherit;
+  line-height: 1.6;
+}
+
+.textarea::placeholder {
+  color: #6f83a3;
+  opacity: 1;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #c8f135;
+  box-shadow: 0 0 0 1px rgb(200 241 53 / 0.35);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+  width: 110px;
+  flex: 0 0 110px;
+}
+
+.errorText {
+  margin: 0;
+  color: #ff8ab9;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@media (max-width: 840px) {
+  .inline {
+    grid-template-columns: 1fr;
+  }
+}

@@ -5,27 +5,33 @@ import { useRouter } from 'next/navigation'
 import { FiCalendar, FiCheck, FiClock, FiLoader } from 'react-icons/fi'
 import { supabase } from '../../lib/supabase'
 import {
+  buildSharedProjectPageProgress,
+  buildSharedProjectPageSummary,
+  type ProjectPageRow,
+} from '../../lib/projects'
+import { buildProjectFlowSteps } from './project-status-flow/ProjectStatusFlow'
+import {
   buildMockProjectStatus,
-  PROJECT_PHASES,
   type PageProgressStatus,
   type ProjectStatusData,
 } from '../projects/projectStatus.mock'
 import ProjectStatusFlow from './project-status-flow/ProjectStatusFlow'
-import type { ProjectStatusFlowStep, ProjectStatusFlowStepState } from './project-status-flow/ProjectStatusFlow'
 import styles from './ProjectStatusClient.module.scss'
 
 type SessionState = 'loading' | 'ready' | 'unauthorized'
 
-function getPhaseState(currentIndex: number, targetIndex: number): ProjectStatusFlowStepState {
-  if (targetIndex < currentIndex) {
-    return 'done'
+function formatDisplayDate(value: string | null) {
+  if (!value) {
+    return '미정'
   }
 
-  if (targetIndex === currentIndex) {
-    return 'active'
+  const [year, month, day] = value.split('-')
+
+  if (!year || !month || !day) {
+    return value
   }
 
-  return 'pending'
+  return `${year}.${month}.${day}`
 }
 
 function getPageStatusLabel(status: PageProgressStatus) {
@@ -67,7 +73,40 @@ export default function ProjectStatusClient() {
           ? sessionUser.user_metadata.company_name.trim()
           : sessionUser.email ?? 'CLIENT'
 
-      setProjectData(buildMockProjectStatus(clientName))
+      const { data: projects, error } = await supabase
+        .from('projects')
+        .select('id, project_name, current_stage, progress_percent, started_at, care_ended_at, project_pages(id, page_name, sort_order, status)')
+        .eq('user_id', sessionUser.id)
+        .order('created_at', { ascending: false })
+        .limit(1)
+
+      if (!isMounted) {
+        return
+      }
+
+      if (error || !projects || projects.length === 0) {
+        setProjectData(buildMockProjectStatus(clientName))
+        setSessionState('ready')
+        return
+      }
+
+      const project = projects[0]
+      const mappedPages = buildSharedProjectPageProgress(
+        (project.project_pages ?? []) as ProjectPageRow[],
+      )
+      const pageSummary = buildSharedProjectPageSummary(mappedPages)
+
+      setProjectData({
+        clientName,
+        projectTitle: project.project_name,
+        startDate: formatDisplayDate(project.started_at),
+        deadlineDate: formatDisplayDate(project.care_ended_at),
+        currentPhase: project.current_stage,
+        totalProgress: project.progress_percent,
+        devLogVersion: 'LIVE PROJECT',
+        pageSummary,
+        pages: mappedPages,
+      })
       setSessionState('ready')
     }
 
@@ -78,23 +117,9 @@ export default function ProjectStatusClient() {
     }
   }, [router])
 
-  const currentPhaseIndex = useMemo(() => {
-    if (!projectData) {
-      return -1
-    }
-
-    return PROJECT_PHASES.findIndex((phase) => phase.key === projectData.currentPhase)
-  }, [projectData])
-
-  const flowSteps = useMemo<ProjectStatusFlowStep[]>(
-    () =>
-      PROJECT_PHASES.map((phase, index) => ({
-        id: phase.key,
-        label: phase.label,
-        labelEn: phase.labelEn,
-        state: getPhaseState(currentPhaseIndex, index),
-      })),
-    [currentPhaseIndex],
+  const flowSteps = useMemo(
+    () => (projectData ? buildProjectFlowSteps(projectData.currentPhase) : []),
+    [projectData],
   )
 
   if (sessionState !== 'ready' || !projectData) {
@@ -127,7 +152,7 @@ export default function ProjectStatusClient() {
           <article className={styles.metricCard}>
             <span className={styles.metricLabel}>Current Phase</span>
             <strong className={styles.metricValue}>
-              {PROJECT_PHASES.find((phase) => phase.key === projectData.currentPhase)?.label ?? '-'}
+              {flowSteps.find((step) => step.state === 'active')?.label ?? '-'}
             </strong>
           </article>
           <article className={styles.metricCard}>
@@ -154,7 +179,7 @@ export default function ProjectStatusClient() {
           <div className={styles.progressTextGroup}>
             <p className={styles.progressSummaryText}>
               {projectData.pageSummary.completed}/{projectData.pageSummary.total} 페이지 완료
-              <span className={styles.progressSummarySub}> 전체 공정률 {projectData.pageSummary.percent}%</span>
+              <span className={styles.progressSummarySub}> 전체 공정을 {projectData.pageSummary.percent}%</span>
             </p>
             <strong className={styles.progressPercent}>{projectData.pageSummary.percent}%</strong>
           </div>

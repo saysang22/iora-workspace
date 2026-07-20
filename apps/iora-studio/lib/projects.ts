@@ -9,18 +9,26 @@ export type ProjectWithPages = ProjectRow & {
   project_pages: ProjectPageRow[]
 }
 
+export type SharedProjectPageProgressStatus = 'active' | 'done' | 'pending'
+
+export type SharedProjectPageProgress = {
+  id: string
+  name: string
+  status: SharedProjectPageProgressStatus
+}
+
 export type AdminProjectStatus = '개발' | '배포' | '기획' | '검수' | '유지보수'
-export type AdminProjectPriority = '긴급' | '높음' | '보통' | '낮음'
+export type AdminProjectType = 'member' | 'guest'
 
 export type AdminProjectListItem = {
   id: string
   companyName: string
   companyCode: string
   projectName: string
+  projectType: AdminProjectType
   status: AdminProjectStatus
   startDate: string
   dueDate: string
-  priority: AdminProjectPriority
 }
 
 export type AdminProjectStats = {
@@ -97,40 +105,64 @@ function buildCompanyCode(companyName: string) {
   return normalized.slice(0, 2).toUpperCase()
 }
 
-function toPriority(stage: Database['public']['Enums']['project_stage']): AdminProjectPriority {
-  if (stage === 'launch' || stage === 'qa') {
-    return '긴급'
-  }
-
-  if (stage === 'development' || stage === 'planning') {
-    return '높음'
-  }
-
-  if (stage === 'completed') {
-    return '낮음'
-  }
-
-  return '보통'
-}
-
 async function getProfileMap(client: SupabaseClient<Database>, userIds: string[]) {
   if (!userIds.length) {
     return new Map<string, ProfileRow>()
   }
 
-  const { data: profiles } = await client
-    .from('profiles')
-    .select('*')
-    .in('id', userIds)
+  const { data: profiles } = await client.from('profiles').select('*').in('id', userIds)
 
   return new Map((profiles ?? []).map((profile) => [profile.id, profile]))
 }
 
+function getProjectCompanyName(project: ProjectRow, profile?: ProfileRow) {
+  return (
+    profile?.company_name ||
+    project.company_name ||
+    profile?.full_name ||
+    project.client_name ||
+    profile?.email ||
+    '미등록 업체'
+  )
+}
+
+export function toSharedProjectPageProgressStatus(
+  status: ProjectPageRow['status'],
+): SharedProjectPageProgressStatus {
+  if (status === 'completed') {
+    return 'done'
+  }
+
+  if (status === 'in_progress') {
+    return 'active'
+  }
+
+  return 'pending'
+}
+
+export function buildSharedProjectPageProgress(pages: ProjectPageRow[]): SharedProjectPageProgress[] {
+  return [...pages]
+    .sort((left, right) => left.sort_order - right.sort_order)
+    .map((page) => ({
+      id: page.id,
+      name: page.page_name,
+      status: toSharedProjectPageProgressStatus(page.status),
+    }))
+}
+
+export function buildSharedProjectPageSummary(pages: SharedProjectPageProgress[]) {
+  const completed = pages.filter((page) => page.status === 'done').length
+  const total = pages.length
+
+  return {
+    completed,
+    total,
+    percent: total > 0 ? Math.round((completed / total) * 100) : 0,
+  }
+}
+
 export async function listProjects(client: SupabaseClient<Database>) {
-  return client
-    .from('projects')
-    .select('*, project_pages(*)')
-    .order('created_at', { ascending: false })
+  return client.from('projects').select('*, project_pages(*)').order('created_at', { ascending: false })
 }
 
 export async function getProjectById(client: SupabaseClient<Database>, projectId: string) {
@@ -138,11 +170,7 @@ export async function getProjectById(client: SupabaseClient<Database>, projectId
 }
 
 export async function listProjectPages(client: SupabaseClient<Database>, projectId: string) {
-  return client
-    .from('project_pages')
-    .select('*')
-    .eq('project_id', projectId)
-    .order('sort_order', { ascending: true })
+  return client.from('project_pages').select('*').eq('project_id', projectId).order('sort_order', { ascending: true })
 }
 
 export async function listAdminProjects(client: SupabaseClient<Database>) {
@@ -152,22 +180,24 @@ export async function listAdminProjects(client: SupabaseClient<Database>) {
     throw error
   }
 
-  const userIds = Array.from(new Set((projects ?? []).map((project) => project.user_id)))
+  const userIds = Array.from(
+    new Set((projects ?? []).map((project) => project.user_id).filter((value): value is string => Boolean(value))),
+  )
   const profileMap = await getProfileMap(client, userIds)
 
   const items: AdminProjectListItem[] = (projects ?? []).map((project) => {
-    const profile = profileMap.get(project.user_id)
-    const companyName = profile?.company_name || profile?.full_name || profile?.email || '미등록 업체'
+    const profile = project.user_id ? profileMap.get(project.user_id) : undefined
+    const companyName = getProjectCompanyName(project, profile)
 
     return {
       id: project.id,
       companyName,
       companyCode: buildCompanyCode(companyName),
       projectName: project.project_name,
+      projectType: project.user_id ? 'member' : 'guest',
       status: STAGE_STATUS_MAP[project.current_stage],
       startDate: formatDate(project.started_at),
       dueDate: formatDate(project.care_ended_at),
-      priority: toPriority(project.current_stage),
     }
   })
 
@@ -192,14 +222,18 @@ export async function getAdminProjectDetail(client: SupabaseClient<Database>, pr
     return null
   }
 
-  const { data: profile } = await client
-    .from('profiles')
-    .select('*')
-    .eq('id', project.user_id)
-    .maybeSingle()
+  const profile = project.user_id
+    ? (
+        await client
+          .from('profiles')
+          .select('*')
+          .eq('id', project.user_id)
+          .maybeSingle()
+      ).data
+    : null
 
-  const clientName = profile?.company_name || profile?.full_name || profile?.email || '미등록 업체'
-  const contact = profile?.phone_number || profile?.email || '-'
+  const clientName = getProjectCompanyName(project, profile ?? undefined)
+  const contact = profile?.phone_number || profile?.email || project.client_name || '-'
 
   return {
     id: project.id,

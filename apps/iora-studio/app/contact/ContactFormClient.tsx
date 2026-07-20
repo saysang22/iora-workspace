@@ -149,13 +149,9 @@ function CalendarFieldTrigger({
 async function submitContactForm(values: ContactFormValues) {
   const supabase = createBrowserSupabaseClient()
   const {
-    data: { user },
-    error: authError,
-  } = await supabase.auth.getUser()
-
-  if (authError) {
-    throw authError
-  }
+    data: { session },
+  } = await supabase.auth.getSession()
+  const user = session?.user ?? null
 
   const { error } = await supabase.from('contact_requests').insert({
     user_id: user?.id ?? null,

@@ -1,0 +1,42 @@
+.button {
+  width: 96px !important;
+  min-height: 50px;
+  padding: 0 16px !important;
+  flex: 0 0 96px;
+}
+
+.review {
+  border-color: rgb(59 130 246 / 0.2) !important;
+  background: rgb(59 130 246 / 0.12) !important;
+  color: #7db5ff !important;
+}
+
+.review:hover {
+  border-color: rgb(59 130 246 / 0.28) !important;
+  background: rgb(59 130 246 / 0.18) !important;
+  color: #a5ccff !important;
+}
+
+.progress {
+  border-color: rgb(245 158 11 / 0.2) !important;
+  background: rgb(245 158 11 / 0.12) !important;
+  color: #fbbf24 !important;
+}
+
+.progress:hover {
+  border-color: rgb(245 158 11 / 0.28) !important;
+  background: rgb(245 158 11 / 0.18) !important;
+  color: #fcd34d !important;
+}
+
+.complete {
+  border-color: rgb(16 185 129 / 0.2) !important;
+  background: rgb(16 185 129 / 0.12) !important;
+  color: #34d399 !important;
+}
+
+.complete:hover {
+  border-color: rgb(16 185 129 / 0.28) !important;
+  background: rgb(16 185 129 / 0.18) !important;
+  color: #6ee7b7 !important;
+}

@@ -7,10 +7,10 @@ export function getFallbackAdminProjects() {
     companyName: project.companyName,
     companyCode: project.companyCode,
     projectName: project.projectName,
+    projectType: 'member',
     status: project.status,
     startDate: project.startDate,
     dueDate: project.dueDate,
-    priority: project.priority,
   }))
 
   const stats: AdminProjectStats = {

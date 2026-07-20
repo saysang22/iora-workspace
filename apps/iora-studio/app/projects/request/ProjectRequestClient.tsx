@@ -3,12 +3,14 @@
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { FiArrowRight, FiChevronDown, FiDownload, FiPlus, FiSearch, FiSliders } from 'react-icons/fi'
-import ProjectStatusFlow from '../../_components/project-status-flow/ProjectStatusFlow'
-import type { ProjectStatusFlowStep } from '../../_components/project-status-flow/ProjectStatusFlow'
+import ProjectStatusFlow, {
+  PROJECT_FLOW_STAGES,
+  buildProjectFlowSteps,
+  type ProjectFlowStageKey,
+} from '../../_components/project-status-flow/ProjectStatusFlow'
 import ProjectRequestEditModal from './ProjectRequestEditModal'
 import {
   PROJECT_REQUEST_HISTORY,
-  PROJECT_REQUEST_PHASES,
   PROJECT_REQUEST_SUMMARY,
   type ProjectRequestHistoryItem,
   type RequestStatus,
@@ -17,6 +19,10 @@ import styles from './page.module.scss'
 
 type ProjectRequestClientProps = {
   clientName: string
+  currentStage: ProjectFlowStageKey
+  projectDeadline: string
+  projectName: string
+  servicePeriod: string
 }
 
 const STATUS_META: Record<
@@ -31,7 +37,41 @@ const STATUS_META: Record<
   received: { label: 'RECEIVED', className: styles.statusReceived },
 }
 
-export default function ProjectRequestClient({ clientName }: ProjectRequestClientProps) {
+function getStageStatusText(stage: ProjectFlowStageKey) {
+  return (
+    PROJECT_FLOW_STAGES.find((item) => item.key === stage)?.label ??
+    PROJECT_REQUEST_SUMMARY.statusText
+  )
+}
+
+function getRemainingDays(deadline: string) {
+  if (!deadline || deadline === '미정') {
+    return PROJECT_REQUEST_SUMMARY.remainingDays
+  }
+
+  const targetDate = new Date(`${deadline.replaceAll('.', '-')}T00:00:00`)
+  const today = new Date()
+  const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate())
+  const diff = Math.ceil((targetDate.getTime() - todayStart.getTime()) / (1000 * 60 * 60 * 24))
+
+  if (Number.isNaN(diff)) {
+    return PROJECT_REQUEST_SUMMARY.remainingDays
+  }
+
+  if (diff < 0) {
+    return `D+${Math.abs(diff)}`
+  }
+
+  return `D-${diff}`
+}
+
+export default function ProjectRequestClient({
+  clientName,
+  currentStage,
+  projectDeadline,
+  projectName,
+  servicePeriod,
+}: ProjectRequestClientProps) {
   const [searchTerm, setSearchTerm] = useState('')
   const [statusFilter, setStatusFilter] = useState<'all' | RequestStatus>('all')
   const [sortDescending, setSortDescending] = useState(true)
@@ -48,7 +88,9 @@ export default function ProjectRequestClient({ clientName }: ProjectRequestClien
           return true
         }
 
-        return [item.title, item.assignee, item.date].some((value) => value.toLowerCase().includes(normalizedSearch))
+        return [item.title, item.assignee, item.date].some((value) =>
+          value.toLowerCase().includes(normalizedSearch),
+        )
       })
       .sort((a, b) => {
         const left = a.date.replaceAll('.', '')
@@ -60,48 +102,51 @@ export default function ProjectRequestClient({ clientName }: ProjectRequestClien
 
   const visibleHistory = filteredHistory.slice(0, visibleCount)
   const hasMore = visibleCount < filteredHistory.length
-  const projectDeadline = PROJECT_REQUEST_SUMMARY.servicePeriod.split('~').at(-1)?.trim() ?? PROJECT_REQUEST_SUMMARY.servicePeriod
-  const flowSteps: ProjectStatusFlowStep[] = PROJECT_REQUEST_PHASES.map((phase) => ({
-    id: phase.key,
-    label: phase.label,
-    labelEn: phase.labelEn,
-    state: phase.state === 'current' ? 'active' : phase.state,
-  }))
+  const normalizedDeadline = projectDeadline === '미정' ? '' : projectDeadline
+  const flowSteps = buildProjectFlowSteps(currentStage)
+  const statusText = getStageStatusText(currentStage)
+  const remainingDays = getRemainingDays(projectDeadline)
 
   return (
     <div className={styles.content}>
       <section className={styles.heroSection}>
         <div className={styles.titleBlock}>
           <h1 className={styles.pageTitle}>프로젝트 요청</h1>
-          <p className={styles.pageDescription}>유지보수 진행 현황을 확인하고, 필요한 수정 요청을 빠르게 남길 수 있습니다.</p>
+          <p className={styles.pageDescription}>
+            유지보수 진행 현황을 확인하고, 필요한 수정 요청을 빠르게 남길 수 있습니다.
+          </p>
           <p className={styles.clientCaption}>CLIENT · {clientName}</p>
         </div>
       </section>
 
-      <ProjectStatusFlow steps={flowSteps} title='프로젝트 진행 단계' deadlineValue={projectDeadline} />
+      <ProjectStatusFlow
+        steps={flowSteps}
+        title='프로젝트 진행 단계'
+        deadlineValue={normalizedDeadline}
+      />
 
       <section className={styles.summaryGrid}>
         <article className={styles.remainingCard}>
           <span className={styles.cardEyebrow}>REMAINING DAYS</span>
-          <strong className={styles.remainingValue}>{PROJECT_REQUEST_SUMMARY.remainingDays}</strong>
+          <strong className={styles.remainingValue}>{remainingDays}</strong>
           <span className={styles.contractBadge}>ACTIVE CONTRACT</span>
         </article>
 
         <article className={styles.infoCard}>
           <div className={styles.infoMain}>
             <span className={styles.cardEyebrow}>PROJECT NAME</span>
-            <h2 className={styles.infoTitle}>{PROJECT_REQUEST_SUMMARY.projectName}</h2>
+            <h2 className={styles.infoTitle}>{projectName}</h2>
 
             <div className={styles.infoMetaGrid}>
               <div>
                 <span className={styles.metaLabel}>SERVICE PERIOD</span>
-                <p className={styles.metaValue}>{PROJECT_REQUEST_SUMMARY.servicePeriod}</p>
+                <p className={styles.metaValue}>{servicePeriod}</p>
               </div>
               <div>
                 <span className={styles.metaLabel}>STATUS</span>
                 <p className={`${styles.metaValue} ${styles.statusAccent}`.trim()}>
                   <span className={styles.statusDot} aria-hidden='true' />
-                  {PROJECT_REQUEST_SUMMARY.statusText}
+                  {statusText}
                 </p>
               </div>
             </div>
@@ -160,7 +205,11 @@ export default function ProjectRequestClient({ clientName }: ProjectRequestClien
               <option value='received'>접수</option>
             </select>
 
-            <button className={styles.primaryAction} type='button' onClick={() => setIsRequestModalOpen(true)}>
+            <button
+              className={styles.primaryAction}
+              type='button'
+              onClick={() => setIsRequestModalOpen(true)}
+            >
               <FiPlus size={16} />
               <span>수정 요청하기</span>
             </button>
@@ -188,7 +237,11 @@ export default function ProjectRequestClient({ clientName }: ProjectRequestClien
 
         <div className={styles.historyFooter}>
           {hasMore ? (
-            <button className={styles.moreButton} type='button' onClick={() => setVisibleCount((prev) => prev + 4)}>
+            <button
+              className={styles.moreButton}
+              type='button'
+              onClick={() => setVisibleCount((prev) => prev + 4)}
+            >
               <span>더 많은 요청 보기</span>
               <FiChevronDown size={14} />
             </button>
@@ -198,7 +251,10 @@ export default function ProjectRequestClient({ clientName }: ProjectRequestClien
         </div>
       </section>
 
-      <ProjectRequestEditModal isOpen={isRequestModalOpen} onClose={() => setIsRequestModalOpen(false)} />
+      <ProjectRequestEditModal
+        isOpen={isRequestModalOpen}
+        onClose={() => setIsRequestModalOpen(false)}
+      />
     </div>
   )
 }
@@ -209,7 +265,9 @@ function RequestHistoryRow({ item }: { item: ProjectRequestHistoryItem }) {
   return (
     <tr className={styles.historyRow}>
       <td>
-        <span className={`${styles.statusPill} ${statusMeta.className}`.trim()}>{statusMeta.label}</span>
+        <span className={`${styles.statusPill} ${statusMeta.className}`.trim()}>
+          {statusMeta.label}
+        </span>
       </td>
       <td className={styles.titleCell}>{item.title}</td>
       <td className={styles.dateCell}>{item.date}</td>

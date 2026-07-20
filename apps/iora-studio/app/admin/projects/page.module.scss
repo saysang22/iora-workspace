@@ -263,33 +263,35 @@
   color: #c084fc;
 }
 
+.typePill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 62px;
+  min-height: 30px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.typeMember {
+  border-color: rgb(200 241 53 / 0.22);
+  background: rgb(200 241 53 / 0.12);
+  color: #d9ff61;
+}
+
+.typeGuest {
+  border-color: rgb(255 79 159 / 0.22);
+  background: rgb(255 79 159 / 0.12);
+  color: #ff77b0;
+}
+
 .dateCell {
   color: #97a8c3;
   white-space: nowrap;
-}
-
-.priorityText {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.priorityUrgent {
-  color: #ff4f9f;
-}
-
-.priorityHigh {
-  color: #f59e0b;
-}
-
-.priorityNormal {
-  color: #c9d2e2;
-}
-
-.priorityLow {
-  color: #94a3b8;
 }
 
 .moreButton {

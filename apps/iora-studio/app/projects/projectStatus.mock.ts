@@ -5,7 +5,7 @@ export type ProjectPhaseKey =
   | 'qa'
   | 'launch'
   | 'care'
-  | 'final'
+  | 'completed'
 
 export type PageProgressStatus = 'done' | 'active' | 'pending'
 
@@ -44,11 +44,11 @@ export const PROJECT_PHASES: ProjectPhase[] = [
   { key: 'qa', label: '검수', labelEn: 'QA' },
   { key: 'launch', label: '배포', labelEn: 'LAUNCH' },
   { key: 'care', label: '유지보수', labelEn: 'CARE' },
-  { key: 'final', label: '계약 완료', labelEn: 'FINAL' },
+  { key: 'completed', label: '계약 완료', labelEn: 'FINAL' },
 ]
 
 const MOCK_PAGES: ProjectPageProgress[] = [
-  { id: 'home', name: '홈', status: 'done' },
+  { id: 'home', name: '메인', status: 'done' },
   { id: 'about', name: '회사 소개', status: 'done' },
   { id: 'service', name: '서비스 소개', status: 'done' },
   { id: 'works', name: '포트폴리오', status: 'done' },

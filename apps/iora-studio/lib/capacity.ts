@@ -2,6 +2,7 @@ import type { SupabaseClient } from '@supabase/supabase-js'
 import type { Database } from './database.types'
 
 export type CapacityAvailabilityRow = Database['public']['Functions']['get_capacity_availability']['Returns'][number]
+export type ZoomMeetingAvailabilityRow = Database['public']['Functions']['get_zoom_meeting_availability']['Returns'][number]
 
 export type CapacityAvailabilityMap = Record<
   string,
@@ -9,6 +10,15 @@ export type CapacityAvailabilityMap = Record<
     reservedCount: number
     maxCapacity: number | null
     isUnavailable: boolean
+  }
+>
+
+export type ZoomMeetingAvailabilityMap = Record<
+  string,
+  {
+    reservedCount: number
+    isUnavailable: boolean
+    reservedTimes: string[]
   }
 >
 
@@ -32,6 +42,18 @@ export function buildCapacityAvailabilityMap(rows: CapacityAvailabilityRow[]) {
   }, {})
 }
 
+export function buildZoomMeetingAvailabilityMap(rows: ZoomMeetingAvailabilityRow[]) {
+  return rows.reduce<ZoomMeetingAvailabilityMap>((acc, row) => {
+    acc[row.work_date] = {
+      reservedCount: row.reserved_count,
+      isUnavailable: row.is_unavailable,
+      reservedTimes: row.reserved_times,
+    }
+
+    return acc
+  }, {})
+}
+
 export async function fetchCapacityAvailability(
   client: SupabaseClient<Database>,
   params: { year: number; month: number },
@@ -47,6 +69,23 @@ export async function fetchCapacityAvailability(
   }
 
   return buildCapacityAvailabilityMap(data ?? [])
+}
+
+export async function fetchZoomMeetingAvailability(
+  client: SupabaseClient<Database>,
+  params: { year: number; month: number },
+) {
+  const { startDate, endDate } = getMonthDateRange(params.year, params.month)
+  const { data, error } = await client.rpc('get_zoom_meeting_availability', {
+    start_date: startDate,
+    end_date: endDate,
+  })
+
+  if (error) {
+    throw error
+  }
+
+  return buildZoomMeetingAvailabilityMap(data ?? [])
 }
 
 export async function upsertCapacitySettings(
