@@ -1,16 +1,18 @@
-﻿.overlay {
+.overlay {
   position: fixed;
   inset: 0;
   background: rgba(15, 23, 42, 0.48);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 20px;
+  overflow-y: auto;
   z-index: 1200;
 }
 
 .container {
   width: min(100%, 480px);
+  max-height: calc(100dvh - 40px);
   border-radius: 14px;
   background: var(--modal-background, #ffffff);
   border: 1px solid #e2e8f0;
@@ -19,6 +21,7 @@
   flex-direction: column;
   gap: 14px;
   padding: 18px;
+  overflow: hidden;
 }
 
 .header {
@@ -44,13 +47,17 @@
 }
 
 .body {
+  flex: 1 1 auto;
+  min-height: 0;
   font-size: 14px;
   line-height: 1.5;
   color: #334155;
+  overflow-y: auto;
 }
 
 .footer {
   display: flex;
+  flex-shrink: 0;
   justify-content: flex-end;
   gap: 8px;
 }

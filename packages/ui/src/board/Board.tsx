@@ -1,10 +1,19 @@
 import { useMemo, useState } from 'react';
+import type { ReactNode } from 'react';
 import { Button } from '../button/Button';
 import { Pagination } from '../pagination/Pagination';
 import { Table } from '../table/Table';
 import { BoardDetail } from './BoardDetail';
 import { BoardWrite } from './BoardWrite';
 import styles from './Board.module.scss';
+
+type BoardColumn = {
+  key: string;
+  header: ReactNode;
+  align?: 'left' | 'center' | 'right';
+};
+
+type BoardRow = Record<string, ReactNode | null | undefined>;
 
 export type BoardPost = {
   id: number;
@@ -26,16 +35,63 @@ export type BoardComment = {
 
 type BoardProps = {
   title?: string;
-  initialItems: BoardPost[];
+  initialItems?: BoardPost[];
   pageSize?: number;
   thColor?: string;
   thBackground?: string;
   tdColor?: string;
   tdBackground?: string;
   borderColor?: string;
+  className?: string;
+  headerClassName?: string;
+  titleClassName?: string;
+  actionClassName?: string;
+  toolbarClassName?: string;
+  paginationClassName?: string;
+  tableClassName?: string;
+  hideWriteButton?: boolean;
+  headerActions?: ReactNode;
+  toolbar?: ReactNode;
+  listColumns?: BoardColumn[];
+  listRows?: BoardRow[];
+  listRowKeyField?: string;
+  onListRowClick?: (row: BoardRow, rowIndex: number) => void;
+  paginationButtonTheme?: {
+    size?: string;
+    background?: string;
+    textColor?: string;
+    borderColor?: string;
+    hoverBackground?: string;
+    hoverTextColor?: string;
+    hoverBorderColor?: string;
+    round?: string;
+    padding?: string;
+  };
+  paginationActiveButtonTheme?: {
+    size?: string;
+    background?: string;
+    textColor?: string;
+    borderColor?: string;
+    hoverBackground?: string;
+    hoverTextColor?: string;
+    hoverBorderColor?: string;
+    round?: string;
+    padding?: string;
+  };
+  paginationDisabledButtonTheme?: {
+    size?: string;
+    background?: string;
+    textColor?: string;
+    borderColor?: string;
+    hoverBackground?: string;
+    hoverTextColor?: string;
+    hoverBorderColor?: string;
+    round?: string;
+    padding?: string;
+  };
 };
 
-const columns = [
+const DEFAULT_COLUMNS = [
   { key: 'no', header: '번호', align: 'center' as const },
   { key: 'title', header: '제목' },
   { key: 'author', header: '작성자', align: 'center' as const },
@@ -43,16 +99,38 @@ const columns = [
   { key: 'views', header: '조회수', align: 'center' as const },
 ];
 
+function joinClassNames(...classNames: Array<string | undefined>) {
+  return classNames.filter(Boolean).join(' ');
+}
+
 export function Board({
   title = '게시판',
-  initialItems,
+  initialItems = [],
   pageSize = 10,
   thColor,
   thBackground,
   tdColor,
   tdBackground,
   borderColor,
+  className,
+  headerClassName,
+  titleClassName,
+  actionClassName,
+  toolbarClassName,
+  paginationClassName,
+  tableClassName,
+  hideWriteButton = false,
+  headerActions,
+  toolbar,
+  listColumns,
+  listRows,
+  listRowKeyField,
+  onListRowClick,
+  paginationButtonTheme,
+  paginationActiveButtonTheme,
+  paginationDisabledButtonTheme,
 }: BoardProps) {
+  const isCustomListMode = Boolean(listColumns?.length && listRows);
   const [posts, setPosts] = useState<BoardPost[]>(initialItems);
   const [comments, setComments] = useState<BoardComment[]>([]);
   const [page, setPage] = useState(1);
@@ -60,12 +138,19 @@ export function Board({
   const [selectedPostId, setSelectedPostId] = useState<number | null>(null);
   const [editingPostId, setEditingPostId] = useState<number | null>(null);
 
-  const totalPages = Math.max(1, Math.ceil(posts.length / pageSize));
+  const customRows = listRows ?? [];
+  const customColumns = listColumns ?? [];
+  const totalCount = isCustomListMode ? customRows.length : posts.length;
+  const totalPages = Math.max(1, Math.ceil(totalCount / pageSize));
   const currentPage = Math.min(page, totalPages);
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
 
   const pagedPosts = useMemo(() => posts.slice(startIndex, endIndex), [posts, startIndex, endIndex]);
+  const pagedCustomRows = useMemo(
+    () => customRows.slice(startIndex, endIndex),
+    [customRows, startIndex, endIndex],
+  );
 
   const rows = pagedPosts.map((item, index) => ({
     __rowId: String(item.id),
@@ -83,7 +168,9 @@ export function Board({
     if (editingPostId) {
       setPosts((prev) =>
         prev.map((post) =>
-          post.id === editingPostId ? { ...post, title: values.title, content: values.content, attachments: values.attachments } : post,
+          post.id === editingPostId
+            ? { ...post, title: values.title, content: values.content, attachments: values.attachments }
+            : post,
         ),
       );
       setEditingPostId(null);
@@ -152,6 +239,7 @@ export function Board({
     if (!selectedPost) {
       return;
     }
+
     setEditingPostId(selectedPost.id);
     setMode('write');
   };
@@ -160,6 +248,7 @@ export function Board({
     if (!selectedPost) {
       return;
     }
+
     setPosts((prev) => prev.filter((post) => post.id !== selectedPost.id));
     setComments((prev) => prev.filter((comment) => comment.postId !== selectedPost.id));
     setSelectedPostId(null);
@@ -168,7 +257,7 @@ export function Board({
 
   const editingPost = editingPostId ? posts.find((post) => post.id === editingPostId) ?? null : null;
 
-  if (mode === 'write') {
+  if (!isCustomListMode && mode === 'write') {
     return (
       <BoardWrite
         onCancel={() => {
@@ -183,7 +272,7 @@ export function Board({
     );
   }
 
-  if (mode === 'detail' && selectedPost) {
+  if (!isCustomListMode && mode === 'detail' && selectedPost) {
     return (
       <BoardDetail
         post={selectedPost}
@@ -197,32 +286,46 @@ export function Board({
     );
   }
 
+  const shouldShowWriteButton = !hideWriteButton && !isCustomListMode;
+
   return (
-    <section className={styles.wrapper}>
-      <div className={styles.header}>
-        <h2 className={styles.title}>{title}</h2>
-        <Button
-          type="button"
-          onClick={() => setMode('write')}
-          size="14px"
-          background="#2563eb"
-          textColor="#ffffff"
-          borderColor="#2563eb"
-          hoverBackground="#1d4ed8"
-          hoverTextColor="#ffffff"
-          hoverBorderColor="#1d4ed8"
-          round="8px"
-          padding="8px 12px"
-        >
-          글쓰기
-        </Button>
+    <section className={joinClassNames(styles.wrapper, className)}>
+      <div className={joinClassNames(styles.header, headerClassName)}>
+        <h2 className={joinClassNames(styles.title, titleClassName)}>{title}</h2>
+        <div className={joinClassNames(styles.actions, actionClassName)}>
+          {headerActions}
+          {shouldShowWriteButton ? (
+            <Button
+              type='button'
+              onClick={() => setMode('write')}
+              size='14px'
+              background='#2563eb'
+              textColor='#ffffff'
+              borderColor='#2563eb'
+              hoverBackground='#1d4ed8'
+              hoverTextColor='#ffffff'
+              hoverBorderColor='#1d4ed8'
+              round='8px'
+              padding='8px 12px'
+            >
+              글쓰기
+            </Button>
+          ) : null}
+        </div>
       </div>
 
+      {toolbar ? <div className={joinClassNames(styles.toolbar, toolbarClassName)}>{toolbar}</div> : null}
+
       <Table
-        columns={columns}
-        rows={rows}
-        rowKeyField="__rowId"
-        onRowClick={(_, rowIndex) => handleSelectPost(pagedPosts[rowIndex])}
+        className={tableClassName}
+        columns={isCustomListMode ? customColumns : DEFAULT_COLUMNS}
+        rows={isCustomListMode ? pagedCustomRows : rows}
+        rowKeyField={isCustomListMode ? listRowKeyField : '__rowId'}
+        onRowClick={
+          isCustomListMode
+            ? onListRowClick
+            : (_, rowIndex) => handleSelectPost(pagedPosts[rowIndex])
+        }
         thColor={thColor}
         thBackground={thBackground}
         tdColor={tdColor}
@@ -230,7 +333,15 @@ export function Board({
         borderColor={borderColor}
       />
 
-      <Pagination className={styles.pagination} currentPage={currentPage} totalPages={totalPages} onPageChange={setPage} />
+      <Pagination
+        className={joinClassNames(styles.pagination, paginationClassName)}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setPage}
+        buttonTheme={paginationButtonTheme}
+        activeButtonTheme={paginationActiveButtonTheme}
+        disabledButtonTheme={paginationDisabledButtonTheme}
+      />
     </section>
   );
 }
