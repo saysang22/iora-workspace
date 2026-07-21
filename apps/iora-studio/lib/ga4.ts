@@ -1,4 +1,5 @@
 import { BetaAnalyticsDataClient } from '@google-analytics/data'
+import { unstable_cache } from 'next/cache'
 
 export type AnalyticsPeriod = 'daily' | 'weekly' | 'monthly'
 
@@ -19,13 +20,15 @@ export type Ga4PeriodReport = {
   trend: AnalyticsTrendPoint[]
 }
 
-export type Ga4DashboardData =
+export type Ga4PeriodData =
   | {
-      periods: Record<AnalyticsPeriod, Ga4PeriodReport>
+      period: AnalyticsPeriod
+      report: Ga4PeriodReport
       status: 'ready'
     }
   | {
       message: string
+      period: AnalyticsPeriod
       status: 'unavailable'
     }
 
@@ -74,14 +77,14 @@ function getPeriodConfig(period: AnalyticsPeriod) {
 
   if (period === 'weekly') {
     return {
-      dateRange: { startDate: '7daysAgo', endDate: 'today' },
+      dateRange: { startDate: '6daysAgo', endDate: 'today' },
       trendDimension: 'date',
       trendLabelFormatter: formatGaDate,
     }
   }
 
   return {
-    dateRange: { startDate: '30daysAgo', endDate: 'today' },
+    dateRange: { startDate: '29daysAgo', endDate: 'today' },
     trendDimension: 'date',
     trendLabelFormatter: formatGaDate,
   }
@@ -107,6 +110,47 @@ function toMetricValue(value: string | null | undefined) {
   const parsed = Number(value)
 
   return Number.isFinite(parsed) ? parsed : 0
+}
+
+function formatDateLabel(date: Date) {
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+
+  return `${year}.${month}.${day}`
+}
+
+function createTrendTemplate(period: AnalyticsPeriod) {
+  const now = new Date()
+
+  if (period === 'daily') {
+    return Array.from({ length: 24 }, (_, hour) => ({
+      label: `${String(hour).padStart(2, '0')}:00`,
+      value: 0,
+    }))
+  }
+
+  const totalDays = period === 'weekly' ? 7 : 30
+
+  return Array.from({ length: totalDays }, (_, index) => {
+    const date = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+    date.setDate(date.getDate() - (totalDays - index - 1))
+
+    return {
+      label: formatDateLabel(date),
+      value: 0,
+    }
+  })
+}
+
+function normalizeTrend(period: AnalyticsPeriod, trend: AnalyticsTrendPoint[]) {
+  const template = createTrendTemplate(period)
+  const valueMap = new Map(trend.map((item) => [item.label, item.value]))
+
+  return template.map((item) => ({
+    label: item.label,
+    value: valueMap.get(item.label) ?? 0,
+  }))
 }
 
 async function getPeriodReport(
@@ -148,6 +192,8 @@ async function getPeriodReport(
       value: toMetricValue(row.metricValues?.[0]?.value),
     })) ?? []
 
+  const normalizedTrend = normalizeTrend(period, trend)
+
   const pageViews =
     pageResponse.rows?.map((row) => ({
       label: row.dimensionValues?.[0]?.value || '/',
@@ -160,47 +206,51 @@ async function getPeriodReport(
       value: toMetricValue(row.metricValues?.[0]?.value),
     })) ?? []
 
-  const totalVisitors = trend.reduce((sum, item) => sum + item.value, 0)
+  const totalVisitors = normalizedTrend.reduce((sum, item) => sum + item.value, 0)
 
   return {
     totalVisitors,
-    trend,
+    trend: normalizedTrend,
     pageViews,
     sources,
   }
 }
 
-export async function getGa4DashboardData(): Promise<Ga4DashboardData> {
+async function loadGa4PeriodData(period: AnalyticsPeriod): Promise<Ga4PeriodData> {
   const propertyId = process.env.GA4_PROPERTY_ID
   const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
   const client = getAnalyticsClient()
 
   if (!measurementId || !propertyId || !client) {
     return {
+      period,
       status: 'unavailable',
       message: 'GA4 연동이 아직 설정되지 않았습니다.',
     }
   }
 
   try {
-    const [daily, weekly, monthly] = await Promise.all([
-      getPeriodReport(client, propertyId, 'daily'),
-      getPeriodReport(client, propertyId, 'weekly'),
-      getPeriodReport(client, propertyId, 'monthly'),
-    ])
+    const report = await getPeriodReport(client, propertyId, period)
 
     return {
+      period,
       status: 'ready',
-      periods: {
-        daily,
-        weekly,
-        monthly,
-      },
+      report,
     }
   } catch {
     return {
+      period,
       status: 'unavailable',
       message: 'GA4 연동이 아직 설정되지 않았습니다.',
     }
   }
+}
+
+export async function getGa4PeriodData(period: AnalyticsPeriod): Promise<Ga4PeriodData> {
+  const getCachedPeriodData = unstable_cache(async () => loadGa4PeriodData(period), [`ga4-period-${period}`], {
+    tags: [`ga4-period-${period}`],
+    revalidate: 600,
+  })
+
+  return getCachedPeriodData()
 }

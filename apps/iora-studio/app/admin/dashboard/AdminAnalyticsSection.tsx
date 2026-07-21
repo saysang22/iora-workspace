@@ -1,12 +1,13 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useState, useTransition } from 'react'
 import { FiBarChart2, FiGlobe, FiLayers } from 'react-icons/fi'
-import type { AnalyticsPeriod, Ga4DashboardData } from '../../../lib/ga4'
+import type { AnalyticsPeriod, Ga4PeriodData } from '../../../lib/ga4'
+import TrendBarChart from './TrendBarChart'
 import styles from './page.module.scss'
 
 type AdminAnalyticsSectionProps = {
-  data: Ga4DashboardData
+  initialData: Ga4PeriodData
 }
 
 const PERIOD_LABELS: Record<AnalyticsPeriod, string> = {
@@ -15,21 +16,99 @@ const PERIOD_LABELS: Record<AnalyticsPeriod, string> = {
   monthly: '월간',
 }
 
-export default function AdminAnalyticsSection({ data }: AdminAnalyticsSectionProps) {
-  const [period, setPeriod] = useState<AnalyticsPeriod>('weekly')
+function AnalyticsLoadingGrid() {
+  return (
+    <div className={styles.analyticsGrid}>
+      <article className={`${styles.analyticsCard} ${styles.analyticsCardSkeleton}`.trim()}>
+        <div className={styles.analyticsSkeletonTitle} />
+        <div className={styles.analyticsSkeletonValue} />
+        <div className={styles.analyticsChartSkeleton}>
+          {Array.from({ length: 12 }).map((_, index) => (
+            <span key={index} className={styles.analyticsChartSkeletonBar} />
+          ))}
+        </div>
+      </article>
 
-  const activeReport =
-    data.status === 'ready'
-      ? data.periods[period]
-      : null
+      <article className={`${styles.analyticsCard} ${styles.analyticsCardSkeleton}`.trim()}>
+        <div className={styles.analyticsSkeletonTitle} />
+        <div className={styles.analyticsListSkeleton}>
+          {Array.from({ length: 6 }).map((_, index) => (
+            <span key={index} className={styles.analyticsListSkeletonItem} />
+          ))}
+        </div>
+      </article>
 
-  const maxTrendValue = useMemo(() => {
-    if (!activeReport?.trend.length) {
-      return 1
+      <article className={`${styles.analyticsCard} ${styles.analyticsCardSkeleton}`.trim()}>
+        <div className={styles.analyticsSkeletonTitle} />
+        <div className={styles.analyticsListSkeleton}>
+          {Array.from({ length: 6 }).map((_, index) => (
+            <span key={index} className={styles.analyticsListSkeletonItem} />
+          ))}
+        </div>
+      </article>
+    </div>
+  )
+}
+
+export default function AdminAnalyticsSection({ initialData }: AdminAnalyticsSectionProps) {
+  const [period, setPeriod] = useState<AnalyticsPeriod>(initialData.period)
+  const [reports, setReports] = useState<Record<AnalyticsPeriod, Ga4PeriodData | null>>({
+    daily: initialData.period === 'daily' ? initialData : null,
+    weekly: initialData.period === 'weekly' ? initialData : null,
+    monthly: initialData.period === 'monthly' ? initialData : null,
+  })
+  const [loadingPeriod, setLoadingPeriod] = useState<AnalyticsPeriod | null>(null)
+  const [isPending, startTransition] = useTransition()
+
+  const activeData = reports[period]
+  const activeReport = activeData?.status === 'ready' ? activeData.report : null
+
+  const handlePeriodChange = (nextPeriod: AnalyticsPeriod) => {
+    if (nextPeriod === period) {
+      return
     }
 
-    return Math.max(...activeReport.trend.map((item) => item.value), 1)
-  }, [activeReport])
+    setPeriod(nextPeriod)
+
+    if (reports[nextPeriod]) {
+      return
+    }
+
+    setLoadingPeriod(nextPeriod)
+
+    startTransition(async () => {
+      try {
+        const response = await fetch(`/admin/dashboard/analytics?period=${nextPeriod}`, {
+          method: 'GET',
+          cache: 'no-store',
+        })
+
+        if (!response.ok) {
+          throw new Error('GA4 analytics request failed')
+        }
+
+        const nextData = (await response.json()) as Ga4PeriodData
+
+        setReports((current) => ({
+          ...current,
+          [nextPeriod]: nextData,
+        }))
+      } catch {
+        setReports((current) => ({
+          ...current,
+          [nextPeriod]: {
+            period: nextPeriod,
+            status: 'unavailable',
+            message: 'GA4 연동이 아직 설정되지 않았습니다.',
+          },
+        }))
+      } finally {
+        setLoadingPeriod((current) => (current === nextPeriod ? null : current))
+      }
+    })
+  }
+
+  const isLoadingActivePanel = loadingPeriod === period && !reports[period]
 
   return (
     <section className={styles.analyticsPanel}>
@@ -51,7 +130,8 @@ export default function AdminAnalyticsSection({ data }: AdminAnalyticsSectionPro
               className={`${styles.analyticsPeriodButton} ${
                 period === item ? styles.analyticsPeriodButtonActive : ''
               }`.trim()}
-              onClick={() => setPeriod(item)}
+              disabled={isPending && loadingPeriod === item}
+              onClick={() => handlePeriodChange(item)}
             >
               {PERIOD_LABELS[item]}
             </button>
@@ -59,10 +139,12 @@ export default function AdminAnalyticsSection({ data }: AdminAnalyticsSectionPro
         </div>
       </div>
 
-      {data.status === 'unavailable' ? (
+      {isLoadingActivePanel ? (
+        <AnalyticsLoadingGrid />
+      ) : activeData?.status === 'unavailable' ? (
         <div className={styles.analyticsNotice}>
           <strong>GA4 안내</strong>
-          <p>{data.message}</p>
+          <p>{activeData.message}</p>
         </div>
       ) : (
         <div className={styles.analyticsGrid}>
@@ -79,24 +161,11 @@ export default function AdminAnalyticsSection({ data }: AdminAnalyticsSectionPro
               <strong>{activeReport?.totalVisitors.toLocaleString('ko-KR') ?? '0'}</strong>
             </div>
 
-            <div className={styles.chartShell} aria-label='방문자 추이 차트'>
-              {activeReport?.trend.length ? (
-                activeReport.trend.map((item) => (
-                  <div key={`${period}-${item.label}`} className={styles.chartColumn}>
-                    <div className={styles.chartBarTrack}>
-                      <span
-                        className={styles.chartBarFill}
-                        style={{ height: `${(item.value / maxTrendValue) * 100}%` }}
-                      />
-                    </div>
-                    <span className={styles.chartLabel}>{item.label}</span>
-                    <strong className={styles.chartValue}>{item.value.toLocaleString('ko-KR')}</strong>
-                  </div>
-                ))
-              ) : (
-                <div className={styles.analyticsEmpty}>해당 기간의 방문 데이터가 없습니다.</div>
-              )}
-            </div>
+            {activeReport?.trend.length ? (
+              <TrendBarChart ariaLabel='방문자 추이 차트' points={activeReport.trend} />
+            ) : (
+              <div className={styles.analyticsEmpty}>해당 기간의 방문자 데이터가 없습니다.</div>
+            )}
           </article>
 
           <article className={styles.analyticsCard}>

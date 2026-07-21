@@ -1,11 +1,12 @@
+import { Suspense } from 'react'
 import Link from 'next/link'
 import { FiAlertCircle, FiCalendar, FiTrendingUp, FiZap } from 'react-icons/fi'
 import { getCachedAdminRequestState } from '../../../lib/admin-auth'
 import type { Tables } from '../../../lib/database.types'
-import { getGa4DashboardData } from '../../../lib/ga4'
 import { createServerSupabaseClient } from '../../../lib/supabase-server'
 import { getAdminDisplayName } from '../_components/admin-shell'
-import AdminAnalyticsSection from './AdminAnalyticsSection'
+import AdminAnalyticsSectionServer from './AdminAnalyticsSectionServer'
+import AdminAnalyticsSectionSkeleton from './AdminAnalyticsSectionSkeleton'
 import styles from './page.module.scss'
 
 type ProjectRow = Tables<'projects'>
@@ -274,25 +275,22 @@ export default async function AdminDashboardPage() {
     { data: projects, error: projectsError },
     { data: requests, error: requestsError },
     { data: payments, error: paymentsError },
-    ga4Data,
-  ] =
-    await Promise.all([
-      supabase
-        .from('projects')
-        .select(
-          'id, user_id, project_name, current_stage, progress_percent, deadline, updated_at, created_at',
-        )
-        .order('updated_at', { ascending: false }),
-      supabase
-        .from('contact_requests')
-        .select('id, user_id, name, email, request_details, status, created_at')
-        .order('created_at', { ascending: false }),
-      supabase
-        .from('payments')
-        .select('id, project_id, amount, payment_type, paid_at, memo, created_at, updated_at')
-        .order('paid_at', { ascending: false }),
-      getGa4DashboardData(),
-    ])
+  ] = await Promise.all([
+    supabase
+      .from('projects')
+      .select(
+        'id, user_id, project_name, current_stage, progress_percent, deadline, updated_at, created_at',
+      )
+      .order('updated_at', { ascending: false }),
+    supabase
+      .from('contact_requests')
+      .select('id, user_id, name, email, request_details, status, created_at')
+      .order('created_at', { ascending: false }),
+    supabase
+      .from('payments')
+      .select('id, project_id, amount, payment_type, paid_at, memo, created_at, updated_at')
+      .order('paid_at', { ascending: false }),
+  ])
 
   if (projectsError) {
     throw projectsError
@@ -536,7 +534,9 @@ export default async function AdminDashboardPage() {
             <div className={styles.tableFooter}>총 {requestRows.length}건의 요청이 집계되었습니다.</div>
           </section>
 
-          <AdminAnalyticsSection data={ga4Data} />
+          <Suspense fallback={<AdminAnalyticsSectionSkeleton />}>
+            <AdminAnalyticsSectionServer />
+          </Suspense>
         </section>
       </div>
     </div>
