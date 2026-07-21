@@ -98,6 +98,47 @@ export type Database = {
           },
         ]
       }
+      payments: {
+        Row: {
+          amount: number
+          created_at: string
+          id: string
+          memo: string | null
+          paid_at: string
+          payment_type: Database['public']['Enums']['payment_type']
+          project_id: string
+          updated_at: string
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          id?: string
+          memo?: string | null
+          paid_at: string
+          payment_type?: Database['public']['Enums']['payment_type']
+          project_id: string
+          updated_at?: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          id?: string
+          memo?: string | null
+          paid_at?: string
+          payment_type?: Database['public']['Enums']['payment_type']
+          project_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'payments_project_id_fkey'
+            columns: ['project_id']
+            isOneToOne: false
+            referencedRelation: 'projects'
+            referencedColumns: ['id']
+          },
+        ]
+      }
       profiles: {
         Row: {
           company_name: string | null
@@ -176,10 +217,13 @@ export type Database = {
           company_name: string | null
           created_at: string
           current_stage: Database['public']['Enums']['project_stage']
+          deadline: string | null
+          deposit_amount: number | null
           id: string
           progress_percent: number
           project_name: string
           started_at: string
+          total_amount: number | null
           updated_at: string
           user_id: string | null
         }
@@ -189,10 +233,13 @@ export type Database = {
           company_name?: string | null
           created_at?: string
           current_stage?: Database['public']['Enums']['project_stage']
+          deadline?: string | null
+          deposit_amount?: number | null
           id?: string
           progress_percent?: number
           project_name: string
           started_at?: string
+          total_amount?: number | null
           updated_at?: string
           user_id?: string | null
         }
@@ -202,10 +249,13 @@ export type Database = {
           company_name?: string | null
           created_at?: string
           current_stage?: Database['public']['Enums']['project_stage']
+          deadline?: string | null
+          deposit_amount?: number | null
           id?: string
           progress_percent?: number
           project_name?: string
           started_at?: string
+          total_amount?: number | null
           updated_at?: string
           user_id?: string | null
         }
@@ -227,6 +277,8 @@ export type Database = {
       create_project_with_pages: {
         Args: {
           input_client_name?: string | null
+          input_deadline?: string | null
+          input_deposit_amount?: number | null
           input_company_name?: string | null
           input_care_ended_at?: string | null
           input_current_stage?: Database['public']['Enums']['project_stage']
@@ -234,6 +286,7 @@ export type Database = {
           input_progress_percent?: number
           input_project_name: string
           input_started_at?: string
+          input_total_amount?: number | null
           input_user_id?: string | null
         }
         Returns: string
@@ -257,10 +310,38 @@ export type Database = {
         }[]
       }
       is_admin: { Args: { check_user_id?: string }; Returns: boolean }
+      update_project_overview: {
+        Args: {
+          input_care_ended_at?: string | null
+          input_deadline?: string | null
+          input_deposit_amount?: number | null
+          input_project_id: string
+          input_project_name: string
+          input_started_at?: string
+          input_total_amount?: number | null
+        }
+        Returns: {
+          care_ended_at: string | null
+          client_name: string | null
+          company_name: string | null
+          created_at: string
+          current_stage: Database['public']['Enums']['project_stage']
+          deadline: string | null
+          deposit_amount: number | null
+          id: string
+          progress_percent: number
+          project_name: string
+          started_at: string
+          total_amount: number | null
+          updated_at: string
+          user_id: string | null
+        }
+      }
     }
     Enums: {
       contact_request_status: 'pending' | 'confirmed' | 'rejected'
       page_status: 'pending' | 'in_progress' | 'completed'
+      payment_type: 'deposit' | 'interim' | 'final' | 'other'
       project_stage: 'analysis' | 'planning' | 'development' | 'qa' | 'launch' | 'care' | 'completed'
     }
     CompositeTypes: {
@@ -383,6 +464,7 @@ export const Constants = {
     Enums: {
       contact_request_status: ['pending', 'confirmed', 'rejected'],
       page_status: ['pending', 'in_progress', 'completed'],
+      payment_type: ['deposit', 'interim', 'final', 'other'],
       project_stage: ['analysis', 'planning', 'development', 'qa', 'launch', 'care', 'completed'],
     },
   },

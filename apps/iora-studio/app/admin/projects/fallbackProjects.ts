@@ -1,6 +1,14 @@
 import { getProjectDetail, PROJECT_LIST } from './mockProjects'
 import type { AdminProjectDetail, AdminProjectListItem, AdminProjectStats } from '../../../lib/projects'
 
+function toIsoDate(value: string) {
+  if (value === '미정' || value === '상시') {
+    return null
+  }
+
+  return value.replace(/\./g, '-')
+}
+
 export function getFallbackAdminProjects() {
   const items: AdminProjectListItem[] = PROJECT_LIST.map((project) => ({
     id: project.id,
@@ -11,6 +19,11 @@ export function getFallbackAdminProjects() {
     status: project.status,
     startDate: project.startDate,
     dueDate: project.dueDate,
+    startedAtValue: toIsoDate(project.startDate) ?? '',
+    deadlineValue: toIsoDate(project.dueDate),
+    careEndedAtValue: null,
+    totalAmountValue: null,
+    depositAmountValue: null,
   }))
 
   const stats: AdminProjectStats = {
@@ -32,10 +45,12 @@ export function getFallbackAdminProjectDetail(projectId: string): AdminProjectDe
     statusLabel: project.statusLabel,
     clientName: project.clientName,
     contact: project.contact,
-    budget: project.budget,
+    totalAmount: project.budget,
+    depositAmount: '미정',
     deadline: project.deadline,
     progress: project.progress,
     startedAt: '미정',
+    careEndedAt: '미정',
     pages: [],
     currentStage: 'development',
   }

@@ -71,7 +71,7 @@
 .metricsRow {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -141,13 +141,6 @@
   font-weight: 700;
   line-height: 56px;
   letter-spacing: -0.02em;
-}
-
-.schedulePanel {
-  grid-column: span 8;
-  display: grid;
-  gap: 24px;
-  padding: 25px 25px 34.63px;
 }
 
 .panelHeader {
@@ -255,10 +248,15 @@
 }
 
 .deadlinePanel {
-  grid-column: span 4;
+  grid-column: 1 / -1;
   display: grid;
   gap: 24px;
   padding: 25px;
+}
+
+.deadlineLink {
+  color: inherit;
+  text-decoration: none;
 }
 
 .deadlineList {
@@ -336,6 +334,16 @@
   font-size: 11px;
   font-weight: 500;
   line-height: 17.88px;
+}
+
+.emptyPanelMessage {
+  padding: 24px;
+  border: 1px dashed rgb(148 163 184 / 0.2);
+  border-radius: 10px;
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
 }
 
 .tablePanel {
@@ -429,6 +437,16 @@
   border-top: 1px solid #334155;
 }
 
+.tableRowLink {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.tableRowLink:hover {
+  color: #f1f5f9;
+}
+
 .customerCell {
   display: flex;
   align-items: center;
@@ -492,19 +510,37 @@
   background: #34d399;
 }
 
+.statusMuted {
+  background: rgb(148 163 184 / 0.12);
+  color: #cbd5e1;
+}
+
+.statusMuted::before {
+  background: #cbd5e1;
+}
+
 .timeAgo {
   font-size: 14px;
   line-height: 20px;
 }
 
 .rowAction {
-  border: 0;
-  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
   color: #f1f5f9;
-  font: inherit;
   font-size: 16px;
   font-weight: 500;
-  cursor: pointer;
+  text-decoration: none;
+}
+
+.rowAction:hover {
+  color: #ff4c8d;
+}
+
+.emptyTableRow {
+  text-align: center !important;
+  color: #94a3b8 !important;
 }
 
 .tableFooter {
@@ -518,26 +554,201 @@
   line-height: 24px;
 }
 
-.fab {
-  position: fixed;
-  right: 32px;
-  bottom: 32px;
-  z-index: 20;
+.analyticsPanel {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 20px;
+  padding: 24px;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  background: #0d1b2d;
+}
+
+.analyticsHeader {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.analyticsDescription {
+  margin: 8px 0 0;
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.analyticsPeriodTabs {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  border: 0;
-  border-radius: 16px;
-  background: #ff2d78;
-  color: #ffffff;
-  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.analyticsPeriodButton {
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid rgb(148 163 184 / 0.18);
+  border-radius: 999px;
+  background: #162539;
+  color: #94a3b8;
+  font: inherit;
   cursor: pointer;
 }
 
-.fab:hover {
-  background: #ff4c8d;
+.analyticsPeriodButtonActive {
+  border-color: #ff2d78;
+  background: rgb(255 45 120 / 0.12);
+  color: #f8fafc;
+}
+
+.analyticsNotice {
+  padding: 18px 20px;
+  border: 1px solid rgb(255 45 120 / 0.16);
+  border-radius: 12px;
+  background: rgb(255 45 120 / 0.08);
+}
+
+.analyticsNotice strong {
+  display: block;
+  color: #ffd2e5;
+  font-size: 15px;
+}
+
+.analyticsNotice p {
+  margin: 8px 0 0;
+  color: #ffc1db;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.analyticsGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 20px;
+}
+
+.analyticsCard {
+  display: grid;
+  gap: 18px;
+  padding: 20px;
+  border: 1px solid rgb(148 163 184 / 0.1);
+  border-radius: 12px;
+  background: #162539;
+}
+
+.analyticsCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #f1f5f9;
+}
+
+.analyticsIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgb(255 45 120 / 0.12);
+  color: #ff4c8d;
+}
+
+.analyticsSummary {
+  display: grid;
+  gap: 6px;
+}
+
+.analyticsSummary span {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.analyticsSummary strong {
+  color: #f1f5f9;
+  font-size: 34px;
+  line-height: 1;
+}
+
+.chartShell {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(36px, 1fr));
+  gap: 12px;
+  align-items: end;
+  min-height: 260px;
+}
+
+.chartColumn {
+  display: grid;
+  gap: 8px;
+  align-items: end;
+}
+
+.chartBarTrack {
+  display: flex;
+  align-items: end;
+  height: 180px;
+  padding: 8px 0;
+  border-radius: 10px;
+  background: rgb(11 20 35 / 0.88);
+}
+
+.chartBarFill {
+  width: 100%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ff77b0 0%, #ff2d78 100%);
+}
+
+.chartLabel {
+  color: #94a3b8;
+  font-size: 11px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.chartValue {
+  color: #f1f5f9;
+  font-size: 12px;
+  text-align: center;
+}
+
+.analyticsList {
+  display: grid;
+  gap: 10px;
+}
+
+.analyticsListItem {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgb(11 20 35 / 0.7);
+}
+
+.analyticsRank {
+  color: #ff77b0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.analyticsListLabel {
+  min-width: 0;
+  overflow: hidden;
+  color: #dbe6f6;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.analyticsEmpty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+  color: #94a3b8;
+  font-size: 14px;
+  text-align: center;
 }
 
 @media (max-width: 1100px) {
@@ -549,13 +760,9 @@
     justify-items: start;
   }
 
-  .metricsRow {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .schedulePanel,
-  .deadlinePanel {
-    grid-column: 1 / -1;
+  .metricsRow,
+  .analyticsGrid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -571,5 +778,13 @@
 
   .metricsRow {
     grid-template-columns: 1fr;
+  }
+
+  .analyticsHeader {
+    flex-direction: column;
+  }
+
+  .chartShell {
+    min-height: 220px;
   }
 }

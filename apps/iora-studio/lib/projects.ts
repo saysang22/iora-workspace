@@ -29,6 +29,11 @@ export type AdminProjectListItem = {
   status: AdminProjectStatus
   startDate: string
   dueDate: string
+  startedAtValue: string
+  deadlineValue: string | null
+  careEndedAtValue: string | null
+  totalAmountValue: number | null
+  depositAmountValue: number | null
 }
 
 export type AdminProjectStats = {
@@ -44,10 +49,12 @@ export type AdminProjectDetail = {
   statusLabel: string
   clientName: string
   contact: string
-  budget: string
+  totalAmount: string
+  depositAmount: string
   deadline: string
   progress: number
   startedAt: string
+  careEndedAt: string
   pages: ProjectPageRow[]
   currentStage: Database['public']['Enums']['project_stage']
 }
@@ -93,6 +100,14 @@ function formatDate(value: string | null) {
   }
 
   return `${year}.${month}.${day}`
+}
+
+function formatCurrency(value: number | null) {
+  if (value === null || Number.isNaN(value)) {
+    return '미정'
+  }
+
+  return `${value.toLocaleString('ko-KR')}원`
 }
 
 function buildCompanyCode(companyName: string) {
@@ -170,7 +185,11 @@ export async function getProjectById(client: SupabaseClient<Database>, projectId
 }
 
 export async function listProjectPages(client: SupabaseClient<Database>, projectId: string) {
-  return client.from('project_pages').select('*').eq('project_id', projectId).order('sort_order', { ascending: true })
+  return client
+    .from('project_pages')
+    .select('*')
+    .eq('project_id', projectId)
+    .order('sort_order', { ascending: true })
 }
 
 export async function listAdminProjects(client: SupabaseClient<Database>) {
@@ -197,7 +216,12 @@ export async function listAdminProjects(client: SupabaseClient<Database>) {
       projectType: project.user_id ? 'member' : 'guest',
       status: STAGE_STATUS_MAP[project.current_stage],
       startDate: formatDate(project.started_at),
-      dueDate: formatDate(project.care_ended_at),
+      dueDate: formatDate(project.deadline),
+      startedAtValue: project.started_at,
+      deadlineValue: project.deadline,
+      careEndedAtValue: project.care_ended_at,
+      totalAmountValue: project.total_amount,
+      depositAmountValue: project.deposit_amount,
     }
   })
 
@@ -241,10 +265,12 @@ export async function getAdminProjectDetail(client: SupabaseClient<Database>, pr
     statusLabel: STAGE_BADGE_MAP[project.current_stage],
     clientName,
     contact,
-    budget: '미정',
-    deadline: formatDate(project.care_ended_at),
+    totalAmount: formatCurrency(project.total_amount),
+    depositAmount: formatCurrency(project.deposit_amount),
+    deadline: formatDate(project.deadline),
     progress: project.progress_percent,
     startedAt: formatDate(project.started_at),
+    careEndedAt: formatDate(project.care_ended_at),
     pages: [...(project.project_pages ?? [])].sort((left, right) => left.sort_order - right.sort_order),
     currentStage: project.current_stage,
   } satisfies AdminProjectDetail

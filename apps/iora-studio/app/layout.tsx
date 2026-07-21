@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import AppChrome from './_components/AppChrome'
 import type { FooterGroup } from './_components/Footer'
 import type { HeaderNavItem } from './_components/Header'
@@ -33,6 +34,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+
   return (
     <html lang="ko">
       <body>
@@ -40,6 +43,22 @@ export default function RootLayout({
           {children}
         </AppChrome>
       </body>
+      {gaMeasurementId ? (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+            strategy='afterInteractive'
+          />
+          <Script id='ga4-init' strategy='afterInteractive'>
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${gaMeasurementId}');
+            `}
+          </Script>
+        </>
+      ) : null}
     </html>
   )
 }

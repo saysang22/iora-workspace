@@ -2,7 +2,7 @@ import type { Database } from '../../../lib/database.types'
 
 export type ProjectStage = Database['public']['Enums']['project_stage']
 export type PageStatus = Database['public']['Enums']['page_status']
-export type DatePickerField = 'startedAt' | 'careEndedAt' | null
+export type DatePickerField = 'startedAt' | 'deadline' | 'careEndedAt' | null
 export type RegistrationMode = 'member' | 'guest'
 
 export type ProfileOption = {
@@ -101,6 +101,26 @@ export function formatDisplayDate(value: string) {
   }
 
   return `${year}.${month}.${day}`
+}
+
+export function formatAmountInput(value: string) {
+  const digitsOnly = value.replace(/\D/g, '').replace(/^0+(?=\d)/, '')
+
+  if (!digitsOnly) {
+    return ''
+  }
+
+  return digitsOnly.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+}
+
+export function parseAmountInput(value: string) {
+  const digitsOnly = value.replace(/\D/g, '')
+
+  if (!digitsOnly) {
+    return null
+  }
+
+  return Number(digitsOnly)
 }
 
 export function getInitialDateSelection(value: string) {

@@ -11,6 +11,7 @@ import styles from './page.module.scss'
 
 type AdminProjectWorkTabsProps = {
   currentStage: Database['public']['Enums']['project_stage']
+  initialTabId?: 'pages' | 'requests'
   pages: Array<{
     id: string
     page_name: string
@@ -79,6 +80,10 @@ function createInitialRequestIssues(): RequestIssueItem[] {
     assignee: item.assignee,
     status: toRequestIssueStatus(item.status),
   }))
+}
+
+function getPendingIssueCount(issues: RequestIssueItem[]) {
+  return issues.filter((issue) => issue.status === 'pending').length
 }
 
 function AdminProjectRequestIssuesSection({
@@ -265,11 +270,14 @@ function AdminProjectPageStatusNotice({ stageProgressLabel }: { stageProgressLab
 
 export default function AdminProjectWorkTabs({
   currentStage,
+  initialTabId = 'pages',
   pages,
   projectId,
   stageProgressLabel,
 }: AdminProjectWorkTabsProps) {
-  const [pendingIssueCount, setPendingIssueCount] = useState(0)
+  const [pendingIssueCount, setPendingIssueCount] = useState(() =>
+    getPendingIssueCount(createInitialRequestIssues()),
+  )
 
   const items = [
     {
@@ -299,7 +307,7 @@ export default function AdminProjectWorkTabs({
   return (
     <Tab
       items={items}
-      initialTabId='pages'
+      initialTabId={initialTabId}
       ariaLabel='프로젝트 작업 탭'
       className={styles.adminWorkTabs}
       tabRowClassName={styles.adminWorkTabRow}

@@ -1,8 +1,9 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
-import { Pagination, Table } from '@iora/ui'
+import { useRouter } from 'next/navigation'
+import { Pagination, Table, Toast } from '@iora/ui'
 import {
   FiAlertTriangle,
   FiCalendar,
@@ -18,6 +19,7 @@ import {
   FiTrendingDown,
   FiTrendingUp,
 } from 'react-icons/fi'
+import { createBrowserSupabaseClient } from '../../../lib/supabase'
 import type { AdminProjectListItem, AdminProjectStats } from '../../../lib/projects'
 import AdminProjectCreateModal from './AdminProjectCreateModal'
 import styles from './page.module.scss'
@@ -58,9 +60,80 @@ type ProjectsListClientProps = {
   stats: AdminProjectStats
 }
 
+type ToastState = {
+  visible: boolean
+  title: string
+  message: string
+  type: 'info' | 'success' | 'error'
+}
+
+type DeleteTarget = {
+  companyName: string
+  id: string
+}
+
+function formatProjectDate(value: string | null) {
+  if (!value) {
+    return '미정'
+  }
+
+  const [year, month, day] = value.split('-')
+
+  if (!year || !month || !day) {
+    return value
+  }
+
+  return `${year}.${month}.${day}`
+}
+
 export default function ProjectsListClient({ projects, stats }: ProjectsListClientProps) {
+  const router = useRouter()
+  const supabase = useMemo(() => createBrowserSupabaseClient(), [])
+  const actionMenuRef = useRef<HTMLDivElement | null>(null)
   const [page, setPage] = useState(1)
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
+  const [editingProject, setEditingProject] = useState<AdminProjectListItem | null>(null)
+  const [localProjects, setLocalProjects] = useState(projects)
+  const [openMenuProjectId, setOpenMenuProjectId] = useState<string | null>(null)
+  const [deleteTarget, setDeleteTarget] = useState<DeleteTarget | null>(null)
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [toastState, setToastState] = useState<ToastState>({
+    visible: false,
+    title: '',
+    message: '',
+    type: 'info',
+  })
+
+  useEffect(() => {
+    setLocalProjects(projects)
+  }, [projects])
+
+  useEffect(() => {
+    const totalPages = Math.max(1, Math.ceil(localProjects.length / PAGE_SIZE))
+    setPage((current) => Math.min(current, totalPages))
+  }, [localProjects.length])
+
+  useEffect(() => {
+    const handleDocumentPointerDown = (event: MouseEvent) => {
+      const target = event.target
+
+      if (!(target instanceof Node)) {
+        return
+      }
+
+      if (actionMenuRef.current?.contains(target)) {
+        return
+      }
+
+      setOpenMenuProjectId(null)
+    }
+
+    document.addEventListener('pointerdown', handleDocumentPointerDown)
+
+    return () => {
+      document.removeEventListener('pointerdown', handleDocumentPointerDown)
+    }
+  }, [])
 
   const statCards = [
     {
@@ -97,19 +170,105 @@ export default function ProjectsListClient({ projects, stats }: ProjectsListClie
     },
   ]
 
-  const totalPages = Math.max(1, Math.ceil(projects.length / PAGE_SIZE))
+  const totalPages = Math.max(1, Math.ceil(localProjects.length / PAGE_SIZE))
   const currentPage = Math.min(page, totalPages)
   const startIndex = (currentPage - 1) * PAGE_SIZE
   const endIndex = startIndex + PAGE_SIZE
 
+  const handleRequestDelete = (project: AdminProjectListItem) => {
+    setOpenMenuProjectId(null)
+    setDeleteTarget({
+      id: project.id,
+      companyName: project.companyName,
+    })
+  }
+
+  const handleOpenEditModal = (project: AdminProjectListItem) => {
+    setOpenMenuProjectId(null)
+    setEditingProject(project)
+  }
+
+  const handleEditComplete = (payload: {
+    careEndedAt: string | null
+    deadline: string | null
+    depositAmount: number | null
+    id: string
+    projectName: string
+    startedAt: string
+    totalAmount: number | null
+  }) => {
+    setEditingProject(null)
+    setLocalProjects((current) =>
+      current.map((project) =>
+        project.id === payload.id
+          ? {
+              ...project,
+              projectName: payload.projectName,
+              startDate: formatProjectDate(payload.startedAt),
+              dueDate: formatProjectDate(payload.deadline),
+              startedAtValue: payload.startedAt,
+              deadlineValue: payload.deadline,
+              careEndedAtValue: payload.careEndedAt,
+              totalAmountValue: payload.totalAmount,
+              depositAmountValue: payload.depositAmount,
+            }
+          : project,
+      ),
+    )
+    setToastState({
+      visible: true,
+      title: '수정 완료',
+      message: '프로젝트 정보가 수정되었습니다.',
+      type: 'success',
+    })
+    router.refresh()
+  }
+
+  const handleDeleteProject = async () => {
+    if (!deleteTarget || isDeleting) {
+      return
+    }
+
+    setIsDeleting(true)
+
+    const { error } = await supabase.from('projects').delete().eq('id', deleteTarget.id)
+
+    if (error) {
+      setDeleteTarget(null)
+      setToastState({
+        visible: true,
+        title: '삭제 실패',
+        message: error.message || '프로젝트를 삭제하지 못했습니다.',
+        type: 'error',
+      })
+      setIsDeleting(false)
+      return
+    }
+
+    setLocalProjects((current) => current.filter((project) => project.id !== deleteTarget.id))
+    setDeleteTarget(null)
+    setToastState({
+      visible: true,
+      title: '삭제 완료',
+      message: '프로젝트가 삭제되었습니다.',
+      type: 'success',
+    })
+    setIsDeleting(false)
+    router.refresh()
+  }
+
   const pagedRows = useMemo(
     () =>
-      projects.slice(startIndex, endIndex).map((project) => ({
+      localProjects.slice(startIndex, endIndex).map((project) => ({
         __rowId: project.id,
         company: (
           <div className={styles.companyCell}>
             <span className={styles.companyBadge}>{project.companyCode}</span>
-            <Link className={styles.companyLink} href={`/admin/projects/${project.id}`}>
+            <Link
+              className={styles.companyLink}
+              href={`/admin/projects/${project.id}`}
+              onClick={(event) => event.stopPropagation()}
+            >
               {project.companyName}
             </Link>
           </div>
@@ -120,16 +279,56 @@ export default function ProjectsListClient({ projects, stats }: ProjectsListClie
           </span>
         ),
         projectName: <span className={styles.projectNameCell}>{project.projectName}</span>,
-        status: <span className={`${styles.statusPill} ${STATUS_CLASS_MAP[project.status]}`.trim()}>{project.status}</span>,
+        status: (
+          <span className={`${styles.statusPill} ${STATUS_CLASS_MAP[project.status]}`.trim()}>
+            {project.status}
+          </span>
+        ),
         startDate: <span className={styles.dateCell}>{project.startDate}</span>,
         dueDate: <span className={styles.dateCell}>{project.dueDate}</span>,
         actions: (
-          <button className={styles.moreButton} type='button' aria-label={`${project.companyName} 관리`}>
-            <FiMoreVertical size={18} />
-          </button>
+          <div className={styles.actionMenuWrap} ref={openMenuProjectId === project.id ? actionMenuRef : null}>
+            <button
+              className={styles.moreButton}
+              type='button'
+              aria-label={`${project.companyName} 관리`}
+              aria-expanded={openMenuProjectId === project.id}
+              onClick={(event) => {
+                event.stopPropagation()
+                setOpenMenuProjectId((current) => (current === project.id ? null : project.id))
+              }}
+            >
+              <FiMoreVertical size={18} />
+            </button>
+
+            {openMenuProjectId === project.id ? (
+              <div
+                className={styles.actionMenu}
+                role='menu'
+                onClick={(event) => event.stopPropagation()}
+              >
+                <button
+                  className={styles.actionMenuItem}
+                  type='button'
+                  role='menuitem'
+                  onClick={() => handleOpenEditModal(project)}
+                >
+                  수정
+                </button>
+                <button
+                  className={`${styles.actionMenuItem} ${styles.actionMenuItemDanger}`.trim()}
+                  type='button'
+                  role='menuitem'
+                  onClick={() => handleRequestDelete(project)}
+                >
+                  삭제
+                </button>
+              </div>
+            ) : null}
+          </div>
         ),
       })),
-    [endIndex, projects, startIndex],
+    [endIndex, localProjects, openMenuProjectId, startIndex],
   )
 
   return (
@@ -190,7 +389,7 @@ export default function ProjectsListClient({ projects, stats }: ProjectsListClie
 
         <div className={styles.searchStatus}>
           <FiSearch size={16} />
-          <span>총 {projects.length}개의 프로젝트가 조회됨</span>
+          <span>총 {localProjects.length}개의 프로젝트가 조회됨</span>
         </div>
       </section>
 
@@ -212,12 +411,20 @@ export default function ProjectsListClient({ projects, stats }: ProjectsListClie
             tdFontSize='15px'
             thFontWeight='500'
             rowHoverBackground='rgb(24 38 63 / 0.96)'
+            onRowClick={(row) => {
+              const projectId = row.__rowId
+
+              if (typeof projectId === 'string') {
+                router.push(`/admin/projects/${projectId}`)
+              }
+            }}
           />
         </div>
 
         <div className={styles.paginationRow}>
           <p className={styles.paginationSummary}>
-            Showing {projects.length === 0 ? 0 : startIndex + 1} to {Math.min(endIndex, projects.length)} of {projects.length} projects
+            Showing {localProjects.length === 0 ? 0 : startIndex + 1} to {Math.min(endIndex, localProjects.length)} of{' '}
+            {localProjects.length} projects
           </p>
 
           <Pagination
@@ -265,7 +472,67 @@ export default function ProjectsListClient({ projects, stats }: ProjectsListClie
         </div>
       </section>
 
-      <AdminProjectCreateModal isOpen={isCreateModalOpen} onClose={() => setIsCreateModalOpen(false)} />
+      {isCreateModalOpen ? (
+        <AdminProjectCreateModal
+          key='create-project'
+          isOpen
+          onClose={() => setIsCreateModalOpen(false)}
+        />
+      ) : null}
+
+      {editingProject ? (
+        <AdminProjectCreateModal
+          key={`edit-project-${editingProject.id}`}
+          isOpen
+          mode='edit'
+          initialProject={editingProject}
+          onClose={() => setEditingProject(null)}
+          onSaveComplete={handleEditComplete}
+          onSaveFailed={(message) =>
+            setToastState({
+              visible: true,
+              title: '수정 실패',
+              message,
+              type: 'error',
+            })
+          }
+        />
+      ) : null}
+
+      <Toast
+        visible={deleteTarget !== null}
+        title='프로젝트 삭제'
+        message={
+          deleteTarget
+            ? `${deleteTarget.companyName} 프로젝트를 정말 삭제하시겠습니까?`
+            : '정말 삭제하시겠습니까?'
+        }
+        type='error'
+        duration={0}
+        actionLabel={isDeleting ? '삭제 중...' : '삭제'}
+        onAction={() => void handleDeleteProject()}
+        onClose={() => {
+          if (isDeleting) {
+            return
+          }
+
+          setDeleteTarget(null)
+        }}
+      />
+
+      <Toast
+        visible={toastState.visible}
+        title={toastState.title}
+        message={toastState.message}
+        type={toastState.type}
+        position='bottom-center'
+        onClose={() =>
+          setToastState((current) => ({
+            ...current,
+            visible: false,
+          }))
+        }
+      />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import type { ComponentType } from 'react'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
+import { redirect } from 'next/navigation'
 import {
   FiAlertCircle,
   FiArrowLeft,
@@ -18,6 +18,7 @@ import type { Database } from '../../../../lib/database.types'
 import { createServerSupabaseClient } from '../../../../lib/supabase-server'
 import { getAdminProjectDetail } from '../../../../lib/projects'
 import { getFallbackAdminProjectDetail, isMissingProjectsTableError } from '../fallbackProjects'
+import AdminProjectPaymentsSection from './AdminProjectPaymentsSection'
 import AdminProjectStatusFlow from './AdminProjectStatusFlow'
 import AdminProjectWorkTabs from './AdminProjectWorkTabs'
 import styles from './page.module.scss'
@@ -98,14 +99,24 @@ const ACTIVITY_ITEMS: ActivityItem[] = [
   },
 ]
 
-type AdminProjectDetailPageProps = {
-  params: Promise<{ id: string }>
+function isMissingRelationError(error: { code?: string } | null) {
+  return error?.code === 'PGRST205' || error?.code === '42P01'
 }
 
-export default async function AdminProjectDetailPage({ params }: AdminProjectDetailPageProps) {
+type AdminProjectDetailPageProps = {
+  params: Promise<{ id: string }>
+  searchParams?: Promise<{ tab?: string }>
+}
+
+export default async function AdminProjectDetailPage({
+  params,
+  searchParams,
+}: AdminProjectDetailPageProps) {
   const { id } = await params
+  const resolvedSearchParams = searchParams ? await searchParams : undefined
   const supabase = await createServerSupabaseClient()
   let project = null
+  let payments = []
 
   try {
     project = await getAdminProjectDetail(supabase, id)
@@ -118,8 +129,22 @@ export default async function AdminProjectDetailPage({ params }: AdminProjectDet
   }
 
   if (!project) {
-    notFound()
+    redirect('/admin/projects')
   }
+
+  const { data: paymentRows, error: paymentsError } = await supabase
+    .from('payments')
+    .select('*')
+    .eq('project_id', id)
+    .order('paid_at', { ascending: false })
+
+  if (paymentsError && !isMissingRelationError(paymentsError)) {
+    throw paymentsError
+  }
+
+  payments = paymentRows ?? []
+
+  const initialTabId = resolvedSearchParams?.tab === 'requests' ? 'requests' : 'pages'
 
   return (
     <div className={styles.content}>
@@ -150,18 +175,42 @@ export default async function AdminProjectDetailPage({ params }: AdminProjectDet
           <strong className={styles.metricValue}>{project.contact}</strong>
         </article>
         <article className={styles.metricCard}>
-          <span className={styles.metricLabel}>예산</span>
-          <strong className={`${styles.metricValue} ${styles.metricValuePink}`.trim()}>
-            {project.budget}
+          <span className={styles.metricLabel}>시작일</span>
+          <strong className={styles.metricValue}>
+            <span className={styles.metricInline}>
+              <FiCalendar size={18} />
+              {project.startedAt}
+            </span>
           </strong>
         </article>
         <article className={styles.metricCard}>
-          <span className={styles.metricLabel}>마감일</span>
+          <span className={styles.metricLabel}>프로젝트 마감일</span>
           <strong className={styles.metricValue}>
             <span className={styles.metricInline}>
               <FiCalendar size={18} />
               {project.deadline}
             </span>
+          </strong>
+        </article>
+        <article className={styles.metricCard}>
+          <span className={styles.metricLabel}>유지보수 종료일</span>
+          <strong className={styles.metricValue}>
+            <span className={styles.metricInline}>
+              <FiCalendar size={18} />
+              {project.careEndedAt}
+            </span>
+          </strong>
+        </article>
+        <article className={styles.metricCard}>
+          <span className={styles.metricLabel}>총 금액</span>
+          <strong className={`${styles.metricValue} ${styles.metricValuePink}`.trim()}>
+            {project.totalAmount}
+          </strong>
+        </article>
+        <article className={styles.metricCard}>
+          <span className={styles.metricLabel}>계약금</span>
+          <strong className={`${styles.metricValue} ${styles.metricValuePink}`.trim()}>
+            {project.depositAmount}
           </strong>
         </article>
       </section>
@@ -174,8 +223,11 @@ export default async function AdminProjectDetailPage({ params }: AdminProjectDet
 
       <section className={styles.mainGrid}>
         <div className={styles.leftColumn}>
+          <AdminProjectPaymentsSection initialPayments={payments} projectId={project.id} />
+
           <AdminProjectWorkTabs
             currentStage={project.currentStage}
+            initialTabId={initialTabId}
             pages={project.pages}
             projectId={project.id}
             stageProgressLabel={STAGE_PROGRESS_LABEL[project.currentStage]}
