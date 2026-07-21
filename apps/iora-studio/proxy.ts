@@ -1,11 +1,18 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
+import {
+  ADMIN_PATHNAME_HEADER,
+  ADMIN_PROFILE_HEADER,
+  ADMIN_USER_ID_HEADER,
+  fetchAdminAuthStateWithClient,
+  serializeAdminProfileHeader,
+} from './lib/admin-auth'
 
 const ADMIN_PATH_PREFIX = '/admin'
 
 export async function proxy(request: NextRequest) {
   const requestHeaders = new Headers(request.headers)
-  requestHeaders.set('x-iora-pathname', request.nextUrl.pathname)
+  requestHeaders.set(ADMIN_PATHNAME_HEADER, request.nextUrl.pathname)
 
   let response = NextResponse.next({
     request: {
@@ -44,9 +51,7 @@ export async function proxy(request: NextRequest) {
     })
   }
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  const { user, profile } = await fetchAdminAuthStateWithClient(supabase)
 
   if (!user) {
     const redirectUrl = request.nextUrl.clone()
@@ -55,14 +60,27 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(redirectUrl)
   }
 
-  const { data: profile } = await supabase.from('profiles').select('is_admin').eq('id', user.id).maybeSingle()
-
   if (!profile?.is_admin) {
     const redirectUrl = request.nextUrl.clone()
     redirectUrl.pathname = '/home'
     redirectUrl.search = ''
     return NextResponse.redirect(redirectUrl)
   }
+
+  requestHeaders.set(ADMIN_USER_ID_HEADER, user.id)
+  requestHeaders.set(ADMIN_PROFILE_HEADER, serializeAdminProfileHeader(profile))
+
+  const nextResponse = NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
+  })
+
+  response.cookies.getAll().forEach((cookie) => {
+    nextResponse.cookies.set(cookie)
+  })
+
+  response = nextResponse
 
   return response
 }

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { FiAlertCircle, FiCalendar, FiTrendingUp, FiZap } from 'react-icons/fi'
+import { getCachedAdminRequestState } from '../../../lib/admin-auth'
 import type { Tables } from '../../../lib/database.types'
 import { getGa4DashboardData } from '../../../lib/ga4'
 import { createServerSupabaseClient } from '../../../lib/supabase-server'
@@ -267,17 +268,7 @@ function isMissingRelationError(error: { code?: string } | null) {
 
 export default async function AdminDashboardPage() {
   const supabase = await createServerSupabaseClient()
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
-  const { data: profile } = user
-    ? await supabase
-        .from('profiles')
-        .select('email, full_name, company_name')
-        .eq('id', user.id)
-        .maybeSingle()
-    : { data: null }
+  const { profile } = await getCachedAdminRequestState()
 
   const [
     { data: projects, error: projectsError },
