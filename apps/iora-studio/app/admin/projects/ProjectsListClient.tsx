@@ -27,6 +27,7 @@ import styles from './page.module.scss'
 const PAGE_SIZE = 5
 
 const STATUS_CLASS_MAP = {
+  대기: styles.statusPlanning,
   개발: styles.statusDevelopment,
   배포: styles.statusLaunch,
   기획: styles.statusPlanning,

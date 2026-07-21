@@ -308,18 +308,10 @@ export default async function AdminDashboardPage() {
   const requestRows = (requests ?? []) as ContactRequestRow[]
   const paymentRows = ((paymentsError && isMissingRelationError(paymentsError) ? [] : payments) ?? []) as PaymentRow[]
   const projectsByUserId = createProjectMapByUserId(projectRows)
-  const activeProjectCount = projectRows.filter((project) => project.current_stage !== 'completed').length
-  const pendingProjectCount = requestRows.filter((request) => {
-    if (request.status !== 'pending') {
-      return false
-    }
-
-    if (!request.user_id) {
-      return true
-    }
-
-    return !projectsByUserId.has(request.user_id)
-  }).length
+  const activeProjectCount = projectRows.filter(
+    (project) => project.current_stage !== 'analysis' && project.current_stage !== 'completed',
+  ).length
+  const pendingProjectCount = projectRows.filter((project) => project.current_stage === 'analysis').length
   const currentMonthRange = getMonthRange()
   const previousMonthRange = getMonthRange(
     new Date(currentMonthRange.start.getFullYear(), currentMonthRange.start.getMonth() - 1, 1),
@@ -347,7 +339,7 @@ export default async function AdminDashboardPage() {
       id: 'pending-requests',
       title: '대기중인 프로젝트 수',
       value: formatMetricValue(pendingProjectCount),
-      trend: '신규 문의 기준',
+      trend: '등록 대기 기준',
       icon: 'request',
     },
     {

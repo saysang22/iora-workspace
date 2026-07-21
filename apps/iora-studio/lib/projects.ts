@@ -17,7 +17,7 @@ export type SharedProjectPageProgress = {
   status: SharedProjectPageProgressStatus
 }
 
-export type AdminProjectStatus = '개발' | '배포' | '기획' | '검수' | '유지보수'
+export type AdminProjectStatus = '대기' | '개발' | '배포' | '기획' | '검수' | '유지보수'
 export type AdminProjectType = 'member' | 'guest'
 
 export type AdminProjectListItem = {
@@ -60,7 +60,6 @@ export type AdminProjectDetail = {
 }
 
 const ACTIVE_STAGES: Array<Database['public']['Enums']['project_stage']> = [
-  'analysis',
   'planning',
   'development',
   'qa',
@@ -69,7 +68,7 @@ const ACTIVE_STAGES: Array<Database['public']['Enums']['project_stage']> = [
 ]
 
 const STAGE_STATUS_MAP: Record<Database['public']['Enums']['project_stage'], AdminProjectStatus> = {
-  analysis: '기획',
+  analysis: '대기',
   planning: '기획',
   development: '개발',
   qa: '검수',
