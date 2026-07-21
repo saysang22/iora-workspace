@@ -1,0 +1,14 @@
+
+> iora-studio@0.1.0 dev C:\Users\saysa\Desktop\work\apps\iora-studio
+> next dev
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://192.168.55.147:3001
+- Environments: .env
+✓ Ready in 1039ms
+Creating turbopack project {
+  dir: 'C:\\Users\\saysa\\Desktop\\work\\apps\\iora-studio',
+  testMode: true
+}
+

@@ -1,0 +1,119 @@
+
+> iora-studio@0.1.0 dev C:\Users\saysa\Desktop\work\apps\iora-studio
+> next dev
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.55.147:3000
+- Environments: .env
+✓ Ready in 724ms
+Creating turbopack project {
+  dir: 'C:\\Users\\saysa\\Desktop\\work\\apps\\iora-studio',
+  testMode: true
+}
+
+ GET /signin?next=%2Fadmin%2Fprojects 200 in 891ms (next.js: 170ms, application-code: 721ms)
+ GET /signin?next=%2Fadmin%2Fprojects 200 in 76ms (next.js: 7ms, application-code: 69ms)
+ GET /admin/projects 200 in 1255ms (next.js: 104ms, proxy.ts: 530ms, application-code: 620ms)
+ GET /signin 200 in 68ms (next.js: 7ms, application-code: 61ms)
+ GET /signin? 200 in 78ms (next.js: 7ms, application-code: 72ms)
+ GET /signin?next=%2Fadmin%2Fprojects 200 in 55ms (next.js: 6ms, application-code: 50ms)
+ GET /admin/projects/ad90e2a6-443c-4ed6-9a03-be639548dfd7 200 in 1909ms (next.js: 1092ms, proxy.ts: 599ms, application-code: 218ms)
+ GET /admin/projects 200 in 385ms (next.js: 8ms, proxy.ts: 162ms, application-code: 216ms)
+ GET /admin/reservations 200 in 1086ms (next.js: 84ms, proxy.ts: 958ms, application-code: 44ms)
+ GET /admin/maintenance 200 in 361ms (next.js: 71ms, proxy.ts: 113ms, application-code: 176ms)
+ GET /admin/dashboard 200 in 301ms (next.js: 66ms, proxy.ts: 76ms, application-code: 159ms)
+ GET /admin/projects 200 in 645ms (next.js: 8ms, proxy.ts: 458ms, application-code: 180ms)
+✓ Compiled in 302ms
+ GET /admin/projects 200 in 611ms (next.js: 198ms, proxy.ts: 264ms, application-code: 149ms)
+ GET /admin/projects 200 in 170ms (next.js: 6ms, proxy.ts: 95ms, application-code: 70ms)
+ GET /admin/projects 200 in 164ms (next.js: 7ms, proxy.ts: 87ms, application-code: 70ms)
+ GET /admin/projects 200 in 138ms (next.js: 6ms, proxy.ts: 79ms, application-code: 53ms)
+ GET /admin/projects 200 in 142ms (next.js: 6ms, proxy.ts: 90ms, application-code: 46ms)
+✓ Compiled in 200ms
+ GET /admin/projects 200 in 1167ms (next.js: 169ms, proxy.ts: 895ms, application-code: 103ms)
+✓ Compiled in 650ms
+ GET /admin/projects 200 in 527ms (next.js: 178ms, proxy.ts: 228ms, application-code: 120ms)
+✓ Compiled in 69ms
+ GET /admin/projects 200 in 739ms (next.js: 251ms, proxy.ts: 278ms, application-code: 210ms)
+ GET /admin/projects 200 in 177ms (next.js: 8ms, proxy.ts: 91ms, application-code: 78ms)
+ GET /admin/projects 200 in 200ms (next.js: 11ms, proxy.ts: 83ms, application-code: 106ms)
+ GET /admin/projects 200 in 163ms (next.js: 10ms, proxy.ts: 87ms, application-code: 67ms)
+✓ Compiled in 23ms
+ GET /admin/projects 200 in 861ms (next.js: 180ms, proxy.ts: 579ms, application-code: 103ms)
+ GET /admin/projects 200 in 349ms (next.js: 6ms, proxy.ts: 161ms, application-code: 182ms)
+ GET /admin/projects 200 in 233ms (next.js: 5ms, proxy.ts: 100ms, application-code: 128ms)
+ GET /admin/projects/ad90e2a6-443c-4ed6-9a03-be639548dfd7 200 in 528ms (next.js: 178ms, proxy.ts: 140ms, application-code: 209ms)
+ GET /admin/dashboard 200 in 347ms (next.js: 29ms, proxy.ts: 191ms, application-code: 127ms)
+ GET /admin/projects 200 in 945ms (next.js: 7ms, proxy.ts: 820ms, application-code: 118ms)
+ GET /admin/dashboard 200 in 210ms (next.js: 6ms, proxy.ts: 84ms, application-code: 120ms)
+ GET /admin/projects 200 in 641ms (next.js: 7ms, proxy.ts: 508ms, application-code: 126ms)
+ GET /admin/projects/ad90e2a6-443c-4ed6-9a03-be639548dfd7 200 in 279ms (next.js: 25ms, proxy.ts: 80ms, application-code: 174ms)
+ GET /admin/dashboard 200 in 330ms (next.js: 6ms, proxy.ts: 185ms, application-code: 139ms)
+✓ Compiled in 308ms
+ GET /admin/dashboard 200 in 750ms (next.js: 108ms, proxy.ts: 524ms, application-code: 118ms)
+✓ Compiled in 237ms
+ GET /admin/dashboard 200 in 428ms (next.js: 101ms, proxy.ts: 203ms, application-code: 125ms)
+ GET /admin/dashboard 200 in 140ms (next.js: 5ms, proxy.ts: 79ms, application-code: 56ms)
+ GET /admin/dashboard 404 in 457ms (next.js: 200ms, proxy.ts: 185ms, application-code: 72ms)
+ GET /admin/dashboard 404 in 114ms (next.js: 15ms, proxy.ts: 63ms, application-code: 35ms)
+ GET /admin/dashboard 404 in 1411ms (next.js: 155ms, proxy.ts: 60ms, application-code: 1196ms)
+ GET /admin/dashboard 404 in 1522ms (next.js: 175ms, proxy.ts: 160ms, application-code: 1187ms)
+ GET /admin/dashboard 200 in 770ms (next.js: 6ms, proxy.ts: 93ms, application-code: 671ms)
+ GET /admin/dashboard 200 in 1391ms (next.js: 167ms, proxy.ts: 267ms, application-code: 957ms)
+ GET /admin/dashboard 200 in 663ms (next.js: 6ms, proxy.ts: 335ms, application-code: 322ms)
+ GET /admin/dashboard 200 in 666ms (next.js: 22ms, proxy.ts: 379ms, application-code: 265ms)
+ GET /admin/dashboard 200 in 668ms (next.js: 76ms, proxy.ts: 382ms, application-code: 210ms)
+ GET /admin/dashboard 200 in 684ms (next.js: 81ms, proxy.ts: 497ms, application-code: 106ms)
+ GET /admin/dashboard 200 in 721ms (next.js: 22ms, proxy.ts: 221ms, application-code: 478ms)
+ GET /admin/dashboard 200 in 738ms (next.js: 48ms, proxy.ts: 239ms, application-code: 452ms)
+ GET /admin/dashboard 200 in 698ms (next.js: 81ms, proxy.ts: 199ms, application-code: 419ms)
+ GET /admin/dashboard 200 in 715ms (next.js: 183ms, proxy.ts: 216ms, application-code: 315ms)
+ GET /admin/dashboard 200 in 726ms (next.js: 111ms, proxy.ts: 425ms, application-code: 189ms)
+ GET /admin/dashboard 200 in 826ms (next.js: 11ms, proxy.ts: 78ms, application-code: 737ms)
+✓ Compiled in 355ms
+ GET /admin/dashboard 200 in 561ms (next.js: 166ms, proxy.ts: 232ms, application-code: 163ms)
+ GET /admin/dashboard 200 in 165ms (next.js: 5ms, proxy.ts: 94ms, application-code: 66ms)
+✓ Compiled in 2.3s
+ GET /admin/dashboard 200 in 2.1s (next.js: 376ms, proxy.ts: 1090ms, application-code: 591ms)
+ GET /admin/dashboard 200 in 460ms (next.js: 7ms, proxy.ts: 144ms, application-code: 309ms)
+ GET /admin/dashboard 200 in 243ms (next.js: 24ms, proxy.ts: 105ms, application-code: 114ms)
+ GET /admin/dashboard 200 in 279ms (next.js: 56ms, proxy.ts: 126ms, application-code: 97ms)
+✓ Compiled in 4.8s
+ GET /admin/dashboard 200 in 17.4s (next.js: 2.2s, proxy.ts: 140ms, application-code: 15.1s)
+ GET /admin/dashboard 200 in 876ms (next.js: 212ms, proxy.ts: 221ms, application-code: 443ms)
+ GET /admin/dashboard 200 in 993ms (next.js: 191ms, proxy.ts: 617ms, application-code: 185ms)
+ GET /admin/dashboard 200 in 731ms (next.js: 152ms, proxy.ts: 234ms, application-code: 345ms)
+ GET /admin/dashboard 200 in 740ms (next.js: 12ms, proxy.ts: 128ms, application-code: 600ms)
+ GET /admin/dashboard 200 in 1017ms (next.js: 62ms, proxy.ts: 406ms, application-code: 549ms)
+ GET /admin/dashboard 200 in 1022ms (next.js: 122ms, proxy.ts: 503ms, application-code: 397ms)
+ GET /admin/dashboard 200 in 1740ms (next.js: 75ms, proxy.ts: 556ms, application-code: 1108ms)
+✓ Compiled in 357ms
+ GET /admin/dashboard 200 in 1923ms (next.js: 185ms, proxy.ts: 1405ms, application-code: 333ms)
+ GET /admin/dashboard 200 in 362ms (next.js: 6ms, proxy.ts: 272ms, application-code: 83ms)
+ GET /admin/dashboard 200 in 181ms (next.js: 6ms, proxy.ts: 92ms, application-code: 83ms)
+ GET /admin/dashboard 200 in 185ms (next.js: 7ms, proxy.ts: 94ms, application-code: 84ms)
+ GET /admin/dashboard 200 in 170ms (next.js: 6ms, proxy.ts: 79ms, application-code: 85ms)
+✓ Compiled in 166ms
+ GET /admin/dashboard 200 in 698ms (next.js: 274ms, proxy.ts: 237ms, application-code: 186ms)
+ GET /admin/dashboard 200 in 209ms (next.js: 13ms, proxy.ts: 107ms, application-code: 89ms)
+ GET /admin/dashboard 200 in 232ms (next.js: 7ms, proxy.ts: 149ms, application-code: 76ms)
+✓ Compiled in 37ms
+ GET /admin/dashboard 200 in 607ms (next.js: 245ms, proxy.ts: 209ms, application-code: 153ms)
+ GET /admin/dashboard 200 in 244ms (next.js: 6ms, proxy.ts: 139ms, application-code: 100ms)
+  Reload env: .env
+ GET /admin/dashboard 200 in 3.7s (next.js: 573ms, proxy.ts: 1183ms, application-code: 1991ms)
+ GET /admin/dashboard 200 in 2.4s (next.js: 44ms, proxy.ts: 192ms, application-code: 2.1s)
+ GET /admin/dashboard 200 in 2.5s (next.js: 8ms, proxy.ts: 185ms, application-code: 2.3s)
+ GET /admin/dashboard 200 in 3.0s (next.js: 6ms, proxy.ts: 419ms, application-code: 2.6s)
+ GET /admin/dashboard 200 in 3.3s (next.js: 43ms, proxy.ts: 222ms, application-code: 3.0s)
+ GET /admin/dashboard 200 in 3.4s (next.js: 64ms, proxy.ts: 221ms, application-code: 3.1s)
+ GET /admin/dashboard 200 in 1547ms (next.js: 7ms, proxy.ts: 96ms, application-code: 1444ms)
+ GET /admin/dashboard 200 in 1652ms (next.js: 5ms, proxy.ts: 138ms, application-code: 1508ms)
+ GET /admin/dashboard 200 in 1650ms (next.js: 13ms, proxy.ts: 128ms, application-code: 1509ms)
+ GET /admin/dashboard 200 in 7.8s (next.js: 6ms, proxy.ts: 93ms, application-code: 7.7s)
+ GET /admin/projects 200 in 1050ms (next.js: 180ms, proxy.ts: 716ms, application-code: 154ms)
+ GET /admin/dashboard 200 in 1899ms (next.js: 6ms, proxy.ts: 120ms, application-code: 1773ms)
+ GET /admin/dashboard 200 in 1974ms (next.js: 7ms, proxy.ts: 435ms, application-code: 1532ms)
+[?25h
+ ELIFECYCLE  Command failed with exit code 4294967295.
