@@ -753,48 +753,31 @@
 }
 
 .chartShell {
-  display: grid;
-  grid-template-columns: repeat(var(--trend-chart-columns, 7), minmax(0, 1fr));
-  gap: 12px;
-  align-items: end;
-  min-height: 260px;
-}
-
-.chartColumn {
-  display: grid;
-  gap: 8px;
-  align-items: end;
-  justify-items: center;
-}
-
-.chartBarTrack {
-  display: flex;
-  align-items: end;
-  height: 180px;
-  width: min(100%, 44px);
-  padding: 8px 0;
-  border-radius: 10px;
-  background: rgb(11 20 35 / 0.88);
-}
-
-.chartBarFill {
-  display: block;
   width: 100%;
-  border-radius: 999px;
-  background: linear-gradient(180deg, #ff77b0 0%, #ff2d78 100%);
+  min-height: 260px;
+  max-height: 320px;
 }
 
-.chartLabel {
-  color: #94a3b8;
-  font-size: 11px;
-  line-height: 1.4;
-  text-align: center;
+.chartTooltip {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  border: 1px solid rgb(148 163 184 / 0.16);
+  border-radius: 12px;
+  background: rgb(9 13 24 / 0.96);
+  box-shadow: 0 18px 32px rgb(2 6 14 / 0.28);
 }
 
-.chartValue {
-  color: #f1f5f9;
+.chartTooltip strong {
+  color: #f8fafc;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.chartTooltip span {
+  color: #ff9bc4;
   font-size: 12px;
-  text-align: center;
+  line-height: 1.4;
 }
 
 .analyticsList {
