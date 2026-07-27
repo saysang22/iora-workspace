@@ -1,6 +1,7 @@
-import MaintenanceListClient from './MaintenanceListClient'
-import { createServerSupabaseClient } from '../../../lib/supabase-server'
 import type { Tables } from '../../../lib/database.types'
+import { createServerSupabaseClient } from '../../../lib/supabase-server'
+import AdminPageHeader from '../_components/AdminPageHeader'
+import MaintenanceListClient from './MaintenanceListClient'
 import styles from './page.module.scss'
 
 type ProjectRow = Pick<
@@ -80,20 +81,15 @@ export default async function AdminMaintenancePage() {
 
   return (
     <div className={styles.content}>
-      <section className={styles.heroSection}>
-        <div>
-          <p className={styles.kicker}>MAINTENANCE</p>
-          <h1 className={styles.title}>유지보수</h1>
-          <p className={styles.description}>
-            유지보수 진행 중이거나 계약 완료된 프로젝트를 한 화면에서 관리합니다.
-          </p>
-        </div>
-
-        <div className={styles.summaryCard}>
-          <span className={styles.summaryLabel}>관리 대상</span>
-          <strong className={styles.summaryValue}>{String(items.length).padStart(2, '0')}</strong>
-        </div>
-      </section>
+      <AdminPageHeader
+        eyebrow='MAINTENANCE'
+        title='유지보수'
+        description='유지보수 진행 중이거나 계약 완료된 프로젝트를 한 화면에서 관리합니다.'
+        summary={{
+          label: '관리 대상',
+          value: String(items.length).padStart(2, '0'),
+        }}
+      />
 
       <MaintenanceListClient items={items} />
     </div>

@@ -5,6 +5,9 @@ import { useRouter } from 'next/navigation'
 import type { AuthChangeEvent, Session } from '@supabase/supabase-js'
 import { Login } from '@iora/ui'
 import { supabase } from '../../lib/supabase'
+import { resolvePostAuthPath } from '../../lib/onboarding'
+import { getAuthErrorMessage } from './authErrorMessage'
+import { startSocialAuth, type SocialProvider } from './socialAuth'
 
 type LoginSubmitValues = {
   email: string
@@ -12,60 +15,34 @@ type LoginSubmitValues = {
   remember: boolean
 }
 
-type SocialProvider = 'google' | 'kakao' | 'naver'
-
 type SignInClientProps = {
+  initialError?: string | null
   nextPath?: string | null
 }
 
-function getAuthErrorMessage(message: string) {
-  const normalized = message.toLowerCase()
-
-  if (
-    normalized.includes('invalid login credentials') ||
-    normalized.includes('email not confirmed') ||
-    normalized.includes('invalid_credentials')
-  ) {
-    return '이메일 또는 비밀번호가 올바르지 않습니다.'
-  }
-
-  if (normalized.includes('email rate limit exceeded') || normalized.includes('too many requests')) {
-    return '요청이 너무 많습니다. 잠시 후 다시 시도해 주세요.'
-  }
-
-  if (normalized.includes('user not found')) {
-    return '등록되지 않은 계정입니다.'
-  }
-
-  if (normalized.includes('network')) {
-    return '네트워크 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.'
-  }
-
-  return '로그인 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.'
-}
-
-function isProfileIncomplete(user: { user_metadata?: { phone_number?: unknown; company_name?: unknown } } | null) {
-  if (!user) {
-    return false
-  }
-
-  const phoneNumber = typeof user.user_metadata?.phone_number === 'string' ? user.user_metadata.phone_number.trim() : ''
-  const companyName = typeof user.user_metadata?.company_name === 'string' ? user.user_metadata.company_name.trim() : ''
-
-  return !phoneNumber || !companyName
-}
-
-function getRedirectPath(user: { user_metadata?: { phone_number?: unknown; company_name?: unknown } } | null) {
-  return isProfileIncomplete(user) ? '/profile?setup=1' : '/home'
-}
-
-export default function SignInClient({ nextPath = null }: SignInClientProps) {
+export default function SignInClient({
+  initialError = null,
+  nextPath = null,
+}: SignInClientProps) {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState(
+    initialError ? getAuthErrorMessage(initialError) : '',
+  )
 
   useEffect(() => {
     let isMounted = true
+
+    const redirectSignedInUser = async (userId: string) => {
+      const redirectPath = await resolvePostAuthPath(supabase, userId, nextPath)
+
+      if (!isMounted) {
+        return
+      }
+
+      router.replace(redirectPath)
+      router.refresh()
+    }
 
     const syncSignedInUser = async () => {
       const { data } = await supabase.auth.getSession()
@@ -75,30 +52,30 @@ export default function SignInClient({ nextPath = null }: SignInClientProps) {
         return
       }
 
-      router.replace(getRedirectPath(sessionUser))
-      router.refresh()
+      await redirectSignedInUser(sessionUser.id)
     }
 
     void syncSignedInUser()
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event: AuthChangeEvent, session: Session | null) => {
-      const sessionUser = session?.user ?? null
+    } = supabase.auth.onAuthStateChange(
+      (_event: AuthChangeEvent, session: Session | null) => {
+        const sessionUser = session?.user ?? null
 
-      if (!sessionUser) {
-        return
-      }
+        if (!sessionUser) {
+          return
+        }
 
-      router.replace(getRedirectPath(sessionUser))
-      router.refresh()
-    })
+        void redirectSignedInUser(sessionUser.id)
+      },
+    )
 
     return () => {
       isMounted = false
       subscription.unsubscribe()
     }
-  }, [router])
+  }, [nextPath, router])
 
   const handleSubmit = async ({ email, password }: LoginSubmitValues) => {
     setIsLoading(true)
@@ -115,8 +92,18 @@ export default function SignInClient({ nextPath = null }: SignInClientProps) {
         return
       }
 
-      router.push(nextPath || getRedirectPath(data.user ?? data.session?.user ?? null))
+      const userId = data.user?.id ?? data.session?.user?.id
+
+      if (!userId) {
+        setErrorMessage('로그인 세션을 확인하지 못했습니다. 다시 시도해 주세요.')
+        return
+      }
+
+      const redirectPath = await resolvePostAuthPath(supabase, userId, nextPath)
+      router.push(redirectPath)
       router.refresh()
+    } catch {
+      setErrorMessage('로그인 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.')
     } finally {
       setIsLoading(false)
     }
@@ -125,33 +112,17 @@ export default function SignInClient({ nextPath = null }: SignInClientProps) {
   const handleSocialLogin = async (provider: SocialProvider) => {
     setErrorMessage('')
 
-    if (provider === 'naver') {
-      // TODO: Supabase does not provide Naver as a built-in provider.
-      // Replace this branch with Custom OAuth / OIDC or an Edge Function flow later.
-      setErrorMessage('네이버 로그인은 현재 준비 중입니다. 추후 Custom OAuth 연동으로 연결될 예정입니다.')
-      return false
-    }
-
-    const redirectTo = typeof window === 'undefined' ? undefined : `${window.location.origin}/signin`
-
-    const { data, error } = await supabase.auth.signInWithOAuth({
+    const { error } = await startSocialAuth({
+      nextPath,
       provider,
-      options: {
-        redirectTo,
-      },
+      returnPath: '/signin',
     })
 
     if (error) {
-      setErrorMessage(getAuthErrorMessage(error.message))
-      return false
+      setErrorMessage(getAuthErrorMessage(error))
     }
 
-    if (data.url && typeof window !== 'undefined') {
-      window.location.assign(data.url)
-      return false
-    }
-
-    return true
+    return false
   }
 
   return (
@@ -182,7 +153,7 @@ export default function SignInClient({ nextPath = null }: SignInClientProps) {
       signUpHref='/signup'
       signUpLabel='회원가입'
       signUpPrompt='아직 계정이 없으신가요?'
-      socialTitle='소셜 로그인'
+      socialTitle='간편 로그인'
       socialDividerLabel='또는'
       onSocialLogin={handleSocialLogin}
       onSubmit={handleSubmit}

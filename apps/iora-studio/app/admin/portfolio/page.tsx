@@ -1,6 +1,7 @@
-import PortfolioListClient from './PortfolioListClient'
-import { createServerSupabaseClient } from '../../../lib/supabase-server'
 import type { Tables } from '../../../lib/database.types'
+import { createServerSupabaseClient } from '../../../lib/supabase-server'
+import AdminPageHeader from '../_components/AdminPageHeader'
+import PortfolioListClient from './PortfolioListClient'
 import styles from './page.module.scss'
 
 export type PortfolioRow = Tables<'portfolios'>
@@ -80,20 +81,15 @@ export default async function AdminPortfolioPage() {
 
   return (
     <div className={styles.content}>
-      <section className={styles.heroSection}>
-        <div>
-          <p className={styles.kicker}>PORTFOLIO</p>
-          <h1 className={styles.title}>포트폴리오</h1>
-          <p className={styles.description}>
-            홈페이지 Works 섹션에 연결될 포트폴리오 항목을 등록하고 공개 여부를 관리합니다.
-          </p>
-        </div>
-
-        <div className={styles.summaryCard}>
-          <span className={styles.summaryLabel}>등록 항목</span>
-          <strong className={styles.summaryValue}>{String(items.length).padStart(2, '0')}</strong>
-        </div>
-      </section>
+      <AdminPageHeader
+        eyebrow='PORTFOLIO'
+        title='포트폴리오'
+        description='홈페이지 Works 섹션과 연결되는 포트폴리오 항목을 등록하고 공개 여부를 관리합니다.'
+        summary={{
+          label: '등록 항목',
+          value: String(items.length).padStart(2, '0'),
+        }}
+      />
 
       <PortfolioListClient items={items} projectOptions={projectOptions} />
     </div>

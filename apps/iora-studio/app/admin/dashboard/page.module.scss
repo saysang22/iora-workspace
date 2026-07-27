@@ -1,15 +1,13 @@
 .content {
   position: relative;
   min-height: calc(100vh - 64px);
-  padding: 32px 32px 118px;
+  padding: 0 0 118px;
   background: #0a1628;
-  display: flex;
-  justify-content: center;
 }
 
 .inner {
   display: grid;
-  gap: 32px;
+  gap: 24px;
   width: 100%;
 }
 
@@ -858,7 +856,7 @@
 
 @media (max-width: 720px) {
   .content {
-    padding: 24px 16px 110px;
+    padding-bottom: 110px;
   }
 
   .heroTitle {

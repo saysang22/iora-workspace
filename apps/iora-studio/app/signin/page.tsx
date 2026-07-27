@@ -3,12 +3,14 @@ import styles from '../auth-page.module.scss'
 
 type SignInPageProps = {
   searchParams?: Promise<{
+    error?: string
     next?: string
   }>
 }
 
 export default async function SignInPage({ searchParams }: SignInPageProps) {
   const resolvedSearchParams = searchParams ? await searchParams : undefined
+  const initialError = resolvedSearchParams?.error ?? null
   const nextPath = resolvedSearchParams?.next ?? null
 
   return (
@@ -22,7 +24,7 @@ export default async function SignInPage({ searchParams }: SignInPageProps) {
           IORA STUDIO 계정으로 로그인하고 프로젝트와 문의 내역을 이어서 관리하세요.
         </p>
         <div className={styles.formWrap}>
-          <SignInClient nextPath={nextPath} />
+          <SignInClient initialError={initialError} nextPath={nextPath} />
         </div>
       </section>
     </main>

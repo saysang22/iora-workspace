@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react'
 import { FiCalendar, FiClock, FiLink2, FiLock, FiPlus, FiZap } from 'react-icons/fi'
+import AdminPageHeader from '../_components/AdminPageHeader'
 import ReservationsCalendar from './ReservationsCalendar'
 import styles from './page.module.scss'
 
@@ -83,17 +84,17 @@ const SETTING_CARDS: SettingCard[] = [
 export default function AdminReservationsPage() {
   return (
     <div className={styles.content}>
-      <section className={styles.heroSection}>
-        <div>
-          <h1 className={styles.pageTitle}>예약 및 슬롯 관리</h1>
-          <p className={styles.pageDescription}>현재 활성화된 상담 슬롯과 신규 예약 요청을 확인하세요.</p>
-        </div>
-
-        <button className={styles.primaryButton} type='button'>
-          <FiPlus size={16} />
-          <span>새 슬롯 생성</span>
-        </button>
-      </section>
+      <AdminPageHeader
+        eyebrow='RESERVATIONS'
+        title='예약 관리'
+        description='상담 일정, 작업 허용 수, 신규 예약 요청을 한 화면에서 관리합니다.'
+        actions={
+          <button className={styles.primaryButton} type='button'>
+            <FiPlus size={16} />
+            <span>새 일정 생성</span>
+          </button>
+        }
+      />
 
       <section className={styles.dashboardGrid}>
         <article className={styles.calendarPanel}>

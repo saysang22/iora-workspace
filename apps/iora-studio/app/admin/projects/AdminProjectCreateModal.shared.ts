@@ -8,7 +8,7 @@ export type RegistrationMode = 'member' | 'guest'
 export type ProfileOption = {
   id: string
   full_name: string | null
-  email: string
+  email: string | null
   company_name: string | null
   is_admin: boolean
 }

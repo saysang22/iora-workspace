@@ -21,6 +21,7 @@ import {
 } from 'react-icons/fi'
 import { createBrowserSupabaseClient } from '../../../lib/supabase'
 import type { AdminProjectListItem, AdminProjectStats } from '../../../lib/projects'
+import AdminPageHeader from '../_components/AdminPageHeader'
 import AdminProjectCreateModal from './AdminProjectCreateModal'
 import styles from './page.module.scss'
 
@@ -334,17 +335,17 @@ export default function ProjectsListClient({ projects, stats }: ProjectsListClie
 
   return (
     <div className={styles.content}>
-      <section className={styles.heroSection}>
-        <div className={styles.heroCopy}>
-          <h1 className={styles.pageTitle}>프로젝트 관리</h1>
-          <p className={styles.pageDescription}>등록된 프로젝트를 한눈에 확인하고 진행 상태를 관리합니다.</p>
-        </div>
-
-        <button className={styles.primaryButton} type='button' onClick={() => setIsCreateModalOpen(true)}>
-          <FiFolderPlus size={16} />
-          <span>새 프로젝트 등록</span>
-        </button>
-      </section>
+      <AdminPageHeader
+        eyebrow='PROJECTS'
+        title='프로젝트 관리'
+        description='등록된 프로젝트를 한눈에 확인하고 진행 상태를 관리합니다.'
+        actions={
+          <button className={styles.primaryButton} type='button' onClick={() => setIsCreateModalOpen(true)}>
+            <FiFolderPlus size={16} />
+            <span>새 프로젝트 등록</span>
+          </button>
+        }
+      />
 
       <section className={styles.statsGrid} aria-label='프로젝트 통계'>
         {statCards.map((card) => {

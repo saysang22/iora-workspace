@@ -2,7 +2,7 @@ import type { IconType } from 'react-icons'
 import { FiBookOpen, FiCalendar, FiFolder, FiGrid, FiImage, FiSettings } from 'react-icons/fi'
 
 export type AdminShellProfile = {
-  email: string
+  email: string | null
   full_name: string | null
   company_name: string | null
 }
@@ -23,5 +23,5 @@ export const ADMIN_NAV_ITEMS: AdminNavItem[] = [
 ]
 
 export function getAdminDisplayName(profile: AdminShellProfile) {
-  return profile.full_name || profile.company_name || profile.email
+  return profile.full_name || profile.company_name || profile.email || '관리자'
 }

@@ -190,32 +190,38 @@ export type Database = {
         Row: {
           company_name: string | null
           created_at: string
-          email: string
+          email: string | null
           full_name: string | null
           id: string
           is_admin: boolean
+          onboarding_completed: boolean
           phone_number: string | null
           updated_at: string
+          website_url: string | null
         }
         Insert: {
           company_name?: string | null
           created_at?: string
-          email: string
+          email?: string | null
           full_name?: string | null
           id: string
           is_admin?: boolean
+          onboarding_completed?: boolean
           phone_number?: string | null
           updated_at?: string
+          website_url?: string | null
         }
         Update: {
           company_name?: string | null
           created_at?: string
-          email?: string
+          email?: string | null
           full_name?: string | null
           id?: string
           is_admin?: boolean
+          onboarding_completed?: boolean
           phone_number?: string | null
           updated_at?: string
+          website_url?: string | null
         }
         Relationships: []
       }

@@ -1,8 +1,9 @@
 .content {
   position: relative;
-  width: min(1280px, 100%);
-  margin: 0 auto;
-  padding: 32px 32px 72px;
+  display: grid;
+  gap: 24px;
+  width: 100%;
+  padding: 0 0 72px;
 }
 
 .heroSection {
@@ -542,11 +543,6 @@
 }
 
 @media (max-width: 980px) {
-  .content {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
   .heroSection {
     flex-direction: column;
     align-items: stretch;

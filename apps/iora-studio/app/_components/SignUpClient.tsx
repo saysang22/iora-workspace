@@ -5,31 +5,40 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { SiGoogle, SiKakaotalk, SiNaver } from 'react-icons/si'
 import { supabase } from '../../lib/supabase'
+import { resolvePostAuthPath } from '../../lib/onboarding'
+import { getAuthErrorMessage } from './authErrorMessage'
+import { startSocialAuth, type SocialProvider } from './socialAuth'
 import styles from './SignUpClient.module.scss'
 
 type SignUpValues = {
-  name: string
+  companyName: string
   email: string
-  phone: string
+  name: string
   password: string
   passwordConfirm: string
-  companyName: string
+  phone: string
 }
 
 type SignUpField = keyof SignUpValues
 type SignUpErrors = Partial<Record<SignUpField, string>>
-type SocialProvider = 'kakao' | 'naver' | 'google'
 
 const INITIAL_VALUES: SignUpValues = {
-  name: '',
+  companyName: '',
   email: '',
-  phone: '',
+  name: '',
   password: '',
   passwordConfirm: '',
-  companyName: '',
+  phone: '',
 }
 
-const FIELD_ORDER: SignUpField[] = ['name', 'email', 'phone', 'password', 'passwordConfirm', 'companyName']
+const FIELD_ORDER: SignUpField[] = [
+  'name',
+  'email',
+  'phone',
+  'password',
+  'passwordConfirm',
+  'companyName',
+]
 
 function validateEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
@@ -67,13 +76,13 @@ function getErrors(values: SignUpValues) {
   if (!values.email.trim()) {
     errors.email = '이메일을 입력해 주세요.'
   } else if (!validateEmail(values.email.trim())) {
-    errors.email = '올바른 이메일 형식을 입력해 주세요.'
+    errors.email = '올바른 이메일 형식으로 입력해 주세요.'
   }
 
   if (!values.phone.trim()) {
-    errors.phone = '휴대폰 번호를 입력해 주세요.'
+    errors.phone = '전화번호를 입력해 주세요.'
   } else if (!isValidPhoneNumber(values.phone.trim())) {
-    errors.phone = '010으로 시작하는 휴대폰 번호 형식을 입력해 주세요.'
+    errors.phone = '010으로 시작하는 전화번호 형식으로 입력해 주세요.'
   }
 
   if (!values.password.trim()) {
@@ -99,17 +108,26 @@ function getFieldInputId(field: SignUpField) {
   return `signup-${field}`
 }
 
-export default function SignUpClient() {
+export default function SignUpClient({
+  initialError = null,
+}: {
+  initialError?: string | null
+}) {
   const router = useRouter()
   const [values, setValues] = useState<SignUpValues>(INITIAL_VALUES)
   const [errors, setErrors] = useState<SignUpErrors>({})
-  const [submitError, setSubmitError] = useState('')
+  const [submitError, setSubmitError] = useState(
+    initialError ? getAuthErrorMessage(initialError) : '',
+  )
   const [successMessage, setSuccessMessage] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const validationErrors = useMemo(() => getErrors(values), [values])
-  const isFormComplete = FIELD_ORDER.every((field) => values[field].trim().length > 0)
-  const isFormValid = isFormComplete && Object.keys(validationErrors).length === 0
+  const isFormComplete = FIELD_ORDER.every(
+    (field) => values[field].trim().length > 0,
+  )
+  const isFormValid =
+    isFormComplete && Object.keys(validationErrors).length === 0
 
   const updateField = (field: SignUpField, nextValue: string) => {
     setValues((prev) => ({
@@ -136,7 +154,9 @@ export default function SignUpClient() {
     }
 
     window.requestAnimationFrame(() => {
-      const target = document.getElementById(getFieldInputId(firstInvalidField)) as HTMLInputElement | null
+      const target = document.getElementById(
+        getFieldInputId(firstInvalidField),
+      ) as HTMLInputElement | null
       target?.focus()
     })
   }
@@ -162,7 +182,9 @@ export default function SignUpClient() {
         password: values.password,
         options: {
           emailRedirectTo:
-            typeof window === 'undefined' ? undefined : `${window.location.origin}/home`,
+            typeof window === 'undefined'
+              ? undefined
+              : `${window.location.origin}/auth/callback?next=/home&from=/signup`,
           data: {
             full_name: values.name.trim(),
             phone_number: values.phone.trim(),
@@ -172,32 +194,48 @@ export default function SignUpClient() {
       })
 
       if (error) {
-        setSubmitError(error.message)
+        setSubmitError(getAuthErrorMessage(error.message))
         return
       }
 
       if (data.user && !data.session) {
-        setSuccessMessage('이메일 인증 링크를 보냈습니다. 메일함을 확인해 주세요.')
+        setSuccessMessage(
+          '이메일 인증 링크를 보냈습니다. 메일함을 확인해 주세요.',
+        )
         return
       }
 
-      setSuccessMessage('회원가입이 완료되었습니다. 홈으로 이동합니다.')
-      router.push('/home')
+      const userId = data.user?.id ?? data.session?.user?.id
+
+      if (!userId) {
+        setSubmitError('가입 세션을 확인하지 못했습니다. 다시 로그인해 주세요.')
+        return
+      }
+
+      const redirectPath = await resolvePostAuthPath(supabase, userId, '/home')
+
+      setSuccessMessage('회원가입이 완료되었습니다. 이동 중입니다.')
+      router.push(redirectPath)
       router.refresh()
+    } catch {
+      setSubmitError('가입 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.')
     } finally {
       setIsSubmitting(false)
     }
   }
 
-  const handleSocialSignUp = (provider: SocialProvider) => {
-    const authPathByProvider: Record<SocialProvider, string> = {
-      kakao: '/auth/kakao',
-      naver: '/auth/naver',
-      google: '/auth/google',
-    }
+  const handleSocialSignUp = async (provider: SocialProvider) => {
+    setSubmitError('')
+    setSuccessMessage('')
 
-    if (typeof window !== 'undefined') {
-      window.location.href = authPathByProvider[provider]
+    const { error } = await startSocialAuth({
+      nextPath: '/home',
+      provider,
+      returnPath: '/signup',
+    })
+
+    if (error) {
+      setSubmitError(getAuthErrorMessage(error))
     }
   }
 
@@ -213,7 +251,7 @@ export default function SignUpClient() {
             id={getFieldInputId('name')}
             name='name'
             onChange={(event) => updateField('name', event.target.value)}
-            placeholder='성함을 입력해 주세요'
+            placeholder='성함을 입력해 주세요.'
             required
             type='text'
             value={values.name}
@@ -241,7 +279,7 @@ export default function SignUpClient() {
 
         <div className={styles.fieldGroup}>
           <label className={styles.label} htmlFor={getFieldInputId('phone')}>
-            휴대폰 번호
+            전화번호
           </label>
           <input
             autoComplete='tel'
@@ -269,7 +307,7 @@ export default function SignUpClient() {
             id={getFieldInputId('password')}
             name='password'
             onChange={(event) => updateField('password', event.target.value)}
-            placeholder='8자 이상 입력해 주세요'
+            placeholder='8자 이상 입력해 주세요.'
             required
             type='password'
             value={values.password}
@@ -287,12 +325,14 @@ export default function SignUpClient() {
             id={getFieldInputId('passwordConfirm')}
             name='passwordConfirm'
             onChange={(event) => updateField('passwordConfirm', event.target.value)}
-            placeholder='비밀번호를 다시 입력해 주세요'
+            placeholder='비밀번호를 다시 입력해 주세요.'
             required
             type='password'
             value={values.passwordConfirm}
           />
-          {errors.passwordConfirm ? <p className={styles.errorText}>{errors.passwordConfirm}</p> : null}
+          {errors.passwordConfirm ? (
+            <p className={styles.errorText}>{errors.passwordConfirm}</p>
+          ) : null}
         </div>
 
         <div className={styles.fieldGroup}>
@@ -304,12 +344,14 @@ export default function SignUpClient() {
             id={getFieldInputId('companyName')}
             name='companyName'
             onChange={(event) => updateField('companyName', event.target.value)}
-            placeholder='회사 또는 업체명을 입력해 주세요'
+            placeholder='회사 또는 업체명을 입력해 주세요.'
             required
             type='text'
             value={values.companyName}
           />
-          {errors.companyName ? <p className={styles.errorText}>{errors.companyName}</p> : null}
+          {errors.companyName ? (
+            <p className={styles.errorText}>{errors.companyName}</p>
+          ) : null}
         </div>
 
         {submitError ? (
@@ -324,7 +366,11 @@ export default function SignUpClient() {
           </p>
         ) : null}
 
-        <button className={styles.submitButton} disabled={!isFormValid || isSubmitting} type='submit'>
+        <button
+          className={styles.submitButton}
+          disabled={!isFormValid || isSubmitting}
+          type='submit'
+        >
           {isSubmitting ? '가입 처리 중...' : 'Sign up'}
         </button>
 
@@ -339,20 +385,32 @@ export default function SignUpClient() {
         <span className={styles.dividerLine} />
       </div>
 
-      <div className={styles.socialSection} aria-label='소셜 회원가입'>
-        <button className={`${styles.socialButton} ${styles.kakaoButton}`.trim()} type='button' onClick={() => handleSocialSignUp('kakao')}>
+      <div className={styles.socialSection} aria-label='간편 회원가입'>
+        <button
+          className={`${styles.socialButton} ${styles.kakaoButton}`.trim()}
+          type='button'
+          onClick={() => void handleSocialSignUp('kakao')}
+        >
           <span className={styles.socialIcon} aria-hidden='true'>
             <SiKakaotalk size={14} />
           </span>
           <span>카카오톡으로 회원가입</span>
         </button>
-        <button className={`${styles.socialButton} ${styles.naverButton}`.trim()} type='button' onClick={() => handleSocialSignUp('naver')}>
+        <button
+          className={`${styles.socialButton} ${styles.naverButton}`.trim()}
+          type='button'
+          onClick={() => void handleSocialSignUp('naver')}
+        >
           <span className={styles.socialIcon} aria-hidden='true'>
             <SiNaver size={14} />
           </span>
           <span>네이버로 회원가입</span>
         </button>
-        <button className={`${styles.socialButton} ${styles.googleButton}`.trim()} type='button' onClick={() => handleSocialSignUp('google')}>
+        <button
+          className={`${styles.socialButton} ${styles.googleButton}`.trim()}
+          type='button'
+          onClick={() => void handleSocialSignUp('google')}
+        >
           <span className={`${styles.socialIcon} ${styles.googleIcon}`.trim()} aria-hidden='true'>
             <SiGoogle size={14} />
           </span>

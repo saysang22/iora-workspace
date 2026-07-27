@@ -4,6 +4,7 @@ import { FiAlertCircle, FiCalendar, FiTrendingUp, FiZap } from 'react-icons/fi'
 import { getCachedAdminRequestState } from '../../../lib/admin-auth'
 import type { Tables } from '../../../lib/database.types'
 import { createServerSupabaseClient } from '../../../lib/supabase-server'
+import AdminPageHeader from '../_components/AdminPageHeader'
 import { getAdminDisplayName } from '../_components/admin-shell'
 import AdminAnalyticsSectionServer from './AdminAnalyticsSectionServer'
 import AdminAnalyticsSectionSkeleton from './AdminAnalyticsSectionSkeleton'
@@ -359,17 +360,18 @@ export default async function AdminDashboardPage() {
   return (
     <div className={styles.content}>
       <div className={styles.inner}>
-        <section className={styles.hero}>
-          <div className={styles.heroText}>
-            <h1 className={styles.heroTitle}>안녕하세요, {displayName}님.</h1>
-            <p className={styles.heroDescription}>오늘의 업무 현황과 프로젝트 요약입니다.</p>
-          </div>
-
-          <div className={styles.todayBlock}>
-            <strong className={styles.todayLabel}>TODAY</strong>
-            <span className={styles.todayValue}>{todayLabel}</span>
-          </div>
-        </section>
+        <AdminPageHeader
+          eyebrow='DASHBOARD'
+          title='대시보드'
+          description={`안녕하세요, ${displayName}님. 오늘 업무 현황과 프로젝트 요약입니다.`}
+          summary={{
+            label: 'TODAY',
+            meta: '실시간 기준',
+            tone: 'slate',
+            value: todayLabel,
+            valueSize: 'compact',
+          }}
+        />
 
         <section className={styles.grid}>
           <div className={styles.metricsRow}>

@@ -27,7 +27,9 @@ export default async function AdminLayout({
       <AdminSidebar profile={profile} />
       <section className={styles.dashboard}>
         <AdminHeader />
-        {children}
+        <div className={styles.contentFrame}>
+          <div className={styles.contentInner}>{children}</div>
+        </div>
       </section>
     </main>
   )

@@ -16,6 +16,7 @@ import {
 } from 'react-icons/fi'
 import type { Database } from '../../../../lib/database.types'
 import { createServerSupabaseClient } from '../../../../lib/supabase-server'
+import AdminPageHeader from '../../_components/AdminPageHeader'
 import { getAdminProjectDetail } from '../../../../lib/projects'
 import { getFallbackAdminProjectDetail, isMissingProjectsTableError } from '../fallbackProjects'
 import AdminProjectPaymentsSection from './AdminProjectPaymentsSection'
@@ -148,22 +149,23 @@ export default async function AdminProjectDetailPage({
 
   return (
     <div className={styles.content}>
-      <section className={styles.heroSection}>
-        <div className={styles.heroTitleRow}>
+      <AdminPageHeader
+        eyebrow='PROJECT DETAIL'
+        title={project.title}
+        description={`프로젝트 상세 페이지입니다. URL의 ${id} 값을 기준으로 데이터를 조회합니다.`}
+        leading={
           <Link className={styles.backButton} href='/admin/projects' aria-label='프로젝트 목록으로 이동'>
             <FiArrowLeft size={20} />
           </Link>
-          <div>
-            <div className={styles.headingRow}>
-              <h1 className={styles.pageTitle}>{project.title}</h1>
-              <span className={styles.statusBadge}>{project.statusLabel}</span>
-            </div>
-            <p className={styles.pageDescription}>
-              프로젝트 상세 페이지입니다. URL의 <strong>{id}</strong> 값을 기반으로 데이터를 조회합니다.
-            </p>
-          </div>
-        </div>
-      </section>
+        }
+        summary={{
+          label: '현재 단계',
+          tone: 'pink',
+          value: project.statusLabel,
+          valueSize: 'compact',
+        }}
+        titleSuffix={<span className={styles.statusBadge}>{project.statusLabel}</span>}
+      />
 
       <section className={styles.metricGrid} aria-label='프로젝트 기본 정보'>
         <article className={styles.metricCard}>
