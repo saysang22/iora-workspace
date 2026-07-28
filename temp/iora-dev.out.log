@@ -457,3 +457,4 @@ Creating turbopack project {
 ✓ Compiled in 110ms
  GET /home 200 in 989ms (next.js: 338ms, application-code: 652ms)
  GET /signin 200 in 535ms (next.js: 264ms, application-code: 271ms)
+✓ Compiled in 90ms

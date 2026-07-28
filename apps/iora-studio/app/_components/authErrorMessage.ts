@@ -2,14 +2,6 @@ export function getAuthErrorMessage(message: string) {
   const normalized = message.toLowerCase()
 
   if (
-    normalized.includes('social_login_blocked_existing_password_account') ||
-    normalized.includes('already registered with email/password') ||
-    normalized.includes('already signed up with email/password')
-  ) {
-    return '이미 이 이메일로 가입된 계정이 있습니다. 이메일/비밀번호로 로그인해주세요.'
-  }
-
-  if (
     normalized.includes('invalid login credentials') ||
     normalized.includes('email not confirmed') ||
     normalized.includes('invalid_credentials')

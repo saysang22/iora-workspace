@@ -675,3 +675,84 @@ https://nextjs.org/docs/messages/module-not-found
     at <unknown> (https://nextjs.org/docs/messages/module-not-found)
     at <unknown> (Error: (./apps/iora-studio/app/_components/SignInClient.tsx:9:1)
     at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+⨯ ./apps/iora-studio/app/_components/SignInClient.tsx:9:1
+Module not found: Can't resolve './authErrorMessage'
+  [90m 7 |[0m [36mimport[0m { supabase } [36mfrom[0m [32m'../../lib/supabase'[0m
+  [90m 8 |[0m [36mimport[0m { resolvePostAuthPath } [36mfrom[0m [32m'../../lib/onboarding'[0m
+[31m[1m>[0m [90m 9 |[0m [36mimport[0m { getAuthErrorMessage } [36mfrom[0m [32m'./authErrorMessage'[0m
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m10 |[0m [36mimport[0m { startSocialAuth, [36mtype[0m [33mSocialProvider[0m } [36mfrom[0m [32m'./socialAuth'[0m
+  [90m11 |[0m
+  [90m12 |[0m [36mtype[0m [33mLoginSubmitValues[0m = {
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/SignInClient.tsx
+    ./apps/iora-studio/app/signin/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/SignInClient.tsx:9:1
+Module not found: Can't resolve './authErrorMessage'
+  [90m 7 |[0m [36mimport[0m { supabase } [36mfrom[0m [32m'../../lib/supabase'[0m
+  [90m 8 |[0m [36mimport[0m { resolvePostAuthPath } [36mfrom[0m [32m'../../lib/onboarding'[0m
+[31m[1m>[0m [90m 9 |[0m [36mimport[0m { getAuthErrorMessage } [36mfrom[0m [32m'./authErrorMessage'[0m
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m10 |[0m [36mimport[0m { startSocialAuth, [36mtype[0m [33mSocialProvider[0m } [36mfrom[0m [32m'./socialAuth'[0m
+  [90m11 |[0m
+  [90m12 |[0m [36mtype[0m [33mLoginSubmitValues[0m = {
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/SignInClient.tsx
+    ./apps/iora-studio/app/signin/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/SignInClient.tsx:9:1
+Module not found: Can't resolve './authErrorMessage'
+  [90m 7 |[0m [36mimport[0m { supabase } [36mfrom[0m [32m'../../lib/supabase'[0m
+  [90m 8 |[0m [36mimport[0m { resolvePostAuthPath } [36mfrom[0m [32m'../../lib/onboarding'[0m
+[31m[1m>[0m [90m 9 |[0m [36mimport[0m { getAuthErrorMessage } [36mfrom[0m [32m'./authErrorMessage'[0m
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m10 |[0m [36mimport[0m { startSocialAuth, [36mtype[0m [33mSocialProvider[0m } [36mfrom[0m [32m'./socialAuth'[0m
+  [90m11 |[0m
+  [90m12 |[0m [36mtype[0m [33mLoginSubmitValues[0m = {
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/SignInClient.tsx
+    ./apps/iora-studio/app/signin/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/SignInClient.tsx:9:1
+Module not found: Can't resolve './authErrorMessage'
+  [90m 7 |[0m [36mimport[0m { supabase } [36mfrom[0m [32m'../../lib/supabase'[0m
+  [90m 8 |[0m [36mimport[0m { resolvePostAuthPath } [36mfrom[0m [32m'../../lib/onboarding'[0m
+[31m[1m>[0m [90m 9 |[0m [36mimport[0m { getAuthErrorMessage } [36mfrom[0m [32m'./authErrorMessage'[0m
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m10 |[0m [36mimport[0m { startSocialAuth, [36mtype[0m [33mSocialProvider[0m } [36mfrom[0m [32m'./socialAuth'[0m
+  [90m11 |[0m
+  [90m12 |[0m [36mtype[0m [33mLoginSubmitValues[0m = {
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/SignInClient.tsx
+    ./apps/iora-studio/app/signin/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
