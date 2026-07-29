@@ -218,8 +218,8 @@ export default function Header({ logo, navItems }: HeaderProps) {
   }, [isAdmin, isSignedIn])
 
   const isActiveLink = (href: string) => {
-    if (href === '/home') {
-      return pathname === href
+    if (href === '/') {
+      return pathname === '/' || pathname === '/home'
     }
 
     return pathname === href || pathname.startsWith(`${href}/`)
@@ -267,7 +267,7 @@ export default function Header({ logo, navItems }: HeaderProps) {
       setIsAccountMenuOpen(false)
       closeMobileMenu()
       setIsAdmin(false)
-      router.push('/home')
+      router.push('/')
       router.refresh()
     } catch (error) {
       // TEMP DEBUG LOG - 문제 해결 후 제거 예정
@@ -285,7 +285,7 @@ export default function Header({ logo, navItems }: HeaderProps) {
 
       <header className={styles.header}>
         <div className={styles.headerInner}>
-          <Link className={styles.logoLink} href='/home' aria-label='IORA STUDIO 홈으로 이동'>
+          <Link className={styles.logoLink} href='/' aria-label='IORA STUDIO 홈으로 이동'>
             <Image src={logo} alt='IORA STUDIO' width={172} height={96} priority />
           </Link>
 

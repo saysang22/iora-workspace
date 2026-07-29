@@ -23,7 +23,7 @@ const ASSETS = {
 } as const
 
 const HEADER_NAV_ITEMS: HeaderNavItem[] = [
-  { label: 'Home', href: '/home' },
+  { label: 'Home', href: '/' },
   { label: 'Service', href: '/service' },
   { label: 'Works', href: '/works' },
   { label: 'Contact', href: '/contact' },
@@ -35,7 +35,7 @@ const FOOTER_GROUPS: FooterGroup[] = [
   {
     title: 'MENU',
     links: [
-      { label: 'Home', href: '/home' },
+      { label: 'Home', href: '/' },
       { label: 'Service', href: '/service' },
       { label: 'Works', href: '/works' },
       { label: 'Contact', href: '/contact' },
@@ -85,6 +85,9 @@ export const metadata: Metadata = {
     title: SITE_NAME,
     description: DEFAULT_DESCRIPTION,
     images: [absoluteUrl(DEFAULT_OG_IMAGE)],
+  },
+  verification: {
+    google: 'exwkJp2xhi7BnMpZMD8RAohw9pFWqHdNvE-ozTxTqX8',
   },
   icons: {
     icon: '/favicon.ico',

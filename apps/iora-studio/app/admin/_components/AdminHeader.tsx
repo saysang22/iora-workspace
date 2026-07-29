@@ -19,7 +19,7 @@ export default function AdminHeader() {
           <FiHelpCircle size={20} />
         </button>
         <div className={styles.topbarDivider} />
-        <Link href='/home' className={styles.secondaryButton}>
+        <Link href='/' className={styles.secondaryButton}>
           <FiLogOut size={14} />
           <span>관리자페이지 나가기</span>
         </Link>
