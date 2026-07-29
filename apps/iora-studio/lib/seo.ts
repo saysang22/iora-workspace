@@ -5,6 +5,7 @@ export const SITE_NAME = '이오라 스튜디오'
 export const DEFAULT_DESCRIPTION =
   '홈페이지 제작과 맞춤형 웹서비스 개발을 제공하는 이오라 스튜디오'
 export const DEFAULT_OG_IMAGE = '/images/home/banner.png'
+export const SITE_LOGO = '/images/logo/light_logo.svg'
 export const BUSINESS_NUMBER = '160-01-03816'
 export const REPRESENTATIVE_NAME = '김민서'
 export const BUSINESS_PHONE = '010-8318-6080'
@@ -79,13 +80,18 @@ export function createOrganizationJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: SITE_NAME,
+    alternateName: ['IORA STUDIO', 'iora studio', 'IORA Studio'],
     url: SITE_URL,
-    description: DEFAULT_DESCRIPTION,
+    logo: absoluteUrl(SITE_LOGO),
+    description:
+      '이오라스튜디오는 기업 홈페이지 제작, React 기반 웹 개발, 맞춤형 소프트웨어 구축을 제공하는 웹 개발 스튜디오입니다.',
     identifier: BUSINESS_NUMBER,
     founder: REPRESENTATIVE_NAME,
     telephone: BUSINESS_PHONE,
     address: {
       '@type': 'PostalAddress',
+      addressRegion: '부산광역시',
+      addressLocality: '강서구',
       streetAddress: BUSINESS_ADDRESS,
       addressCountry: 'KR',
     },
@@ -105,6 +111,7 @@ export function createWebsiteJsonLd() {
     '@type': 'WebSite',
     name: SITE_NAME,
     url: SITE_URL,
-    description: DEFAULT_DESCRIPTION,
+    description:
+      '이오라스튜디오는 기업 웹사이트 구축과 React 기반 웹 개발, 맞춤형 소프트웨어 개발을 제공하는 웹 개발 스튜디오입니다.',
   }
 }

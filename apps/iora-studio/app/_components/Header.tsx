@@ -38,13 +38,11 @@ export default function Header({ logo, navItems }: HeaderProps) {
   const [isSignedIn, setIsSignedIn] = useState(false)
   const [isAdmin, setIsAdmin] = useState(false)
   const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const accountMenuRef = useRef<HTMLDivElement | null>(null)
-  const mobileMenuToggleRef = useRef<HTMLInputElement | null>(null)
 
   const closeMobileMenu = () => {
-    if (mobileMenuToggleRef.current) {
-      mobileMenuToggleRef.current.checked = false
-    }
+    setIsMobileMenuOpen(false)
   }
 
   useEffect(() => {
@@ -118,29 +116,19 @@ export default function Header({ logo, navItems }: HeaderProps) {
   }, [isAccountMenuOpen])
 
   useEffect(() => {
-    const mobileMenuElement = mobileMenuToggleRef.current
-
-    if (!mobileMenuElement) {
-      return
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+      document.documentElement.style.overflow = 'hidden'
+    } else {
+      document.body.style.removeProperty('overflow')
+      document.documentElement.style.removeProperty('overflow')
     }
-
-    const syncBodyScroll = () => {
-      if (mobileMenuElement.checked) {
-        document.body.style.overflow = 'hidden'
-      } else {
-        document.body.style.removeProperty('overflow')
-      }
-    }
-
-    syncBodyScroll()
-
-    mobileMenuElement.addEventListener('change', syncBodyScroll)
 
     return () => {
       document.body.style.removeProperty('overflow')
-      mobileMenuElement.removeEventListener('change', syncBodyScroll)
+      document.documentElement.style.removeProperty('overflow')
     }
-  }, [])
+  }, [isMobileMenuOpen])
 
   useEffect(() => {
     const mobileMediaQuery = window.matchMedia('(max-width: 768px)')
@@ -234,6 +222,10 @@ export default function Header({ logo, navItems }: HeaderProps) {
     closeMobileMenu()
   }
 
+  const handleMobileMenuToggle = () => {
+    setIsMobileMenuOpen((prev) => !prev)
+  }
+
   const handleLogout = async () => {
     // TEMP DEBUG LOG - 문제 해결 후 제거 예정
     console.log('[AUTH][Header][SignOutAttempt]', {
@@ -281,8 +273,6 @@ export default function Header({ logo, navItems }: HeaderProps) {
 
   return (
     <div className={styles.headerShell}>
-      <input className={styles.mobileMenuToggle} id='global-mobile-navigation' ref={mobileMenuToggleRef} type='checkbox' />
-
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <Link className={styles.logoLink} href='/' aria-label='IORA STUDIO 홈으로 이동'>
@@ -352,20 +342,35 @@ export default function Header({ logo, navItems }: HeaderProps) {
             })}
           </nav>
 
-          <label aria-controls='mobile-navigation' aria-label='모바일 메뉴 토글' className={styles.mobileMenuButton} htmlFor='global-mobile-navigation'>
+          <button
+            aria-controls='mobile-navigation'
+            aria-expanded={isMobileMenuOpen}
+            aria-label='모바일 메뉴 토글'
+            className={styles.mobileMenuButton}
+            type='button'
+            onClick={handleMobileMenuToggle}
+          >
             <span className={styles.mobileMenuIcon} aria-hidden='true'>
               <span />
               <span />
               <span />
             </span>
-          </label>
+          </button>
         </div>
       </header>
 
-      <div className={styles.mobileMenuOverlay}>
-        <label aria-label='모바일 메뉴 닫기' className={styles.mobileMenuBackdrop} htmlFor='global-mobile-navigation' />
+      <div
+        className={`${styles.mobileMenuOverlay} ${isMobileMenuOpen ? styles.mobileMenuOverlayOpen : ''}`.trim()}
+        aria-hidden={isMobileMenuOpen ? undefined : 'true'}
+      >
+        <button
+          aria-label='모바일 메뉴 닫기'
+          className={styles.mobileMenuBackdrop}
+          type='button'
+          onClick={closeMobileMenu}
+        />
         <div
-          className={styles.mobileMenuPanel}
+          className={`${styles.mobileMenuPanel} ${isMobileMenuOpen ? styles.mobileMenuPanelOpen : ''}`.trim()}
           id='mobile-navigation'
           role='dialog'
           aria-modal='true'

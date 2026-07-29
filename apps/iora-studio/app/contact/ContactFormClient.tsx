@@ -403,7 +403,6 @@ export default function ContactFormClient() {
             <FieldLabel
               htmlFor="deadline"
               label="희망 마감일"
-              required
               onClick={() => setCalendarTarget('deadline')}
             />
             <CalendarFieldTrigger

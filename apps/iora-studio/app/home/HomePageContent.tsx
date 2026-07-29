@@ -10,6 +10,7 @@ import {
   FiSend,
   FiTool,
 } from 'react-icons/fi'
+import { createWebsiteJsonLd } from '../../lib/seo'
 import styles from './page.module.scss'
 
 const HOME_IMAGES = {
@@ -89,28 +90,10 @@ export default function HomePageContent({
   experiences = EXPERIENCES,
   designSteps = DESIGN_STEPS,
 }: HomePageContentProps) {
-  const organizationJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: '이오라 스튜디오',
-    url: 'https://www.iora-studio.com',
-    description: '홈페이지 제작과 맞춤형 웹서비스 개발을 제공하는 이오라 스튜디오',
-  }
-
-  const websiteJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: '이오라 스튜디오',
-    url: 'https://www.iora-studio.com',
-    description: '홈페이지 제작과 맞춤형 웹서비스 개발을 제공하는 이오라 스튜디오',
-  }
+  const websiteJsonLd = createWebsiteJsonLd()
 
   return (
     <main className={styles.home}>
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-      />
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
@@ -133,8 +116,9 @@ export default function HomePageContent({
             더 빠르고 더 선명한<span>웹</span>
           </h1>
           <p>
-            AI 기술과 React 기반의 개발로 비즈니스의 가치를 높이는 차세대 웹 서비스를 제작합니다.
-            우리는 단순한 구축을 넘어 성공적인 사용자 경험을 설계합니다.
+            AI 기술과 React 기반 웹 개발 역량으로 비즈니스의 가치를 높이는 차세대 웹 서비스를 제작합니다.
+            이오라스튜디오는 단순한 구축을 넘어 기업 웹사이트 구축과 소프트웨어 개발 전반의 사용자 경험을
+            정교하게 설계하는 웹 개발 스튜디오입니다.
           </p>
           <div className={styles.actions}>
             <Link className={styles.primaryButton} href='/consult'>시작하기</Link>
@@ -150,7 +134,8 @@ export default function HomePageContent({
             <h2 className={styles.processTitle}>정교한 기술로 앞서가는 프로세스</h2>
             <p>
               AI를 사용해 반복 작업을 자동화로 시작 시간을 단축하고, 데이터 기반의 분석을 통해 결과물의
-              완성도를 극대화합니다.
+              완성도를 극대화합니다. 기업 웹사이트 구축부터 맞춤형 소프트웨어 개발까지 같은 기준으로
+              설계합니다.
             </p>
           </div>
           <div className={styles.imagePanel}>
@@ -185,7 +170,8 @@ export default function HomePageContent({
             </h2>
             <p className={styles.sectionText}>
               React와 컴포넌트 기반 아키텍처, 최신 렌더링 기술을 사용하여 사용자에게 최상의 웹 경험을
-              제공합니다. 확장성 있는 코드 구조로 유지보수와 일관성을 극대화합니다.
+              제공합니다. React 기반 웹 개발에 최적화된 확장성 있는 코드 구조로 유지보수와 일관성을
+              극대화합니다.
             </p>
             <ul className={styles.experienceList}>
               {experiences.map((item) => (
@@ -217,7 +203,8 @@ export default function HomePageContent({
             </div>
             <p>
               이오라스튜디오는 템플릿을 쓰지 않습니다. 브랜드의 고유한 가치를 담아낸 입체적인 디자인으로
-              인상에 남는 결과물을 만듭니다.
+              인상에 남는 결과물을 만듭니다. 감각적인 화면 위에 실제 비즈니스에 필요한 웹 개발 스튜디오의
+              실행력을 함께 더합니다.
             </p>
           </div>
           <div className={styles.designPanel}>
