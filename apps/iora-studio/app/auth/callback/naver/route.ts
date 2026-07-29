@@ -39,23 +39,55 @@ function buildErrorRedirect(
   return response
 }
 
-function extractActionLink(data: unknown) {
+function extractHashedToken(data: unknown) {
   if (!data || typeof data !== 'object') {
     return null
   }
 
-  if ('action_link' in data && typeof data.action_link === 'string') {
-    return data.action_link
+  if ('hashed_token' in data && typeof data.hashed_token === 'string') {
+    return data.hashed_token
   }
 
   if ('properties' in data && data.properties && typeof data.properties === 'object') {
-    const properties = data.properties as { action_link?: unknown }
-    return typeof properties.action_link === 'string'
-      ? properties.action_link
+    const properties = data.properties as { hashed_token?: unknown }
+    return typeof properties.hashed_token === 'string'
+      ? properties.hashed_token
       : null
   }
 
   return null
+}
+
+async function findSupabaseUserByEmail(email: string) {
+  const supabaseAdmin = createAdminSupabaseClient()
+  let page = 1
+  const perPage = 200
+
+  while (true) {
+    const { data, error } = await supabaseAdmin.auth.admin.listUsers({
+      page,
+      perPage,
+    })
+
+    if (error) {
+      throw new Error(error.message || 'supabase_user_lookup_failed')
+    }
+
+    const users = data.users ?? []
+    const matchedUser = users.find(
+      (user) => user.email?.toLowerCase() === email.toLowerCase(),
+    )
+
+    if (matchedUser) {
+      return matchedUser
+    }
+
+    if (users.length < perPage) {
+      return null
+    }
+
+    page += 1
+  }
 }
 
 export async function GET(request: NextRequest) {
@@ -101,6 +133,32 @@ export async function GET(request: NextRequest) {
     }
 
     const supabaseAdmin = createAdminSupabaseClient()
+    const existingUser = await findSupabaseUserByEmail(profile.email)
+
+    if (!existingUser) {
+      const { error: createUserError } = await supabaseAdmin.auth.admin.createUser({
+        email: profile.email,
+        email_confirm: true,
+        user_metadata: {
+          full_name: profile.name ?? profile.nickname ?? null,
+          name: profile.name ?? profile.nickname ?? null,
+          nickname: profile.nickname ?? null,
+          phone_number: profile.mobile ?? null,
+          provider: 'naver',
+          naver_id: profile.id ?? null,
+        },
+      })
+
+      if (createUserError) {
+        return buildErrorRedirect(
+          request,
+          fromPath,
+          createUserError.message || 'naver_user_creation_failed',
+          nextPath,
+        )
+      }
+    }
+
     const confirmRedirectUrl = new URL('/auth/confirm', request.url)
 
     confirmRedirectUrl.searchParams.set('next', nextPath)
@@ -123,9 +181,9 @@ export async function GET(request: NextRequest) {
       )
     }
 
-    const actionLink = extractActionLink(data)
+    const hashedToken = extractHashedToken(data)
 
-    if (!actionLink) {
+    if (!hashedToken) {
       return buildErrorRedirect(
         request,
         fromPath,
@@ -134,7 +192,13 @@ export async function GET(request: NextRequest) {
       )
     }
 
-    const response = NextResponse.redirect(actionLink)
+    const confirmUrl = new URL('/auth/confirm', request.url)
+    confirmUrl.searchParams.set('token_hash', hashedToken)
+    confirmUrl.searchParams.set('type', 'email')
+    confirmUrl.searchParams.set('next', nextPath)
+    confirmUrl.searchParams.set('from', fromPath)
+
+    const response = NextResponse.redirect(confirmUrl)
     response.cookies.set(NAVER_STATE_COOKIE, '', {
       maxAge: 0,
       path: '/',
