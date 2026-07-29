@@ -4,6 +4,19 @@ import AppChrome from './_components/AppChrome'
 import type { FooterGroup } from './_components/Footer'
 import type { HeaderNavItem } from './_components/Header'
 import './globals.css'
+import {
+  BUSINESS_ADDRESS,
+  BUSINESS_NUMBER,
+  BUSINESS_PHONE,
+  BUSINESS_PHONE_HREF,
+  createOrganizationJsonLd,
+  DEFAULT_DESCRIPTION,
+  DEFAULT_OG_IMAGE,
+  REPRESENTATIVE_NAME,
+  SITE_NAME,
+  SITE_URL,
+  absoluteUrl,
+} from '../lib/seo'
 
 const ASSETS = {
   logo: '/images/logo/light_logo.svg',
@@ -19,14 +32,63 @@ const HEADER_NAV_ITEMS: HeaderNavItem[] = [
 ]
 
 const FOOTER_GROUPS: FooterGroup[] = [
-  { title: 'MENU', links: ['Home', 'Services', 'Works'] },
-  { title: 'SOCIAL', links: ['Instagram', 'LinkedIn'] },
-  { title: 'LEGAL', links: ['Privacy Policy', 'Terms of Service'] },
+  {
+    title: 'MENU',
+    links: [
+      { label: 'Home', href: '/home' },
+      { label: 'Service', href: '/service' },
+      { label: 'Works', href: '/works' },
+      { label: 'Contact', href: '/contact' },
+    ],
+  },
+  {
+    title: 'BUSINESS',
+    links: [
+      { label: REPRESENTATIVE_NAME, href: '/contact' },
+      { label: BUSINESS_PHONE, href: BUSINESS_PHONE_HREF },
+    ],
+  },
+  {
+    title: 'LEGAL',
+    links: [
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'Terms of Service', href: '/terms' },
+    ],
+  },
 ]
 
 export const metadata: Metadata = {
-  title: 'IORA STUDIO',
-  description: 'AI 기반 프리미엄 웹 개발 스튜디오',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: DEFAULT_DESCRIPTION,
+  alternates: {
+    canonical: SITE_URL,
+  },
+  openGraph: {
+    title: SITE_NAME,
+    description: DEFAULT_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    type: 'website',
+    locale: 'ko_KR',
+    images: [
+      {
+        url: absoluteUrl(DEFAULT_OG_IMAGE),
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_NAME,
+    description: DEFAULT_DESCRIPTION,
+    images: [absoluteUrl(DEFAULT_OG_IMAGE)],
+  },
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({
@@ -35,11 +97,24 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+  const organizationJsonLd = createOrganizationJsonLd()
 
   return (
-    <html lang="ko">
+    <html lang='ko'>
       <body>
-        <AppChrome footerGroups={FOOTER_GROUPS} headerNavItems={HEADER_NAV_ITEMS} logo={ASSETS.logo}>
+        <Script id='organization-jsonld' type='application/ld+json' strategy='beforeInteractive'>
+          {JSON.stringify(organizationJsonLd)}
+        </Script>
+        <AppChrome
+          businessAddress={BUSINESS_ADDRESS}
+          businessNumber={BUSINESS_NUMBER}
+          footerGroups={FOOTER_GROUPS}
+          headerNavItems={HEADER_NAV_ITEMS}
+          logo={ASSETS.logo}
+          phone={BUSINESS_PHONE}
+          phoneHref={BUSINESS_PHONE_HREF}
+          representativeName={REPRESENTATIVE_NAME}
+        >
           {children}
         </AppChrome>
       </body>

@@ -1,6 +1,8 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { createPageMetadata } from '../../../lib/seo'
 import styles from './page.module.scss'
 import { getWorkBySlug, WORK_ITEMS } from '../works.shared'
 
@@ -14,6 +16,23 @@ export function generateStaticParams() {
   return WORK_ITEMS.map((item) => ({
     slug: item.slug,
   }))
+}
+
+export async function generateMetadata({ params }: WorkDetailPageProps): Promise<Metadata> {
+  const { slug } = await params
+  const work = getWorkBySlug(slug)
+
+  if (!work) {
+    return {}
+  }
+
+  return createPageMetadata({
+    title: work.title,
+    description: work.description,
+    path: `/works/${work.slug}`,
+    image: work.thumbnailSrc,
+    type: 'article',
+  })
 }
 
 export default async function WorkDetailPage({ params }: WorkDetailPageProps) {

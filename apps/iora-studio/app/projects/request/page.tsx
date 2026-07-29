@@ -1,8 +1,12 @@
+import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 import ProjectRequestClient from './ProjectRequestClient'
 import styles from './page.module.scss'
 import { createServerSupabaseClient } from '../../../lib/supabase-server'
 import { buildMockProjectStatus } from '../projectStatus.mock'
+import { NO_INDEX_METADATA } from '../../../lib/seo'
+
+export const metadata: Metadata = NO_INDEX_METADATA
 
 function formatDisplayDate(value: string | null) {
   if (!value) {

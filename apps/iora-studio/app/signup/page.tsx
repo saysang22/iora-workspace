@@ -1,5 +1,9 @@
+import type { Metadata } from 'next'
 import SignUpClient from '../_components/SignUpClient'
 import styles from './SignUpPageLayout.module.scss'
+import { NO_INDEX_METADATA } from '../../lib/seo'
+
+export const metadata: Metadata = NO_INDEX_METADATA
 
 type SignUpPageProps = {
   searchParams?: Promise<{

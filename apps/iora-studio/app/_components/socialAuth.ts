@@ -12,6 +12,10 @@ type StartSocialAuthOptions = {
   returnPath: '/signin' | '/signup'
 }
 
+type SocialAuthResult = {
+  error?: string
+}
+
 function sanitizeRelativePath(path: string | null | undefined) {
   if (!path || !path.startsWith('/') || path.startsWith('//')) {
     return null
@@ -37,7 +41,7 @@ function setOAuthNavigationCookies(
 async function startKakaoAuth({
   nextPath,
   returnPath,
-}: Omit<StartSocialAuthOptions, 'provider'>) {
+}: Omit<StartSocialAuthOptions, 'provider'>): Promise<SocialAuthResult> {
   const safeNextPath = sanitizeRelativePath(nextPath)
 
   setOAuthNavigationCookies(returnPath, safeNextPath)
@@ -64,21 +68,42 @@ async function startKakaoAuth({
   return {}
 }
 
+function startNaverAuth({
+  nextPath,
+  returnPath,
+}: Omit<StartSocialAuthOptions, 'provider'>): SocialAuthResult {
+  const safeNextPath = sanitizeRelativePath(nextPath)
+
+  setOAuthNavigationCookies(returnPath, safeNextPath)
+
+  const authUrl = new URL('/auth/naver', window.location.origin)
+  authUrl.searchParams.set('from', returnPath)
+
+  if (safeNextPath) {
+    authUrl.searchParams.set('next', safeNextPath)
+  }
+
+  window.location.assign(authUrl.toString())
+
+  return {}
+}
+
 export async function startSocialAuth({
   nextPath,
   provider,
   returnPath,
-}: StartSocialAuthOptions) {
-  if (provider === 'naver') {
-    return {
-      error: '네이버 로그인은 현재 준비 중입니다. 추후 Custom OAuth 연동으로 연결할 예정입니다.',
-    }
-  }
-
+}: StartSocialAuthOptions): Promise<SocialAuthResult> {
   if (typeof window === 'undefined') {
     return {
       error: '브라우저 환경에서만 소셜 로그인을 시작할 수 있습니다.',
     }
+  }
+
+  if (provider === 'naver') {
+    return startNaverAuth({
+      nextPath,
+      returnPath,
+    })
   }
 
   if (provider === 'kakao') {

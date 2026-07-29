@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 import OnboardingClient from './OnboardingClient'
 import styles from './page.module.scss'
@@ -7,6 +8,9 @@ import {
   isOnboardingComplete,
   normalizeOptionalText,
 } from '../../lib/onboarding'
+import { NO_INDEX_METADATA } from '../../lib/seo'
+
+export const metadata: Metadata = NO_INDEX_METADATA
 
 function readUserMetadataText(
   value: unknown,

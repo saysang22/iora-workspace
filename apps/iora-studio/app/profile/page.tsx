@@ -1,5 +1,9 @@
+import type { Metadata } from 'next'
 import ProfileEditClient from '../_components/ProfileEditClient'
 import styles from './page.module.scss'
+import { NO_INDEX_METADATA } from '../../lib/seo'
+
+export const metadata: Metadata = NO_INDEX_METADATA
 
 export default function ProfilePage() {
   return (

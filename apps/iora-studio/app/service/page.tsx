@@ -1,4 +1,13 @@
+import type { Metadata } from 'next'
+import { createPageMetadata } from '../../lib/seo'
 import styles from './page.module.scss'
+
+export const metadata: Metadata = createPageMetadata({
+  title: '서비스',
+  description:
+    '기업 홈페이지, 랜딩페이지, 쇼핑몰, 유지보수까지 목적에 맞는 웹서비스 구축과 운영 지원 범위를 안내합니다.',
+  path: '/service',
+})
 
 type ServiceItem = {
   title: string
@@ -85,8 +94,26 @@ function AboutContent({
   policies,
   faqs,
 }: AboutPageProps) {
+  const serviceJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: '홈페이지 제작 및 맞춤형 웹서비스 개발',
+    provider: {
+      '@type': 'Organization',
+      name: '이오라 스튜디오',
+      url: 'https://www.iora-studio.com',
+    },
+    description:
+      '기업 홈페이지, 랜딩페이지, 쇼핑몰 구축과 유지보수를 포함한 맞춤형 웹서비스 제작',
+    areaServed: 'KR',
+  }
+
   return (
     <main className={styles.main}>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <section className={styles.pageHeader}>
         <p className={styles.eyebrow}>SERVICE OVERVIEW</p>
         <h1>서비스 소개</h1>

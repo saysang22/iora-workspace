@@ -48,6 +48,16 @@ export default function SignInClient({
       const { data } = await supabase.auth.getSession()
       const sessionUser = data.session?.user ?? null
 
+      // TEMP DEBUG LOG - 문제 해결 후 제거 예정
+      console.log('[AUTH][SignInClient][ExistingSessionCheck]', {
+        checkedAt: new Date().toISOString(),
+        hasSession: Boolean(data.session),
+        sessionUserId: sessionUser?.id ?? null,
+        sessionEmail: sessionUser?.email ?? null,
+        sessionExpiresAt: data.session?.expires_at ?? null,
+        nextPath,
+      })
+
       if (!isMounted || !sessionUser) {
         return
       }
@@ -82,15 +92,41 @@ export default function SignInClient({
     setErrorMessage('')
 
     try {
+      // TEMP DEBUG LOG - 문제 해결 후 제거 예정
+      console.log('[AUTH][SignInClient][SignInAttempt]', {
+        attemptedAt: new Date().toISOString(),
+        email,
+        nextPath,
+      })
+
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       })
 
       if (error) {
+        // TEMP DEBUG LOG - 문제 해결 후 제거 예정
+        console.error('[AUTH][SignInClient][SignInFailure]', {
+          attemptedAt: new Date().toISOString(),
+          email,
+          error,
+          errorCode: error.code ?? null,
+          errorMessage: error.message,
+          errorStatus: error.status ?? null,
+          errorName: error.name ?? null,
+        })
         setErrorMessage(getAuthErrorMessage(error.message))
         return
       }
+
+      // TEMP DEBUG LOG - 문제 해결 후 제거 예정
+      console.log('[AUTH][SignInClient][SignInSuccess]', {
+        attemptedAt: new Date().toISOString(),
+        email,
+        userId: data.user?.id ?? data.session?.user?.id ?? null,
+        sessionUserId: data.session?.user?.id ?? null,
+        sessionExpiresAt: data.session?.expires_at ?? null,
+      })
 
       const userId = data.user?.id ?? data.session?.user?.id
 
@@ -102,7 +138,13 @@ export default function SignInClient({
       const redirectPath = await resolvePostAuthPath(supabase, userId, nextPath)
       router.push(redirectPath)
       router.refresh()
-    } catch {
+    } catch (error) {
+      // TEMP DEBUG LOG - 문제 해결 후 제거 예정
+      console.error('[AUTH][SignInClient][SignInException]', {
+        attemptedAt: new Date().toISOString(),
+        email,
+        error,
+      })
       setErrorMessage('로그인 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.')
     } finally {
       setIsLoading(false)

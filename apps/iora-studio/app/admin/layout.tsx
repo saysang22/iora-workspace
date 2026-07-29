@@ -1,9 +1,13 @@
+import type { Metadata } from 'next'
 import { headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 import AdminHeader from './_components/AdminHeader'
 import AdminSidebar from './_components/AdminSidebar'
 import styles from './_components/AdminShell.module.scss'
 import { ADMIN_PATHNAME_HEADER, getCachedAdminRequestState } from '../../lib/admin-auth'
+import { NO_INDEX_METADATA } from '../../lib/seo'
+
+export const metadata: Metadata = NO_INDEX_METADATA
 
 export default async function AdminLayout({
   children,

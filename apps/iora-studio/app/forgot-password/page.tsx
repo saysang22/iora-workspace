@@ -1,5 +1,9 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import styles from '../auth-page.module.scss'
+import { NO_INDEX_METADATA } from '../../lib/seo'
+
+export const metadata: Metadata = NO_INDEX_METADATA
 
 export default function ForgotPasswordPage() {
   return (

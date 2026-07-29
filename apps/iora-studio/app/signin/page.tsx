@@ -1,5 +1,9 @@
+import type { Metadata } from 'next'
 import SignInClient from '../_components/SignInClient'
 import styles from '../auth-page.module.scss'
+import { NO_INDEX_METADATA } from '../../lib/seo'
+
+export const metadata: Metadata = NO_INDEX_METADATA
 
 type SignInPageProps = {
   searchParams?: Promise<{

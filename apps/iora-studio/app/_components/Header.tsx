@@ -136,11 +136,47 @@ export default function Header({ logo, navItems }: HeaderProps) {
   }
 
   const handleLogout = async () => {
-    await supabase.auth.signOut()
-    setIsAccountMenuOpen(false)
-    setIsAdmin(false)
-    router.push('/home')
-    router.refresh()
+    // TEMP DEBUG LOG - 문제 해결 후 제거 예정
+    console.log('[AUTH][Header][SignOutAttempt]', {
+      attemptedAt: new Date().toISOString(),
+      pathname,
+    })
+
+    try {
+      const { error } = await supabase.auth.signOut()
+
+      if (error) {
+        // TEMP DEBUG LOG - 문제 해결 후 제거 예정
+        console.error('[AUTH][Header][SignOutFailure]', {
+          attemptedAt: new Date().toISOString(),
+          pathname,
+          error,
+          errorCode: error.code ?? null,
+          errorMessage: error.message,
+          errorStatus: error.status ?? null,
+          errorName: error.name ?? null,
+        })
+        return
+      }
+
+      // TEMP DEBUG LOG - 문제 해결 후 제거 예정
+      console.log('[AUTH][Header][SignOutSuccess]', {
+        attemptedAt: new Date().toISOString(),
+        pathname,
+      })
+
+      setIsAccountMenuOpen(false)
+      setIsAdmin(false)
+      router.push('/home')
+      router.refresh()
+    } catch (error) {
+      // TEMP DEBUG LOG - 문제 해결 후 제거 예정
+      console.error('[AUTH][Header][SignOutException]', {
+        attemptedAt: new Date().toISOString(),
+        pathname,
+        error,
+      })
+    }
   }
 
   return (
