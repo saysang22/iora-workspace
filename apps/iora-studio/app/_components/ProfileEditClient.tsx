@@ -60,6 +60,7 @@ function getInputId(field: keyof ProfileValues) {
 export default function ProfileEditClient() {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(true)
+  const [currentUserId, setCurrentUserId] = useState('')
   const [values, setValues] = useState<ProfileValues>(INITIAL_VALUES)
   const [originalValues, setOriginalValues] = useState<ProfileValues>(INITIAL_VALUES)
   const [editingField, setEditingField] = useState<EditableField | null>(null)
@@ -87,6 +88,8 @@ export default function ProfileEditClient() {
         router.push('/signin')
         return
       }
+
+      setCurrentUserId(sessionUser.id)
 
       const nextValues: ProfileValues = {
         name: typeof sessionUser.user_metadata?.full_name === 'string' ? sessionUser.user_metadata.full_name : '',
@@ -236,6 +239,22 @@ export default function ProfileEditClient() {
     }
   }
 
+  const syncProfileFields = async (
+    profileFields: Partial<{
+      company_name: string
+      full_name: string
+      phone_number: string
+    }>,
+  ) => {
+    if (!currentUserId) {
+      return {
+        error: new Error('profile_sync_user_not_found'),
+      }
+    }
+
+    return supabase.from('profiles').update(profileFields).eq('id', currentUserId)
+  }
+
   const saveField = async (field: EditableField) => {
     setSubmitMessage(null)
 
@@ -256,6 +275,15 @@ export default function ProfileEditClient() {
 
       if (error) {
         setSubmitMessage({ type: 'error', text: error.message })
+        return
+      }
+
+      const { error: profileError } = await syncProfileFields({
+        full_name: values.name.trim(),
+      })
+
+      if (profileError) {
+        setSubmitMessage({ type: 'error', text: '프로필 이름을 저장하지 못했습니다.' })
         return
       }
 
@@ -321,6 +349,15 @@ export default function ProfileEditClient() {
         return
       }
 
+      const { error: profileError } = await syncProfileFields({
+        phone_number: values.phone.trim(),
+      })
+
+      if (profileError) {
+        setSubmitMessage({ type: 'error', text: '프로필 연락처를 저장하지 못했습니다.' })
+        return
+      }
+
       setOriginalValues((prev) => ({ ...prev, phone: values.phone.trim() }))
       setValues((prev) => ({ ...prev, phone: values.phone.trim() }))
       setEditingField(null)
@@ -345,6 +382,15 @@ export default function ProfileEditClient() {
 
       if (error) {
         setSubmitMessage({ type: 'error', text: error.message })
+        return
+      }
+
+      const { error: profileError } = await syncProfileFields({
+        company_name: values.companyName.trim(),
+      })
+
+      if (profileError) {
+        setSubmitMessage({ type: 'error', text: '프로필 업체명을 저장하지 못했습니다.' })
         return
       }
 
