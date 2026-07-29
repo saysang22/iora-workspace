@@ -245,6 +245,7 @@
 @media (max-width: 900px) {
   .main {
     padding: 0 18px 96px;
+    gap: 56px;
   }
 
   .pageHeader h1 {
@@ -268,5 +269,40 @@
 
   .processList::before {
     display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .main {
+    gap: 48px;
+    padding-bottom: 72px;
+  }
+
+  .pageHeader h1 {
+    font-size: 40px;
+  }
+
+  .pageHeader p,
+  .policyCard p,
+  .faqSection button,
+  .serviceItem p,
+  .serviceItem strong {
+    font-size: 15px;
+  }
+
+  .processSection,
+  .faqSection {
+    padding-top: 56px;
+  }
+
+  .processSection h2,
+  .faqSection h2,
+  .serviceItem h2 {
+    font-size: 26px;
+  }
+
+  .policyCard {
+    min-height: auto;
+    padding: 24px;
   }
 }

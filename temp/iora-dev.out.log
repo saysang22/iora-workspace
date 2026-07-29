@@ -458,3 +458,146 @@ Creating turbopack project {
  GET /home 200 in 989ms (next.js: 338ms, application-code: 652ms)
  GET /signin 200 in 535ms (next.js: 264ms, application-code: 271ms)
 ✓ Compiled in 90ms
+✓ Compiled in 514ms
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 4.0s (next.js: 406ms, application-code: 3.6s)
+✓ Compiled in 10.6s
+✓ Compiled in 120ms
+✓ Compiled in 207ms
+✓ Compiled in 4.3s
+✓ Compiled in 698ms
+✓ Compiled in 142ms
+✓ Compiled in 106ms
+✓ Compiled in 687ms
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 4.0s (next.js: 689ms, application-code: 3.3s)
+○ Compiling /privacy ...
+ GET /privacy 200 in 7.2s (next.js: 4.7s, application-code: 2.5s)
+ GET /contact 200 in 571ms (next.js: 373ms, application-code: 198ms)
+✓ Compiled in 703ms
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 231ms (next.js: 134ms, application-code: 98ms)
+✓ Compiled in 114ms
+✓ Compiled in 110ms
+✓ Compiled in 130ms
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 374ms (next.js: 266ms, application-code: 108ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 736ms (next.js: 9ms, application-code: 727ms)
+✓ Compiled in 79ms
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 63ms (next.js: 6ms, application-code: 56ms)
+✓ Compiled in 99ms
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 66ms (next.js: 7ms, application-code: 60ms)
+✓ Compiled in 116ms
+✓ Compiled in 123ms
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 1733ms (next.js: 600ms, application-code: 1134ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 598ms (next.js: 13ms, application-code: 584ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 536ms (next.js: 16ms, application-code: 520ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 534ms (next.js: 105ms, application-code: 429ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 538ms (next.js: 57ms, application-code: 480ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 582ms (next.js: 168ms, application-code: 414ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 1692ms (next.js: 81ms, application-code: 1611ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 2.1s (next.js: 10ms, application-code: 2.1s)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 2.1s (next.js: 13ms, application-code: 2.1s)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 2.1s (next.js: 52ms, application-code: 2.0s)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 2.1s (next.js: 87ms, application-code: 2.0s)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 2.5s (next.js: 858ms, application-code: 1643ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 3.1s (next.js: 44ms, application-code: 3.1s)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 3.1s (next.js: 86ms, application-code: 3.0s)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 2.6s (next.js: 574ms, application-code: 1997ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 2.6s (next.js: 65ms, application-code: 2.5s)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 2.6s (next.js: 1068ms, application-code: 1523ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 1574ms (next.js: 69ms, application-code: 1505ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 2.8s (next.js: 42ms, application-code: 2.8s)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 2.4s (next.js: 57ms, application-code: 2.3s)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 1825ms (next.js: 504ms, application-code: 1321ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 1834ms (next.js: 65ms, application-code: 1769ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 1818ms (next.js: 819ms, application-code: 999ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 674ms (next.js: 32ms, application-code: 641ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 261ms (next.js: 10ms, application-code: 251ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 242ms (next.js: 17ms, application-code: 225ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 195ms (next.js: 47ms, application-code: 149ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 197ms (next.js: 10ms, application-code: 187ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 197ms (next.js: 80ms, application-code: 117ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 225ms (next.js: 8ms, application-code: 216ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 225ms (next.js: 9ms, application-code: 216ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 189ms (next.js: 8ms, application-code: 182ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 208ms (next.js: 7ms, application-code: 201ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 209ms (next.js: 36ms, application-code: 173ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 213ms (next.js: 43ms, application-code: 170ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 265ms (next.js: 8ms, application-code: 257ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 261ms (next.js: 8ms, application-code: 253ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 209ms (next.js: 9ms, application-code: 200ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 207ms (next.js: 8ms, application-code: 199ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 268ms (next.js: 51ms, application-code: 217ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 237ms (next.js: 50ms, application-code: 186ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 290ms (next.js: 7ms, application-code: 283ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 295ms (next.js: 8ms, application-code: 287ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 323ms (next.js: 41ms, application-code: 282ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 261ms (next.js: 11ms, application-code: 250ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 300ms (next.js: 60ms, application-code: 240ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 248ms (next.js: 9ms, application-code: 239ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 299ms (next.js: 9ms, application-code: 291ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 272ms (next.js: 7ms, application-code: 264ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 272ms (next.js: 49ms, application-code: 223ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 194ms (next.js: 6ms, application-code: 188ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 259ms (next.js: 8ms, application-code: 251ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 262ms (next.js: 8ms, application-code: 255ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 321ms (next.js: 8ms, application-code: 313ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 324ms (next.js: 9ms, application-code: 315ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 326ms (next.js: 52ms, application-code: 274ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 235ms (next.js: 11ms, application-code: 223ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 364ms (next.js: 8ms, application-code: 356ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 364ms (next.js: 47ms, application-code: 317ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 340ms (next.js: 9ms, application-code: 330ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 283ms (next.js: 12ms, application-code: 271ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 221ms (next.js: 16ms, application-code: 206ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 218ms (next.js: 67ms, application-code: 152ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 104ms (next.js: 7ms, application-code: 97ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 105ms (next.js: 49ms, application-code: 56ms)
+✓ Compiled in 1385ms
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 306ms (next.js: 194ms, application-code: 112ms)
+ GET /signin?next=%2Fadmin%2Fdashboard 200 in 38ms (next.js: 6ms, application-code: 31ms)
+○ Compiling /auth/naver ...
+ GET /auth/naver?from=%2Fsignin&next=%2Fadmin%2Fdashboard 307 in 3.2s (next.js: 3.2s, application-code: 24ms)
+ GET /signin?error=naver_oauth_not_configured&next=%2Fadmin%2Fdashboard 200 in 946ms (next.js: 7ms, application-code: 939ms)
+  Reload env: .env
+ GET /signin?error=naver_oauth_not_configured&next=%2Fadmin%2Fdashboard 200 in 313ms (next.js: 176ms, application-code: 137ms)
+ GET /signin?error=naver_oauth_not_configured&next=%2Fadmin%2Fdashboard 200 in 38ms (next.js: 7ms, application-code: 31ms)
+ GET /auth/naver?from=%2Fsignin&next=%2Fadmin%2Fdashboard 307 in 113ms (next.js: 79ms, application-code: 34ms)
+ GET /signin?error=naver_oauth_not_configured&next=%2Fadmin%2Fdashboard 200 in 3.7s (next.js: 36ms, application-code: 3.7s)
+ GET /auth/naver?from=%2Fsignin&next=%2Fadmin%2Fdashboard 307 in 80ms (next.js: 25ms, application-code: 55ms)
+✓ Compiled in 11.9s
+✓ Compiled in 959ms
+ GET /signin?error=naver_oauth_not_configured&next=%2Fadmin%2Fdashboard 200 in 4.8s (next.js: 1979ms, application-code: 2.8s)
+✓ Compiled in 2.3s
+ GET /signin?error=naver_oauth_not_configured&next=%2Fadmin%2Fdashboard 200 in 271ms (next.js: 150ms, application-code: 121ms)
+✓ Compiled in 121ms
+ GET /signin?error=naver_oauth_not_configured&next=%2Fadmin%2Fdashboard 200 in 2.8s (next.js: 331ms, application-code: 2.5s)
+✓ Compiled in 1534ms
+✓ Compiled in 468ms
+ GET /signin?error=naver_oauth_not_configured&next=%2Fadmin%2Fdashboard 200 in 1356ms (next.js: 314ms, application-code: 1042ms)
+✓ Compiled in 368ms
+ GET /signin?error=naver_oauth_not_configured&next=%2Fadmin%2Fdashboard 200 in 237ms (next.js: 148ms, application-code: 88ms)
+ GET /home 200 in 400ms (next.js: 218ms, application-code: 182ms)
+ GET /service 200 in 324ms (next.js: 223ms, application-code: 101ms)
+ GET /works 200 in 258ms (next.js: 203ms, application-code: 56ms)
+ GET /contact 200 in 268ms (next.js: 185ms, application-code: 83ms)
+ GET /signin 200 in 37ms (next.js: 10ms, application-code: 27ms)
+ GET /signin 200 in 829ms (next.js: 6ms, application-code: 823ms)
+✓ Compiled in 299ms
+ GET /signin 200 in 312ms (next.js: 59ms, application-code: 252ms)
+ GET /signin 200 in 191ms (next.js: 6ms, application-code: 185ms)
+✓ Compiled in 272ms
+ GET /signin 200 in 240ms (next.js: 11ms, application-code: 230ms)
+✓ Compiled in 527ms
+ GET /signin 200 in 567ms (next.js: 333ms, application-code: 234ms)
+✓ Compiled in 238ms
+ GET /signin 200 in 271ms (next.js: 152ms, application-code: 120ms)
+ GET /signin 200 in 2.2s (next.js: 6ms, application-code: 2.2s)
+ GET /signin 200 in 86ms (next.js: 7ms, application-code: 79ms)
+ GET /signin 200 in 54ms (next.js: 5ms, application-code: 49ms)
+ GET /signin 200 in 68ms (next.js: 6ms, application-code: 62ms)
+ GET /signin 200 in 57ms (next.js: 5ms, application-code: 52ms)
+ GET /signin 200 in 55ms (next.js: 6ms, application-code: 49ms)
+✓ Compiled in 491ms
+ GET /signin 200 in 240ms (next.js: 171ms, application-code: 69ms)
+✓ Compiled in 110ms
+ GET /home 200 in 682ms (next.js: 211ms, application-code: 471ms)
+[?25h
+ ELIFECYCLE  Command failed with exit code 1.

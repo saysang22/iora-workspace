@@ -428,7 +428,7 @@
   }
 
   .heroContent {
-    padding: 96px 18px;
+    padding: 96px 18px 88px;
   }
 
   .hero h1,
@@ -444,27 +444,54 @@
 
   .processTitle {
     font-size: clamp(24px, 5vw, 36px);
+    white-space: normal;
   }
 
   .featureGrid,
   .experienceGrid {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .stepGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 48px;
   }
 
   .splitHeader {
     display: grid;
     gap: 28px;
   }
+
+  .splitHeader > p {
+    max-width: none;
+  }
 }
 
 @media (max-width: 560px) {
+  .container {
+    padding: 0 18px;
+  }
+
+  .hero {
+    min-height: 620px;
+  }
+
+  .heroContent {
+    padding: 88px 18px 72px;
+  }
+
   .hero h1,
   .ctaSection h2 {
     font-size: 38px;
+  }
+
+  .heroContent > p:not(.badge),
+  .ctaSection p,
+  .sectionHeader p:not(.eyebrow),
+  .sectionText,
+  .splitHeader > p {
+    font-size: 16px;
   }
 
   .processSection,
@@ -482,6 +509,37 @@
     font-size: clamp(20px, 6vw, 28px);
   }
 
+  .sectionHeader {
+    margin-bottom: 40px;
+  }
+
+  .sectionHeader h2,
+  .experienceGrid h2,
+  .splitHeader h2 {
+    font-size: 30px;
+  }
+
+  .featureGrid {
+    margin-top: 40px;
+    gap: 20px;
+  }
+
+  .featureCard {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .featureCard h3 {
+    font-size: 26px;
+  }
+
+  .featureCard p,
+  .experienceList strong,
+  .experienceList p,
+  .stepCard strong {
+    font-size: 15px;
+  }
+
   .stepGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -490,5 +548,8 @@
   .secondaryButton,
   .darkButton {
     width: 100%;
+    min-height: 48px;
+    padding: 14px 24px;
+    font-size: 15px;
   }
 }

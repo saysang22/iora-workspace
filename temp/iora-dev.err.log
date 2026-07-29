@@ -756,3 +756,4322 @@ Import trace:
 https://nextjs.org/docs/messages/module-not-found
 
 
+⨯ ./apps/iora-studio/app/signin/page.tsx:1:1
+Module not found: Can't resolve '../_components/SignInClient'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m [33mSignInClient[0m [36mfrom[0m [32m'../_components/SignInClient'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m styles [36mfrom[0m [32m'../auth-page.module.scss'[0m
+  [90m3 |[0m
+  [90m4 |[0m [36mtype[0m [33mSignInPageProps[0m = {
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/signin/page.tsx:1:1
+Module not found: Can't resolve '../_components/SignInClient'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m [33mSignInClient[0m [36mfrom[0m [32m'../_components/SignInClient'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m styles [36mfrom[0m [32m'../auth-page.module.scss'[0m
+  [90m3 |[0m
+  [90m4 |[0m [36mtype[0m [33mSignInPageProps[0m = {
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   children: [33mReactNode[0m
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  [90m4 |[0m [36mimport[0m { usePathname } [36mfrom[0m [32m'next/navigation'[0m
+  [90m5 |[0m [36mimport[0m [33mFooter[0m, { [36mtype[0m [33mFooterGroup[0m } [36mfrom[0m [32m'./Footer'[0m
+[31m[1m>[0m [90m6 |[0m [36mimport[0m [33mHeader[0m, { [36mtype[0m [33mHeaderNavItem[0m } [36mfrom[0m [32m'./Header'[0m
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [36mtype[0m [33mAppChromeProps[0m = {
+  [90m9 |[0m   businessAddress: string
+
+
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[browser] ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  4 | import { usePathname } from 'next/navigation'
+  5 | import Footer, { type FooterGroup } from './Footer'
+> 6 | import Header, { type HeaderNavItem } from './Header'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | type AppChromeProps = {
+  9 |   businessAddress: string
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] ./apps/iora-studio/app/_components/AppChrome.tsx:6:1
+Module not found: Can't resolve './Header'
+  4 | import { usePathname } from 'next/navigation'
+  5 | import Footer, { type FooterGroup } from './Footer'
+> 6 | import Header, { type HeaderNavItem } from './Header'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | type AppChromeProps = {
+  9 |   businessAddress: string
+
+Import trace:
+  Server Component:
+    ./apps/iora-studio/app/_components/AppChrome.tsx
+    ./apps/iora-studio/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+⚠ Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "127.0.0.1".
+Cross-origin access to Next.js dev resources is blocked by default for safety.
+
+To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+
+// next.config.js
+module.exports = {
+  allowedDevOrigins: ['127.0.0.1'],
+}
+
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins

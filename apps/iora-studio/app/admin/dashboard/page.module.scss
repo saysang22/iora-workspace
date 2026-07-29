@@ -1,6 +1,7 @@
 .content {
   position: relative;
   min-height: calc(100vh - 64px);
+  min-width: 0;
   padding: 0 0 118px;
   background: #0a1628;
 }
@@ -856,12 +857,22 @@
 
 @media (max-width: 720px) {
   .content {
-    padding-bottom: 110px;
+    padding-bottom: 80px;
   }
 
   .heroTitle {
     font-size: 28px;
     line-height: 36px;
+  }
+
+  .metricCard,
+  .deadlinePanel,
+  .tableHeader,
+  .tableFooter,
+  .panel,
+  .analyticsCard {
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
   .metricsRow {
@@ -874,5 +885,10 @@
 
   .chartShell {
     min-height: 220px;
+    max-height: none;
+  }
+
+  .tableWrap {
+    -webkit-overflow-scrolling: touch;
   }
 }
