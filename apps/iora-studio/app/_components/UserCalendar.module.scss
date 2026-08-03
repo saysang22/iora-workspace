@@ -1,0 +1,141 @@
+.calendarCard {
+  width: min(100%, 960px);
+  padding: 32px;
+  border: 1px solid #252525;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at top right, rgb(200 241 53 / 0.08), transparent 36%),
+    linear-gradient(180deg, #101010 0%, #0c0c0c 100%);
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #c8f135;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+}
+
+.copy h2 {
+  margin: 0;
+  color: #f7f2eb;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.description {
+  margin: 0;
+  max-width: 680px;
+  color: #b8b2ad;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.error {
+  margin: 0 0 18px;
+  padding: 12px 14px;
+  border: 1px solid rgb(255 127 134 / 0.24);
+  border-radius: 10px;
+  background: rgb(255 127 134 / 0.08);
+  color: #ffb7bc;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.calendar {
+  width: 100%;
+}
+
+.calendarLegend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.calendarLegend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #b9b2ab;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.legendAvailable,
+.legendUnavailable,
+.legendNotice {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex: 0 0 auto;
+}
+
+.legendAvailable {
+  border: 1px solid #3b3836;
+  background: #121212;
+}
+
+.legendUnavailable {
+  background: #e03131;
+}
+
+.legendNotice {
+  border: 1px solid #5c3333;
+  background: #e03131;
+}
+
+@media (max-width: 760px) {
+  .calendarCard {
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .copy h2 {
+    font-size: 1.7rem;
+  }
+
+  .description {
+    font-size: 0.94rem;
+  }
+
+  .calendarLegend {
+    justify-content: flex-start;
+  }
+
+  .calendar :global([data-slot='calendar-header']) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .calendar :global([data-slot='left-header-group']) {
+    justify-content: space-between;
+  }
+
+  .calendar :global([data-slot='calendar-grid']) {
+    overflow: hidden;
+  }
+
+  .calendar :global([data-slot='day-cell']) {
+    min-height: 56px;
+  }
+}

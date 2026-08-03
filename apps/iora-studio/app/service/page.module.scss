@@ -1,308 +1,401 @@
 .main {
   display: flex;
   flex-direction: column;
-  gap: 80px;
-  align-items: center;
+  gap: 32px;
   width: 100%;
-  padding: 0 24px 160px;
+  padding: 24px 24px 120px;
 }
 
-.pageHeader {
+.hero,
+.introSection,
+.pricingSection,
+.optionsSection,
+.highlightSection,
+.ctaSection {
   width: min(100%, 1232px);
+  margin: 0 auto;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.heroCopy,
+.heroSummary,
+.introCard,
+.highlightCard,
+.ctaCard {
+  border: 1px solid rgb(148 163 184 / 0.08);
+  background:
+    linear-gradient(180deg, rgb(200 241 53 / 0.04), transparent 28%),
+    rgb(15 23 42 / 0.9);
+  box-shadow: 0 24px 64px rgb(2 6 23 / 0.28);
+}
+
+.heroCopy {
+  padding: 44px 44px 40px;
+}
+
+.heroSummary {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 32px 28px;
 }
 
 .eyebrow {
-  margin: 0 0 16px;
+  margin: 0 0 14px;
   color: #c8f135;
   font-family: Inter, Roboto, 'Noto Sans KR', Pretendard, sans-serif;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: 1.2px;
+  letter-spacing: 0.14em;
 }
 
-.pageHeader h1 {
+.heroCopy h1,
+.sectionHeading h2,
+.highlightContent h2,
+.ctaCard h2 {
   margin: 0;
-  color: #e5e2e1;
-  font-size: 72px;
-  font-weight: 800;
-  line-height: 1.1;
+  color: #f8fafc;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.12;
 }
 
-.pageHeader p {
-  max-width: 672px;
-  margin: 24px 0 0;
-  color: #c5c9ae;
-  font-size: 18px;
-  line-height: 1.625;
-}
-
-.serviceList {
-  width: min(100%, 1232px);
-  border-top: 1px solid #1f1f1f;
-  border-bottom: 1px solid #1f1f1f;
-}
-
-.serviceItem {
-  display: grid;
-  grid-template-columns: 308px minmax(0, 1fr) 308px;
-  align-items: center;
-  gap: 0;
-  padding: 48px 0 49px;
-  border-bottom: 1px solid #1f1f1f;
-}
-
-.serviceItem:last-child {
-  border-bottom: 0;
-}
-
-.serviceItem h2 {
+.heroDescription,
+.heroSummary p,
+.introCard p,
+.caption,
+.note,
+.highlightContent p,
+.ctaDescription,
+.contactInfo {
   margin: 0;
-  color: #e5e2e1;
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-.serviceItem p {
-  margin: 0;
-  color: #c5c9ae;
+  color: rgb(226 232 240 / 0.84);
   font-size: 16px;
+  line-height: 1.75;
+}
+
+.heroDescription {
+  max-width: 760px;
+  margin-top: 22px;
+}
+
+.heroSummaryLabel {
+  color: rgb(151 168 195 / 0.9);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+}
+
+.heroSummary strong {
+  color: #f8fafc;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.sectionHeading {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.caption {
+  color: #c8f135;
+  font-weight: 600;
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.introCard {
+  gap: 14px;
+  padding: 32px 28px;
+}
+
+.introIndex {
+  color: #c8f135;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+
+}
+
+.introCard h3 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  display: inline-block;
+}
+
+.tableShell {
+  width: 100%;
+}
+
+.optionTableShell {
+  position: relative;
+}
+
+.optionTableShell::before {
+  position: absolute;
+  inset: -8px;
+  border: 1px solid rgb(200 241 53 / 0.12);
+  border-radius: 24px;
+  content: '';
+  pointer-events: none;
+}
+
+.note {
+  margin-top: 14px;
+  font-size: 14px;
+  color: rgb(197 201 174 / 0.86);
+}
+
+.productName,
+.optionName {
+  color: #f8fafc;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.priceValue,
+.optionPrice,
+.durationValue {
+  color: #c8f135;
+  font-weight: 700;
+}
+
+.productName,
+.priceValue,
+.durationValue {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.scopeText {
+  color: rgb(241 245 249 / 0.88);
+  line-height: 1.7;
+}
+
+.optionEmpty {
+  color: rgb(148 163 184 / 0.64);
+}
+
+.highlightCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.8fr);
+  gap: 24px;
+  padding: 34px;
+}
+
+.highlightContent {
+  display: grid;
+  gap: 16px;
+}
+
+.highlightPreview {
+  display: grid;
+  gap: 18px;
+  padding: 24px;
+  border: 1px solid rgb(148 163 184 / 0.08);
+  background: rgb(7 11 20 / 0.78);
+}
+
+.previewStage {
+  display: grid;
+  gap: 10px;
+}
+
+.previewStage span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid rgb(148 163 184 / 0.12);
+  color: rgb(226 232 240 / 0.8);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.previewStageDone {
+  border-color: rgb(200 241 53 / 0.22) !important;
+  background: rgb(200 241 53 / 0.08);
+  color: #e8ff9f !important;
+}
+
+.previewStageCurrent {
+  border-color: rgb(244 114 182 / 0.24) !important;
+  background: rgb(244 114 182 / 0.08);
+  color: #ffd0e5 !important;
+}
+
+.previewMeta {
+  display: grid;
+  gap: 14px;
+}
+
+.previewMeta div {
+  display: grid;
+  gap: 6px;
+}
+
+.previewMeta strong {
+  color: #f8fafc;
+  font-size: 15px;
+}
+
+.previewMeta span {
+  color: rgb(197 201 174 / 0.86);
+  font-size: 14px;
   line-height: 1.6;
 }
 
-.serviceItem strong {
-  justify-self: end;
-  padding: 9px 17px;
-  border: 1px solid rgb(200 241 53 / 30%);
-  background: #2a2a2a;
-  color: #c8f135;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-.processSection {
-  width: min(100%, 1232px);
-  padding-top: 80px;
-}
-
-.processSection h2 {
-  margin: 0 0 48px;
-  padding-left: 20px;
-  border-left: 4px solid #c8f135;
-  color: #e5e2e1;
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-.processList {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 16px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.processList::before {
-  position: absolute;
-  top: 24px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: #1f1f1f;
-  content: '';
-}
-
-.processList li {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-
-.processList span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border: 1px solid #1f1f1f;
-  border-radius: 12px;
-  background: #2a2a2a;
-  color: #c5c9ae;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.processList p {
-  margin: 0;
-  color: #e5e2e1;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.5;
-}
-
-.activeStep span {
-  border-color: #c8f135;
-  background: #c8f135;
-  color: #293500;
-  box-shadow: 0 0 10px rgb(200 241 53 / 30%);
-}
-
-.activeStep p {
-  color: #c8f135;
-  font-weight: 700;
-}
-
-.policyGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px;
-  width: min(100%, 1232px);
-}
-
-.policyCard {
-  display: flex;
-  min-height: 148px;
-  flex-direction: column;
-  justify-content: center;
-  padding: 33px;
-  border: 1px solid #1f1f1f;
-  border-radius: 4px;
-  background: #0e0e0e;
-}
-
-.policyCard h2 {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 0 0 16px;
-  color: #c5c9ae;
-  font-family: Inter, Roboto, 'Noto Sans KR', Pretendard, sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 1.2px;
-}
-
-.policyCard h2 span,
-.policyCard strong {
-  color: #c8f135;
-}
-
-.policyCard p {
-  margin: 0;
-  color: #e5e2e1;
-  font-size: 18px;
-  line-height: 1.625;
-}
-
-.faqSection {
-  width: min(100%, 720px);
-  padding-top: 79px;
-}
-
-.faqSection h2 {
-  margin: 0 0 48px;
-  color: #e5e2e1;
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 1.3;
-  text-align: center;
-}
-
-.faqSection ul {
-  display: grid;
-  gap: 16px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.faqSection li {
-  border-bottom: 1px solid #1f1f1f;
-}
-
-.faqSection button {
+.ctaCard {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  padding: 24px 0;
-  border: 0;
-  background: transparent;
-  color: #e5e2e1;
-  font: inherit;
-  font-size: 18px;
-  line-height: 1.6;
-  text-align: left;
+  gap: 24px;
+  padding: 36px 34px;
 }
 
-@media (max-width: 900px) {
+.ctaCard > div {
+  display: grid;
+  gap: 14px;
+}
+
+.contactInfo {
+  color: #c8f135;
+  font-weight: 700;
+}
+
+.ctaButton {
+  display: inline-flex;
+  min-width: 180px;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: #c8f135;
+  color: #111827;
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgb(200 241 53 / 0.24);
+}
+
+@media (max-width: 1024px) {
   .main {
-    padding: 0 18px 96px;
-    gap: 56px;
+    padding-bottom: 96px;
   }
 
-  .pageHeader h1 {
-    font-size: 48px;
-  }
-
-  .serviceItem {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 36px 0;
-  }
-
-  .serviceItem strong {
-    justify-self: start;
-  }
-
-  .processList,
-  .policyGrid {
+  .hero,
+  .highlightCard,
+  .ctaCard {
     grid-template-columns: 1fr;
   }
 
-  .processList::before {
-    display: none;
+  .ctaCard {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    gap: 24px;
+    padding: 20px 18px 84px;
+  }
+
+  .heroCopy,
+  .heroSummary,
+  .introCard,
+  .highlightCard,
+  .ctaCard {
+    padding: 24px 20px;
+  }
+
+  .heroCopy h1,
+  .sectionHeading h2,
+  .highlightContent h2,
+  .ctaCard h2 {
+    font-size: 34px;
+  }
+
+  .heroDescription,
+  .heroSummary p,
+  .introCard p,
+  .caption,
+  .highlightContent p,
+  .ctaDescription,
+  .contactInfo {
+    font-size: 15px;
+  }
+
+  .introGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .introCard h3 {
+    font-size: 24px;
+  }
+
+  .note {
+    font-size: 13px;
   }
 }
 
 @media (max-width: 560px) {
   .main {
-    gap: 48px;
-    padding-bottom: 72px;
+    padding: 18px 16px 72px;
   }
 
-  .pageHeader h1 {
-    font-size: 40px;
+  .heroCopy h1,
+  .sectionHeading h2,
+  .highlightContent h2,
+  .ctaCard h2 {
+    font-size: 28px;
   }
 
-  .pageHeader p,
-  .policyCard p,
-  .faqSection button,
-  .serviceItem p,
-  .serviceItem strong {
-    font-size: 15px;
+  .heroSummary strong {
+    font-size: 22px;
   }
 
-  .processSection,
-  .faqSection {
-    padding-top: 56px;
+  .heroDescription,
+  .heroSummary p,
+  .introCard p,
+  .caption,
+  .highlightContent p,
+  .ctaDescription,
+  .contactInfo,
+  .scopeText,
+  .productName,
+  .optionName,
+  .priceValue,
+  .optionPrice,
+  .durationValue {
+    font-size: 14px;
   }
 
-  .processSection h2,
-  .faqSection h2,
-  .serviceItem h2 {
-    font-size: 26px;
-  }
-
-  .policyCard {
-    min-height: auto;
-    padding: 24px;
+  .ctaButton {
+    width: 100%;
   }
 }

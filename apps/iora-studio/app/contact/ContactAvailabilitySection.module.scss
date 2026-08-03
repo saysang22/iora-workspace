@@ -1,0 +1,128 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100%, 960px);
+  margin-top: 54px;
+}
+
+.toggleButton {
+  display: inline-flex;
+  width: auto;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-align: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 15px 7px 8px;
+  border: 1px solid #2f2f2f;
+  border-radius: 999px;
+  background: #2a2a2a;
+  color: #e5e2e1;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  transition:
+    border-color 0.18s ease,
+    background-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.toggleButton:hover .badge,
+.toggleButton:focus-visible .badge {
+  border-color: rgb(200 241 53 / 0.35);
+  background: #313131;
+  color: #f7f2eb;
+}
+
+.toggleButton:focus-visible {
+  outline: none;
+}
+
+.toggleButton:focus-visible .badge,
+.toggleButton:focus-visible .chevron {
+  box-shadow: 0 0 0 3px rgb(200 241 53 / 0.16);
+}
+
+.badgeDot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #c8f135;
+  box-shadow: 0 0 0 4px rgb(200 241 53 / 18%);
+  flex: 0 0 auto;
+}
+
+.chevron {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  transition: transform 0.24s ease;
+}
+
+.chevron::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #c8f135;
+  border-bottom: 2px solid #c8f135;
+  content: '';
+  transform: translate(-50%, -65%) rotate(45deg);
+}
+
+.toggleButton[aria-expanded='true'] .chevron {
+  transform: rotate(180deg);
+}
+
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  width: 100%;
+  opacity: 0;
+  margin-top: 0;
+  transition:
+    grid-template-rows 0.32s ease,
+    opacity 0.24s ease,
+    margin-top 0.24s ease;
+}
+
+.panelOpen {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 22px;
+}
+
+.panelInner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 760px) {
+  .section {
+    margin-top: 36px;
+  }
+
+  .badge {
+    gap: 8px;
+    padding-right: 12px;
+    padding-left: 8px;
+    font-size: 12px;
+  }
+
+  .panelOpen {
+    margin-top: 18px;
+  }
+}

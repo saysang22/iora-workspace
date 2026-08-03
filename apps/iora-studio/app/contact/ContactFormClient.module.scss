@@ -53,6 +53,30 @@
   color: #ff7f86;
 }
 
+.serviceSummary {
+  display: grid;
+  gap: 8px;
+  padding: 14px 16px;
+  border: 1px solid rgb(200 241 53 / 0.16);
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgb(200 241 53 / 0.08), rgb(200 241 53 / 0.03));
+}
+
+.serviceSummaryPrice {
+  color: #d8fb54;
+  font-size: 0.94rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.serviceSummaryText {
+  margin: 0;
+  color: #e4dfd7;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
 .control,
 .fieldset textarea {
   width: 100%;
@@ -774,6 +798,14 @@
   .control,
   .fieldset textarea {
     font-size: 15px;
+  }
+
+  .serviceSummary {
+    padding: 12px 14px;
+  }
+
+  .serviceSummaryText {
+    font-size: 0.84rem;
   }
 
   .control {

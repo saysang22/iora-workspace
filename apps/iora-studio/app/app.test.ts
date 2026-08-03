@@ -6,10 +6,10 @@ import {
   isValidPhoneNumber,
   isValidUrl,
   validateContactForm,
-} from './contact/page'
+} from './contact/contactForm.shared'
 
 describe('contact form utils', () => {
-  it('전화번호를 입력 중 형식에 맞게 정리한다', () => {
+  it('전화번호를 입력 중인 형식에 맞게 정리한다', () => {
     expect(formatPhoneNumber('01012341234')).toBe('010-1234-1234')
     expect(formatPhoneNumber('0101234567')).toBe('010-123-4567')
     expect(formatPhoneNumber('010-12ab34-5678')).toBe('010-1234-5678')
@@ -44,13 +44,11 @@ describe('contact form utils', () => {
 
   it('유효한 값이면 오류가 없다', () => {
     const errors = validateContactForm({
-      name: '홍길동',
+      name: '김민서',
       email: 'hello@example.com',
       phone: '010-1234-5678',
-      serviceType: 'company-homepage',
-      budgetRange: '100-300',
-      deadline: '2026-08-01',
-      zoomMeetingAt: '2026-08-01T10:30',
+      serviceType: 'homepage-light',
+      deadline: '2026-08-10',
       referenceSite: 'https://iora.studio',
       backgroundTone: 'dark',
       pointColor: 'lime',

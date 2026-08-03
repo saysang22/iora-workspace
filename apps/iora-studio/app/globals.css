@@ -23,6 +23,12 @@ body {
   font-family: Inter, Roboto, 'Noto Sans KR', Pretendard, sans-serif;
 }
 
+main h1,
+main h2 {
+  font-size: 30px !important;
+  font-weight: 500 !important;
+}
+
 img {
   max-width: 100%;
 }

@@ -3,6 +3,21 @@
   color: #e5e2e1;
 }
 
+.revealItem {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0);
+  transition:
+    opacity 0.72s ease,
+    transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.revealItem[data-revealed='true'] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
 .container {
   width: min(100%, 1280px);
   margin: 0 auto;
@@ -96,6 +111,12 @@
   font-weight: 700;
   line-height: 1.5;
   text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .primaryButton {
@@ -271,6 +292,11 @@
   min-height: 228px;
   padding: 33px;
   border: 1px solid #1f1f1f;
+  transition:
+    transform 0.24s ease,
+    border-color 0.24s ease,
+    box-shadow 0.24s ease,
+    background-color 0.24s ease;
 }
 
 .featureCard span {
@@ -369,6 +395,11 @@
   justify-content: center;
   gap: 8px;
   border: 1px solid #1f1f1f;
+  transition:
+    transform 0.24s ease,
+    border-color 0.24s ease,
+    background-color 0.24s ease,
+    box-shadow 0.24s ease;
 }
 
 .stepIcon {
@@ -420,6 +451,66 @@
   min-height: 69px;
   padding: 21px 48px;
   font-size: 18px;
+}
+
+@media (hover: hover) {
+  .primaryButton:hover,
+  .secondaryButton:hover,
+  .darkButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px rgb(0 0 0 / 0.22);
+  }
+
+  .primaryButton:hover {
+    box-shadow: 0 16px 36px rgb(200 241 53 / 0.28);
+  }
+
+  .secondaryButton:hover,
+  .darkButton:hover {
+    border-color: rgb(200 241 53 / 0.34);
+    background: rgb(200 241 53 / 0.06);
+  }
+
+  .imagePanel:hover,
+  .reactPanel:hover,
+  .designPanel:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 42px rgb(0 0 0 / 0.22);
+  }
+
+  .featureCard:hover,
+  .stepCard:hover {
+    transform: translateY(-6px);
+    border-color: rgb(200 241 53 / 0.24);
+    background: rgb(200 241 53 / 0.04);
+    box-shadow: 0 18px 34px rgb(0 0 0 / 0.18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .revealItem {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .darkButton,
+  .featureCard,
+  .stepCard,
+  .imagePanel,
+  .reactPanel,
+  .designPanel {
+    transition: none;
+  }
+
+  .imagePanel::before,
+  .reactPanel::before,
+  .designPanel::before {
+    animation: none;
+  }
 }
 
 @media (max-width: 900px) {

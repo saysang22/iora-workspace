@@ -50,7 +50,7 @@ export type Database = {
           status: Database['public']['Enums']['contact_request_status']
           updated_at: string
           user_id: string | null
-          zoom_meeting_at: string
+          zoom_meeting_at: string | null
         }
         Insert: {
           background_tone?: string | null
@@ -68,7 +68,7 @@ export type Database = {
           status?: Database['public']['Enums']['contact_request_status']
           updated_at?: string
           user_id?: string | null
-          zoom_meeting_at: string
+          zoom_meeting_at?: string | null
         }
         Update: {
           background_tone?: string | null
@@ -86,7 +86,7 @@ export type Database = {
           status?: Database['public']['Enums']['contact_request_status']
           updated_at?: string
           user_id?: string | null
-          zoom_meeting_at?: string
+          zoom_meeting_at?: string | null
         }
         Relationships: [
           {

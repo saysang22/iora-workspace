@@ -1,16 +1,6 @@
-export const SERVICE_OPTIONS = [
-  { label: '기업 홈페이지', value: 'company-homepage' },
-  { label: '브랜드 랜딩 페이지', value: 'brand-landing-page' },
-  { label: '이커머스 구축', value: 'ecommerce' },
-  { label: '운영 및 리뉴얼', value: 'maintenance' },
-] as const
+import { SERVICE_SELECT_OPTIONS, type ServiceOptionValue } from '../service/servicePricing.shared'
 
-export const BUDGET_OPTIONS = [
-  { label: '100만원 미만', value: 'under-100' },
-  { label: '100-300만원', value: '100-300' },
-  { label: '300-700만원', value: '300-700' },
-  { label: '700만원 이상', value: 'over-700' },
-] as const
+export const SERVICE_OPTIONS = SERVICE_SELECT_OPTIONS
 
 export const TONE_OPTIONS = [
   { label: 'Dark (다크)', value: 'dark' },
@@ -22,10 +12,8 @@ export type ContactFormValues = {
   name: string
   email: string
   phone: string
-  serviceType: string
-  budgetRange: string
+  serviceType: ServiceOptionValue | ''
   deadline: string
-  zoomMeetingAt: string
   referenceSite: string
   backgroundTone: string
   pointColor: string
@@ -40,9 +28,7 @@ export const INITIAL_FORM_VALUES: ContactFormValues = {
   email: '',
   phone: '',
   serviceType: '',
-  budgetRange: '',
   deadline: '',
-  zoomMeetingAt: '',
   referenceSite: '',
   backgroundTone: '',
   pointColor: '',
@@ -54,9 +40,7 @@ const REQUIRED_FIELDS: Record<ContactFormField, boolean> = {
   email: true,
   phone: true,
   serviceType: true,
-  budgetRange: false,
   deadline: true,
-  zoomMeetingAt: true,
   referenceSite: false,
   backgroundTone: false,
   pointColor: false,

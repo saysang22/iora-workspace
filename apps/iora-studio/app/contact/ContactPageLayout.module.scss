@@ -31,29 +31,6 @@
   line-height: 1.6;
 }
 
-.statusBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  margin-top: 70px;
-  padding: 7px 15px 7px 8px;
-  border: 1px solid #2f2f2f;
-  border-radius: 999px;
-  background: #2a2a2a;
-  color: #e5e2e1;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.statusBadge span {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: #c8f135;
-  box-shadow: 0 0 0 4px rgb(200 241 53 / 18%);
-}
-
 .formCard {
   width: min(100%, 720px);
   margin-top: 76px;
@@ -77,10 +54,6 @@
     font-size: 16px;
   }
 
-  .statusBadge {
-    margin-top: 42px;
-  }
-
   .formCard {
     margin-top: 48px;
     padding: 34px 22px;
@@ -94,13 +67,6 @@
 
   .hero p {
     font-size: 15px;
-  }
-
-  .statusBadge {
-    gap: 8px;
-    padding-right: 12px;
-    padding-left: 8px;
-    font-size: 12px;
   }
 
   .formCard {

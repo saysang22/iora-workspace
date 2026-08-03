@@ -1,5 +1,7 @@
 'use client'
 
+import type { CSSProperties } from 'react'
+import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import {
@@ -91,14 +93,92 @@ export default function HomePageContent({
   designSteps = DESIGN_STEPS,
 }: HomePageContentProps) {
   const websiteJsonLd = createWebsiteJsonLd()
+  const homeRef = useRef<HTMLElement | null>(null)
+
+  useEffect(() => {
+    const rootElement = homeRef.current
+
+    if (!rootElement) {
+      return
+    }
+
+    const revealTargets = Array.from(rootElement.querySelectorAll<HTMLElement>('[data-home-reveal]'))
+
+    if (revealTargets.length === 0) {
+      return
+    }
+
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    let observer: IntersectionObserver | null = null
+
+    const revealAll = () => {
+      revealTargets.forEach((element) => {
+        element.dataset.revealed = 'true'
+      })
+    }
+
+    const observeTargets = () => {
+      observer?.disconnect()
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              return
+            }
+
+            const target = entry.target as HTMLElement
+            target.dataset.revealed = 'true'
+            observer?.unobserve(target)
+          })
+        },
+        {
+          threshold: 0.18,
+          rootMargin: '0px 0px -8% 0px',
+        },
+      )
+
+      revealTargets.forEach((element) => {
+        delete element.dataset.revealed
+        observer?.observe(element)
+      })
+    }
+
+    const syncMotionPreference = (reducedMotion: boolean) => {
+      if (reducedMotion) {
+        observer?.disconnect()
+        revealAll()
+        return
+      }
+
+      observeTargets()
+    }
+
+    syncMotionPreference(mediaQuery.matches)
+
+    const handleMotionPreferenceChange = (event: MediaQueryListEvent) => {
+      syncMotionPreference(event.matches)
+    }
+
+    mediaQuery.addEventListener('change', handleMotionPreferenceChange)
+
+    return () => {
+      observer?.disconnect()
+      mediaQuery.removeEventListener('change', handleMotionPreferenceChange)
+    }
+  }, [])
+
+  const getRevealStyle = (delay: number) =>
+    ({
+      '--reveal-delay': `${delay}ms`,
+    }) as CSSProperties
 
   return (
-    <main className={styles.home}>
+    <main className={styles.home} ref={homeRef}>
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
-      <section className={styles.hero}>
+      <section className={`${styles.hero} ${styles.revealItem}`} data-home-reveal style={getRevealStyle(0)}>
         <Image
           className={styles.heroImage}
           src={HOME_IMAGES.hero}
@@ -121,15 +201,15 @@ export default function HomePageContent({
             정교하게 설계하는 웹 개발 스튜디오입니다.
           </p>
           <div className={styles.actions}>
-            <Link className={styles.primaryButton} href='/consult'>시작하기</Link>
+            <Link className={styles.primaryButton} href='/contact'>문의하기</Link>
             <Link className={styles.secondaryButton} href='/works'>포트폴리오 보기</Link>
           </div>
         </div>
       </section>
 
-      <section className={styles.processSection}>
+      <section className={`${styles.processSection} ${styles.revealItem}`} data-home-reveal style={getRevealStyle(20)}>
         <div className={styles.container}>
-          <div className={styles.sectionHeader}>
+          <div className={`${styles.sectionHeader} ${styles.revealItem}`} data-home-reveal style={getRevealStyle(40)}>
             <p className={styles.eyebrow}>AI-POWERED WORKFLOW</p>
             <h2 className={styles.processTitle}>정교한 기술로 앞서가는 프로세스</h2>
             <p>
@@ -138,7 +218,7 @@ export default function HomePageContent({
               설계합니다.
             </p>
           </div>
-          <div className={styles.imagePanel}>
+          <div className={`${styles.imagePanel} ${styles.revealItem}`} data-home-reveal style={getRevealStyle(90)}>
             <Image
               src={HOME_IMAGES.process}
               alt='AI 기반 제작 프로세스'
@@ -148,8 +228,13 @@ export default function HomePageContent({
             />
           </div>
           <div className={styles.featureGrid}>
-            {features.map((feature) => (
-              <article className={styles.featureCard} key={feature.title}>
+            {features.map((feature, index) => (
+              <article
+                className={`${styles.featureCard} ${styles.revealItem}`}
+                data-home-reveal
+                key={feature.title}
+                style={getRevealStyle(130 + index * 90)}
+              >
                 <span>{feature.icon}</span>
                 <h3>{feature.title}</h3>
                 <p>{feature.description}</p>
@@ -159,9 +244,9 @@ export default function HomePageContent({
         </div>
       </section>
 
-      <section className={styles.experienceSection}>
+      <section className={`${styles.experienceSection} ${styles.revealItem}`} data-home-reveal style={getRevealStyle(20)}>
         <div className={`${styles.container} ${styles.experienceGrid}`}>
-          <div>
+          <div className={styles.revealItem} data-home-reveal style={getRevealStyle(50)}>
             <p className={styles.eyebrow}>SMOOTH EXPERIENCE</p>
             <h2>
               React 기반의
@@ -182,7 +267,7 @@ export default function HomePageContent({
               ))}
             </ul>
           </div>
-          <div className={styles.reactPanel}>
+          <div className={`${styles.reactPanel} ${styles.revealItem}`} data-home-reveal style={getRevealStyle(120)}>
             <Image
               src={HOME_IMAGES.react}
               alt='React 기반 사용자 경험 시각화'
@@ -194,9 +279,9 @@ export default function HomePageContent({
         </div>
       </section>
 
-      <section className={styles.designSection}>
+      <section className={`${styles.designSection} ${styles.revealItem}`} data-home-reveal style={getRevealStyle(20)}>
         <div className={styles.container}>
-          <div className={styles.splitHeader}>
+          <div className={`${styles.splitHeader} ${styles.revealItem}`} data-home-reveal style={getRevealStyle(50)}>
             <div>
               <p className={styles.eyebrow}>CUSTOM DESIGN</p>
               <h2>자유도 높은 맞춤형 디자인</h2>
@@ -207,7 +292,7 @@ export default function HomePageContent({
               실행력을 함께 더합니다.
             </p>
           </div>
-          <div className={styles.designPanel}>
+          <div className={`${styles.designPanel} ${styles.revealItem}`} data-home-reveal style={getRevealStyle(110)}>
             <Image
               src={HOME_IMAGES.design}
               alt='맞춤형 디자인 프로세스 인터페이스'
@@ -217,8 +302,13 @@ export default function HomePageContent({
             />
           </div>
           <div className={styles.stepGrid}>
-            {designSteps.map((step) => (
-              <div className={styles.stepCard} key={step.number}>
+            {designSteps.map((step, index) => (
+              <div
+                className={`${styles.stepCard} ${styles.revealItem}`}
+                data-home-reveal
+                key={step.number}
+                style={getRevealStyle(150 + index * 70)}
+              >
                 <span className={styles.stepIcon} aria-hidden='true'>
                   <step.icon size={18} />
                 </span>
@@ -230,8 +320,8 @@ export default function HomePageContent({
         </div>
       </section>
 
-      <section className={styles.ctaSection}>
-        <div className={styles.container}>
+      <section className={`${styles.ctaSection} ${styles.revealItem}`} data-home-reveal style={getRevealStyle(0)}>
+        <div className={`${styles.container} ${styles.revealItem}`} data-home-reveal style={getRevealStyle(40)}>
           <h2>
             다음 비즈니스의 성장을 위해
             <br />
