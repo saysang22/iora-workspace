@@ -1,6 +1,6 @@
 'use client'
 
-import { Calendar, Modal } from '@iora/ui'
+import { Calendar, Modal } from '@iora/ui/client'
 import { useEffect, useMemo, useState, type CSSProperties } from 'react'
 import { fetchCapacityAvailability, type CapacityAvailabilityMap } from '../../lib/capacity'
 import { createBrowserSupabaseClient } from '../../lib/supabase'
@@ -52,7 +52,10 @@ function getCalendarMonth(selection: CalendarSelection | null) {
   return { year, month }
 }
 
-function buildDeadlineCellMap(selectedDateKey: string | null, availabilityMap: CapacityAvailabilityMap): CustomCellMap {
+function buildDeadlineCellMap(
+  selectedDateKey: string | null,
+  availabilityMap: CapacityAvailabilityMap,
+): CustomCellMap {
   const map: CustomCellMap = {}
 
   Object.entries(availabilityMap).forEach(([dateKey, availability]) => {
@@ -69,7 +72,7 @@ function buildDeadlineCellMap(selectedDateKey: string | null, availabilityMap: C
   if (selectedDateKey && !map[selectedDateKey]) {
     map[selectedDateKey] = {
       status: 'selected',
-      events: [{ label: '선택됨', tone: 'blue' }],
+      events: [{ label: '선택일', tone: 'blue' }],
     }
   }
 
@@ -95,9 +98,15 @@ function CalendarLegend() {
   )
 }
 
-export default function DateAvailabilityModal({ isOpen, value, onClose, onApply }: DateAvailabilityModalProps) {
-  const [selection, setSelection] = useState<CalendarSelection | null>(() => getInitialSelection(value))
-  const [calendarMonth, setCalendarMonth] = useState(() => getCalendarMonth(getInitialSelection(value)))
+export default function DateAvailabilityModal({
+  isOpen,
+  value,
+  onClose,
+  onApply,
+}: DateAvailabilityModalProps) {
+  const initialSelection = useMemo(() => getInitialSelection(value), [value])
+  const [selection, setSelection] = useState<CalendarSelection | null>(initialSelection)
+  const [calendarMonth, setCalendarMonth] = useState(() => getCalendarMonth(initialSelection))
   const [availabilityMap, setAvailabilityMap] = useState<CapacityAvailabilityMap>({})
   const [availabilityError, setAvailabilityError] = useState<string | null>(null)
   const supabase = useMemo(() => createBrowserSupabaseClient(), [])
@@ -109,12 +118,6 @@ export default function DateAvailabilityModal({ isOpen, value, onClose, onApply 
   )
 
   useEffect(() => {
-    const nextSelection = getInitialSelection(value)
-    setSelection(nextSelection)
-    setCalendarMonth(getCalendarMonth(nextSelection))
-  }, [value])
-
-  useEffect(() => {
     if (!isOpen) {
       return
     }
@@ -124,6 +127,7 @@ export default function DateAvailabilityModal({ isOpen, value, onClose, onApply 
     const loadAvailability = async () => {
       try {
         const nextAvailabilityMap = await fetchCapacityAvailability(supabase, calendarMonth)
+
         if (!isMounted) {
           return
         }
@@ -146,6 +150,19 @@ export default function DateAvailabilityModal({ isOpen, value, onClose, onApply 
       isMounted = false
     }
   }, [calendarMonth, isOpen, supabase])
+
+  const handleDisplayMonthChange = async (nextMonth: { year: number; month: number }) => {
+    setCalendarMonth(nextMonth)
+
+    try {
+      const nextAvailabilityMap = await fetchCapacityAvailability(supabase, nextMonth)
+      setAvailabilityError(null)
+      setAvailabilityMap(nextAvailabilityMap)
+    } catch {
+      setAvailabilityError('예약 현황을 불러오지 못했습니다. 잠시 후 다시 시도해주세요.')
+      setAvailabilityMap({})
+    }
+  }
 
   return (
     <div className={styles.availabilityModal}>
@@ -234,6 +251,7 @@ export default function DateAvailabilityModal({ isOpen, value, onClose, onApply 
                 '--calendar-saturday-color': '#3c86da',
                 '--calendar-unavailable-background': '#e03131',
                 '--calendar-unavailable-hover-background': '#e03131',
+                '--calendar-unavailable-text': '#ffffff',
                 '--calendar-selected-background': '#c8f135',
                 '--calendar-selected-hover-background': '#c8f135',
                 '--calendar-selected-text': '#101010',
@@ -254,7 +272,7 @@ export default function DateAvailabilityModal({ isOpen, value, onClose, onApply 
             legend={null}
             headerExtra={<CalendarLegend />}
             showSelectedLegend={false}
-            onDisplayMonthChange={setCalendarMonth}
+            onDisplayMonthChange={(nextMonth) => void handleDisplayMonthChange(nextMonth)}
             onCellClick={({ dateKey, cell, isWeekend, isHoliday }) => {
               if (cell.status === 'unavailable' || isWeekend || isHoliday) {
                 return

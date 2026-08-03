@@ -24,7 +24,7 @@ values
     'x',
     timezone('utc', now()),
     '{"provider":"email","providers":["email"]}'::jsonb,
-    '{"full_name":"°ü¸®ÀÚ Å×½ºÆ®","company_name":"ÀÌ¿À¶ó½ºÆ©µð¿À"}'::jsonb,
+    '{"full_name":"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×½ï¿½Æ®","company_name":"ï¿½Ì¿ï¿½ï¿½ï¿½Æ©ï¿½ï¿½ï¿½"}'::jsonb,
     timezone('utc', now()),
     timezone('utc', now()),
     timezone('utc', now())
@@ -38,7 +38,7 @@ values
     'x',
     timezone('utc', now()),
     '{"provider":"email","providers":["email"]}'::jsonb,
-    '{"full_name":"°í°´ Å×½ºÆ®","company_name":"Å×½ºÆ®ÄÄÆÛ´Ï"}'::jsonb,
+    '{"full_name":"ï¿½ï¿½ï¿½ï¿½ ï¿½×½ï¿½Æ®","company_name":"ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½Û´ï¿½"}'::jsonb,
     timezone('utc', now()),
     timezone('utc', now()),
     timezone('utc', now())
@@ -54,28 +54,28 @@ select set_config('request.jwt.claim.role', 'authenticated', true);
 
 select public.create_project_with_pages(
   '22222222-2222-2222-2222-222222222222',
-  '·ÎÄÃ µî·Ï Å×½ºÆ® ÇÁ·ÎÁ§Æ®',
+  'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®',
   'development',
   45,
   '2026-07-20',
   '2026-08-31',
   jsonb_build_array(
-    jsonb_build_object('page_name', '¸ÞÀÎ ÆäÀÌÁö', 'status', 'pending', 'sort_order', 0),
-    jsonb_build_object('page_name', '¹®ÀÇ ÆäÀÌÁö', 'status', 'in_progress', 'sort_order', 1)
+    jsonb_build_object('page_name', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'status', 'pending', 'sort_order', 0),
+    jsonb_build_object('page_name', 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'status', 'in_progress', 'sort_order', 1)
   )
 ) as project_id;
 
 select p.project_name, p.current_stage, p.progress_percent, p.started_at, p.care_ended_at, pr.company_name
 from public.projects p
 join public.profiles pr on pr.id = p.user_id
-where p.project_name = '·ÎÄÃ µî·Ï Å×½ºÆ® ÇÁ·ÎÁ§Æ®';
+where p.project_name = 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®';
 
 select page_name, status, sort_order
 from public.project_pages
 where project_id = (
   select id
   from public.projects
-  where project_name = '·ÎÄÃ µî·Ï Å×½ºÆ® ÇÁ·ÎÁ§Æ®'
+  where project_name = 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®'
   order by created_at desc
   limit 1
 )

@@ -1,7 +1,7 @@
 'use client'
 
 import type { MouseEvent as ReactMouseEvent, ReactNode } from 'react'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import Footer, { type FooterGroup } from './Footer'
 import Header, { type HeaderNavItem } from './Header'
@@ -32,25 +32,38 @@ export default function AppChrome({
 }: AppChromeProps) {
   const pathname = usePathname()
   const isAdminRoute = pathname === '/admin' || pathname.startsWith('/admin/')
-  const [isRouteLoading, setIsRouteLoading] = useState(false)
+  const [routeLoadingPath, setRouteLoadingPath] = useState<string | null>(null)
   const routeLoadingTimeoutRef = useRef<number | null>(null)
 
-  useEffect(() => {
-    setIsRouteLoading(false)
-
-    if (routeLoadingTimeoutRef.current) {
-      window.clearTimeout(routeLoadingTimeoutRef.current)
-      routeLoadingTimeoutRef.current = null
+  const isRouteLoading = useMemo(() => {
+    if (!routeLoadingPath) {
+      return false
     }
-  }, [pathname])
+
+    return routeLoadingPath !== pathname
+  }, [pathname, routeLoadingPath])
 
   useEffect(() => {
+    if (!isRouteLoading) {
+      if (routeLoadingTimeoutRef.current) {
+        window.clearTimeout(routeLoadingTimeoutRef.current)
+        routeLoadingTimeoutRef.current = null
+      }
+      return
+    }
+
+    routeLoadingTimeoutRef.current = window.setTimeout(() => {
+      setRouteLoadingPath(null)
+      routeLoadingTimeoutRef.current = null
+    }, 10000)
+
     return () => {
       if (routeLoadingTimeoutRef.current) {
         window.clearTimeout(routeLoadingTimeoutRef.current)
+        routeLoadingTimeoutRef.current = null
       }
     }
-  }, [])
+  }, [isRouteLoading])
 
   const handleRouteIntent = (event: ReactMouseEvent<HTMLElement>) => {
     if (event.defaultPrevented) {
@@ -98,16 +111,7 @@ export default function AppChrome({
       return
     }
 
-    setIsRouteLoading(true)
-
-    if (routeLoadingTimeoutRef.current) {
-      window.clearTimeout(routeLoadingTimeoutRef.current)
-    }
-
-    routeLoadingTimeoutRef.current = window.setTimeout(() => {
-      setIsRouteLoading(false)
-      routeLoadingTimeoutRef.current = null
-    }, 10000)
+    setRouteLoadingPath(nextUrl.pathname)
   }
 
   return (

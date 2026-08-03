@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Input, SelectBox } from '@iora/ui'
+import { Button, Input, SelectBox } from '@iora/ui/server'
 import { useMemo, useState, type ChangeEvent, type FormEvent, type KeyboardEvent as ReactKeyboardEvent } from 'react'
 import { SERVICE_SUMMARY_MAP, type ServiceOptionValue } from '../service/servicePricing.shared'
 import { createBrowserSupabaseClient } from '../../lib/supabase'

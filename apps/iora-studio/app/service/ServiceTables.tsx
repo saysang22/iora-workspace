@@ -1,6 +1,6 @@
 'use client'
 
-import { Table } from '@iora/ui'
+import { Table } from '@iora/ui/server'
 import {
   HOMEPAGE_OPTION_ROWS,
   HOMEPAGE_PACKAGE_ROWS,

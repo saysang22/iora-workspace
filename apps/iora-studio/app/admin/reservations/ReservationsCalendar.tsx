@@ -1,6 +1,6 @@
 'use client'
 
-import { CalendarAdmin, type CalendarAdminAvailabilityMap } from '@iora/ui'
+import { CalendarAdmin, type CalendarAdminAvailabilityMap } from '@iora/ui/client'
 import { useMemo, type CSSProperties } from 'react'
 import { fetchCapacityAvailability, upsertCapacitySettings } from '../../../lib/capacity'
 import { createBrowserSupabaseClient } from '../../../lib/supabase'

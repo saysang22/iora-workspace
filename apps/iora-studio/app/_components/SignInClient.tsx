@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import type { AuthChangeEvent, Session } from '@supabase/supabase-js'
-import { Login } from '@iora/ui'
+import { Login } from '@iora/ui/client'
 import { supabase } from '../../lib/supabase'
 import { resolvePostAuthPath } from '../../lib/onboarding'
 import { getAuthErrorMessage } from './authErrorMessage'

@@ -1,6 +1,6 @@
 'use client'
 
-import { Modal } from '@iora/ui'
+import { Modal } from '@iora/ui/client'
 import { useEffect, useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { z } from 'zod'
@@ -12,14 +12,14 @@ import ProjectDetailsSection from './ProjectDetailsSection'
 import ProjectPagesSection from './ProjectPagesSection'
 import {
   createDraftPage,
-  DatePickerField,
-  DraftPage,
+  type DatePickerField,
+  type DraftPage,
   formatAmountInput,
   getTodayDate,
   LIME_BUTTON_THEME,
   parseAmountInput,
-  ProfileOption,
-  RegistrationMode,
+  type ProfileOption,
+  type RegistrationMode,
   SECONDARY_BUTTON_THEME,
 } from './AdminProjectCreateModal.shared'
 import styles from './AdminProjectCreateModal.module.scss'
@@ -361,7 +361,15 @@ export default function AdminProjectCreateModal({
         title={mode === 'edit' ? '프로젝트 수정' : '새 프로젝트 등록'}
         width='min(100%, 840px)'
         background='#101010'
-        confirmLabel={isSubmitting ? (mode === 'edit' ? '수정 중...' : '등록 중...') : mode === 'edit' ? '수정완료' : '등록'}
+        confirmLabel={
+          isSubmitting
+            ? mode === 'edit'
+              ? '수정 중...'
+              : '등록 중...'
+            : mode === 'edit'
+              ? '수정완료'
+              : '등록'
+        }
         cancelLabel='닫기'
         closeOnOverlayClick={!isSubmitting}
         onConfirm={() => void handleSubmit()}
@@ -428,13 +436,11 @@ export default function AdminProjectCreateModal({
 
           {mode === 'create' ? (
             <ProjectPagesSection
-              bulkPageNames={bulkPageNames}
               draftPageName={draftPageName}
               pages={pages}
               onAddPage={handleAddPage}
               onBulkAddPages={handleBulkAddPages}
               onBulkPageNamesChange={setBulkPageNames}
-              onDraftPageNameChange={setDraftPageName}
               onPageDelete={(pageId) => {
                 setPages((current) => current.filter((item) => item.id !== pageId))
               }}

@@ -1,6 +1,6 @@
 'use client'
 
-import { Spinner } from '@iora/ui'
+import { Spinner } from '@iora/ui/server'
 import { FiCheck, FiClock } from 'react-icons/fi'
 import type { Database } from '../../../lib/database.types'
 import styles from './ProjectStatusFlow.module.scss'

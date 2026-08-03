@@ -1,9 +1,9 @@
 'use client'
 
-import { Spinner } from '@iora/ui'
-import { useState, type FormEvent } from 'react'
+import { Spinner } from '@iora/ui/server'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { useState, type FormEvent } from 'react'
 import { supabase } from '../../lib/supabase'
 import styles from './AuthForm.module.scss'
 
@@ -69,8 +69,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
         email,
         password,
         options: {
-          emailRedirectTo:
-            typeof window === 'undefined' ? undefined : `${window.location.origin}/home`,
+          emailRedirectTo: typeof window === 'undefined' ? undefined : `${window.location.origin}/home`,
         },
       })
 
@@ -80,11 +79,11 @@ export default function AuthForm({ mode }: AuthFormProps) {
       }
 
       if (data.user && !data.session) {
-        setSuccessMessage('이메일 인증 링크를 보냈습니다. 메일함을 확인해 주세요.')
+        setSuccessMessage('입력하신 이메일 주소로 확인 메일을 보냈습니다. 메일을 확인해 주세요.')
         return
       }
 
-      setSuccessMessage('회원가입이 완료되었습니다. 홈으로 이동합니다.')
+      setSuccessMessage('회원가입이 완료되었습니다. 바로 시작 페이지로 이동합니다.')
       router.push('/home')
       router.refresh()
     } finally {
@@ -120,7 +119,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
           id={`${mode}-password`}
           minLength={8}
           onChange={(event) => setPassword(event.target.value)}
-          placeholder='8자 이상 입력해 주세요.'
+          placeholder='8자 이상 입력해 주세요'
           required
           type='password'
           value={password}

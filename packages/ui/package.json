@@ -2,10 +2,12 @@
   "name": "@iora/ui",
   "version": "1.0.0",
   "description": "",
-  "main": "./index.ts",
-  "types": "./index.ts",
+  "main": "./server.ts",
+  "types": "./server.ts",
   "exports": {
-    ".": "./index.ts"
+    ".": "./server.ts",
+    "./server": "./server.ts",
+    "./client": "./client.ts"
   },
   "private": true,
   "scripts": {

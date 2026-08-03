@@ -1,9 +1,12 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
 import type { Database, Json, Tables } from './database.types'
+import { formatDisplayDate } from './formatters'
 
 export type ProjectModificationRequestRow = Tables<'project_modification_requests'>
 export type ProjectModificationRequestStatus =
   Database['public']['Enums']['project_modification_request_status']
+
+export { PROJECT_MODIFICATION_STATUS_LABELS } from './statusLabels'
 
 export type ProjectModificationRequestAttachment = {
   contentType: string | null
@@ -23,27 +26,6 @@ export type ProjectModificationRequestListItem = {
   requesterName: string
   status: ProjectModificationRequestStatus
   title: string
-}
-
-export const PROJECT_MODIFICATION_STATUS_LABELS: Record<ProjectModificationRequestStatus, string> = {
-  pending: '대기',
-  review: '검토 중',
-  in_progress: '진행 중',
-  completed: '완료',
-}
-
-function formatDisplayDate(value: string) {
-  const date = new Date(value)
-
-  if (Number.isNaN(date.getTime())) {
-    return value
-  }
-
-  const year = date.getFullYear()
-  const month = `${date.getMonth() + 1}`.padStart(2, '0')
-  const day = `${date.getDate()}`.padStart(2, '0')
-
-  return `${year}.${month}.${day}`
 }
 
 function toAttachment(value: Json): ProjectModificationRequestAttachment | null {
@@ -81,8 +63,9 @@ export function parseProjectModificationRequestAttachments(
 }
 
 function buildProfileDisplayName(profile: { email: string | null; full_name: string | null } | undefined) {
-  return profile?.full_name?.trim() || profile?.email?.trim() || '미배정'
+  return profile?.full_name?.trim() || profile?.email?.trim() || '???'
 }
+
 
 export async function listProjectModificationRequests(
   client: SupabaseClient<Database>,
@@ -125,7 +108,7 @@ export async function listProjectModificationRequests(
     const attachments = parseProjectModificationRequestAttachments(row.attachments)
 
     return {
-      assignee: row.assigned_to ? buildProfileDisplayName(profileMap.get(row.assigned_to)) : '미배정',
+      assignee: row.assigned_to ? buildProfileDisplayName(profileMap.get(row.assigned_to)) : '???',
       attachmentCount: attachments.length,
       attachments,
       date: formatDisplayDate(row.requested_at),

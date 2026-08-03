@@ -1,6 +1,6 @@
 'use client'
 
-import { Pagination, Table } from '@iora/ui'
+import { Pagination, Table } from '@iora/ui/server'
 import { useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'

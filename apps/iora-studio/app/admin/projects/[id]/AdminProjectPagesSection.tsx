@@ -1,9 +1,10 @@
 'use client'
 
-import { Board } from '@iora/ui'
+import { Board } from '@iora/ui/client'
+import { useRouter } from 'next/navigation'
 import { useMemo, useState } from 'react'
 import { FiCheck } from 'react-icons/fi'
-import { useRouter } from 'next/navigation'
+import { PROJECT_PAGE_STATUS_LABELS } from '../../../../lib/statusLabels'
 import { createBrowserSupabaseClient } from '../../../../lib/supabase'
 import ProjectPageComposer from '../ProjectPageComposer'
 import ProjectPageDeleteButton from '../ProjectPageDeleteButton'
@@ -51,15 +52,7 @@ const PAGINATION_DISABLED_THEME = {
 }
 
 function toStatusLabel(status: ProjectPageStatus) {
-  if (status === 'completed') {
-    return '완료'
-  }
-
-  if (status === 'in_progress') {
-    return '진행 중'
-  }
-
-  return '대기'
+  return PROJECT_PAGE_STATUS_LABELS[status]
 }
 
 export default function AdminProjectPagesSection({
@@ -98,7 +91,7 @@ export default function AdminProjectPagesSection({
       .select('id, page_name, sort_order, status')
 
     if (error) {
-      throw new Error('페이지를 추가하지 못했습니다. 잠시 후 다시 시도해 주세요.')
+      throw new Error('페이지를 추가하지 못했습니다. 잠시 후 다시 시도해주세요.')
     }
 
     setErrorMessage(null)
@@ -112,9 +105,7 @@ export default function AdminProjectPagesSection({
 
   const handleToggleSelect = (pageId: string) => {
     setSelectedPageIds((current) =>
-      current.includes(pageId)
-        ? current.filter((id) => id !== pageId)
-        : [...current, pageId],
+      current.includes(pageId) ? current.filter((id) => id !== pageId) : [...current, pageId],
     )
   }
 
@@ -130,19 +121,14 @@ export default function AdminProjectPagesSection({
     setIsMutating(true)
     setErrorMessage(null)
     setPages((current) =>
-      current.map((page) =>
-        selectedPageIds.includes(page.id) ? { ...page, status: nextStatus } : page,
-      ),
+      current.map((page) => (selectedPageIds.includes(page.id) ? { ...page, status: nextStatus } : page)),
     )
 
-    const { error } = await supabase
-      .from('project_pages')
-      .update({ status: nextStatus })
-      .in('id', selectedPageIds)
+    const { error } = await supabase.from('project_pages').update({ status: nextStatus }).in('id', selectedPageIds)
 
     if (error) {
       setPages(previousPages)
-      setErrorMessage('선택한 페이지 상태를 변경하지 못했습니다. 잠시 후 다시 시도해 주세요.')
+      setErrorMessage('페이지 상태를 변경하지 못했습니다. 잠시 후 다시 시도해주세요.')
       setIsMutating(false)
       return
     }
@@ -168,7 +154,7 @@ export default function AdminProjectPagesSection({
 
     if (error) {
       setPages(previousPages)
-      setErrorMessage('선택한 페이지를 삭제하지 못했습니다. 잠시 후 다시 시도해 주세요.')
+      setErrorMessage('페이지를 삭제하지 못했습니다. 잠시 후 다시 시도해주세요.')
       setIsMutating(false)
       return
     }
@@ -197,9 +183,7 @@ export default function AdminProjectPagesSection({
           select: (
             <button
               type='button'
-              className={`${styles.checkCellButton} ${
-                isSelected ? styles.checkCellButtonActive : ''
-              }`.trim()}
+              className={`${styles.checkCellButton} ${isSelected ? styles.checkCellButtonActive : ''}`.trim()}
               onClick={(event) => {
                 event.stopPropagation()
                 handleToggleSelect(page.id)
@@ -252,13 +236,13 @@ export default function AdminProjectPagesSection({
         headerActions={
           <>
             <ProjectPageStatusButton
-              ariaLabel='선택한 페이지를 진행 상태로 변경'
+              ariaLabel='선택한 페이지를 진행 중으로 변경'
               disabled={!hasSelection || isMutating}
               onClick={() => void handleUpdateSelectedStatus('in_progress')}
               tone='progress'
             />
             <ProjectPageStatusButton
-              ariaLabel='선택한 페이지를 완료 상태로 변경'
+              ariaLabel='선택한 페이지를 완료로 변경'
               disabled={!hasSelection || isMutating}
               onClick={() => void handleUpdateSelectedStatus('completed')}
               tone='complete'
@@ -272,7 +256,7 @@ export default function AdminProjectPagesSection({
         }
         toolbar={
           <ProjectPageComposer
-            addButtonLabel='페이지 추가'
+            addButtonLabel='페이지 등록'
             className={styles.detailPageComposer}
             layout='inline'
             onAddPages={handleAddPages}

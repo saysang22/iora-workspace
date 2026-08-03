@@ -58,10 +58,6 @@ async function startKakaoAuth({
   }
 
   if (data.url) {
-    if (process.env.NODE_ENV !== 'production') {
-      console.log('[Kakao OAuth URL]', data.url)
-    }
-
     window.location.assign(data.url)
   }
 

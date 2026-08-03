@@ -1,6 +1,6 @@
 'use client'
 
-import { Calendar } from '@iora/ui'
+import { Calendar } from '@iora/ui/client'
 import { useEffect, useMemo, useState, type CSSProperties } from 'react'
 import { fetchCapacityAvailability, type CapacityAvailabilityMap } from '../../lib/capacity'
 import { createBrowserSupabaseClient } from '../../lib/supabase'

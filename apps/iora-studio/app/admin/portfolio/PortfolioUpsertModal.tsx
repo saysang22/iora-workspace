@@ -1,14 +1,7 @@
 'use client'
 
-import { Input, Modal, SelectBox, Spinner } from '@iora/ui'
-import {
-  useEffect,
-  useId,
-  useMemo,
-  useState,
-  type ChangeEvent,
-  type DragEvent,
-} from 'react'
+import { Input, Modal, SelectBox, Spinner } from '@iora/ui/client'
+import { useEffect, useId, useMemo, useState, type ChangeEvent, type DragEvent } from 'react'
 import { FiUploadCloud, FiX } from 'react-icons/fi'
 import { createBrowserSupabaseClient } from '../../../lib/supabase'
 import type { PortfolioListItem, PortfolioProjectOption } from './page'
@@ -203,9 +196,7 @@ export default function PortfolioUpsertModal({
         projectId,
       })
     } catch (error) {
-      setErrorMessage(
-        error instanceof Error ? error.message : '썸네일 업로드 중 오류가 발생했습니다.',
-      )
+      setErrorMessage(error instanceof Error ? error.message : '썸네일 업로드 중 오류가 발생했습니다.')
     } finally {
       setIsSubmitting(false)
       setIsUploadingThumbnail(false)
@@ -349,9 +340,7 @@ export default function PortfolioUpsertModal({
                 ) : (
                   <FiUploadCloud className={styles.uploadIcon} size={34} aria-hidden='true' />
                 )}
-                <strong className={styles.uploadTitle}>
-                  이미지 파일을 드래그하거나 클릭하여 업로드
-                </strong>
+                <strong className={styles.uploadTitle}>이미지 파일을 선택하거나 드래그해서 업로드해 주세요</strong>
                 <span className={styles.uploadCaption}>JPG, PNG, WEBP / 최대 5MB</span>
                 <span className={styles.uploadStatus}>{selectedThumbnailLabel}</span>
                 {isUploadingThumbnail ? (
@@ -362,13 +351,9 @@ export default function PortfolioUpsertModal({
               </label>
 
               {thumbnailPreviewUrl ? (
-                <button
-                  className={styles.clearThumbnailButton}
-                  type='button'
-                  onClick={clearThumbnailSelection}
-                >
+                <button className={styles.clearThumbnailButton} type='button' onClick={clearThumbnailSelection}>
                   <FiX size={14} />
-                  썸네일 제거
+                  썸네일 초기화
                 </button>
               ) : null}
             </div>
@@ -387,11 +372,7 @@ export default function PortfolioUpsertModal({
             </div>
 
             <label className={styles.publishToggle}>
-              <input
-                type='checkbox'
-                checked={isPublished}
-                onChange={(event) => setIsPublished(event.target.checked)}
-              />
+              <input type='checkbox' checked={isPublished} onChange={(event) => setIsPublished(event.target.checked)} />
               <span>{isPublished ? '홈페이지 Works에 공개' : '비공개 보관'}</span>
             </label>
 

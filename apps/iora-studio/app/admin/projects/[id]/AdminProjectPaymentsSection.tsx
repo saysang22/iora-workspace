@@ -1,8 +1,9 @@
 'use client'
 
-import { Button, Input, SelectBox, Toast } from '@iora/ui'
+import { Button, Input, SelectBox, Toast } from '@iora/ui/client'
 import { useMemo, useState } from 'react'
 import type { Tables } from '../../../../lib/database.types'
+import { formatCurrency, formatDisplayDate } from '../../../../lib/formatters'
 import { createBrowserSupabaseClient } from '../../../../lib/supabase'
 import {
   formatAmountInput,
@@ -30,20 +31,6 @@ const PAYMENT_TYPE_OPTIONS = [
 
 function formatPaymentTypeLabel(value: PaymentRow['payment_type']) {
   return PAYMENT_TYPE_OPTIONS.find((option) => option.value === value)?.label ?? '기타'
-}
-
-function formatPaymentDate(value: string) {
-  const [year, month, day] = value.split('-')
-
-  if (!year || !month || !day) {
-    return value
-  }
-
-  return `${year}.${month}.${day}`
-}
-
-function formatPaymentAmount(value: number) {
-  return `${value.toLocaleString('ko-KR')}원`
 }
 
 export default function AdminProjectPaymentsSection({
@@ -209,8 +196,8 @@ export default function AdminProjectPaymentsSection({
                 {payments.map((payment) => (
                   <tr key={payment.id}>
                     <td>{formatPaymentTypeLabel(payment.payment_type)}</td>
-                    <td>{formatPaymentAmount(payment.amount)}</td>
-                    <td>{formatPaymentDate(payment.paid_at)}</td>
+                    <td>{formatCurrency(payment.amount)}</td>
+                    <td>{formatDisplayDate(payment.paid_at)}</td>
                     <td>{payment.memo || '-'}</td>
                   </tr>
                 ))}

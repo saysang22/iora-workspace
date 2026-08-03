@@ -1,6 +1,6 @@
 'use client'
 
-import { Spinner } from '@iora/ui'
+import { Spinner } from '@iora/ui/server'
 import { useState, useTransition } from 'react'
 import { FiBarChart2, FiGlobe, FiLayers } from 'react-icons/fi'
 import type { AnalyticsPeriod, Ga4PeriodData } from '../../../lib/ga4'
@@ -29,12 +29,8 @@ const SOURCE_LABEL_MAP: Record<string, string> = {
   'Paid Social': '유료 소셜',
   'Organic Shopping': '자연 쇼핑',
   'Paid Shopping': '유료 쇼핑',
-  'Organic Video': '자연 동영상',
-  'Paid Video': '유료 동영상',
-  'Cross-network': '크로스 네트워크',
-  Audio: '오디오',
-  SMS: '문자',
-  'Mobile Push Notifications': '모바일 푸시',
+  OrganicVideo: '자연 동영상',
+  PaidVideo: '유료 동영상',
   Unassigned: '분류 안 됨',
 }
 

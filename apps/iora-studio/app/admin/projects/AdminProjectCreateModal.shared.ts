@@ -1,4 +1,5 @@
 import type { Database } from '../../../lib/database.types'
+export { formatDisplayDate } from '../../../lib/formatters'
 
 export type ProjectStage = Database['public']['Enums']['project_stage']
 export type PageStatus = Database['public']['Enums']['page_status']
@@ -87,20 +88,6 @@ export function createDraftPage(pageName: string, seed: number): DraftPage {
     pageName,
     status: 'pending',
   }
-}
-
-export function formatDisplayDate(value: string) {
-  if (!value) {
-    return ''
-  }
-
-  const [year, month, day] = value.split('-')
-
-  if (!year || !month || !day) {
-    return value
-  }
-
-  return `${year}.${month}.${day}`
 }
 
 export function formatAmountInput(value: string) {

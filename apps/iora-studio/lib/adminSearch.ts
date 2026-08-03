@@ -1,5 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
 import type { Database, Tables } from './database.types'
+import { formatDisplayDate } from './formatters'
 
 type ProjectRow = Pick<
   Tables<'projects'>,
@@ -52,20 +53,6 @@ function normalizeSearchTerm(value: string) {
 
 function toIlikePattern(value: string) {
   return `%${normalizeSearchTerm(value)}%`
-}
-
-function formatDateLabel(value: string) {
-  const date = new Date(value)
-
-  if (Number.isNaN(date.getTime())) {
-    return value
-  }
-
-  return new Intl.DateTimeFormat('ko-KR', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).format(date)
 }
 
 function getProjectDisplayCompany(project: ProjectRow, profile?: ProfileRow) {
@@ -211,17 +198,17 @@ export async function searchAdminRecords(
       subtitle: `${companyName} · ${clientName}`,
       href: `/admin/projects/${project.id}`,
       stageLabel: PROJECT_STAGE_LABELS[project.current_stage],
-      updatedAt: formatDateLabel(project.updated_at),
+      updatedAt: formatDisplayDate(project.updated_at),
     }
   })
 
   const contacts = (contactRequests ?? []).map((request) => ({
     id: request.id,
     title: request.name.trim() || request.email,
-    subtitle: `${request.service_type} · ${formatDateLabel(request.created_at)}`,
+    subtitle: `${request.service_type} · ${formatDisplayDate(request.created_at)}`,
     href: `/admin/reservations?requestId=${request.id}`,
     statusLabel: CONTACT_STATUS_LABELS[request.status],
-    createdAt: formatDateLabel(request.created_at),
+    createdAt: formatDisplayDate(request.created_at),
   }))
 
   return {

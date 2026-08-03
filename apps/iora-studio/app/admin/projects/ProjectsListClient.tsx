@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { Pagination, Table, Toast } from '@iora/ui'
+import { Pagination, Table, Toast } from '@iora/ui/client'
 import {
   FiAlertTriangle,
   FiCalendar,

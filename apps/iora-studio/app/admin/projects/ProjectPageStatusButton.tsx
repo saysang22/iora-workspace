@@ -1,4 +1,4 @@
-import { Button } from '@iora/ui'
+import { Button } from '@iora/ui/server'
 import { SECONDARY_BUTTON_THEME } from './AdminProjectCreateModal.shared'
 import styles from './ProjectPageStatusButton.module.scss'
 
@@ -12,7 +12,7 @@ type ProjectPageStatusButtonProps = {
 
 const LABEL_BY_TONE = {
   review: '검토 중',
-  progress: '진행',
+  progress: '진행 중',
   complete: '완료',
 } as const
 

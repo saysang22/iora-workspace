@@ -1,7 +1,7 @@
-import { Button, Input } from '@iora/ui'
+import { Button, Input } from '@iora/ui/server'
 import { FiCalendar } from 'react-icons/fi'
 import {
-  DatePickerField,
+  type DatePickerField,
   formatDisplayDate,
   INPUT_THEME,
   SECONDARY_BUTTON_THEME,

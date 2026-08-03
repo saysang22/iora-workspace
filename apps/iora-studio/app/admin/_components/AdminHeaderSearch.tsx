@@ -1,6 +1,6 @@
 'use client'
 
-import { Spinner } from '@iora/ui'
+import { Spinner } from '@iora/ui/server'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { FiClock, FiFileText, FiFolder, FiSearch } from 'react-icons/fi'

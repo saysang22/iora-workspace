@@ -1,51 +1,18 @@
 'use client'
 
-import { Spinner } from '@iora/ui'
+import { Spinner } from '@iora/ui/server'
 import { useEffect, useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { FiCalendar, FiCheck, FiClock } from 'react-icons/fi'
+import { formatDisplayDate } from '../../lib/formatters'
+import { buildSharedProjectPageProgress, buildSharedProjectPageSummary, type ProjectPageRow } from '../../lib/projects'
+import { PROJECT_PAGE_PROGRESS_STATUS_LABELS } from '../../lib/statusLabels'
 import { supabase } from '../../lib/supabase'
-import {
-  buildSharedProjectPageProgress,
-  buildSharedProjectPageSummary,
-  type ProjectPageRow,
-} from '../../lib/projects'
-import { buildProjectFlowSteps } from './project-status-flow/ProjectStatusFlow'
-import {
-  buildMockProjectStatus,
-  type PageProgressStatus,
-  type ProjectStatusData,
-} from '../projects/projectStatus.mock'
-import ProjectStatusFlow from './project-status-flow/ProjectStatusFlow'
+import { buildMockProjectStatus, type ProjectStatusData } from '../projects/projectStatus.mock'
+import ProjectStatusFlow, { buildProjectFlowSteps } from './project-status-flow/ProjectStatusFlow'
 import styles from './ProjectStatusClient.module.scss'
 
 type SessionState = 'loading' | 'ready' | 'unauthorized'
-
-function formatDisplayDate(value: string | null) {
-  if (!value) {
-    return '미정'
-  }
-
-  const [year, month, day] = value.split('-')
-
-  if (!year || !month || !day) {
-    return value
-  }
-
-  return `${year}.${month}.${day}`
-}
-
-function getPageStatusLabel(status: PageProgressStatus) {
-  if (status === 'done') {
-    return '완료'
-  }
-
-  if (status === 'active') {
-    return '진행 중'
-  }
-
-  return '대기'
-}
 
 export default function ProjectStatusClient() {
   const router = useRouter()
@@ -170,11 +137,7 @@ export default function ProjectStatusClient() {
         </div>
       </section>
 
-      <ProjectStatusFlow
-        steps={flowSteps}
-        title='프로젝트 진행 단계'
-        deadlineValue={projectData.deadlineDate}
-      />
+      <ProjectStatusFlow steps={flowSteps} title='프로젝트 진행 단계' deadlineValue={projectData.deadlineDate} />
 
       <section className={styles.devSection} aria-labelledby='project-dev-title'>
         <div className={styles.devHeader}>
@@ -191,7 +154,7 @@ export default function ProjectStatusClient() {
           <div className={styles.progressTextGroup}>
             <p className={styles.progressSummaryText}>
               {projectData.pageSummary.completed}/{projectData.pageSummary.total} 페이지 완료
-              <span className={styles.progressSummarySub}> 전체 공정을 {projectData.pageSummary.percent}%</span>
+              <span className={styles.progressSummarySub}> 전체 공정률 {projectData.pageSummary.percent}%</span>
             </p>
             <strong className={styles.progressPercent}>{projectData.pageSummary.percent}%</strong>
           </div>
@@ -225,7 +188,7 @@ export default function ProjectStatusClient() {
                   page.status === 'pending' ? styles.pageBadgePending : '',
                 ].join(' ')}
               >
-                {getPageStatusLabel(page.status)}
+                {PROJECT_PAGE_PROGRESS_STATUS_LABELS[page.status]}
               </span>
             </li>
           ))}

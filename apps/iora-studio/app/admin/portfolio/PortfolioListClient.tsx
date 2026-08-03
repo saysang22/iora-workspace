@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Pagination, Table, Toast } from '@iora/ui'
+import { Button, Pagination, Table, Toast } from '@iora/ui/client'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { FiChevronLeft, FiChevronRight, FiImage, FiMoreVertical, FiPlus } from 'react-icons/fi'
 import { createBrowserSupabaseClient } from '../../../lib/supabase'

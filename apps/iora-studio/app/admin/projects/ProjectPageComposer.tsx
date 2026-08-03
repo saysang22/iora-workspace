@@ -1,13 +1,9 @@
 'use client'
 
-import { Button, Input } from '@iora/ui'
+import { Button, Input } from '@iora/ui/server'
 import { type ReactNode, useState } from 'react'
 import { FiPlus } from 'react-icons/fi'
-import {
-  INPUT_THEME,
-  PRIMARY_BUTTON_THEME,
-  SECONDARY_BUTTON_THEME,
-} from './AdminProjectCreateModal.shared'
+import { INPUT_THEME, PRIMARY_BUTTON_THEME, SECONDARY_BUTTON_THEME } from './AdminProjectCreateModal.shared'
 import styles from './ProjectPageComposer.module.scss'
 
 type ProjectPageComposerProps = {
@@ -26,7 +22,7 @@ type ProjectPageComposerProps = {
 export default function ProjectPageComposer({
   addButtonLabel = '페이지 추가',
   allowBulk = false,
-  bulkLabel = '페이지명 일괄 입력',
+  bulkLabel = '페이지명 여러 줄 입력',
   bulkPlaceholder = '예시\n메인 페이지\n회사 소개\n포트폴리오',
   className,
   fieldLabel = '페이지명',
@@ -53,9 +49,7 @@ export default function ProjectPageComposer({
       setDraftPageName('')
       setBulkPageNames('')
     } catch (error) {
-      setErrorMessage(
-        error instanceof Error ? error.message : '페이지를 추가하지 못했습니다.',
-      )
+      setErrorMessage(error instanceof Error ? error.message : '페이지를 추가하지 못했습니다.')
     } finally {
       setIsSubmitting(false)
     }

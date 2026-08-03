@@ -1,10 +1,10 @@
-import { Button, Input, Spinner } from '@iora/ui'
+import { Button, Input, Spinner } from '@iora/ui/server'
 import { FiSearch, FiUser } from 'react-icons/fi'
 import {
   getCustomerLabel,
   INPUT_THEME,
-  ProfileOption,
-  RegistrationMode,
+  type ProfileOption,
+  type RegistrationMode,
   SECONDARY_BUTTON_THEME,
 } from './AdminProjectCreateModal.shared'
 import styles from './AdminProjectCreateModal.module.scss'
@@ -47,18 +47,18 @@ export default function ProjectCustomerSection({
       <div className={styles.sectionHeader}>
         <h2 className={styles.sectionTitle}>고객 정보</h2>
         <p className={styles.sectionDescription}>
-          회원 계정과 연결하거나 비회원 업체 정보를 직접 입력해 주세요.
+          기존 회원 고객을 연결하거나, 비회원 고객 정보를 직접 입력해 프로젝트를 등록할 수 있습니다.
         </p>
       </div>
 
-      <div className={styles.modeToggle} role='tablist' aria-label='고객 등록 방식'>
+      <div className={styles.modeToggle} role='tablist' aria-label='고객 등록 방식 선택'>
         <Button
           {...SECONDARY_BUTTON_THEME}
           className={`${styles.modeButton} ${mode === 'member' ? styles.modeButtonActive : ''}`.trim()}
           style={{ minHeight: '44px' }}
           onClick={() => onModeChange('member')}
         >
-          회원 연결
+          회원 고객
         </Button>
         <Button
           {...SECONDARY_BUTTON_THEME}
@@ -79,7 +79,7 @@ export default function ProjectCustomerSection({
               className={styles.searchInput}
               value={customerSearch}
               onChange={(event) => onCustomerSearchChange(event.target.value)}
-              placeholder='이름, 이메일, 업체명으로 검색'
+              placeholder='이름 또는 이메일로 고객을 검색해 주세요'
             />
           </div>
 
@@ -99,9 +99,13 @@ export default function ProjectCustomerSection({
                 <Spinner centered size={30} label='고객 목록을 불러오고 있어요' />
               </div>
             ) : null}
-            {!isLoadingCustomers && customerError ? <p className={styles.emptyText}>{customerError}</p> : null}
+
+            {!isLoadingCustomers && customerError ? (
+              <p className={styles.emptyText}>{customerError}</p>
+            ) : null}
+
             {!isLoadingCustomers && !customerError && customers.length === 0 ? (
-              <p className={styles.emptyText}>검색 조건에 맞는 고객이 없습니다.</p>
+              <p className={styles.emptyText}>검색 결과와 일치하는 고객이 없습니다.</p>
             ) : null}
 
             {!isLoadingCustomers && !customerError

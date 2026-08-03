@@ -1,5 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
 import type { Database, Tables } from './database.types'
+import { formatCurrency, formatDisplayDate } from './formatters'
 
 export type ProjectRow = Tables<'projects'>
 export type ProjectPageRow = Tables<'project_pages'>
@@ -85,28 +86,6 @@ const STAGE_BADGE_MAP: Record<Database['public']['Enums']['project_stage'], stri
   launch: 'LAUNCH',
   care: 'CARE',
   completed: 'COMPLETED',
-}
-
-function formatDate(value: string | null) {
-  if (!value) {
-    return '미정'
-  }
-
-  const [year, month, day] = value.split('-')
-
-  if (!year || !month || !day) {
-    return value
-  }
-
-  return `${year}.${month}.${day}`
-}
-
-function formatCurrency(value: number | null) {
-  if (value === null || Number.isNaN(value)) {
-    return '미정'
-  }
-
-  return `${value.toLocaleString('ko-KR')}원`
 }
 
 function buildCompanyCode(companyName: string) {
@@ -214,8 +193,8 @@ export async function listAdminProjects(client: SupabaseClient<Database>) {
       projectName: project.project_name,
       projectType: project.user_id ? 'member' : 'guest',
       status: STAGE_STATUS_MAP[project.current_stage],
-      startDate: formatDate(project.started_at),
-      dueDate: formatDate(project.deadline),
+      startDate: formatDisplayDate(project.started_at),
+      dueDate: formatDisplayDate(project.deadline),
       startedAtValue: project.started_at,
       deadlineValue: project.deadline,
       careEndedAtValue: project.care_ended_at,
@@ -266,10 +245,10 @@ export async function getAdminProjectDetail(client: SupabaseClient<Database>, pr
     contact,
     totalAmount: formatCurrency(project.total_amount),
     depositAmount: formatCurrency(project.deposit_amount),
-    deadline: formatDate(project.deadline),
+    deadline: formatDisplayDate(project.deadline),
     progress: project.progress_percent,
-    startedAt: formatDate(project.started_at),
-    careEndedAt: formatDate(project.care_ended_at),
+    startedAt: formatDisplayDate(project.started_at),
+    careEndedAt: formatDisplayDate(project.care_ended_at),
     pages: [...(project.project_pages ?? [])].sort((left, right) => left.sort_order - right.sort_order),
     currentStage: project.current_stage,
   } satisfies AdminProjectDetail

@@ -38,11 +38,13 @@ export default function Header({ logo, navItems }: HeaderProps) {
   const [isSignedIn, setIsSignedIn] = useState(false)
   const [isAdmin, setIsAdmin] = useState(false)
   const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [mobileMenuPath, setMobileMenuPath] = useState<string | null>(null)
   const accountMenuRef = useRef<HTMLDivElement | null>(null)
 
+  const isMobileMenuOpen = mobileMenuPath === pathname
+
   const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false)
+    setMobileMenuPath(null)
   }
 
   useEffect(() => {
@@ -56,7 +58,11 @@ export default function Header({ logo, navItems }: HeaderProps) {
         return
       }
 
-      const { data: profile } = await supabase.from('profiles').select('is_admin').eq('id', userId).maybeSingle()
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('is_admin')
+        .eq('id', userId)
+        .maybeSingle()
 
       if (!isMounted) {
         return
@@ -166,10 +172,6 @@ export default function Header({ logo, navItems }: HeaderProps) {
     }
   }, [])
 
-  useEffect(() => {
-    closeMobileMenu()
-  }, [pathname])
-
   const visibleNavItems = useMemo(() => {
     const filteredNavItems = navItems.filter((item) => {
       if (item.href === '/signup' && isSignedIn) {
@@ -187,7 +189,10 @@ export default function Header({ logo, navItems }: HeaderProps) {
   }, [isAdmin, isSignedIn, navItems])
 
   const mobilePrimaryItems = useMemo(
-    () => visibleNavItems.filter((item) => item.href !== '/signin' && item.href !== '/signup' && item.href !== '/admin'),
+    () =>
+      visibleNavItems.filter(
+        (item) => item.href !== '/signin' && item.href !== '/signup' && item.href !== '/admin',
+      ),
     [visibleNavItems],
   )
 
@@ -223,51 +228,24 @@ export default function Header({ logo, navItems }: HeaderProps) {
   }
 
   const handleMobileMenuToggle = () => {
-    setIsMobileMenuOpen((prev) => !prev)
+    setMobileMenuPath((current) => (current === pathname ? null : pathname))
   }
 
   const handleLogout = async () => {
-    // TEMP DEBUG LOG - 문제 해결 후 제거 예정
-    console.log('[AUTH][Header][SignOutAttempt]', {
-      attemptedAt: new Date().toISOString(),
-      pathname,
-    })
-
     try {
       const { error } = await supabase.auth.signOut()
 
       if (error) {
-        // TEMP DEBUG LOG - 문제 해결 후 제거 예정
-        console.error('[AUTH][Header][SignOutFailure]', {
-          attemptedAt: new Date().toISOString(),
-          pathname,
-          error,
-          errorCode: error.code ?? null,
-          errorMessage: error.message,
-          errorStatus: error.status ?? null,
-          errorName: error.name ?? null,
-        })
         return
       }
-
-      // TEMP DEBUG LOG - 문제 해결 후 제거 예정
-      console.log('[AUTH][Header][SignOutSuccess]', {
-        attemptedAt: new Date().toISOString(),
-        pathname,
-      })
 
       setIsAccountMenuOpen(false)
       closeMobileMenu()
       setIsAdmin(false)
       router.push('/')
       router.refresh()
-    } catch (error) {
-      // TEMP DEBUG LOG - 문제 해결 후 제거 예정
-      console.error('[AUTH][Header][SignOutException]', {
-        attemptedAt: new Date().toISOString(),
-        pathname,
-        error,
-      })
+    } catch {
+      return
     }
   }
 
@@ -319,7 +297,12 @@ export default function Header({ logo, navItems }: HeaderProps) {
                             <span>{label}</span>
                           </Link>
                         ))}
-                        <button className={styles.accountMenuItem} role='menuitem' type='button' onClick={handleLogout}>
+                        <button
+                          className={styles.accountMenuItem}
+                          role='menuitem'
+                          type='button'
+                          onClick={handleLogout}
+                        >
                           <FiLogOut aria-hidden='true' size={16} />
                           <span>로그아웃</span>
                         </button>
@@ -345,7 +328,7 @@ export default function Header({ logo, navItems }: HeaderProps) {
           <button
             aria-controls='mobile-navigation'
             aria-expanded={isMobileMenuOpen}
-            aria-label='모바일 메뉴 토글'
+            aria-label='모바일 메뉴 열기'
             className={styles.mobileMenuButton}
             type='button'
             onClick={handleMobileMenuToggle}
@@ -360,7 +343,9 @@ export default function Header({ logo, navItems }: HeaderProps) {
       </header>
 
       <div
-        className={`${styles.mobileMenuOverlay} ${isMobileMenuOpen ? styles.mobileMenuOverlayOpen : ''}`.trim()}
+        className={`${styles.mobileMenuOverlay} ${
+          isMobileMenuOpen ? styles.mobileMenuOverlayOpen : ''
+        }`.trim()}
         aria-hidden={isMobileMenuOpen ? undefined : 'true'}
       >
         <button
@@ -370,7 +355,9 @@ export default function Header({ logo, navItems }: HeaderProps) {
           onClick={closeMobileMenu}
         />
         <div
-          className={`${styles.mobileMenuPanel} ${isMobileMenuOpen ? styles.mobileMenuPanelOpen : ''}`.trim()}
+          className={`${styles.mobileMenuPanel} ${
+            isMobileMenuOpen ? styles.mobileMenuPanelOpen : ''
+          }`.trim()}
           id='mobile-navigation'
           role='dialog'
           aria-modal='true'
@@ -381,7 +368,9 @@ export default function Header({ logo, navItems }: HeaderProps) {
             <div className={styles.mobileMenuList}>
               {mobilePrimaryItems.map((item) => (
                 <Link
-                  className={`${styles.mobileMenuLink} ${isActiveLink(item.href) ? styles.mobileMenuLinkActive : ''}`.trim()}
+                  className={`${styles.mobileMenuLink} ${
+                    isActiveLink(item.href) ? styles.mobileMenuLinkActive : ''
+                  }`.trim()}
                   href={item.href}
                   key={item.href}
                   onClick={handleMenuLinkClick}

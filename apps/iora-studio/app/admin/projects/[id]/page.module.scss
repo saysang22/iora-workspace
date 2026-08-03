@@ -450,15 +450,6 @@
   color: #7db5ff;
 }
 
-.requestDetailCell {
-  max-width: 0;
-}
-
-.requestDateCell {
-  color: #93a4bf !important;
-  white-space: nowrap;
-}
-
 .requestContentButton {
   padding: 0;
   border: 0;
@@ -518,22 +509,6 @@
   white-space: pre-wrap;
 }
 
-.requestIssuesTable {
-  border: 1px solid rgb(148 163 184 / 0.1);
-  border-radius: 22px;
-  overflow: hidden;
-  background: linear-gradient(180deg, rgb(18 30 52 / 0.98), rgb(16 26 46 / 0.94));
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.02);
-}
-
-.requestIssuesTable :global(table) {
-  width: 100%;
-  min-width: 100% !important;
-  border-collapse: collapse;
-  table-layout: fixed;
-  background: transparent !important;
-}
-
 .projectBoardTable :global(table) {
   width: 100%;
   min-width: 100% !important;
@@ -582,49 +557,6 @@
 
 .projectBoardTable :global(th:nth-child(2)),
 .projectBoardTable :global(td:nth-child(2)) {
-  width: 104px;
-}
-
-.requestIssuesTable :global(thead) {
-  background: rgb(28 41 67 / 0.84);
-}
-
-.requestIssuesTable :global(th),
-.requestIssuesTable :global(td) {
-  padding: 18px 20px !important;
-  border-bottom: 1px solid rgb(148 163 184 / 0.08) !important;
-  text-align: center !important;
-}
-
-.requestIssuesTable :global(th) {
-  color: #9caecc !important;
-  font-size: 14px !important;
-  font-weight: 500 !important;
-  background: transparent !important;
-}
-
-.requestIssuesTable :global(td) {
-  color: #e5edf9 !important;
-  font-size: 15px !important;
-  vertical-align: middle;
-  background: transparent !important;
-}
-
-.requestIssuesTable :global(tbody tr:last-child td) {
-  border-bottom: 0 !important;
-}
-
-.requestIssuesTable :global(tbody tr:hover td) {
-  background: transparent !important;
-}
-
-.requestIssuesTable :global(th:first-child),
-.requestIssuesTable :global(td:first-child) {
-  width: 64px;
-}
-
-.requestIssuesTable :global(th:nth-child(2)),
-.requestIssuesTable :global(td:nth-child(2)) {
   width: 104px;
 }
 

@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { FiAlertCircle, FiCalendar, FiTrendingUp, FiZap } from 'react-icons/fi'
 import { getCachedAdminRequestState } from '../../../lib/admin-auth'
 import type { Tables } from '../../../lib/database.types'
+import { formatCurrency, formatDeadlineLabel, formatMetricValue, formatRelativeTime, getDeadlineDiffDays } from '../../../lib/formatters'
+import { PROJECT_MODIFICATION_STATUS_LABELS } from '../../../lib/statusLabels'
 import { createServerSupabaseClient } from '../../../lib/supabase-server'
 import AdminPageHeader from '../_components/AdminPageHeader'
 import { getAdminDisplayName } from '../_components/admin-shell'
@@ -53,7 +55,7 @@ type RequestProfile = {
 
 function formatTodayLabel() {
   const now = new Date()
-  const weekday = ['일', '월', '화', '수', '목', '금', '토'][now.getDay()]
+  const weekday = ['?', '?', '?', '?', '?', '?', '?'][now.getDay()]
   const year = now.getFullYear()
   const month = String(now.getMonth() + 1).padStart(2, '0')
   const date = String(now.getDate()).padStart(2, '0')
@@ -73,14 +75,6 @@ function MetricIcon({ metric }: { metric: DashboardMetric }) {
   return <FiCalendar size={18} />
 }
 
-function formatMetricValue(value: number) {
-  return String(value).padStart(2, '0')
-}
-
-function formatCurrency(value: number) {
-  return `${value.toLocaleString('ko-KR')}원`
-}
-
 function getCustomerInitial(name: string) {
   const normalized = name.trim()
 
@@ -96,37 +90,7 @@ function truncateText(value: string, maxLength: number) {
     return value
   }
 
-  return `${value.slice(0, maxLength - 1)}…`
-}
-
-function formatRelativeTime(value: string) {
-  const now = new Date()
-  const target = new Date(value)
-  const diffMs = target.getTime() - now.getTime()
-  const diffMinutes = Math.round(diffMs / (1000 * 60))
-  const rtf = new Intl.RelativeTimeFormat('ko', { numeric: 'auto' })
-
-  if (Math.abs(diffMinutes) < 60) {
-    return rtf.format(diffMinutes, 'minute')
-  }
-
-  const diffHours = Math.round(diffMinutes / 60)
-
-  if (Math.abs(diffHours) < 24) {
-    return rtf.format(diffHours, 'hour')
-  }
-
-  const diffDays = Math.round(diffHours / 24)
-
-  if (Math.abs(diffDays) < 30) {
-    return rtf.format(diffDays, 'day')
-  }
-
-  return new Intl.DateTimeFormat('ko-KR', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).format(target)
+  return `${value.slice(0, maxLength - 1)}?`
 }
 
 function createProjectMapByUserId(projects: ProjectRow[]) {
@@ -156,28 +120,6 @@ function createProjectMapById(projects: ProjectRow[]) {
   return new Map(projects.map((project) => [project.id, project]))
 }
 
-function getDeadlineDiffDays(deadline: string) {
-  const today = new Date()
-  const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate())
-  const [year, month, day] = deadline.split('-').map(Number)
-  const deadlineDate = new Date(year, month - 1, day)
-  const diffMs = deadlineDate.getTime() - todayStart.getTime()
-
-  return Math.round(diffMs / (1000 * 60 * 60 * 24))
-}
-
-function formatDeadlineLabel(diffDays: number) {
-  if (diffDays === 0) {
-    return 'D-DAY'
-  }
-
-  if (diffDays > 0) {
-    return `D-${diffDays}`
-  }
-
-  return `D+${Math.abs(diffDays)}`
-}
-
 function buildDeadlineProjects(projects: ProjectRow[]): DeadlineProject[] {
   return projects
     .filter((project) => project.deadline && project.current_stage !== 'completed')
@@ -195,35 +137,21 @@ function buildDeadlineProjects(projects: ProjectRow[]): DeadlineProject[] {
     })
     .sort((left, right) => left.diffDays - right.diffDays)
     .slice(0, 3)
-    .map(({ diffDays: _diffDays, ...item }) => item)
+    .map(({ dueLabel, id, progress, title, tone }) => ({
+      dueLabel,
+      id,
+      progress,
+      title,
+      tone,
+    }))
 }
 
 function getContactRequestStatusLabel(status: ContactRequestRow['status']) {
   if (status === 'confirmed') {
-    return '확인 완료'
+    return '?? ??'
   }
 
-  if (status === 'rejected') {
-    return '보류'
-  }
-
-  return '대기 중'
-}
-
-function getModificationRequestStatusLabel(status: ProjectModificationRequestRow['status']) {
-  if (status === 'completed') {
-    return '완료'
-  }
-
-  if (status === 'in_progress') {
-    return '진행 중'
-  }
-
-  if (status === 'review') {
-    return '검토 중'
-  }
-
-  return '대기'
+  return '?? ?'
 }
 
 function getProfileDisplayName(profile: RequestProfile | null | undefined) {
@@ -251,7 +179,7 @@ function buildRecentRequests(
       actionHref: isLinkedProjectRequest
         ? `/admin/projects/${linkedProject!.id}?tab=requests`
         : '/admin/projects',
-      actionLabel: isLinkedProjectRequest ? '수정 요청 보기' : '프로젝트 등록',
+      actionLabel: isLinkedProjectRequest ? '?? ?? ??' : '???? ??',
       createdAtValue: request.created_at,
       customer,
       customerInitial: getCustomerInitial(customer),
@@ -271,17 +199,17 @@ function buildRecentRequests(
   const modificationItems: RecentRequestItem[] = projectModificationRequests.map((request) => {
     const linkedProject = projectsById.get(request.project_id)
     const customer = getProfileDisplayName(profilesById.get(request.requester_id))
-    const projectLabel = linkedProject?.project_name?.trim() || '프로젝트'
+    const projectLabel = linkedProject?.project_name?.trim() || '????'
 
     return {
       actionHref: linkedProject ? `/admin/projects/${linkedProject.id}?tab=requests` : '/admin/projects',
-      actionLabel: '수정 요청 보기',
+      actionLabel: '?? ?? ??',
       createdAtValue: request.requested_at,
       customer,
       customerInitial: getCustomerInitial(customer),
       detail: truncateText(`[${projectLabel}] ${request.title}`, 52),
       id: request.id,
-      statusLabel: getModificationRequestStatusLabel(request.status),
+      statusLabel: PROJECT_MODIFICATION_STATUS_LABELS[request.status],
       statusTone:
         request.status === 'pending'
           ? 'pending'

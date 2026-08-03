@@ -1,6 +1,6 @@
 'use client'
 
-import { Calendar, Modal, Toast } from '@iora/ui'
+import { Calendar, Modal, Toast } from '@iora/ui/client'
 import { useMemo, useState } from 'react'
 import type { CSSProperties } from 'react'
 import {
@@ -97,7 +97,7 @@ export default function ProjectDatePickerModal({
     return {
       [selection.dateKey]: {
         status: 'selected' as const,
-        events: [{ label: '선택됨', tone: 'blue' as const }],
+        events: [{ label: '선택일', tone: 'blue' as const }],
       },
     }
   }, [selection])

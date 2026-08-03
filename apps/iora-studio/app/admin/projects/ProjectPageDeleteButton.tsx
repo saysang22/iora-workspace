@@ -1,4 +1,4 @@
-import { Button } from '@iora/ui'
+import { Button } from '@iora/ui/server'
 import { SECONDARY_BUTTON_THEME } from './AdminProjectCreateModal.shared'
 import styles from './ProjectPageDeleteButton.module.scss'
 
@@ -21,7 +21,7 @@ export default function ProjectPageDeleteButton({
       disabled={disabled}
       aria-label={ariaLabel}
     >
-      삭제
+      ??젣
     </Button>
   )
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import { Modal } from '@iora/ui'
+import { Modal } from '@iora/ui/client'
 import { useId, useMemo, useState, type ChangeEvent, type DragEvent } from 'react'
 import { FiUploadCloud } from 'react-icons/fi'
 import type { TablesInsert } from '../../../lib/database.types'

@@ -1,14 +1,14 @@
 'use client'
 
-import { Board, Modal, Tab } from '@iora/ui'
+import { Board, Modal, Tab } from '@iora/ui/client'
 import { useEffect, useMemo, useState } from 'react'
 import { FiCheck } from 'react-icons/fi'
 import type { Database } from '../../../../lib/database.types'
 import {
-  PROJECT_MODIFICATION_STATUS_LABELS,
   type ProjectModificationRequestListItem,
   type ProjectModificationRequestStatus,
 } from '../../../../lib/projectModificationRequests'
+import { PROJECT_MODIFICATION_STATUS_LABELS } from '../../../../lib/statusLabels'
 import { createBrowserSupabaseClient } from '../../../../lib/supabase'
 import ProjectPageStatusButton from '../ProjectPageStatusButton'
 import AdminProjectPagesSection from './AdminProjectPagesSection'
