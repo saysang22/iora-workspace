@@ -14,6 +14,31 @@
   padding-bottom: 156px;
 }
 
+.inlineToast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 30;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid rgb(212 255 42 / 0.22);
+  border-radius: 10px;
+  background: rgb(17 17 17 / 0.96);
+  color: #eff7d1;
+  box-shadow: 0 18px 42px rgb(0 0 0 / 0.28);
+}
+
+.inlineToast button {
+  border: 0;
+  background: transparent;
+  color: #d4ff2a;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
 .heroSection {
   padding-top: 14px;
 }
@@ -36,6 +61,28 @@
   color: #c5c0bc;
   font-size: 16px;
   line-height: 1.55;
+}
+
+.emptyProjectNotice {
+  display: grid;
+  gap: 10px;
+  padding: 28px 32px;
+  border: 1px solid #272220;
+  border-radius: 12px;
+  background: #111111;
+}
+
+.emptyProjectNotice strong {
+  color: #f3efe5;
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.emptyProjectNotice p {
+  margin: 0;
+  color: #b7b0a8;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 .clientCaption {
@@ -307,6 +354,11 @@
   background: #defe55;
 }
 
+.primaryAction:disabled {
+  cursor: not-allowed;
+  opacity: 0.56;
+}
+
 .primaryAction:active {
   transform: translateY(1px);
 }
@@ -369,11 +421,40 @@
   color: #4d91ff;
 }
 
+.statusReview {
+  border: 1px solid rgb(255 45 122 / 0.28);
+  background: rgb(255 45 122 / 0.08);
+  color: #ff5ea4;
+}
+
 .titleCell {
   width: 38%;
 }
 
+.historyTitleCell {
+  display: grid;
+  gap: 6px;
+}
+
+.historyTitleCell strong {
+  color: #f3eee6;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.historyTitleCell p {
+  margin: 0;
+  color: #b8b0a7;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
 .dateCell {
+  white-space: nowrap;
+}
+
+.attachmentCell {
   white-space: nowrap;
 }
 
@@ -424,6 +505,11 @@
   font-size: 14px;
 }
 
+.emptyTableCell {
+  color: #9f968d !important;
+  text-align: center !important;
+}
+
 @media (max-width: 1100px) {
   .summaryGrid {
     grid-template-columns: 1fr;
@@ -470,8 +556,16 @@
     font-size: 42px;
   }
 
+  .inlineToast {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    justify-content: space-between;
+  }
+
   .remainingCard,
-  .infoCard {
+  .infoCard,
+  .emptyProjectNotice {
     padding: 24px 20px;
   }
 

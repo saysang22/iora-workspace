@@ -223,18 +223,10 @@
 
 .mainGrid {
   display: grid;
-  grid-template-columns: minmax(0, 1.75fr) minmax(280px, 0.85fr);
-  gap: 32px;
-  align-items: start;
-}
-
-.leftColumn {
-  display: grid;
   gap: 24px;
 }
 
-.requestSection,
-.timelineSection {
+.requestSection {
   display: grid;
   gap: 20px;
 }
@@ -830,32 +822,9 @@
   cursor: pointer;
 }
 
-.floatingAssetButton {
-  position: absolute;
-  right: 124px;
-  bottom: 185px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 34px;
-  padding: 0 14px;
-  border-radius: 12px;
-  background: rgb(22 34 57 / 0.96);
-  color: #d9e3f1;
-}
-
 @media (max-width: 1280px) {
   .metricGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .mainGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .floatingAssetButton {
-    position: static;
-    margin-top: 20px;
   }
 }
 

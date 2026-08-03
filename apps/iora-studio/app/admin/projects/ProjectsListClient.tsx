@@ -95,7 +95,7 @@ export default function ProjectsListClient({ projects, stats }: ProjectsListClie
   const [page, setPage] = useState(1)
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
   const [editingProject, setEditingProject] = useState<AdminProjectListItem | null>(null)
-  const [localProjects, setLocalProjects] = useState(projects)
+  const [localProjects, setLocalProjects] = useState(() => projects)
   const [openMenuProjectId, setOpenMenuProjectId] = useState<string | null>(null)
   const [deleteTarget, setDeleteTarget] = useState<DeleteTarget | null>(null)
   const [isDeleting, setIsDeleting] = useState(false)
@@ -105,15 +105,6 @@ export default function ProjectsListClient({ projects, stats }: ProjectsListClie
     message: '',
     type: 'info',
   })
-
-  useEffect(() => {
-    setLocalProjects(projects)
-  }, [projects])
-
-  useEffect(() => {
-    const totalPages = Math.max(1, Math.ceil(localProjects.length / PAGE_SIZE))
-    setPage((current) => Math.min(current, totalPages))
-  }, [localProjects.length])
 
   useEffect(() => {
     const handleDocumentPointerDown = (event: MouseEvent) => {

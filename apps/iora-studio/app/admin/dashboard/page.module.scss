@@ -509,6 +509,24 @@
   background: #34d399;
 }
 
+.statusReview {
+  background: rgb(250 204 21 / 0.12);
+  color: #fde68a;
+}
+
+.statusReview::before {
+  background: #facc15;
+}
+
+.statusInProgress {
+  background: rgb(59 130 246 / 0.14);
+  color: #93c5fd;
+}
+
+.statusInProgress::before {
+  background: #60a5fa;
+}
+
 .statusMuted {
   background: rgb(148 163 184 / 0.12);
   color: #cbd5e1;

@@ -95,11 +95,10 @@ function formatGaDate(value: string) {
     return value
   }
 
-  const year = value.slice(0, 4)
   const month = value.slice(4, 6)
   const day = value.slice(6, 8)
 
-  return `${year}.${month}.${day}`
+  return `${month}.${day}`
 }
 
 function toMetricValue(value: string | null | undefined) {
@@ -113,11 +112,10 @@ function toMetricValue(value: string | null | undefined) {
 }
 
 function formatDateLabel(date: Date) {
-  const year = date.getFullYear()
   const month = String(date.getMonth() + 1).padStart(2, '0')
   const day = String(date.getDate()).padStart(2, '0')
 
-  return `${year}.${month}.${day}`
+  return `${month}.${day}`
 }
 
 function createTrendTemplate(period: AnalyticsPeriod) {

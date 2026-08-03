@@ -105,9 +105,11 @@ export default function RootLayout({
   return (
     <html lang='ko'>
       <body>
-        <Script id='organization-jsonld' type='application/ld+json' strategy='beforeInteractive'>
-          {JSON.stringify(organizationJsonLd)}
-        </Script>
+        <script
+          id='organization-jsonld'
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <AppChrome
           businessAddress={BUSINESS_ADDRESS}
           businessNumber={BUSINESS_NUMBER}
@@ -120,23 +122,23 @@ export default function RootLayout({
         >
           {children}
         </AppChrome>
+        {gaMeasurementId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+              strategy='afterInteractive'
+            />
+            <Script id='ga4-init' strategy='afterInteractive'>
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaMeasurementId}');
+              `}
+            </Script>
+          </>
+        ) : null}
       </body>
-      {gaMeasurementId ? (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-            strategy='afterInteractive'
-          />
-          <Script id='ga4-init' strategy='afterInteractive'>
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${gaMeasurementId}');
-            `}
-          </Script>
-        </>
-      ) : null}
     </html>
   )
 }

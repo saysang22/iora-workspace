@@ -16,6 +16,31 @@ const PERIOD_LABELS: Record<AnalyticsPeriod, string> = {
   monthly: '월간',
 }
 
+const SOURCE_LABEL_MAP: Record<string, string> = {
+  Direct: '직접 방문',
+  Referral: '추천 링크',
+  Email: '이메일',
+  Affiliates: '제휴',
+  Display: '디스플레이 광고',
+  'Organic Search': '자연 검색',
+  'Paid Search': '유료 검색',
+  'Organic Social': '자연 소셜',
+  'Paid Social': '유료 소셜',
+  'Organic Shopping': '자연 쇼핑',
+  'Paid Shopping': '유료 쇼핑',
+  'Organic Video': '자연 동영상',
+  'Paid Video': '유료 동영상',
+  'Cross-network': '크로스 네트워크',
+  Audio: '오디오',
+  SMS: '문자',
+  'Mobile Push Notifications': '모바일 푸시',
+  Unassigned: '분류 안 됨',
+}
+
+function translateSourceLabel(label: string) {
+  return SOURCE_LABEL_MAP[label] ?? label
+}
+
 function AnalyticsLoadingGrid() {
   return (
     <div className={styles.analyticsGrid}>
@@ -204,7 +229,7 @@ export default function AdminAnalyticsSection({ initialData }: AdminAnalyticsSec
                 activeReport.sources.slice(0, 8).map((item, index) => (
                   <div key={`${period}-source-${item.label}`} className={styles.analyticsListItem}>
                     <span className={styles.analyticsRank}>{String(index + 1).padStart(2, '0')}</span>
-                    <span className={styles.analyticsListLabel}>{item.label}</span>
+                    <span className={styles.analyticsListLabel}>{translateSourceLabel(item.label)}</span>
                     <strong>{item.value.toLocaleString('ko-KR')}</strong>
                   </div>
                 ))

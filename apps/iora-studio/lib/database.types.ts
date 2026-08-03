@@ -139,6 +139,70 @@ export type Database = {
           },
         ]
       }
+      project_modification_requests: {
+        Row: {
+          assigned_to: string | null
+          attachments: Json
+          created_at: string
+          description: string
+          id: string
+          project_id: string
+          requested_at: string
+          requester_id: string
+          status: Database['public']['Enums']['project_modification_request_status']
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          assigned_to?: string | null
+          attachments?: Json
+          created_at?: string
+          description: string
+          id?: string
+          project_id: string
+          requested_at?: string
+          requester_id: string
+          status?: Database['public']['Enums']['project_modification_request_status']
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          assigned_to?: string | null
+          attachments?: Json
+          created_at?: string
+          description?: string
+          id?: string
+          project_id?: string
+          requested_at?: string
+          requester_id?: string
+          status?: Database['public']['Enums']['project_modification_request_status']
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'project_modification_requests_assigned_to_fkey'
+            columns: ['assigned_to']
+            isOneToOne: false
+            referencedRelation: 'profiles'
+            referencedColumns: ['id']
+          },
+          {
+            foreignKeyName: 'project_modification_requests_project_id_fkey'
+            columns: ['project_id']
+            isOneToOne: false
+            referencedRelation: 'projects'
+            referencedColumns: ['id']
+          },
+          {
+            foreignKeyName: 'project_modification_requests_requester_id_fkey'
+            columns: ['requester_id']
+            isOneToOne: false
+            referencedRelation: 'profiles'
+            referencedColumns: ['id']
+          },
+        ]
+      }
       portfolios: {
         Row: {
           category: string | null
@@ -395,6 +459,7 @@ export type Database = {
       contact_request_status: 'pending' | 'confirmed' | 'rejected'
       page_status: 'pending' | 'in_progress' | 'completed'
       payment_type: 'deposit' | 'interim' | 'final' | 'other'
+      project_modification_request_status: 'pending' | 'review' | 'in_progress' | 'completed'
       project_stage: 'analysis' | 'planning' | 'development' | 'qa' | 'launch' | 'care' | 'completed'
     }
     CompositeTypes: {
@@ -518,6 +583,7 @@ export const Constants = {
       contact_request_status: ['pending', 'confirmed', 'rejected'],
       page_status: ['pending', 'in_progress', 'completed'],
       payment_type: ['deposit', 'interim', 'final', 'other'],
+      project_modification_request_status: ['pending', 'review', 'in_progress', 'completed'],
       project_stage: ['analysis', 'planning', 'development', 'qa', 'launch', 'care', 'completed'],
     },
   },

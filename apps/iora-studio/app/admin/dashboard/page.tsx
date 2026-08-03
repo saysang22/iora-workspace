@@ -13,13 +13,14 @@ import styles from './page.module.scss'
 type ProjectRow = Tables<'projects'>
 type ContactRequestRow = Tables<'contact_requests'>
 type PaymentRow = Tables<'payments'>
+type ProjectModificationRequestRow = Tables<'project_modification_requests'>
 
 type DashboardMetric = {
+  icon: 'project' | 'request' | 'revenue'
   id: 'active-projects' | 'pending-requests' | 'monthly-revenue'
   title: string
-  value: string
   trend: string
-  icon: 'project' | 'request' | 'revenue'
+  value: string
 }
 
 type DeadlineProject = {
@@ -33,13 +34,21 @@ type DeadlineProject = {
 type RecentRequestItem = {
   actionHref: string
   actionLabel: string
+  createdAtValue: string
   customer: string
   customerInitial: string
   detail: string
   id: string
-  status: ContactRequestRow['status']
   statusLabel: string
+  statusTone: 'pending' | 'done' | 'muted' | 'progress' | 'review'
   timeAgo: string
+}
+
+type RequestProfile = {
+  company_name: string | null
+  email: string | null
+  full_name: string | null
+  id: string
 }
 
 function formatTodayLabel() {
@@ -143,6 +152,10 @@ function createProjectMapByUserId(projects: ProjectRow[]) {
   return map
 }
 
+function createProjectMapById(projects: ProjectRow[]) {
+  return new Map(projects.map((project) => [project.id, project]))
+}
+
 function getDeadlineDiffDays(deadline: string) {
   const today = new Date()
   const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate())
@@ -165,19 +178,19 @@ function formatDeadlineLabel(diffDays: number) {
   return `D+${Math.abs(diffDays)}`
 }
 
-function buildDeadlineProjects(projects: ProjectRow[]) {
+function buildDeadlineProjects(projects: ProjectRow[]): DeadlineProject[] {
   return projects
     .filter((project) => project.deadline && project.current_stage !== 'completed')
     .map((project) => {
       const diffDays = getDeadlineDiffDays(project.deadline!)
 
       return {
-        id: project.id,
-        title: project.project_name,
-        dueLabel: formatDeadlineLabel(diffDays),
-        progress: Math.max(0, Math.min(100, project.progress_percent)),
-        tone: diffDays <= 3 ? 'hot' : 'default',
         diffDays,
+        dueLabel: formatDeadlineLabel(diffDays),
+        id: project.id,
+        progress: Math.max(0, Math.min(100, project.progress_percent)),
+        title: project.project_name,
+        tone: diffDays <= 3 ? ('hot' as const) : ('default' as const),
       }
     })
     .sort((left, right) => left.diffDays - right.diffDays)
@@ -185,7 +198,7 @@ function buildDeadlineProjects(projects: ProjectRow[]) {
     .map(({ diffDays: _diffDays, ...item }) => item)
 }
 
-function getRequestStatusLabel(status: ContactRequestRow['status']) {
+function getContactRequestStatusLabel(status: ContactRequestRow['status']) {
   if (status === 'confirmed') {
     return '확인 완료'
   }
@@ -197,29 +210,95 @@ function getRequestStatusLabel(status: ContactRequestRow['status']) {
   return '대기 중'
 }
 
+function getModificationRequestStatusLabel(status: ProjectModificationRequestRow['status']) {
+  if (status === 'completed') {
+    return '완료'
+  }
+
+  if (status === 'in_progress') {
+    return '진행 중'
+  }
+
+  if (status === 'review') {
+    return '검토 중'
+  }
+
+  return '대기'
+}
+
+function getProfileDisplayName(profile: RequestProfile | null | undefined) {
+  return (
+    profile?.company_name?.trim() ||
+    profile?.full_name?.trim() ||
+    profile?.email?.trim() ||
+    '고객'
+  )
+}
+
 function buildRecentRequests(
   requests: ContactRequestRow[],
   projectsByUserId: Map<string, ProjectRow>,
+  projectModificationRequests: ProjectModificationRequestRow[],
+  projectsById: Map<string, ProjectRow>,
+  profilesById: Map<string, RequestProfile>,
 ) {
-  return requests.slice(0, 8).map((request) => {
+  const contactItems: RecentRequestItem[] = requests.map((request) => {
     const linkedProject = request.user_id ? projectsByUserId.get(request.user_id) : null
     const customer = request.name.trim() || request.email
     const isLinkedProjectRequest = Boolean(linkedProject)
 
     return {
-      id: request.id,
-      customer,
-      customerInitial: getCustomerInitial(customer),
-      detail: truncateText(request.request_details, 52),
-      status: request.status,
-      statusLabel: getRequestStatusLabel(request.status),
-      timeAgo: formatRelativeTime(request.created_at),
-      actionLabel: isLinkedProjectRequest ? '수정 요청 보기' : '프로젝트 등록',
       actionHref: isLinkedProjectRequest
         ? `/admin/projects/${linkedProject!.id}?tab=requests`
         : '/admin/projects',
-    } satisfies RecentRequestItem
+      actionLabel: isLinkedProjectRequest ? '수정 요청 보기' : '프로젝트 등록',
+      createdAtValue: request.created_at,
+      customer,
+      customerInitial: getCustomerInitial(customer),
+      detail: truncateText(request.request_details, 52),
+      id: request.id,
+      statusLabel: getContactRequestStatusLabel(request.status),
+      statusTone:
+        request.status === 'pending'
+          ? 'pending'
+          : request.status === 'confirmed'
+            ? 'done'
+            : 'muted',
+      timeAgo: formatRelativeTime(request.created_at),
+    }
   })
+
+  const modificationItems: RecentRequestItem[] = projectModificationRequests.map((request) => {
+    const linkedProject = projectsById.get(request.project_id)
+    const customer = getProfileDisplayName(profilesById.get(request.requester_id))
+    const projectLabel = linkedProject?.project_name?.trim() || '프로젝트'
+
+    return {
+      actionHref: linkedProject ? `/admin/projects/${linkedProject.id}?tab=requests` : '/admin/projects',
+      actionLabel: '수정 요청 보기',
+      createdAtValue: request.requested_at,
+      customer,
+      customerInitial: getCustomerInitial(customer),
+      detail: truncateText(`[${projectLabel}] ${request.title}`, 52),
+      id: request.id,
+      statusLabel: getModificationRequestStatusLabel(request.status),
+      statusTone:
+        request.status === 'pending'
+          ? 'pending'
+          : request.status === 'review'
+            ? 'review'
+            : request.status === 'in_progress'
+              ? 'progress'
+              : 'done',
+      timeAgo: formatRelativeTime(request.requested_at),
+    }
+  })
+
+  return [...contactItems, ...modificationItems]
+    .sort((left, right) => {
+      return new Date(right.createdAtValue).getTime() - new Date(left.createdAtValue).getTime()
+    })
+    .slice(0, 8)
 }
 
 function getMonthRange(baseDate = new Date()) {
@@ -227,8 +306,8 @@ function getMonthRange(baseDate = new Date()) {
   const month = baseDate.getMonth()
 
   return {
-    start: new Date(year, month, 1),
     end: new Date(year, month + 1, 0),
+    start: new Date(year, month, 1),
   }
 }
 
@@ -276,6 +355,7 @@ export default async function AdminDashboardPage() {
     { data: projects, error: projectsError },
     { data: requests, error: requestsError },
     { data: payments, error: paymentsError },
+    { data: modificationRequests, error: modificationRequestsError },
   ] = await Promise.all([
     supabase
       .from('projects')
@@ -291,6 +371,10 @@ export default async function AdminDashboardPage() {
       .from('payments')
       .select('id, project_id, amount, payment_type, paid_at, memo, created_at, updated_at')
       .order('paid_at', { ascending: false }),
+    supabase
+      .from('project_modification_requests')
+      .select('id, project_id, requester_id, title, status, requested_at')
+      .order('requested_at', { ascending: false }),
   ])
 
   if (projectsError) {
@@ -305,10 +389,43 @@ export default async function AdminDashboardPage() {
     throw paymentsError
   }
 
+  if (modificationRequestsError && !isMissingRelationError(modificationRequestsError)) {
+    throw modificationRequestsError
+  }
+
   const projectRows = (projects ?? []) as ProjectRow[]
   const requestRows = (requests ?? []) as ContactRequestRow[]
-  const paymentRows = ((paymentsError && isMissingRelationError(paymentsError) ? [] : payments) ?? []) as PaymentRow[]
+  const modificationRequestRows = (
+    (modificationRequestsError && isMissingRelationError(modificationRequestsError)
+      ? []
+      : modificationRequests) ?? []
+  ) as ProjectModificationRequestRow[]
+  const paymentRows = (
+    (paymentsError && isMissingRelationError(paymentsError) ? [] : payments) ?? []
+  ) as PaymentRow[]
+
   const projectsByUserId = createProjectMapByUserId(projectRows)
+  const projectsById = createProjectMapById(projectRows)
+  const profileIds = Array.from(
+    new Set(
+      [
+        ...requestRows.map((request) => request.user_id).filter((value): value is string => Boolean(value)),
+        ...modificationRequestRows
+          .map((request) => request.requester_id)
+          .filter((value): value is string => Boolean(value)),
+      ],
+    ),
+  )
+
+  const { data: requestProfiles, error: requestProfilesError } = profileIds.length
+    ? await supabase.from('profiles').select('id, full_name, email, company_name').in('id', profileIds)
+    : { data: [], error: null }
+
+  if (requestProfilesError) {
+    throw requestProfilesError
+  }
+
+  const profilesById = new Map((requestProfiles ?? []).map((item) => [item.id, item as RequestProfile]))
   const activeProjectCount = projectRows.filter(
     (project) => project.current_stage !== 'analysis' && project.current_stage !== 'completed',
   ).length
@@ -330,31 +447,37 @@ export default async function AdminDashboardPage() {
 
   const metrics: DashboardMetric[] = [
     {
+      icon: 'project',
       id: 'active-projects',
       title: '진행 중 프로젝트',
-      value: formatMetricValue(activeProjectCount),
       trend: '실시간 집계',
-      icon: 'project',
+      value: formatMetricValue(activeProjectCount),
     },
     {
+      icon: 'request',
       id: 'pending-requests',
       title: '대기중인 프로젝트 수',
-      value: formatMetricValue(pendingProjectCount),
       trend: '등록 대기 기준',
-      icon: 'request',
+      value: formatMetricValue(pendingProjectCount),
     },
     {
+      icon: 'revenue',
       id: 'monthly-revenue',
       title: '이번 달 수익화',
-      value: formatCurrency(currentMonthRevenue),
       trend: formatRevenueTrend(currentMonthRevenue, previousMonthRevenue),
-      icon: 'revenue',
+      value: formatCurrency(currentMonthRevenue),
     },
   ]
 
   const deadlineProjects = buildDeadlineProjects(projectRows)
-  const recentRequests = buildRecentRequests(requestRows, projectsByUserId)
-  const displayName = profile ? getAdminDisplayName(profile) : '김프로'
+  const recentRequests = buildRecentRequests(
+    requestRows,
+    projectsByUserId,
+    modificationRequestRows,
+    projectsById,
+    profilesById,
+  )
+  const displayName = profile ? getAdminDisplayName(profile) : '관리자'
   const todayLabel = formatTodayLabel()
 
   return (
@@ -434,15 +557,17 @@ export default async function AdminDashboardPage() {
                   </Link>
                 ))
               ) : (
-                <div className={styles.emptyPanelMessage}>등록된 마감일이 있는 진행 프로젝트가 없습니다.</div>
+                <div className={styles.emptyPanelMessage}>
+                  등록된 마감일이 있는 진행 프로젝트가 없습니다.
+                </div>
               )}
             </div>
 
             <div className={styles.deadlineNotice}>
               <FiAlertCircle size={15} />
               <div>
-                <p>실제 프로젝트 마감일과 진행률을 기준으로 자동 집계됩니다.</p>
-                <p>마감일이 가까운 프로젝트부터 우선순위로 표시합니다.</p>
+                <p>실제 프로젝트 마감일과 진행률을 기준으로 자동 집계합니다.</p>
+                <p>마감일이 가까운 프로젝트부터 우선순위로 표시됩니다.</p>
               </div>
             </div>
           </aside>
@@ -473,7 +598,9 @@ export default async function AdminDashboardPage() {
                               <span
                                 className={[
                                   styles.customerBadge,
-                                  item.status === 'pending' ? styles.customerBadgePending : styles.customerBadgeDone,
+                                  item.statusTone === 'pending'
+                                    ? styles.customerBadgePending
+                                    : styles.customerBadgeDone,
                                 ].join(' ')}
                               >
                                 {item.customerInitial}
@@ -491,11 +618,15 @@ export default async function AdminDashboardPage() {
                           <Link className={styles.tableRowLink} href={item.actionHref}>
                             <span
                               className={`${styles.statusPill} ${
-                                item.status === 'pending'
+                                item.statusTone === 'pending'
                                   ? styles.statusPending
-                                  : item.status === 'confirmed'
+                                  : item.statusTone === 'done'
                                     ? styles.statusDone
-                                    : styles.statusMuted
+                                    : item.statusTone === 'review'
+                                      ? styles.statusReview
+                                      : item.statusTone === 'progress'
+                                        ? styles.statusInProgress
+                                        : styles.statusMuted
                               }`.trim()}
                             >
                               {item.statusLabel}
@@ -525,7 +656,9 @@ export default async function AdminDashboardPage() {
               </table>
             </div>
 
-            <div className={styles.tableFooter}>총 {requestRows.length}건의 요청이 집계되었습니다.</div>
+            <div className={styles.tableFooter}>
+              총 {requestRows.length + modificationRequestRows.length}건의 요청을 집계했습니다.
+            </div>
           </section>
 
           <Suspense fallback={<AdminAnalyticsSectionSkeleton />}>

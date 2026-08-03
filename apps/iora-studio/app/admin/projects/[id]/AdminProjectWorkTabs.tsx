@@ -4,13 +4,19 @@ import { Board, Tab } from '@iora/ui'
 import { useEffect, useMemo, useState } from 'react'
 import { FiCheck } from 'react-icons/fi'
 import type { Database } from '../../../../lib/database.types'
-import { PROJECT_REQUEST_HISTORY } from '../../../projects/request/projectRequest.mock'
+import {
+  PROJECT_MODIFICATION_STATUS_LABELS,
+  type ProjectModificationRequestListItem,
+  type ProjectModificationRequestStatus,
+} from '../../../../lib/projectModificationRequests'
+import { createBrowserSupabaseClient } from '../../../../lib/supabase'
 import ProjectPageStatusButton from '../ProjectPageStatusButton'
 import AdminProjectPagesSection from './AdminProjectPagesSection'
 import styles from './page.module.scss'
 
 type AdminProjectWorkTabsProps = {
   currentStage: Database['public']['Enums']['project_stage']
+  initialRequests: ProjectModificationRequestListItem[]
   initialTabId?: 'pages' | 'requests'
   pages: Array<{
     id: string
@@ -20,16 +26,6 @@ type AdminProjectWorkTabsProps = {
   }>
   projectId: string
   stageProgressLabel: string
-}
-
-type RequestIssueStatus = 'completed' | 'in_progress' | 'pending' | 'review'
-
-type RequestIssueItem = {
-  assignee: string
-  date: string
-  id: string
-  status: RequestIssueStatus
-  title: string
 }
 
 const PAGINATION_BUTTON_THEME = {
@@ -60,39 +56,22 @@ const PAGINATION_DISABLED_THEME = {
   hoverTextColor: '#6f83a3',
 }
 
-function toRequestIssueStatus(status: 'completed' | 'processing' | 'received'): RequestIssueStatus {
-  if (status === 'completed') {
-    return 'completed'
-  }
-
-  if (status === 'processing') {
-    return 'in_progress'
-  }
-
-  return 'pending'
-}
-
-function createInitialRequestIssues(): RequestIssueItem[] {
-  return PROJECT_REQUEST_HISTORY.map((item) => ({
-    id: item.id,
-    title: item.title,
-    date: item.date,
-    assignee: item.assignee,
-    status: toRequestIssueStatus(item.status),
-  }))
-}
-
-function getPendingIssueCount(issues: RequestIssueItem[]) {
+function getPendingIssueCount(issues: ProjectModificationRequestListItem[]) {
   return issues.filter((issue) => issue.status === 'pending').length
 }
 
 function AdminProjectRequestIssuesSection({
+  initialRequests,
   onPendingIssueCountChange,
 }: {
+  initialRequests: ProjectModificationRequestListItem[]
   onPendingIssueCountChange: (count: number) => void
 }) {
-  const [issues, setIssues] = useState<RequestIssueItem[]>(createInitialRequestIssues)
+  const supabase = useMemo(() => createBrowserSupabaseClient(), [])
+  const [issues, setIssues] = useState<ProjectModificationRequestListItem[]>(initialRequests)
   const [selectedIssueIds, setSelectedIssueIds] = useState<string[]>([])
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
+  const [isUpdating, setIsUpdating] = useState(false)
 
   const hasSelection = selectedIssueIds.length > 0
   const pendingIssueCount = issues.filter((issue) => issue.status === 'pending').length
@@ -107,8 +86,22 @@ function AdminProjectRequestIssuesSection({
     )
   }
 
-  const handleUpdateSelectedStatus = (nextStatus: RequestIssueStatus) => {
-    if (!hasSelection) {
+  const handleUpdateSelectedStatus = async (nextStatus: ProjectModificationRequestStatus) => {
+    if (!hasSelection || isUpdating) {
+      return
+    }
+
+    setIsUpdating(true)
+    setErrorMessage(null)
+
+    const { error } = await supabase
+      .from('project_modification_requests')
+      .update({ status: nextStatus })
+      .in('id', selectedIssueIds)
+
+    if (error) {
+      setErrorMessage(error.message || '수정 요청 상태를 변경하지 못했습니다.')
+      setIsUpdating(false)
       return
     }
 
@@ -118,6 +111,7 @@ function AdminProjectRequestIssuesSection({
       ),
     )
     setSelectedIssueIds([])
+    setIsUpdating(false)
   }
 
   const columns = useMemo(
@@ -126,7 +120,7 @@ function AdminProjectRequestIssuesSection({
       { key: 'status', header: '상태', align: 'center' as const },
       { key: 'title', header: '요청 내용', align: 'center' as const },
       { key: 'date', header: '요청일', align: 'center' as const },
-      { key: 'assignee', header: '담당자', align: 'center' as const },
+      { key: 'requester', header: '요청자', align: 'center' as const },
     ],
     [],
   )
@@ -171,18 +165,12 @@ function AdminProjectRequestIssuesSection({
                       : styles.statusPending
               }`.trim()}
             >
-              {issue.status === 'completed'
-                ? '완료'
-                : issue.status === 'in_progress'
-                  ? '진행 중'
-                  : issue.status === 'review'
-                    ? '검토 중'
-                    : '대기'}
+              {PROJECT_MODIFICATION_STATUS_LABELS[issue.status]}
             </span>
           ),
           title: issue.title,
           date: issue.date,
-          assignee: issue.assignee,
+          requester: issue.requesterName,
         }
       }),
     [issues, selectedIssueIds],
@@ -204,21 +192,21 @@ function AdminProjectRequestIssuesSection({
           <>
             <ProjectPageStatusButton
               ariaLabel='선택한 요청을 검토 중 상태로 변경'
-              disabled={!hasSelection}
-              onClick={() => handleUpdateSelectedStatus('review')}
+              disabled={!hasSelection || isUpdating}
+              onClick={() => void handleUpdateSelectedStatus('review')}
               tone='review'
             />
             <ProjectPageStatusButton
               ariaLabel='선택한 요청을 진행 중 상태로 변경'
-              disabled={!hasSelection}
-              onClick={() => handleUpdateSelectedStatus('in_progress')}
+              disabled={!hasSelection || isUpdating}
+              onClick={() => void handleUpdateSelectedStatus('in_progress')}
               tone='progress'
               label='진행 중'
             />
             <ProjectPageStatusButton
               ariaLabel='선택한 요청을 완료 상태로 변경'
-              disabled={!hasSelection}
-              onClick={() => handleUpdateSelectedStatus('completed')}
+              disabled={!hasSelection || isUpdating}
+              onClick={() => void handleUpdateSelectedStatus('completed')}
               tone='complete'
             />
           </>
@@ -229,7 +217,7 @@ function AdminProjectRequestIssuesSection({
         onListRowClick={(row) => {
           const issueId = typeof row.id === 'string' ? row.id : null
 
-          if (!issueId) {
+          if (!issueId || isUpdating) {
             return
           }
 
@@ -244,6 +232,7 @@ function AdminProjectRequestIssuesSection({
         paginationActiveButtonTheme={PAGINATION_ACTIVE_THEME}
         paginationDisabledButtonTheme={PAGINATION_DISABLED_THEME}
       />
+      {errorMessage ? <p className={styles.flowError}>{errorMessage}</p> : null}
     </section>
   )
 }
@@ -270,14 +259,13 @@ function AdminProjectPageStatusNotice({ stageProgressLabel }: { stageProgressLab
 
 export default function AdminProjectWorkTabs({
   currentStage,
+  initialRequests,
   initialTabId = 'pages',
   pages,
   projectId,
   stageProgressLabel,
 }: AdminProjectWorkTabsProps) {
-  const [pendingIssueCount, setPendingIssueCount] = useState(() =>
-    getPendingIssueCount(createInitialRequestIssues()),
-  )
+  const [pendingIssueCount, setPendingIssueCount] = useState(() => getPendingIssueCount(initialRequests))
 
   const items = [
     {
@@ -295,12 +283,15 @@ export default function AdminProjectWorkTabs({
       label: (
         <span className={styles.tabLabelWithBadge}>
           <span>수정 요청 사항</span>
-          {pendingIssueCount > 0 ? (
-            <span className={styles.tabAlarmBadge}>{pendingIssueCount}</span>
-          ) : null}
+          {pendingIssueCount > 0 ? <span className={styles.tabAlarmBadge}>{pendingIssueCount}</span> : null}
         </span>
       ),
-      content: <AdminProjectRequestIssuesSection onPendingIssueCountChange={setPendingIssueCount} />,
+      content: (
+        <AdminProjectRequestIssuesSection
+          initialRequests={initialRequests}
+          onPendingIssueCountChange={setPendingIssueCount}
+        />
+      ),
     },
   ]
 
