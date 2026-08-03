@@ -412,13 +412,8 @@
   cursor: pointer;
 }
 
-.uploadIcon,
-.uploadIconSpinning {
+.uploadIcon {
   color: #c8f135;
-}
-
-.uploadIconSpinning {
-  animation: uploadSpin 0.9s linear infinite;
 }
 
 .thumbnailPreview {
@@ -446,6 +441,14 @@
   color: #c8f135;
   font-size: 13px;
   line-height: 1.4;
+}
+
+.uploadOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgb(6 11 21 / 0.78);
+  backdrop-filter: blur(4px);
 }
 
 .clearThumbnailButton {
@@ -528,15 +531,5 @@
 
   .paginationShell {
     justify-content: flex-start;
-  }
-}
-
-@keyframes uploadSpin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
   }
 }

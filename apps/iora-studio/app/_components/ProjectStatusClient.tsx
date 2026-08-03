@@ -1,8 +1,9 @@
 'use client'
 
+import { Spinner } from '@iora/ui'
 import { useEffect, useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { FiCalendar, FiCheck, FiClock, FiLoader } from 'react-icons/fi'
+import { FiCalendar, FiCheck, FiClock } from 'react-icons/fi'
 import { supabase } from '../../lib/supabase'
 import {
   buildSharedProjectPageProgress,
@@ -75,7 +76,9 @@ export default function ProjectStatusClient() {
 
       const { data: projects, error } = await supabase
         .from('projects')
-        .select('id, project_name, current_stage, progress_percent, started_at, care_ended_at, project_pages(id, page_name, sort_order, status)')
+        .select(
+          'id, project_name, current_stage, progress_percent, started_at, care_ended_at, project_pages(id, page_name, sort_order, status)',
+        )
         .eq('user_id', sessionUser.id)
         .order('created_at', { ascending: false })
         .limit(1)
@@ -91,10 +94,11 @@ export default function ProjectStatusClient() {
       }
 
       const project = projects[0]
-      const mappedPages = buildSharedProjectPageProgress(
-        (project.project_pages ?? []) as ProjectPageRow[],
-      )
-      const pageSummary = buildSharedProjectPageSummary(mappedPages)
+      const mappedPages = buildSharedProjectPageProgress((project.project_pages ?? []) as ProjectPageRow[])
+      const pageSummary = {
+        ...buildSharedProjectPageSummary(mappedPages),
+        percent: project.progress_percent,
+      }
 
       setProjectData({
         clientName,
@@ -125,11 +129,15 @@ export default function ProjectStatusClient() {
   if (sessionState !== 'ready' || !projectData) {
     return (
       <section className={styles.feedbackSection} aria-live='polite'>
-        <p className={styles.feedbackText}>
-          {sessionState === 'unauthorized'
-            ? '로그인이 필요합니다. 로그인 페이지로 이동합니다.'
-            : '프로젝트 진행 현황을 불러오는 중입니다...'}
-        </p>
+        <Spinner
+          centered
+          size={34}
+          label={
+            sessionState === 'unauthorized'
+              ? '로그인 상태를 확인하고 있어요'
+              : '프로젝트 정보를 불러오고 있어요'
+          }
+        />
       </section>
     )
   }
@@ -140,7 +148,7 @@ export default function ProjectStatusClient() {
         <div className={styles.heroMain}>
           <p className={styles.clientLabel}>CLIENT: {projectData.clientName}</p>
           <h1 className={styles.heroTitle} id='project-status-title'>
-            {projectData.projectTitle}
+            {projectData.projectTitle} 프로젝트 현황
           </h1>
           <p className={styles.startDate}>
             <FiCalendar size={16} />
@@ -162,7 +170,11 @@ export default function ProjectStatusClient() {
         </div>
       </section>
 
-      <ProjectStatusFlow steps={flowSteps} title='프로젝트 진행 단계' deadlineValue={projectData.deadlineDate} />
+      <ProjectStatusFlow
+        steps={flowSteps}
+        title='프로젝트 진행 단계'
+        deadlineValue={projectData.deadlineDate}
+      />
 
       <section className={styles.devSection} aria-labelledby='project-dev-title'>
         <div className={styles.devHeader}>
@@ -201,13 +213,7 @@ export default function ProjectStatusClient() {
                   ].join(' ')}
                   aria-hidden='true'
                 >
-                  {page.status === 'done' ? (
-                    <FiCheck size={15} />
-                  ) : page.status === 'active' ? (
-                    <FiLoader size={15} />
-                  ) : (
-                    <FiClock size={15} />
-                  )}
+                  {page.status === 'done' ? <FiCheck size={15} /> : <FiClock size={15} />}
                 </span>
                 <span className={styles.pageName}>{page.name}</span>
               </div>

@@ -30,7 +30,7 @@ export default async function AdminLayout({
     <main className={styles.page}>
       <AdminSidebar profile={profile} />
       <section className={styles.dashboard}>
-        <AdminHeader />
+        <AdminHeader currentPath={currentPath} />
         <div className={styles.contentFrame}>
           <div className={styles.contentInner}>{children}</div>
         </div>

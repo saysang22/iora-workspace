@@ -1,5 +1,6 @@
 'use client'
 
+import { Spinner } from '@iora/ui'
 import { useState, useTransition } from 'react'
 import { FiBarChart2, FiGlobe, FiLayers } from 'react-icons/fi'
 import type { AnalyticsPeriod, Ga4PeriodData } from '../../../lib/ga4'
@@ -39,40 +40,6 @@ const SOURCE_LABEL_MAP: Record<string, string> = {
 
 function translateSourceLabel(label: string) {
   return SOURCE_LABEL_MAP[label] ?? label
-}
-
-function AnalyticsLoadingGrid() {
-  return (
-    <div className={styles.analyticsGrid}>
-      <article className={`${styles.analyticsCard} ${styles.analyticsCardSkeleton}`.trim()}>
-        <div className={styles.analyticsSkeletonTitle} />
-        <div className={styles.analyticsSkeletonValue} />
-        <div className={styles.analyticsChartSkeleton}>
-          {Array.from({ length: 12 }).map((_, index) => (
-            <span key={index} className={styles.analyticsChartSkeletonBar} />
-          ))}
-        </div>
-      </article>
-
-      <article className={`${styles.analyticsCard} ${styles.analyticsCardSkeleton}`.trim()}>
-        <div className={styles.analyticsSkeletonTitle} />
-        <div className={styles.analyticsListSkeleton}>
-          {Array.from({ length: 6 }).map((_, index) => (
-            <span key={index} className={styles.analyticsListSkeletonItem} />
-          ))}
-        </div>
-      </article>
-
-      <article className={`${styles.analyticsCard} ${styles.analyticsCardSkeleton}`.trim()}>
-        <div className={styles.analyticsSkeletonTitle} />
-        <div className={styles.analyticsListSkeleton}>
-          {Array.from({ length: 6 }).map((_, index) => (
-            <span key={index} className={styles.analyticsListSkeletonItem} />
-          ))}
-        </div>
-      </article>
-    </div>
-  )
 }
 
 export default function AdminAnalyticsSection({ initialData }: AdminAnalyticsSectionProps) {
@@ -165,7 +132,9 @@ export default function AdminAnalyticsSection({ initialData }: AdminAnalyticsSec
       </div>
 
       {isLoadingActivePanel ? (
-        <AnalyticsLoadingGrid />
+        <div className={styles.analyticsLoadingPanel}>
+          <Spinner centered size={34} label='데이터를 집계하고 있어요' />
+        </div>
       ) : activeData?.status === 'unavailable' ? (
         <div className={styles.analyticsNotice}>
           <strong>GA4 안내</strong>
@@ -189,7 +158,7 @@ export default function AdminAnalyticsSection({ initialData }: AdminAnalyticsSec
             {activeReport?.trend.length ? (
               <TrendBarChart ariaLabel='방문자 추이 차트' points={activeReport.trend} />
             ) : (
-              <div className={styles.analyticsEmpty}>해당 기간의 방문자 데이터가 없습니다.</div>
+              <div className={styles.analyticsEmpty}>해당 기간에 방문 데이터가 없습니다.</div>
             )}
           </article>
 

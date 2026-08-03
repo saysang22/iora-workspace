@@ -90,6 +90,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  align-items: center;
 }
 
 .footerNav h2 {
@@ -117,6 +118,12 @@
 .footerNav a:active {
   color: rgb(198 198 199 / 60%);
   text-decoration: none;
+}
+
+.footerNavLinkInner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .copyright {

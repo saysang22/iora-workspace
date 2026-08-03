@@ -1,9 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { FaInstagram } from 'react-icons/fa6'
+import { RiKakaoTalkFill } from 'react-icons/ri'
 import styles from './Footer.module.scss'
 
 export type FooterLink = {
   href: string
+  icon?: 'instagram' | 'kakao'
+  isExternal?: boolean
   label: string
 }
 
@@ -20,6 +24,18 @@ type FooterProps = {
   phone: string
   phoneHref: string
   representativeName: string
+}
+
+function FooterLinkIcon({ icon }: { icon?: FooterLink['icon'] }) {
+  if (icon === 'instagram') {
+    return <FaInstagram size={16} aria-hidden='true' />
+  }
+
+  if (icon === 'kakao') {
+    return <RiKakaoTalkFill size={16} aria-hidden='true' />
+  }
+
+  return null
 }
 
 export default function Footer({
@@ -67,9 +83,26 @@ export default function Footer({
             <section key={group.title}>
               <h2>{group.title}</h2>
               {group.links.map((link) => (
-                <Link href={link.href} key={`${group.title}-${link.href}`}>
-                  {link.label}
-                </Link>
+                link.isExternal ? (
+                  <a
+                    href={link.href}
+                    key={`${group.title}-${link.href}`}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    <span className={styles.footerNavLinkInner}>
+                      <FooterLinkIcon icon={link.icon} />
+                      <span>{link.label}</span>
+                    </span>
+                  </a>
+                ) : (
+                  <Link href={link.href} key={`${group.title}-${link.href}`}>
+                    <span className={styles.footerNavLinkInner}>
+                      <FooterLinkIcon icon={link.icon} />
+                      <span>{link.label}</span>
+                    </span>
+                  </Link>
+                )
               ))}
             </section>
           ))}

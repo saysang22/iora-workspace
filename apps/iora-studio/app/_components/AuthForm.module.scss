@@ -64,6 +64,13 @@
   cursor: wait;
 }
 
+.submitContent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
 .alternateAction {
   margin: 0;
   color: #c5c9ae;

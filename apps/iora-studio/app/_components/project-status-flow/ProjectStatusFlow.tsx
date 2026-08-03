@@ -1,6 +1,7 @@
 'use client'
 
-import { FiCheck, FiClock, FiLoader } from 'react-icons/fi'
+import { Spinner } from '@iora/ui'
+import { FiCheck, FiClock } from 'react-icons/fi'
 import type { Database } from '../../../lib/database.types'
 import styles from './ProjectStatusFlow.module.scss'
 
@@ -67,6 +68,8 @@ export default function ProjectStatusFlow({
       className={`${styles.stepperSection} ${tone === 'admin' ? styles.stepperSectionAdmin : ''}`.trim()}
       aria-labelledby='project-flow-title'
     >
+      {isUpdating ? <Spinner centered size={34} label='상태를 확인하는 중이에요' /> : null}
+
       <div className={styles.sectionHeading}>
         <div>
           <p className={styles.sectionEyebrow}>{eyebrow}</p>
@@ -112,13 +115,7 @@ export default function ProjectStatusFlow({
                 aria-pressed={step.state === 'active'}
               >
                 <span className={styles.stepIcon} aria-hidden='true'>
-                  {step.state === 'done' ? (
-                    <FiCheck size={16} />
-                  ) : step.state === 'active' ? (
-                    <FiLoader size={16} />
-                  ) : (
-                    <FiClock size={16} />
-                  )}
+                  {step.state === 'done' ? <FiCheck size={16} /> : <FiClock size={16} />}
                 </span>
                 <div className={styles.stepText}>
                   <strong>{step.label}</strong>

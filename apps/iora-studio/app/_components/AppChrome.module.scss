@@ -1,0 +1,53 @@
+.chromeShell {
+  position: relative;
+}
+
+.routeLoadingOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  pointer-events: none;
+}
+
+.routeLoadingIndicator {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.routeLoadingRing {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  border: 4px solid rgb(255 255 255 / 0.14);
+  border-top-color: #d8ff3f;
+  border-right-color: rgb(216 255 63 / 0.42);
+  box-sizing: border-box;
+  animation: routeLoadingSpin 0.8s linear infinite;
+  filter: drop-shadow(0 0 8px rgb(216 255 63 / 0.18));
+}
+
+.routeLoadingLabel {
+  color: #d6deeb;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@keyframes routeLoadingSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

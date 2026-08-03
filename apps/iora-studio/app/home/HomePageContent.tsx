@@ -12,7 +12,6 @@ import {
   FiSend,
   FiTool,
 } from 'react-icons/fi'
-import { createWebsiteJsonLd } from '../../lib/seo'
 import styles from './page.module.scss'
 
 const HOME_IMAGES = {
@@ -92,7 +91,6 @@ export default function HomePageContent({
   experiences = EXPERIENCES,
   designSteps = DESIGN_STEPS,
 }: HomePageContentProps) {
-  const websiteJsonLd = createWebsiteJsonLd()
   const homeRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
@@ -174,10 +172,6 @@ export default function HomePageContent({
 
   return (
     <main className={styles.home} ref={homeRef}>
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-      />
       <section className={`${styles.hero} ${styles.revealItem}`} data-home-reveal style={getRevealStyle(0)}>
         <Image
           className={styles.heroImage}

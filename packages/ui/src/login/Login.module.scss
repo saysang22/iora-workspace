@@ -67,6 +67,13 @@
   text-decoration: none;
 }
 
+.submitContent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
 .socialDivider {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);

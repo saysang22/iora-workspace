@@ -167,11 +167,17 @@
 }
 
 .customerList {
+  position: relative;
   display: grid;
   gap: 10px;
   max-height: 228px;
   margin-top: 14px;
   overflow-y: auto;
+}
+
+.customerListLoading {
+  position: relative;
+  min-height: 188px;
 }
 
 .customerButton {

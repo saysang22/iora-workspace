@@ -459,6 +459,65 @@
   white-space: nowrap;
 }
 
+.requestContentButton {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #f8fafc;
+  font: inherit;
+  font-weight: 700;
+  line-height: 1.5;
+  cursor: pointer;
+  text-align: center;
+}
+
+.requestContentButton:hover {
+  color: #ff77b0;
+}
+
+.requestContentModalBody {
+  display: grid;
+  gap: 18px;
+}
+
+.requestContentModalMeta {
+  display: grid;
+  gap: 12px;
+}
+
+.requestContentModalMeta div {
+  display: grid;
+  gap: 6px;
+}
+
+.requestContentModalMeta span {
+  color: #8fa2c0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.requestContentModalMeta strong {
+  color: #f8fafc;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.requestContentModalBox {
+  padding: 18px 20px;
+  border: 1px solid rgb(148 163 184 / 0.12);
+  border-radius: 16px;
+  background: rgb(11 20 35 / 0.72);
+}
+
+.requestContentModalBox p {
+  margin: 0;
+  color: #d7e4f8;
+  font-size: 15px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
 .requestIssuesTable {
   border: 1px solid rgb(148 163 184 / 0.1);
   border-radius: 22px;

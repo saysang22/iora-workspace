@@ -1,6 +1,6 @@
 'use client'
 
-import { Board, Tab } from '@iora/ui'
+import { Board, Modal, Tab } from '@iora/ui'
 import { useEffect, useMemo, useState } from 'react'
 import { FiCheck } from 'react-icons/fi'
 import type { Database } from '../../../../lib/database.types'
@@ -56,6 +56,18 @@ const PAGINATION_DISABLED_THEME = {
   hoverTextColor: '#6f83a3',
 }
 
+const MODAL_CANCEL_THEME = {
+  size: '14px',
+  background: '#16233b',
+  textColor: '#d5deed',
+  borderColor: 'rgb(148 163 184 / 0.16)',
+  hoverBackground: '#1c2c49',
+  hoverTextColor: '#ffffff',
+  hoverBorderColor: 'rgb(148 163 184 / 0.28)',
+  round: '14px',
+  padding: '12px 18px',
+} as const
+
 function getPendingIssueCount(issues: ProjectModificationRequestListItem[]) {
   return issues.filter((issue) => issue.status === 'pending').length
 }
@@ -70,6 +82,7 @@ function AdminProjectRequestIssuesSection({
   const supabase = useMemo(() => createBrowserSupabaseClient(), [])
   const [issues, setIssues] = useState<ProjectModificationRequestListItem[]>(initialRequests)
   const [selectedIssueIds, setSelectedIssueIds] = useState<string[]>([])
+  const [selectedIssue, setSelectedIssue] = useState<ProjectModificationRequestListItem | null>(null)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [isUpdating, setIsUpdating] = useState(false)
 
@@ -168,7 +181,18 @@ function AdminProjectRequestIssuesSection({
               {PROJECT_MODIFICATION_STATUS_LABELS[issue.status]}
             </span>
           ),
-          title: issue.title,
+          title: (
+            <button
+              type='button'
+              className={styles.requestContentButton}
+              onClick={(event) => {
+                event.stopPropagation()
+                setSelectedIssue(issue)
+              }}
+            >
+              {issue.title}
+            </button>
+          ),
           date: issue.date,
           requester: issue.requesterName,
         }
@@ -233,6 +257,62 @@ function AdminProjectRequestIssuesSection({
         paginationDisabledButtonTheme={PAGINATION_DISABLED_THEME}
       />
       {errorMessage ? <p className={styles.flowError}>{errorMessage}</p> : null}
+
+      <Modal
+        isOpen={Boolean(selectedIssue)}
+        title='수정 요청 내용'
+        width='min(100%, 720px)'
+        background='#101010'
+        confirmLabel='확인'
+        cancelLabel='닫기'
+        closeOnOverlayClick
+        onConfirm={() => setSelectedIssue(null)}
+        onClose={() => setSelectedIssue(null)}
+        cancelButtonProps={{
+          ...MODAL_CANCEL_THEME,
+          style: { minHeight: '42px', fontWeight: 700 },
+        }}        
+        confirmButtonProps={{
+          size: '14px',
+          background: '#ff2d7a',
+          textColor: '#ffffff',
+          borderColor: '#ff2d7a',
+          hoverBackground: '#ff4f9f',
+          hoverTextColor: '#ffffff',
+          hoverBorderColor: '#ff4f9f',
+          round: '14px',
+          padding: '12px 18px',
+          style: { minHeight: '42px', fontWeight: 700 },
+        }}
+        titleStyle={{
+          color: '#f8fafc',
+          fontSize: '18px',
+          fontWeight: 800,
+          letterSpacing: '-0.03em',
+        }}
+      >
+        {selectedIssue ? (
+          <div className={styles.requestContentModalBody}>
+            <div className={styles.requestContentModalMeta}>
+              <div>
+                <span>제목</span>
+                <strong>{selectedIssue.title}</strong>
+              </div>
+              <div>
+                <span>요청일</span>
+                <strong>{selectedIssue.date}</strong>
+              </div>
+              <div>
+                <span>요청자</span>
+                <strong>{selectedIssue.requesterName}</strong>
+              </div>
+            </div>
+            <div className={styles.requestContentModalBox}>
+              <p>{selectedIssue.description || '등록된 요청 내용이 없습니다.'}</p>
+            </div>
+          </div>
+        ) : null}
+      </Modal>
     </section>
   )
 }

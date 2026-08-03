@@ -1,14 +1,16 @@
 import Link from 'next/link'
-import { FiBell, FiHelpCircle, FiLogOut, FiPlus, FiSearch } from 'react-icons/fi'
+import { FiBell, FiHelpCircle, FiLogOut, FiPlus } from 'react-icons/fi'
+import AdminHeaderSearch from './AdminHeaderSearch'
 import styles from './AdminShell.module.scss'
 
-export default function AdminHeader() {
+type AdminHeaderProps = {
+  currentPath: string
+}
+
+export default function AdminHeader({ currentPath }: AdminHeaderProps) {
   return (
     <header className={styles.topbar}>
-      <label className={styles.searchShell}>
-        <FiSearch size={18} />
-        <input type='search' placeholder='프로젝트, 고객사, 예약 검색...' aria-label='프로젝트, 고객사, 예약 검색' />
-      </label>
+      <AdminHeaderSearch key={currentPath} />
 
       <div className={styles.topbarActions}>
         <button className={styles.iconButton} type='button' aria-label='알림'>
@@ -21,7 +23,7 @@ export default function AdminHeader() {
         <div className={styles.topbarDivider} />
         <Link href='/' className={styles.secondaryButton}>
           <FiLogOut size={14} />
-          <span>관리자페이지 나가기</span>
+          <span>관리자 페이지 나가기</span>
         </Link>
         <button className={styles.primaryButton} type='button'>
           <FiPlus size={14} />

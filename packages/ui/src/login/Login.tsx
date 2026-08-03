@@ -4,6 +4,7 @@ import { SiKakaotalk, SiNaver } from 'react-icons/si';
 import { Button } from '../button/Button';
 import { CheckBox } from '../checkBox/CheckBox';
 import { Input } from '../input/Input';
+import { Spinner } from '../spinner';
 import styles from './Login.module.scss';
 
 type LoginSubmitValues = {
@@ -66,7 +67,7 @@ export function Login({
   loading = false,
   errorMessage,
   emailPlaceholder = 'you@example.com',
-  passwordPlaceholder = '비밀번호를 입력해 주세요',
+  passwordPlaceholder = '비밀번호를 입력해 주세요.',
   rememberLabel = '로그인 상태 유지',
   socialTitle = '간편 로그인',
   socialDividerLabel = '또는',
@@ -170,6 +171,7 @@ export function Login({
     };
 
     const targetPath = authPathByProvider[provider];
+
     if (typeof window !== 'undefined' && targetPath) {
       window.location.href = targetPath;
     }
@@ -282,7 +284,10 @@ export function Login({
         round="10px"
         padding="10px 14px"
       >
-        {loading ? '처리 중...' : submitLabel}
+        <span className={styles.submitContent}>
+          {loading ? <Spinner size={16} color={buttonTextColor} aria-hidden="true" /> : null}
+          <span>{loading ? '처리 중...' : submitLabel}</span>
+        </span>
       </Button>
 
       <div className={styles.helperLinks}>

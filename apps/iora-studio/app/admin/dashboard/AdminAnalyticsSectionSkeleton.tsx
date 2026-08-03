@@ -1,49 +1,15 @@
+'use client'
+
+import { Spinner } from '@iora/ui'
 import styles from './page.module.scss'
+
+const LOADING_LABEL = '\uB370\uC774\uD130\uB97C \uC9D1\uACC4\uD558\uACE0 \uC788\uC5B4\uC694'
 
 export default function AdminAnalyticsSectionSkeleton() {
   return (
     <section className={styles.analyticsPanel} aria-busy='true' aria-live='polite'>
-      <div className={styles.analyticsHeader}>
-        <div>
-          <h2 className={styles.tableTitle}>방문자 통계</h2>
-          <p className={styles.analyticsDescription}>방문자 통계를 불러오는 중입니다.</p>
-        </div>
-
-        <div className={styles.analyticsPeriodTabs}>
-          <span className={styles.analyticsPeriodSkeleton} />
-          <span className={styles.analyticsPeriodSkeleton} />
-          <span className={styles.analyticsPeriodSkeleton} />
-        </div>
-      </div>
-
-      <div className={styles.analyticsGrid}>
-        <article className={`${styles.analyticsCard} ${styles.analyticsCardSkeleton}`.trim()}>
-          <div className={styles.analyticsSkeletonTitle} />
-          <div className={styles.analyticsSkeletonValue} />
-          <div className={styles.analyticsChartSkeleton}>
-            {Array.from({ length: 7 }).map((_, index) => (
-              <span key={index} className={styles.analyticsChartSkeletonBar} />
-            ))}
-          </div>
-        </article>
-
-        <article className={`${styles.analyticsCard} ${styles.analyticsCardSkeleton}`.trim()}>
-          <div className={styles.analyticsSkeletonTitle} />
-          <div className={styles.analyticsListSkeleton}>
-            {Array.from({ length: 6 }).map((_, index) => (
-              <span key={index} className={styles.analyticsListSkeletonItem} />
-            ))}
-          </div>
-        </article>
-
-        <article className={`${styles.analyticsCard} ${styles.analyticsCardSkeleton}`.trim()}>
-          <div className={styles.analyticsSkeletonTitle} />
-          <div className={styles.analyticsListSkeleton}>
-            {Array.from({ length: 6 }).map((_, index) => (
-              <span key={index} className={styles.analyticsListSkeletonItem} />
-            ))}
-          </div>
-        </article>
+      <div className={styles.analyticsLoadingPanel}>
+        <Spinner centered size={34} label={LOADING_LABEL} />
       </div>
     </section>
   )

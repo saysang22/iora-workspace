@@ -42,10 +42,20 @@ const FOOTER_GROUPS: FooterGroup[] = [
     ],
   },
   {
-    title: 'BUSINESS',
+    title: 'SNS',
     links: [
-      { label: REPRESENTATIVE_NAME, href: '/contact' },
-      { label: BUSINESS_PHONE, href: BUSINESS_PHONE_HREF },
+      {
+        label: 'Instagram',
+        href: 'https://www.instagram.com/iorastudio2212/',
+        icon: 'instagram',
+        isExternal: true,
+      },
+      {
+        label: '카카오채널',
+        href: 'http://pf.kakao.com/_qrCBX',
+        icon: 'kakao',
+        isExternal: true,
+      },
     ],
   },
   {

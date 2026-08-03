@@ -1,6 +1,6 @@
 'use client'
 
-import { Input, Modal, SelectBox } from '@iora/ui'
+import { Input, Modal, SelectBox, Spinner } from '@iora/ui'
 import {
   useEffect,
   useId,
@@ -9,7 +9,7 @@ import {
   type ChangeEvent,
   type DragEvent,
 } from 'react'
-import { FiLoader, FiUploadCloud, FiX } from 'react-icons/fi'
+import { FiUploadCloud, FiX } from 'react-icons/fi'
 import { createBrowserSupabaseClient } from '../../../lib/supabase'
 import type { PortfolioListItem, PortfolioProjectOption } from './page'
 import styles from './page.module.scss'
@@ -69,6 +69,7 @@ export default function PortfolioUpsertModal({
 }: PortfolioUpsertModalProps) {
   const supabase = useMemo(() => createBrowserSupabaseClient(), [])
   const fileInputId = useId()
+
   const [title, setTitle] = useState(initialItem?.title ?? '')
   const [description, setDescription] = useState(initialItem?.description ?? '')
   const [thumbnailUrl, setThumbnailUrl] = useState(initialItem?.thumbnail_url ?? '')
@@ -202,7 +203,9 @@ export default function PortfolioUpsertModal({
         projectId,
       })
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : '썸네일 업로드 중 오류가 발생했습니다.')
+      setErrorMessage(
+        error instanceof Error ? error.message : '썸네일 업로드 중 오류가 발생했습니다.',
+      )
     } finally {
       setIsSubmitting(false)
       setIsUploadingThumbnail(false)
@@ -251,8 +254,12 @@ export default function PortfolioUpsertModal({
         <div className={styles.modalBody}>
           <div className={styles.modalSectionHeader}>
             <p className={styles.modalEyebrow}>PORTFOLIO</p>
-            <h2 className={styles.modalTitle}>{mode === 'create' ? '새 포트폴리오 등록' : '포트폴리오 수정'}</h2>
-            <p className={styles.modalDescription}>홈페이지에 노출할 포트폴리오 정보와 공개 상태를 설정합니다.</p>
+            <h2 className={styles.modalTitle}>
+              {mode === 'create' ? '새 포트폴리오 등록' : '포트폴리오 수정'}
+            </h2>
+            <p className={styles.modalDescription}>
+              홈페이지에 노출할 포트폴리오 정보와 공개 상태를 설정합니다.
+            </p>
           </div>
 
           <div className={styles.modalForm}>
@@ -333,9 +340,7 @@ export default function PortfolioUpsertModal({
                     handleThumbnailFile(event.target.files?.[0] ?? null)
                   }
                 />
-                {isUploadingThumbnail ? (
-                  <FiLoader className={styles.uploadIconSpinning} size={34} aria-hidden='true' />
-                ) : thumbnailPreviewUrl ? (
+                {thumbnailPreviewUrl ? (
                   <div
                     className={styles.thumbnailPreview}
                     style={{ backgroundImage: `url("${thumbnailPreviewUrl}")` }}
@@ -344,13 +349,24 @@ export default function PortfolioUpsertModal({
                 ) : (
                   <FiUploadCloud className={styles.uploadIcon} size={34} aria-hidden='true' />
                 )}
-                <strong className={styles.uploadTitle}>이미지 파일을 드래그하거나 클릭하여 업로드</strong>
+                <strong className={styles.uploadTitle}>
+                  이미지 파일을 드래그하거나 클릭하여 업로드
+                </strong>
                 <span className={styles.uploadCaption}>JPG, PNG, WEBP / 최대 5MB</span>
                 <span className={styles.uploadStatus}>{selectedThumbnailLabel}</span>
+                {isUploadingThumbnail ? (
+                  <div className={styles.uploadOverlay} aria-hidden='true'>
+                    <Spinner centered size={34} label='이미지를 업로드하고 있어요' />
+                  </div>
+                ) : null}
               </label>
 
               {thumbnailPreviewUrl ? (
-                <button className={styles.clearThumbnailButton} type='button' onClick={clearThumbnailSelection}>
+                <button
+                  className={styles.clearThumbnailButton}
+                  type='button'
+                  onClick={clearThumbnailSelection}
+                >
                   <FiX size={14} />
                   썸네일 제거
                 </button>

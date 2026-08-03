@@ -39,34 +39,13 @@ const STATUS_META: Record<
 }
 
 function getStageStatusText(stage: ProjectFlowStageKey | null) {
-  if (stage === 'analysis') {
-    return '상담 및 분석'
-  }
-
-  if (stage === 'planning') {
-    return '기획'
-  }
-
-  if (stage === 'development') {
-    return '개발'
-  }
-
-  if (stage === 'qa') {
-    return '검수'
-  }
-
-  if (stage === 'launch') {
-    return '배포'
-  }
-
-  if (stage === 'care') {
-    return '유지보수'
-  }
-
-  if (stage === 'completed') {
-    return '계약 완료'
-  }
-
+  if (stage === 'analysis') return '상담 및 분석'
+  if (stage === 'planning') return '기획'
+  if (stage === 'development') return '개발'
+  if (stage === 'qa') return '검수'
+  if (stage === 'launch') return '배포'
+  if (stage === 'care') return '유지보수'
+  if (stage === 'completed') return '계약 완료'
   return '미정'
 }
 
@@ -130,7 +109,7 @@ export default function ProjectRequestClient({
           return true
         }
 
-        return [item.title, item.description, item.requesterName, item.assignee, item.date].some((value) =>
+        return [item.title, item.description, item.requesterName, item.date].some((value) =>
           value.toLowerCase().includes(normalizedSearch),
         )
       })
@@ -157,7 +136,7 @@ export default function ProjectRequestClient({
           <p className={styles.pageDescription}>
             유지보수 진행 현황을 확인하고, 필요한 수정 요청을 빠르게 남길 수 있습니다.
           </p>
-          <p className={styles.clientCaption}>CLIENT · {clientName}</p>
+          <p className={styles.clientCaption}>CLIENT : {clientName}</p>
         </div>
       </section>
 
@@ -266,7 +245,6 @@ export default function ProjectRequestClient({
                 <th scope='col'>상태</th>
                 <th scope='col'>제목</th>
                 <th scope='col'>요청일</th>
-                <th scope='col'>담당자</th>
                 <th scope='col'>첨부</th>
               </tr>
             </thead>
@@ -275,7 +253,7 @@ export default function ProjectRequestClient({
                 visibleHistory.map((item) => <RequestHistoryRow key={item.id} item={item} />)
               ) : (
                 <tr className={styles.historyRow}>
-                  <td colSpan={5} className={styles.emptyTableCell}>
+                  <td colSpan={4} className={styles.emptyTableCell}>
                     아직 등록된 수정 요청이 없습니다.
                   </td>
                 </tr>
@@ -338,7 +316,6 @@ function RequestHistoryRow({ item }: { item: ProjectModificationRequestListItem 
         </div>
       </td>
       <td className={styles.dateCell}>{item.date}</td>
-      <td>{item.assignee}</td>
       <td className={styles.attachmentCell}>{item.attachmentCount ? `${item.attachmentCount}개` : '-'}</td>
     </tr>
   )

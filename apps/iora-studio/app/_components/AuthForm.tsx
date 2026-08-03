@@ -1,5 +1,6 @@
 'use client'
 
+import { Spinner } from '@iora/ui'
 import { useState, type FormEvent } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -119,7 +120,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
           id={`${mode}-password`}
           minLength={8}
           onChange={(event) => setPassword(event.target.value)}
-          placeholder='8자 이상 입력해 주세요'
+          placeholder='8자 이상 입력해 주세요.'
           required
           type='password'
           value={password}
@@ -139,7 +140,10 @@ export default function AuthForm({ mode }: AuthFormProps) {
       ) : null}
 
       <button className={styles.submitButton} disabled={isLoading} type='submit'>
-        {isLoading ? copy.loadingLabel : copy.submitLabel}
+        <span className={styles.submitContent}>
+          {isLoading ? <Spinner size={16} color='#0d0d0d' aria-hidden='true' /> : null}
+          <span>{isLoading ? copy.loadingLabel : copy.submitLabel}</span>
+        </span>
       </button>
 
       <p className={styles.alternateAction}>

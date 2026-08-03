@@ -1,4 +1,4 @@
-import { Button, Input } from '@iora/ui'
+import { Button, Input, Spinner } from '@iora/ui'
 import { FiSearch, FiUser } from 'react-icons/fi'
 import {
   getCustomerLabel,
@@ -46,7 +46,9 @@ export default function ProjectCustomerSection({
     <section className={styles.section}>
       <div className={styles.sectionHeader}>
         <h2 className={styles.sectionTitle}>고객 정보</h2>
-        <p className={styles.sectionDescription}>회원 계정을 연결하거나 비회원 업체 정보를 직접 입력해 주세요.</p>
+        <p className={styles.sectionDescription}>
+          회원 계정과 연결하거나 비회원 업체 정보를 직접 입력해 주세요.
+        </p>
       </div>
 
       <div className={styles.modeToggle} role='tablist' aria-label='고객 등록 방식'>
@@ -92,7 +94,11 @@ export default function ProjectCustomerSection({
           ) : null}
 
           <div className={styles.customerList} role='listbox' aria-label='회원 고객 목록'>
-            {isLoadingCustomers ? <p className={styles.emptyText}>고객 목록을 불러오는 중입니다.</p> : null}
+            {isLoadingCustomers ? (
+              <div className={styles.customerListLoading}>
+                <Spinner centered size={30} label='고객 목록을 불러오고 있어요' />
+              </div>
+            ) : null}
             {!isLoadingCustomers && customerError ? <p className={styles.emptyText}>{customerError}</p> : null}
             {!isLoadingCustomers && !customerError && customers.length === 0 ? (
               <p className={styles.emptyText}>검색 조건에 맞는 고객이 없습니다.</p>

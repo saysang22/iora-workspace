@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import HomePageContent from './home/HomePageContent'
-import { absoluteUrl, DEFAULT_OG_IMAGE, SITE_NAME } from '../lib/seo'
+import { absoluteUrl, createWebsiteJsonLd, DEFAULT_OG_IMAGE, SITE_NAME } from '../lib/seo'
 
 const description =
   'AI 기반 웹 제작, React 중심 맞춤형 구축, 유지보수를 한 번에 제공하는 이오라 스튜디오 메인 페이지입니다.'
@@ -35,5 +35,16 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-  return <HomePageContent />
+  const websiteJsonLd = createWebsiteJsonLd()
+
+  return (
+    <>
+      <script
+        id='website-jsonld'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
+      <HomePageContent />
+    </>
+  )
 }
